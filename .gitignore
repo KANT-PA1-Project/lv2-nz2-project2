@@ -49,3 +49,11 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+
+# colcon
+install/
+log/
+
+# 저장소에 올리지 않는 파일 (팀 방침)
+*.zip
+*.pdf
