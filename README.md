@@ -11,7 +11,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 | 구동 | 스월브 4모듈 (구동 XM430-W210, 조향 XM430-W350) |
 | 매니퓰레이터 | OpenMANIPULATOR-X 개조 — 링크 연장, 손목 롤 관절 추가 |
 | 센서 | Intel RealSense 깊이 카메라, 그리퍼 카메라, 거리 센서 |
-| 연산·제어 | Jetson Orin Nano (비전·상위 제어), OpenCR 1.0 (모터 제어) |
+| 연산·제어 | Jetson Orin Nano Developer Kit (비전·상위 제어), OpenCR 1.0 (모터 제어) |
 | SLAM | cuVSLAM + RealSense |
 
 ## 팀 NZ2
@@ -42,15 +42,17 @@ lv2-nz2-project2/
 
 다른 기기에서 clone한 뒤 같은 결과를 얻기 위한 기준 환경이다. [미정] 항목은 팀에서 정한 뒤 채운다.
 
-| 항목 | 개발 PC | 로봇 (Jetson Orin Nano) |
+| 항목 | 개발 PC | 로봇 (Jetson Orin Nano Developer Kit) |
 |---|---|---|
-| OS | [미정] | [미정] (JetPack 버전) |
-| ROS 2 배포판 | [미정] | [미정] |
+| OS | Ubuntu 24.04.5 LTS | [미정] (JetPack 버전) |
+| ROS 2 배포판 | Lyrical (ros-base 0.13.0) | [미정] |
 
 사용하는 소프트웨어·라이브러리
 
 | 이름 | 버전 | 설치 방법 | 사용처 |
 |---|---|---|---|
+| Isaac Sim | 6.1.0 | 소스 빌드 ([isaac-sim/IsaacSim](https://github.com/isaac-sim/IsaacSim) 태그 `v6.1.0`) | 시뮬레이션 |
+| Isaac ROS | 5.0 | Docker ([isaac_ros_common](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common) 태그 `v5.0-0`, isaac-ros-cli 2.6.0) | cuVSLAM |
 
 ## 다른 기기에서 실행하기
 
