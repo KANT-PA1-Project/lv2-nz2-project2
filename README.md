@@ -28,25 +28,34 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 ```
 lv2-nz2-project2/
 ├── README.md
-├── docs/               문서
-│   └── environment.md  재현 환경과 소프트웨어 버전 기록
-├── ros2_ws/            ROS 2 colcon 워크스페이스
-│   └── src/            ROS 2 패키지
-└── hardware/           기구 설계 출력물 (STL 등)
+└── ros2_ws/        ROS 2 colcon 워크스페이스
+    └── src/        ROS 2 패키지
 ```
 
 | 폴더 | 내용 |
 |---|---|
-| [docs/](docs/) | 설계·운영 문서. [environment.md](docs/environment.md)에 기준 환경과 버전을 기록한다 |
 | [ros2_ws/](ros2_ws/) | ROS 2 워크스페이스. 패키지는 `ros2_ws/src/` 아래에 둔다 |
-| [hardware/](hardware/) | 3D 프린트용 STL 등 기구 설계 출력물 |
+
+## 환경과 버전
+
+다른 기기에서 clone한 뒤 같은 결과를 얻기 위한 기준 환경이다. [미정] 항목은 팀에서 정한 뒤 채운다.
+
+| 항목 | 개발 PC | 로봇 (Jetson Orin Nano) |
+|---|---|---|
+| OS | [미정] | [미정] (JetPack 버전) |
+| ROS 2 배포판 | [미정] | [미정] |
+
+사용하는 소프트웨어·라이브러리
+
+| 이름 | 버전 | 설치 방법 | 사용처 |
+|---|---|---|---|
 
 ## 다른 기기에서 실행하기
 
 이 저장소는 누구나 다른 기기에서 `git clone`한 뒤 같은 환경으로 빌드하고 테스트할 수 있게 유지한다.
 
-1. [docs/environment.md](docs/environment.md)의 기준 환경(OS, ROS 2 배포판, 라이브러리·펌웨어 버전)을 맞춘다.
-2. 저장소를 받아 빌드한다. `<배포판>`은 environment.md에 적힌 ROS 2 배포판 이름이다.
+1. 위 "환경과 버전"의 기준 환경과 버전을 맞춘다.
+2. 저장소를 받아 빌드한다. `<배포판>`은 위 표의 ROS 2 배포판 이름이다.
 
 ```bash
 git clone https://github.com/KANT-PA1-Project/lv2-nz2-project2.git
@@ -59,8 +68,6 @@ source install/setup.bash
 
 ## 버전 기록 규칙
 
-- 새 소프트웨어나 라이브러리를 쓰거나 버전을 바꾸면, 같은 PR에서 [docs/environment.md](docs/environment.md)를 고친다.
+- 새 소프트웨어나 라이브러리를 쓰거나 버전을 바꾸면, 같은 PR에서 이 README의 "환경과 버전" 표를 고친다.
 - ROS 패키지 의존성은 각 패키지의 `package.xml`에 선언해 `rosdep`으로 설치되게 한다.
-- 소스로 받아야 하는 외부 저장소는 `ros2_ws/`의 `.repos` 파일에 커밋 해시까지 고정한다(vcstool).
-- Python 패키지는 `==`로 버전을 고정해 적는다.
-- zip, pdf 파일은 저장소에 올리지 않는다. 필요한 자료는 출처 링크로 남긴다.
+- zip, pdf 파일은 저장소에 올리지 않는다.
