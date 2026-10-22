@@ -62,7 +62,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 - **팔 제어**: OpenCR #2가 다이나믹셀 위치·전류 제어를 담당하고, 상위에서 MoveIt 2로 경로를 계획한다.
 - **인지**: RealSense D435로 퍽 위치·자세(세움/누움)를 추정하고, AprilTag·바코드·신호등 색상으로 과제 순서와 위치를 판별한다.
 - **시뮬레이션**: Isaac Sim으로 경기장·퍽을 재현하고, 도메인 랜덤화로 sim-to-real 간극을 줄인다. 실제 적용 여부는 `[확인 필요]`.
-- **ROS 2 패키지 구성**: Jetson 쪽 코드는 `ros2_ws/src/` 아래 역할별 레이어(interface·perception·planning·control)로 나눈다. 자세한 구분은 아래 "디렉터리 구조"를 본다.
+- **ROS 2 패키지 구성**: Jetson 쪽 코드는 `ros2_ws/src/` 아래 역할별 레이어(interfaces·perception·planning·control)로 나눈다. 자세한 구분은 아래 "디렉터리 구조"를 본다.
 - 각 패키지 버전은 아래 "환경과 버전" 표를 기준으로 한다.
 
 ## 팀 NZ2
@@ -81,7 +81,7 @@ lv2-nz2-project2/
 ├── README.md
 ├── ros2_ws/                ROS 2 colcon 워크스페이스
 │   └── src/
-│       ├── interface/      메시지·서비스·액션 정의, Jetson↔OpenCR 브리지
+│       ├── interfaces/     메시지·서비스·액션 정의, Jetson↔OpenCR 브리지
 │       ├── perception/     카메라·인식 (RealSense, AprilTag·바코드·신호등)
 │       ├── planning/       미션 FSM, 주행·팔 경로 계획
 │       └── control/        스월브·팔 제어 명령 생성
