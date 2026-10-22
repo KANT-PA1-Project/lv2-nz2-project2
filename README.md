@@ -11,8 +11,8 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 | 구동 | 스월브 4모듈 (XM430-W210 ×8 = 조향 4 + 구동 4, 터틀봇3 와플 바퀴) |
 | 매니퓰레이터 | OpenMANIPULATOR-X 개조 (XM430-W350) — 링크 약 +100mm 연장, 손목 롤 관절 추가 |
 | 센서 | Intel RealSense D435 깊이 카메라 (집게 상부, 대수 `[확인 필요]`), QR·바코드·AprilTag·신호등 색상 인식 |
-| 연산·제어 | Jetson Orin Nano Developer Kit (비전·상위 제어), OpenCR 1.0 2대 (#1 스월브 8모터+IMU / #2 로봇팔) |
-| SLAM | 미정 (cuVSLAM / 주어진 지도 + 휠·IMU EKF 중 결정) |
+| 연산·제어 | Jetson Orin Nano Developer Kit (비전·상위 제어), OpenCR 1.0 2대 (#1 스월브 8모터 / #2 로봇팔) |
+| SLAM | cuVSLAM + RealSense, 위치 추정은 우선 AMCL |
 
 ## 대회 미션과 규정
 
@@ -30,7 +30,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 |---|---|
 | 구동부 | 스월브 드라이브 4모듈. 모듈당 조향 1 + 구동 1, 총 **XM430-W210 ×8**. 바퀴는 터틀봇3 와플 바퀴 |
 | 매니퓰레이터 | OpenMANIPULATOR-X 개조. 구동 모터 **XM430-W350**, 링크 약 +100mm 연장, 손목 롤 모터 추가. 차체 중앙 상판에 장착하고 카메라는 집게 상부에 둔다 |
-| 제어기 | OpenCR 1.0 2대. **#1** = 스월브 8모터 + IMU(자이로 보정), **#2** = 로봇팔. 상위 컴퓨터는 Jetson Orin Nano |
+| 제어기 | OpenCR 1.0 2대. **#1** = 스월브 8모터, **#2** = 로봇팔. 상위 컴퓨터는 Jetson Orin Nano |
 | 센서 | Intel RealSense D435 깊이 카메라 (대수 `[확인 필요]`), QR·바코드·AprilTag·신호등 색상 인식 |
 | 전원 | 12V SMPS 약 30A, OpenCR 12V 5A |
 | 기구 | 차체 약 400×400mm, 팔 제외 높이 267mm, 목표 총중량 5kg 이내. 2020 프로파일 450mm 설치. Fusion 360 설계 + Bambu Lab 3D 프린팅 |
@@ -48,13 +48,13 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 ```
 [Jetson Orin Nano] ROS 2
   ├─ 인지     RealSense D435 → 깊이·영상, AprilTag·바코드·신호등 색상 인식
-  ├─ 주행     Nav2 (주어진 지도 / cuVSLAM — 미정), 휠·IMU EKF(robot_localization)
+  ├─ 주행     Nav2, cuVSLAM, 위치 추정은 우선 AMCL
   ├─ 팔 계획  MoveIt 2 → 팔 경로 계획, 퍽 파지
   └─ 미션 FSM 퍽 순서 시퀀스, 실격 회피 로직
         │  (Jetson ↔ OpenCR 브리지)   [통신 방식 확인 필요]
         ├──────────────┬──────────────┐
   [OpenCR #1]                    [OpenCR #2]
-  스월브 8모터 제어 + IMU          로봇팔·그리퍼 제어
+  스월브 8모터 제어                로봇팔·그리퍼 제어
   (조향 4 + 구동 4)                (XM430-W350 + 손목 롤)
 ```
 
@@ -116,7 +116,7 @@ lv2-nz2-project2/
 | dynamixel_hardware_interface | 1.5.1 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 다이나믹셀 하드웨어 인터페이스 |
 | dynamixel_sdk | 4.0.3 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 다이나믹셀 통신 |
 | navigation2 | 1.5.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 주행(Nav2), nav2_bringup 포함 |
-| robot_localization | 3.10.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 휠·IMU EKF |
+| robot_localization | 3.10.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 설치됨, 현재 사용 계획 없음 |
 | pointcloud_to_laserscan | 2.1.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 점구름 → 스캔 |
 | twist_mux | 4.5.1 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 수동 조작 테스트 |
 | vision_msgs | 4.2.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 인지 메시지 |
