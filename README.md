@@ -49,7 +49,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 [Jetson Orin Nano] ROS 2
   ├─ 인지     RealSense D435 → 깊이·영상, AprilTag·바코드·신호등 색상 인식
   ├─ 주행     Nav2, cuVSLAM, 위치 추정은 우선 AMCL
-  ├─ 팔 계획  MoveIt 2 → 팔 경로 계획, 퍽 파지
+  ├─ 팔 계획  팔 경로 계획, 퍽 파지 (MoveIt 2 / q-motion 미정)
   └─ 미션 FSM 퍽 순서 시퀀스, 실격 회피 로직
         │  (Jetson ↔ OpenCR 브리지)   [통신 방식 확인 필요]
         ├──────────────┬──────────────┐
@@ -59,7 +59,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 ```
 
 - **주행 제어**: 스월브 역기구학으로 각 모듈의 조향각·구동속도를 계산한다. 계산을 OpenCR에서 할지 Jetson에서 할지는 미정이다.
-- **팔 제어**: OpenCR #2가 다이나믹셀 위치·전류 제어를 담당하고, 상위에서 MoveIt 2로 경로를 계획한다.
+- **팔 제어**: OpenCR #2가 다이나믹셀 위치·전류 제어를 담당하고, 상위에서 팔 경로를 계획한다. 경로 계획 도구는 MoveIt 2와 q-motion 중 `[미정]`이다.
 - **인지**: RealSense D435로 퍽 위치·자세(세움/누움)를 추정하고, AprilTag·바코드·신호등 색상으로 과제 순서와 위치를 판별한다.
 - **시뮬레이션**: Isaac Sim으로 경기장·퍽을 재현하고, 도메인 랜덤화로 sim-to-real 간극을 줄인다. 실제 적용 여부는 `[확인 필요]`.
 - **ROS 2 패키지 구성**: Jetson 쪽 코드는 `ros2_ws/src/` 아래 역할별 레이어(interfaces·perception·planning·control)로 나눈다. 자세한 구분은 아래 "디렉터리 구조"를 본다.
@@ -79,19 +79,25 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 ```
 lv2-nz2-project2/
 ├── README.md
+├── docs/                   설계 문서 (데이터 흐름도 등)
 ├── ros2_ws/                ROS 2 colcon 워크스페이스
 │   └── src/
-│       ├── interfaces/     메시지·서비스·액션 정의, Jetson↔OpenCR 브리지
-│       ├── perception/     카메라·인식 (RealSense, AprilTag·바코드·신호등)
-│       ├── planning/       미션 FSM, 주행·팔 경로 계획
-│       └── control/        스월브·팔 제어 명령 생성
+│       ├── interfaces/nz2_interfaces      메시지·서비스·액션 정의
+│       ├── perception/nz2_perception      카메라·인식 (RealSense, AprilTag·바코드·신호등)
+│       ├── planning/nz2_planning          미션 FSM, 주행·팔 경로 계획
+│       ├── control/nz2_control            스월브·팔 제어, OpenCR 브리지
+│       ├── nz2_description                URDF/xacro 로봇 모델 (파트 공통)
+│       └── nz2_bringup                    전체 통합 실행 launch (파트 공통)
 └── firmware/               OpenCR 1.0 펌웨어 소스코드
+    ├── opencr1_swerve/     스월브 8모터
+    └── opencr2_arm/        로봇팔
 ```
 
 | 폴더 | 내용 |
 |---|---|
-| [ros2_ws/](ros2_ws/) | ROS 2 colcon 워크스페이스. `src/` 아래 4개 레이어 폴더는 그룹 디렉터리이며, 실제 패키지는 각 폴더 안에 `nz2_*` 접두사로 추가한다 (예: `src/perception/nz2_puck_detector`) |
-| [firmware/](firmware/) | OpenCR 1.0 펌웨어 소스코드 |
+| [docs/](docs/) | 설계 문서 (ROS 2 데이터 흐름도 등) |
+| [ros2_ws/](ros2_ws/) | ROS 2 colcon 워크스페이스. `src/` 아래 4개 레이어 폴더(interfaces·perception·planning·control)에 `nz2_*` 패키지를 두고, 특정 레이어에 속하지 않는 `nz2_description`(로봇 모델)·`nz2_bringup`(통합 실행)은 `src/` 바로 아래에 둔다 |
+| [firmware/](firmware/) | OpenCR 1.0 펌웨어 소스코드. `opencr1_swerve`(스월브), `opencr2_arm`(로봇팔) |
 
 ## 환경과 버전
 
@@ -122,7 +128,9 @@ lv2-nz2-project2/
 | vision_msgs | 4.2.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 인지 메시지 |
 | control_msgs | 6.10.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 팔·그리퍼 액션 |
 | cv_bridge | 4.1.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 영상 변환 |
-| MoveIt 2 | 2.15.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 팔 경로 계획 |
+| MoveIt 2 | 2.15.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 팔 경로 계획 후보 (q-motion과 택일, `[미정]`) |
+| joint_state_publisher | 2.4.3 | apt (NVIDIA Isaac ROS 저장소) | Jetson · URDF 확인용 (nz2_description) |
+| rviz2 | 15.2.5 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 시각화·URDF 확인용 |
 | colcon-common-extensions / rosdep / vcstool | 0.3.0 / 0.27.0 / 0.3.0 | apt | Jetson · 빌드 도구 |
 | arduino-cli | 1.5.1 | GitHub 릴리스 (ARM64) | Jetson · OpenCR 펌웨어 빌드 |
 | OpenCR 코어 | 1.5.3 | [ROBOTIS-GIT/OpenCR](https://github.com/ROBOTIS-GIT/OpenCR) 릴리스 | Jetson · OpenCR 펌웨어 빌드 (fqbn `ROBOTIS:OpenCR:OpenCR`) |
