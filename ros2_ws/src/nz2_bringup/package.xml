@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>nz2_bringup</name>
+  <version>0.0.0</version>
+  <description>NZ2 전체 통합 실행 (스켈레톤)</description>
+  <maintainer email="ckhy2k@gmail.com">천경호</maintainer>
+  <license>MIT</license>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>nz2_description</exec_depend>
+  <exec_depend>nz2_perception</exec_depend>
+  <exec_depend>nz2_planning</exec_depend>
+  <exec_depend>nz2_control</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<!--
+  패키지 : nz2_description
+  역할   : 로봇 모델(URDF/xacro)과 메시. perception·planning·control이 함께 쓰는 교차 패키지
+  [ROS2 메모] URDF = 로봇의 링크(몸통·바퀴·팔)와 관절을 적은 XML. TF(좌표 변환)의 원본이 된다
+-->
+<package format="3">
+  <name>nz2_description</name>
+  <version>0.0.0</version>
+  <description>NZ2 로봇 모델 URDF/xacro (스켈레톤)</description>
+  <maintainer email="ckhy2k@gmail.com">천경호</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

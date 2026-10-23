@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>nz2_control</name>
+  <version>0.0.0</version>
+  <description>NZ2 제어 레이어: 스월브·팔 제어, OpenCR 브리지 (스켈레톤)</description>
+  <maintainer email="ckhy2k@gmail.com">천경호</maintainer>
+  <license>MIT</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>nz2_interfaces</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

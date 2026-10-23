@@ -1,0 +1,16 @@
+# =============================================================
+# 패키지 : nz2_planning
+# 파일   : config/mission.yaml
+# 역할   : 미션 파라미터 (퍽 색 순서, 선반 좌표, 재시도 횟수)
+#
+# [해야 할 일 / TODO]
+#   - 대회 규칙·경기장 도면이 나오면 채운다 [가정]
+# =============================================================
+mission_manager_node:
+  ros__parameters:
+    color_order: [red, green, blue]   # TODO: 규칙 확정 후 (태그·바코드로 받는 경우 기본값)
+    shelf_ids: [shelf_a, shelf_b]     # TODO: 선반 이름
+    shelf_a_pose: [0.0, 0.0, 0.0]     # [x, y, yaw] map 기준 [m, m, rad] (TODO)
+    shelf_b_pose: [0.0, 0.0, 0.0]     # TODO
+    max_retries: 0                    # 파지 실패 시 재시도 횟수 (TODO)
+    loop_rate_hz: 10.0                # 상태기계 주기

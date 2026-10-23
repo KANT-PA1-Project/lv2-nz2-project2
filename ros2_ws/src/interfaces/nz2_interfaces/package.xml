@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<!--
+  패키지 : nz2_interfaces
+  레이어 : interface
+  역할   : NZ2 고유 메시지(msg)·서비스(srv)·액션(action) 타입 정의
+  [ROS2 메모] 인터페이스 패키지는 코드가 아니라 "데이터 모양"만 정의한다.
+             빌드하면 Python/C++에서 import 할 수 있는 타입이 자동 생성된다.
+-->
+<package format="3">
+  <name>nz2_interfaces</name>
+  <version>0.0.0</version>
+  <description>NZ2 고유 메시지·서비스·액션 정의 (스켈레톤)</description>
+  <maintainer email="ckhy2k@gmail.com">천경호</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,40 @@
+# =============================================================
+# 패키지 : nz2_perception
+# 파일   : config/perception_params.yaml
+# 역할   : 인지 노드 파라미터 (토픽 이름, 색 임계값, ROI, 신뢰도)
+#
+# [해야 할 일 / TODO]
+#   - 값은 모두 플레이스홀더다. 실측·튜닝 후 채운다 (TODO: 구글시트 기준으로 채우기)
+#   - [확인 필요] RealSense D435 대수(1 vs 2)와 장착 위치가 정해지면 카메라 토픽을 나눈다
+# [ROS2 메모] 노드 이름 아래 ros__parameters에 적은 값이 그 노드의 파라미터가 된다
+# =============================================================
+puck_detector_node:
+  ros__parameters:
+    color_topic: /camera/color/image_raw
+    depth_topic: /camera/aligned_depth_to_color/image_raw
+    # HSV 임계값 [H, S, V] 최소/최대 (TODO: 조명 아래에서 측정)
+    red_hsv_min: [0, 0, 0]
+    red_hsv_max: [0, 0, 0]
+    green_hsv_min: [0, 0, 0]
+    green_hsv_max: [0, 0, 0]
+    blue_hsv_min: [0, 0, 0]
+    blue_hsv_max: [0, 0, 0]
+    min_area_px: 0          # 퍽으로 볼 최소 면적 [pixel] (TODO)
+    confidence_threshold: 0.0
+
+puck_pose_estimator_node:
+  ros__parameters:
+    depth_topic: /camera/aligned_depth_to_color/image_raw
+    standing_height_m: 0.0  # 세움/누움 판별 기준 높이 [m] (TODO)
+
+tag_reader_node:
+  ros__parameters:
+    color_topic: /camera/color/image_raw
+    apriltag_family: tag36h11   # TODO: 대회에서 쓰는 family 확인
+    barcode_types: []           # TODO: 바코드 종류 확인
+
+traffic_light_node:
+  ros__parameters:
+    color_topic: /camera/color/image_raw
+    roi: [0, 0, 0, 0]           # [x, y, width, height] pixel (TODO)
+    stable_frames: 0            # 같은 색이 몇 프레임 연속이면 확정할지 (TODO)
