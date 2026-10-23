@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+  =============================================================
+  패키지 : nz2_description
+  파일   : urdf/nz2_robot.urdf.xacro
+  역할   : NZ2 최상위 로봇 모델. 차체(base_link) + 스월브 4모듈 + 로봇팔
+  [해야 할 일 / TODO]
+    - 치수는 모두 xacro property로 둔다. 값은 실측/설계값으로 채운다
+    - 충돌(collision)·관성(inertial)은 시뮬레이션(Isaac Sim) 쓸 때 추가
+  [ROS2 메모] xacro = URDF에 변수·매크로를 쓸 수 있게 한 형식. 실행 시 URDF로 변환된다
+  =============================================================
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="nz2_robot">
+
+  <!-- 차체 치수 [m] -->
+  <xacro:property name="body_size_x" value="0.4"/>      <!-- 400mm (규정 한계와 같음, TODO: 실측) -->
+  <xacro:property name="body_size_y" value="0.4"/>      <!-- 400mm (TODO: 실측) -->
+  <xacro:property name="body_height" value="0.18"/>     <!-- 상면 높이 (TODO: 실측/설계값) -->
+  <!-- 스월브 모듈 장착 위치 (차체 중심 기준) -->
+  <xacro:property name="module_offset_x" value="0.15"/> <!-- TODO: 설계값 -->
+  <xacro:property name="module_offset_y" value="0.15"/> <!-- TODO: 설계값 -->
+  <!-- 팔 장착 위치 -->
+  <xacro:property name="arm_mount_x" value="0.0"/>      <!-- TODO: 실물에서 장착 위치 확인 -->
+
+  <xacro:include filename="$(find nz2_description)/urdf/swerve.xacro"/>
+  <xacro:include filename="$(find nz2_description)/urdf/arm.xacro"/>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 ${body_height / 2}"/>
+      <geometry>
+        <box size="${body_size_x} ${body_size_y} ${body_height}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- 스월브 4모듈: FL, FR, RL, RR -->
+  <xacro:swerve_module prefix="fl" x="${module_offset_x}" y="${module_offset_y}"/>
+  <xacro:swerve_module prefix="fr" x="${module_offset_x}" y="${-module_offset_y}"/>
+  <xacro:swerve_module prefix="rl" x="${-module_offset_x}" y="${module_offset_y}"/>
+  <xacro:swerve_module prefix="rr" x="${-module_offset_x}" y="${-module_offset_y}"/>
+
+  <!-- 로봇팔: 차체 상면에 장착 -->
+  <xacro:nz2_arm parent="base_link" x="${arm_mount_x}" z="${body_height}"/>
+
+</robot>

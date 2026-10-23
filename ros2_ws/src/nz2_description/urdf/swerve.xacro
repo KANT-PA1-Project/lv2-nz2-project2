@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+  =============================================================
+  패키지 : nz2_description
+  파일   : urdf/swerve.xacro
+  역할   : 스월브 모듈 1개 매크로 (조향 관절 + 구동 관절)
+  [해야 할 일 / TODO]
+    - 바퀴 지름 66mm(터틀봇3 와플 바퀴), 바퀴 폭은 실측
+    - 조향 관절 범위 ±90° (케이블 꼬임 방지, 범위 밖은 구동 반전으로 처리)
+  [ROS2 메모] joint type: revolute = 범위 있는 회전, continuous = 무한 회전(바퀴)
+  =============================================================
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="wheel_radius" value="0.033"/>  <!-- 지름 66mm -->
+  <xacro:property name="wheel_width" value="0.02"/>    <!-- TODO: 실측 -->
+  <xacro:property name="steer_limit" value="${pi / 2}"/>
+
+  <xacro:macro name="swerve_module" params="prefix x y">
+    <!-- 조향 관절: 차체 ↔ 모듈 (세로축 회전) -->
+    <link name="${prefix}_steer_link"/>
+    <joint name="${prefix}_steer_joint" type="revolute">
+      <parent link="base_link"/>
+      <child link="${prefix}_steer_link"/>
+      <origin xyz="${x} ${y} ${wheel_radius}"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-steer_limit}" upper="${steer_limit}" effort="1.0" velocity="1.0"/> <!-- TODO: effort·velocity -->
+    </joint>
+
+    <!-- 구동 관절: 모듈 ↔ 바퀴 (가로축 회전) -->
+    <link name="${prefix}_wheel_link">
+      <visual>
+        <origin rpy="${pi / 2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <parent link="${prefix}_steer_link"/>
+      <child link="${prefix}_wheel_link"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+  </xacro:macro>
+
+</robot>

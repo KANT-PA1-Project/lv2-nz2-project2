@@ -1,0 +1,22 @@
+# =============================================================
+# 패키지 : nz2_interfaces
+# 파일   : action/ExecuteMission.action
+# 레이어 : interface
+# 역할   : 미션 전체 실행 (퍽을 순서대로 모두 옮기기)
+#
+# [ROS2 메모] action = 오래 걸리는 목표. goal → (feedback 여러 번) → result, 중간 취소 가능
+#             구역 순서: goal --- result --- feedback
+# =============================================================
+
+# [goal] 미션 시작 요청
+bool start
+---
+# [result] 미션을 끝까지 성공했으면 true
+bool success
+# 실패·중단 이유 (성공이면 빈 문자열)
+string message
+---
+# [feedback] 현재 단계: "SCAN" / "NAV" / "PICK" / "PLACE" 등
+string current_step
+# 지금까지 옮긴 퍽 수
+uint8 pucks_done

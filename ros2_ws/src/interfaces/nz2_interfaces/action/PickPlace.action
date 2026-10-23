@@ -1,0 +1,25 @@
+# =============================================================
+# 패키지 : nz2_interfaces
+# 파일   : action/PickPlace.action
+# 레이어 : interface
+# 역할   : 퍽 1개를 집어서 목표 선반에 놓기
+#
+# [goal 보내는 쪽] nz2_planning (arm_client)
+# [서버]          nz2_control (arm_controller_node)
+# [안전] 취소(cancel)가 오면 팔을 즉시 멈추고 안전 자세로
+# =============================================================
+
+# [goal] 집을 퍽
+Puck target_puck
+# [goal] 놓을 선반 ID (mission.yaml의 선반 이름)
+string target_shelf_id
+---
+# [result] 성공하면 true
+bool success
+# 실패 이유 (성공이면 빈 문자열)
+string message
+---
+# [feedback] 진행률 0.0 ~ 1.0
+float32 progress
+# 현재 단계: "APPROACH" / "GRASP" / "LIFT" / "PLACE" 등
+string stage

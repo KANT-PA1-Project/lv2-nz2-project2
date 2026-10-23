@@ -1,0 +1,35 @@
+# =============================================================
+# 패키지 : nz2_control
+# 파일   : config/swerve_params.yaml
+# 역할   : 스월브 치수·모터 ID·제한값 (swerve_controller_node, opencr_bridge_node)
+#
+# [해야 할 일 / TODO]
+#   - 값은 모두 플레이스홀더. TODO: 구글시트 모터 ID/치수로 채우기
+# [안전]  속도·전류·각도 제한은 반드시 실측 후 보수적으로
+# =============================================================
+swerve_controller_node:
+  ros__parameters:
+    kinematics_on_jetson: true      # [미정] 역기구학 위치 (true=Jetson, false=OpenCR #1)
+    # 모듈 장착 좌표 [x, y] 차체 중심 기준 [m], FL·FR·RL·RR 순서 (TODO)
+    module_fl: [0.0, 0.0]
+    module_fr: [0.0, 0.0]
+    module_rl: [0.0, 0.0]
+    module_rr: [0.0, 0.0]
+    wheel_radius_m: 0.033           # 터틀봇3 와플 바퀴 지름 66mm (TODO: 실측 확인)
+    gear_ratio: 1.0                 # TODO
+    max_linear_mps: 0.0             # TODO
+    max_angular_rps: 0.0            # TODO
+    max_accel_mps2: 0.0             # TODO
+    steer_limit_rad: 1.5708         # ±90°
+    timeout_s: 0.5                  # /cmd_vel이 이 시간 동안 없으면 정지 (TODO)
+
+opencr_bridge_node:
+  ros__parameters:
+    swerve_port: /dev/ttyACM0       # OpenCR #1 (TODO)
+    arm_port: /dev/ttyACM1          # OpenCR #2 (TODO)
+    baudrate: 1000000               # TODO
+    timeout_s: 0.5                  # 통신이 끊기면 정지 (TODO)
+    # 모터 ID: 조향 4 / 구동 4, FL·FR·RL·RR 순서 (TODO: 구글시트)
+    steer_ids: [0, 0, 0, 0]
+    drive_ids: [0, 0, 0, 0]
+    max_current_ma: 0               # TODO

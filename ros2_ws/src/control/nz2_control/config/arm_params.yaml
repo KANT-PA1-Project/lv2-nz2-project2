@@ -1,0 +1,17 @@
+# =============================================================
+# 패키지 : nz2_control
+# 파일   : config/arm_params.yaml
+# 역할   : 팔 관절 모터 ID·관절 범위·전류 제한 (arm_controller_node)
+#
+# [해야 할 일 / TODO]
+#   - XM430-W350 관절 + 손목 롤 추가 관절. 값은 TODO: 구글시트 기준으로 채우기
+# [안전]  관절 범위 밖 명령 금지, 전류 제한 초과 시 정지
+# =============================================================
+arm_controller_node:
+  ros__parameters:
+    joint_names: [joint1, joint2, joint3, joint4, joint5_wrist_roll, gripper]
+    motor_ids: [0, 0, 0, 0, 0, 0]       # TODO
+    joint_min_rad: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]   # TODO
+    joint_max_rad: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]   # TODO
+    max_current_ma: [0, 0, 0, 0, 0, 0]  # TODO
+    gripper_stroke_m: [0.0, 0.0]        # [최소, 최대] (TODO)

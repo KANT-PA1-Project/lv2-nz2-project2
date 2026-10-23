@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+  =============================================================
+  패키지 : nz2_description
+  파일   : urdf/arm.xacro
+  역할   : 개조 OpenMANIPULATOR-X (링크 약 +100mm 연장, 손목 롤 관절 추가) + 집게 상부 카메라 프레임
+  [해야 할 일 / TODO]
+    - 링크 길이는 실측/설계값으로 채운다 (순정 OM-X 값에 연장분 반영)
+    - 관절 범위는 config/arm_params.yaml과 같은 값으로
+    - 카메라 장착 위치·각도 (집게 상부)
+  [ROS2 메모] 관절(joint)이 움직이면 그 아래 링크들의 TF가 따라 바뀐다
+  =============================================================
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- 링크 길이 [m] (TODO: 실측/설계값) -->
+  <xacro:property name="base_to_joint2" value="0.077"/>
+  <xacro:property name="link1_length" value="0.0"/>   <!-- joint2 → joint3 (연장 반영, TODO) -->
+  <xacro:property name="link2_length" value="0.0"/>   <!-- joint3 → joint4 (연장 반영, TODO) -->
+  <xacro:property name="wrist_length" value="0.0"/>   <!-- joint4 → 손목 롤 (TODO) -->
+  <xacro:property name="gripper_length" value="0.0"/> <!-- 손목 롤 → 집게 끝 (TODO) -->
+  <xacro:property name="joint_limit" value="${pi}"/>  <!-- TODO: arm_params.yaml과 맞추기 -->
+
+  <xacro:macro name="arm_joint" params="name parent child xyz axis">
+    <link name="${child}"/>
+    <joint name="${name}" type="revolute">
+      <parent link="${parent}"/>
+      <child link="${child}"/>
+      <origin xyz="${xyz}"/>
+      <axis xyz="${axis}"/>
+      <limit lower="${-joint_limit}" upper="${joint_limit}" effort="1.0" velocity="1.0"/> <!-- TODO -->
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="nz2_arm" params="parent x z">
+    <link name="arm_base_link"/>
+    <joint name="arm_base_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="arm_base_link"/>
+      <origin xyz="${x} 0 ${z}"/>
+    </joint>
+
+    <xacro:arm_joint name="joint1" parent="arm_base_link" child="arm_link1" xyz="0 0 0" axis="0 0 1"/>
+    <xacro:arm_joint name="joint2" parent="arm_link1" child="arm_link2" xyz="0 0 ${base_to_joint2}" axis="0 1 0"/>
+    <xacro:arm_joint name="joint3" parent="arm_link2" child="arm_link3" xyz="0 0 ${link1_length}" axis="0 1 0"/>
+    <xacro:arm_joint name="joint4" parent="arm_link3" child="arm_link4" xyz="${link2_length} 0 0" axis="0 1 0"/>
+    <!-- 손목 롤 (추가 관절): 집게 중심선 둘레 회전 -->
+    <xacro:arm_joint name="joint5_wrist_roll" parent="arm_link4" child="arm_link5" xyz="${wrist_length} 0 0" axis="1 0 0"/>
+
+    <link name="gripper_link"/>
+    <joint name="gripper_joint" type="fixed">
+      <parent link="arm_link5"/>
+      <child link="gripper_link"/>
+      <origin xyz="${gripper_length} 0 0"/>
+    </joint>
+
+    <!-- 집게 상부 카메라 프레임 (TODO: 장착 위치·각도) -->
+    <link name="gripper_camera_link"/>
+    <joint name="gripper_camera_joint" type="fixed">
+      <parent link="arm_link5"/>
+      <child link="gripper_camera_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+</robot>
