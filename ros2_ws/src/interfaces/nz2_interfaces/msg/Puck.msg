@@ -17,7 +17,7 @@ uint8 SHAPE_BOX=1
 uint8 ORIENTATION_STANDING=0
 uint8 ORIENTATION_LYING=1
 
-# 퍽 색: "red" / "green" / "blue"
+# 퍽 색: "red" / "green"  (2색 확정 — 파랑 제외, YOLO 9클래스와 일치)
 string color
 
 # 퍽 위치·자세 (header.frame_id에 기준 좌표계를 적는다)
