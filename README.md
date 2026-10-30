@@ -85,13 +85,15 @@ lv2-nz2-project2/
 │       ├── perception/     카메라·인식 (RealSense, AprilTag·바코드·신호등)
 │       ├── planning/       미션 FSM, 주행·팔 경로 계획
 │       └── control/        스월브·팔 제어 명령 생성
-└── firmware/               OpenCR 1.0 펌웨어 소스코드
+├── firmware/               OpenCR 1.0 펌웨어 소스코드
+└── tools/                  개발·측정 도구 (로봇에 올라가지 않음)
 ```
 
 | 폴더 | 내용 |
 |---|---|
 | [ros2_ws/](ros2_ws/) | ROS 2 colcon 워크스페이스. `src/` 아래 4개 레이어 폴더는 그룹 디렉터리이며, 실제 패키지는 각 폴더 안에 `nz2_*` 접두사로 추가한다 (예: `src/perception/nz2_puck_detector`) |
 | [firmware/](firmware/) | OpenCR 1.0 펌웨어 소스코드 |
+| [tools/](tools/README.md) | 개발·측정용 도구 모음. 대회 로봇 코드와 별개 (예: [팔 가동범위 측정](tools/arm_motor_range_check/README.md)) |
 
 ## 환경과 버전
 
@@ -129,6 +131,8 @@ lv2-nz2-project2/
 | Dynamixel2Arduino | 0.8.1 | 소스 (커밋 `cfbbaf7`) | Jetson · OpenCR 펌웨어 |
 | arm-none-eabi-g++ | 13.2.1 | apt (`gcc-arm-none-eabi`) | Jetson · OpenCR 펌웨어 컴파일러 |
 | opencr_ld | 커밋 `68ec75d` | 소스 빌드 (OpenCR 저장소) | Jetson · OpenCR 펌웨어 업로드 |
+| dynamixel-sdk (pip) | `[확인 필요]` | pip (`tools/arm_motor_range_check/requirements.txt`) | 개발 PC · 팔 가동범위 측정 도구 |
+| pyserial | `[확인 필요]` | pip (`tools/arm_motor_range_check/requirements.txt`) | 개발 PC · 팔 가동범위 측정 도구 |
 
 ## 다른 기기에서 실행하기
 
