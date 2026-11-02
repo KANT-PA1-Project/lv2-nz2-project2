@@ -82,15 +82,16 @@ lv2-nz2-project2/
 ├── docs/                   설계 문서 (데이터 흐름도 등)
 ├── ros2_ws/                ROS 2 colcon 워크스페이스
 │   └── src/
-│       ├── interfaces/nz2_interfaces      메시지·서비스·액션 정의
-│       ├── perception/nz2_perception      카메라·인식 (RealSense, AprilTag·바코드·신호등)
-│       ├── planning/nz2_planning          미션 FSM, 주행·팔 경로 계획
-│       ├── control/nz2_control            스월브·팔 제어, OpenCR 브리지
-│       ├── nz2_description                URDF/xacro 로봇 모델 (파트 공통)
-│       └── nz2_bringup                    전체 통합 실행 launch (파트 공통)
+│       ├── interfaces/                메시지·서비스·액션 정의
+│       ├── perception/                카메라·인식 (RealSense, AprilTag·바코드·신호등)
+│       ├── planning/                  미션 FSM, 주행·팔 경로 계획
+│       ├── control/                   스월브·팔 제어, OpenCR 브리지
+│       ├── description/                URDF/xacro 로봇 모델 (파트 공통)
+│       └── bringup/                    전체 통합 실행 launch (파트 공통)
 └── firmware/               OpenCR 1.0 펌웨어 소스코드
     ├── opencr1_swerve/     스월브 8모터
     └── opencr2_arm/        로봇팔
+
 ```
 
 | 폴더 | 내용 |
@@ -98,6 +99,7 @@ lv2-nz2-project2/
 | [docs/](docs/) | 설계 문서 (ROS 2 데이터 흐름도 등) |
 | [ros2_ws/](ros2_ws/) | ROS 2 colcon 워크스페이스. `src/` 아래 4개 레이어 폴더(interfaces·perception·planning·control)에 `nz2_*` 패키지를 두고, 특정 레이어에 속하지 않는 `nz2_description`(로봇 모델)·`nz2_bringup`(통합 실행)은 `src/` 바로 아래에 둔다 |
 | [firmware/](firmware/) | OpenCR 1.0 펌웨어 소스코드. `opencr1_swerve`(스월브), `opencr2_arm`(로봇팔) |
+| [tools/](tools/README.md) | 개발·측정용 도구 모음. 대회 로봇 코드와 별개 (예: [팔 가동범위 측정](tools/arm_motor_range_check/README.md)) |
 
 ## 환경과 버전
 
@@ -137,6 +139,8 @@ lv2-nz2-project2/
 | Dynamixel2Arduino | 0.8.1 | 소스 (커밋 `cfbbaf7`) | Jetson · OpenCR 펌웨어 |
 | arm-none-eabi-g++ | 13.2.1 | apt (`gcc-arm-none-eabi`) | Jetson · OpenCR 펌웨어 컴파일러 |
 | opencr_ld | 커밋 `68ec75d` | 소스 빌드 (OpenCR 저장소) | Jetson · OpenCR 펌웨어 업로드 |
+| dynamixel-sdk (pip) | `[확인 필요]` | pip (`tools/arm_motor_range_check/requirements.txt`) | 개발 PC · 팔 가동범위 측정 도구 |
+| pyserial | `[확인 필요]` | pip (`tools/arm_motor_range_check/requirements.txt`) | 개발 PC · 팔 가동범위 측정 도구 |
 
 ## 다른 기기에서 실행하기
 

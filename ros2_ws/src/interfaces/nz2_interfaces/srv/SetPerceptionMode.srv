@@ -1,0 +1,22 @@
+# =============================================================
+# 패키지 : nz2_interfaces
+# 파일   : srv/SetPerceptionMode.srv
+# 레이어 : interface
+# 역할   : 인지 모드·그리퍼 카메라 검출 on/off 요청 (단계별로 켜고 꺼서 Orin Nano 부하 관리)
+#
+# [서비스]   /perception/set_mode
+# [보내는 쪽] nz2_planning (mission_manager_node) / [받는 쪽] nz2_perception (perception_master)
+# [ROS2 메모] srv = 요청 1번 → 응답 1번. "---" 위가 요청, 아래가 응답
+# =============================================================
+
+# PerceptionState.MODE_* 값
+uint8 mode
+
+# 그리퍼 카메라 검출 사용 여부
+bool enable_gripper
+---
+# 적용됐으면 true
+bool success
+
+# 결과 설명 (로그용)
+string message
