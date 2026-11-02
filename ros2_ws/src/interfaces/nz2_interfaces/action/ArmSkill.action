@@ -1,0 +1,25 @@
+# 미션 FSM → 팔 계층(arm_bridge / MoveIt 래퍼) 단위 동작 요청
+# skill 값: travel_pose | observe_pose | align | pick | load | unload | place | check_place
+#           | observe_box | verify_location | fix_location | recover_dropped | hold
+string skill
+string target_frame          # 기본 "map"
+geometry_msgs/Pose target    # place: 격자점 월드 좌표(m), z = 놓는 면 높이
+int32 puck_id                # 해당 없으면 -1
+int32 tray_slot              # 해당 없으면 -1
+int32 box_id                 # 해당 없으면 -1
+string location              # L1/L2/L3 또는 ""
+int32[] cell                 # [col,row] 또는 빈 배열
+int32 expected_pips          # verify_location: 기대 눈 수
+float32 timeout_s
+---
+bool success
+string error_code            # "" | DROPPED | GRASP_FAIL | IK_FAIL | TIMEOUT | NOT_VISIBLE | MISMATCH | HW_ERROR
+string message
+int32 detected_puck_id       # pick 직후 근접 판독 ID (-1 = 미판독)
+string detected_color        # red/green/""
+string detected_shape        # cyl/cube/""
+float32 place_error_mm       # check_place / verify_location 결과
+string result_json           # verify_location 상세(격자별 점유 등)
+---
+string phase
+float32 progress
