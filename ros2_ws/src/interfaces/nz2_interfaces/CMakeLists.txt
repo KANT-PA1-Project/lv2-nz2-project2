@@ -22,9 +22,13 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Puck.msg"
   "msg/PuckArray.msg"
   "msg/TrafficLight.msg"
+  "msg/Barcode.msg"
+  "msg/BarcodeArray.msg"
+  "msg/PerceptionState.msg"
   "msg/SwerveModuleState.msg"
   "msg/SwerveCommand.msg"
   "srv/SetRobotMode.srv"
+  "srv/SetPerceptionMode.srv"
   "action/ExecuteMission.action"
   "action/PickPlace.action"
   DEPENDENCIES std_msgs geometry_msgs sensor_msgs
