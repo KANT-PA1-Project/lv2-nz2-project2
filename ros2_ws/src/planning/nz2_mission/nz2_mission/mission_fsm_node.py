@@ -258,7 +258,7 @@ class MissionFsm(Node):
         self.phase = Phase(cp["phase"])
         if target in TERMINAL:
             self.phase, self.entry = target, False
-            self.get_logger().warn(f"이전 회차 종료 상태({target.value}) — 재개하지 않음")
+            self.get_logger().warning(f"이전 회차 종료 상태({target.value}) — 재개하지 않음")
             return
         self._log("resume", from_phase=cp["phase"], to=target.value)
         self._enter(target, "resume")

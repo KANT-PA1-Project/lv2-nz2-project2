@@ -42,7 +42,7 @@ class FakeSkillServer(Node):
         self.pub_obs = self.create_publisher(PuckObservationArray, "/mission/puck_observations", 10)
         ActionServer(self, ArmSkill, "arm_skill", self._arm, callback_group=cg)
         ActionServer(self, NavigateToPose, "navigate_to_pose", self._nav, callback_group=cg)
-        self.get_logger().warn("FAKE 서버 실행 중 — 실제 로봇에서 사용 금지")
+        self.get_logger().warning("FAKE 서버 실행 중 — 실제 로봇에서 사용 금지")
 
     def p(self, n):
         return self.get_parameter(n).value

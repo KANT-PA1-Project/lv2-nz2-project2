@@ -144,7 +144,7 @@ class SignalDecoderNode(Node):
         elif time.monotonic() - self._locate_t0 > self.p("locate_timeout_s"):
             roi = list(self.p("fixed_roi_xywh"))
             if self.p("fallback_fixed_roi") and roi[2] > 0 and roi[3] > 0:
-                self.get_logger().warn("YOLO 신호등 검출 실패 → 고정 ROI 폴백")
+                self.get_logger().warning("YOLO 신호등 검출 실패 → 고정 ROI 폴백")
                 self._set_rois(roi, "fixed")
             else:
                 self._finish(False, "locate_failed")
@@ -178,7 +178,7 @@ class SignalDecoderNode(Node):
     def _set_exposure(self):
         val = int(self.p("exposure_signal"))
         if val <= 0:
-            self.get_logger().warn("exposure_signal=0: 노출을 바꾸지 않음 (실물 측정 후 설정 필요)")
+            self.get_logger().warning("exposure_signal=0: 노출을 바꾸지 않음 (실물 측정 후 설정 필요)")
             return
         try:
             from rclpy.parameter_client import AsyncParameterClient
