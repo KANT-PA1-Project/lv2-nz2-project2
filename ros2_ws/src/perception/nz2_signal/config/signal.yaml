@@ -1,0 +1,48 @@
+# 신호등·바코드 판독 파라미터. [가정] 값은 실물 앞에서 측정 후 교체한다.
+signal_decoder:
+  ros__parameters:
+    image_topic: /camera/front/color/image_raw
+    bbox_topic: /perception/traffic_light/detections   # YOLO 신호등 위치 검출 노드 출력 [확인]
+    bbox_class_id: traffic_light
+    wait_barcode_before_lock: true    # 바코드는 자동 노출에서 먼저 확정
+    locate_frames: 15
+    locate_timeout_s: 10.0
+    fallback_fixed_roi: true
+    fixed_roi_xywh: [0, 0, 0, 0]      # [확인] 출발 자세 (734,950)·-X 에서 기하 계산
+    lamp_order: [R, Y, G]             # 위 → 아래
+    roi_core_ratio: 0.6               # 번짐 방지: 램프 중심부만
+    roi_stride_px: 3
+    camera_node: /camera/front/camera # [확인] realsense2_camera 노드 이름
+    auto_exposure_param: rgb_camera.enable_auto_exposure
+    exposure_param: rgb_camera.exposure
+    exposure_signal: 0                # 0 = 미설정 [확인: 점등 램프가 포화 직전(200~240)이 되는 값]
+    exposure_settle_s: 0.5
+    on_ratio_thresh: 2.0
+    lit_ratio: 2.0                    # 1위/2위 밝기 비 (번짐 판정)
+    baseline_window_s: 4.0
+    # 신호 시간 구조: 1초 켜짐 + 1초 소등, 12번째 뒤 3초 소등, 주기 26초
+    on_min_s: 0.6
+    on_max_s: 1.4
+    off_min_s: 0.4
+    intra_off_max_s: 1.5
+    gap_min_s: 2.5
+    gap_max_s: 3.5
+    frame_span_s: 23.0
+    frame_span_tol_s: 1.0
+    blinks_per_frame: 12
+    count_min: 1
+    count_max: 6
+    k_agree: 3                        # 같은 문자열 K회 → 확정 [팀 기준 확인]
+    min_margin: 2
+    max_frames: 8                     # 약 3.5분 내 미확정 → failed
+    max_sample_gap_s: 0.3
+    min_avg_fps: 10.0
+
+barcode_reader:
+  ros__parameters:
+    image_topic: /camera/front/color/image_raw
+    roi_xywh: [0, 0, 0, 0]            # [확인] 바코드 (80,650,450) 예상 화면 위치
+    rate_hz: 5.0
+    confirm_count: 3
+    timeout_s: 20.0
+    registered_codes: [P2-01, P2-02, P2-03, P2-04]
