@@ -1,0 +1,38 @@
+# 미션 FSM 파라미터 (Jetson). 회차·경기장마다 바뀌는 좌표는 mission_locations.yaml에서만 읽는다.
+mission_fsm:
+  ros__parameters:
+    mode: competition                 # competition | rehearsal | dry_signal | dry_run (IDLE에서만 변경)
+    run_root: /home/nz2/nz2_runs      # [확인] Jetson 사용자 경로. 회차별 checkpoint·events.jsonl 저장
+    resume_enabled: true              # respawn 후 체크포인트에서 이어서 진행
+    locations_file: ""                # launch에서 share 경로로 채움
+    tick_hz: 10.0
+    barcode_map: ["P2-01:asc", "P2-03:asc", "P2-02:desc", "P2-04:desc"]   # 발제 v5
+    expected_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    tray_capacity: 4                  # 트레이(bin) 4칸
+    min_conf: 0.7                     # 색·모양 신뢰도 하한 (미달 → 재탐색 대상)
+    survey_max_rounds: 3              # 재탐색 상한 → 이후 부분 계획
+    max_plans: 20                     # 재계획 상한(무한 루프 방지)
+    verify_fix_attempts: 1            # 재검증 후 장소당 보정 횟수 [규정 확인]
+    place_tol_mm: 10.0
+    hold_s: 3.0
+    observe_settle_s: 1.0
+    no_progress_s: 30.0               # 심판 '동작 불능' 기준보다 짧게 [확인]
+    observe_timeout_s: 300.0
+    observe_call_retry_s: 2.0
+    barcode_retries: 2
+    timeout_nav_s: 60.0
+    timeout_arm_s: 20.0
+    timeout_init_s: 30.0
+    retries_nav: 2
+    retries_arm: 2
+    retries_return: 5
+    place_surface_z_m: 0.070          # 선반(박스) 면 높이 70mm
+    arena_to_map: [0.0, 0.0, 0.0]     # 경기장 좌표(mm) → SLAM map 변환 [tx_mm, ty_mm, yaw] [확인]
+    map_frame: map
+    publish_initialpose: true         # cuVSLAM 정지 후 재개 시 출발 자세로 초기화
+    gpu_lifecycle_nodes: [""]         # 예: ["/puck_detector"] — OBSERVE 동안 deactivate
+    require_arm_button: false         # 조정시간 ARM 버튼 허용 시 true [규정 확인]
+    dry_signal_sequence: RGRRGRGGYGYG
+    dry_barcode: P2-01
+    signal_start_srv: /signal_decoder/start
+    barcode_start_srv: /barcode_reader/start
