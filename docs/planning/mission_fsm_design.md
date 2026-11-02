@@ -19,7 +19,7 @@
 | D1 | 신호는 무한루프. **경기 시작 전 관측 금지** (신호등 위치 검출 포함) | 운영 확인 |
 | D2 | 12번째 뒤 소등은 **총 3초** (1+3 아님). 1주기 = 26초 | 운영 확인 |
 | D3 | 신호는 완전한 프레임이 **K회(기본 3) 동일**해야 확정. 자리별 다수결 합성 금지 | 인식 정확도 미검증, 발제 "추정 금지" |
-| D4 | 신호등 **위치만 YOLO**, 점등 상태는 ROI 밝기로 판정 | YOLO 프레임레이트 불규칙, YOLO는 '꺼짐'을 측정 못 함 |
+| D4 | 신호등 **위치만 YOLO**, 점등 상태는 ROI 밝기로 판정. 영상 처리는 `nz2_perception`, 해독(동기화·투표)은 `nz2_signal` | YOLO 프레임레이트 불규칙, YOLO는 '꺼짐'을 측정 못 함. 인지 계약은 PR #22 |
 | D5 | OBSERVE 동안 다른 GPU 작업 정지, 바코드(CPU)는 함께 | Orin Nano 자원 |
 | D6 | ID 중복·누락, PLAN 해 없음 → **SAFE_STOP 아님, SURVEY 재탐색** | 팀 결정 |
 | D7 | EXECUTE = **이동 / 줍기 / 싣기 / 놓기** 세분 | 팀 결정 |
@@ -79,6 +79,19 @@ stateDiagram-v2
 
 ## 4. OBSERVE — 신호·바코드
 
+### 4.0 노드 간 계약 (PR #22 인터페이스)
+
+| 방향 | 토픽·서비스 | 형식 | 내용 |
+|---|---|---|---|
+| mission_fsm → 인지 | `/perception/set_mode` | `SetPerceptionMode` | OBSERVE 진입 시 `MODE_NAVIGATE`, `enable_gripper=false` |
+| mission_fsm → nz2_signal | `/signal_decoder/start` | `std_srvs/Trigger` | 이때 처음으로 신호등 판정을 구독한다 (D1) |
+| 인지 → nz2_signal | `/perception/traffic_light` | `TrafficLight` | 프레임별 `raw_state`. `visible=false`·`UNKNOWN`은 꺼짐이 아니라 판정 불가 |
+| 인지 → mission_fsm | `/perception/barcodes` | `BarcodeArray` | `confidence=1.0`(연속 판독 확정)인 코드만 쓴다. `barcode_map`에 없으면 SAFE_STOP |
+| nz2_signal → mission_fsm | `/mission/signal_result` | `std_msgs/String` JSON (래치) | 확정 순서, 횟수, 프레임별 증거 |
+| 인지 → mission_fsm | `/perception/puck_tracks` | `PuckArray` | §5 |
+
+아래 4.1·4.2는 `nz2_perception`(traffic_light_filter, barcode_reader)이 구현할 요구사항이다. 4.3 이후는 `nz2_signal`이 구현했다.
+
 ### 4.1 순서 (노출 문제 때문에 고정)
 
 | 단계 | 노출 | 내용 | 종료 |
@@ -122,15 +135,19 @@ stateDiagram-v2
 
 ### 4.5 증거 로그
 
-- 신호 결과 JSON에 `start_cmd_time`, `first_image_stamp`, 프레임별 `blink_times`·무효 사유를 모두 남긴다.
-- `first_image_stamp > start_cmd_time`이면 경기 시작 전에 관측하지 않았다는 증거가 된다.
+- 신호 결과 JSON에 `start_cmd_time`, `first_sample_stamp`, 프레임별 `blink_times`·무효 사유를 모두 남긴다.
+- `first_sample_stamp > start_cmd_time`이면 경기 시작 전에 관측하지 않았다는 증거가 된다.
 - 채점용 기록(색 순서 12개 + 각 횟수)은 `events.jsonl`의 `signal_confirmed`에 있다.
 
 ## 5. SURVEY ⇄ VALIDATE/PLAN
 
 - **월드 모델:** 퍽마다 ID, 색, 모양, 신뢰도, 박스, 위치, 상태를 가진다.
   - 상태 종류: `IN_BOX / IN_GRIPPER / IN_TRAY / PLACED / DROPPED / LOST / UNUSABLE`
-  - 인지 노드는 `/mission/puck_observations`로 **관측만** 보낸다.
+  - 인지 노드는 `/perception/puck_tracks`(`PuckArray`)로 **관측만** 보낸다. FSM은 다음처럼 받는다.
+    - `tag_id`(0~11) = 퍽 ID. `tag_id < 0`(태그 미확정)은 버린다.
+    - `header.frame_id`가 `map_frame`이 아니면 버린다. 위치는 `arena_to_map`의 역변환으로 경기장 mm로 바꾼다.
+    - 박스 = 위치에서 가장 가까운 박스 중심.
+    - `confidence` 하나를 색·모양 신뢰도로 같이 쓴다.
 - **VALIDATE 문제 종류:** missing(미관측), duplicate(같은 ID가 150 mm 이상 떨어진 곳에서 관측, 또는 목록 밖 ID), unknown_attr, low_conf(< 0.7).
 - **재탐색:** 의심 퍽의 관측을 비우고, 해당 박스만 다시 본다. missing이 있으면 전체를 다시 본다. 같은 시점에서 반복 관측하면 같은 오판이 반복되므로, **회차마다 접근 각도·거리·그리퍼 근접 촬영을 바꾸는 것은 인지·팔 쪽(observe_box 스킬) 책임**이다.
 - **할당:** Y 후보 조합을 전수 열거한다(최대 2 × C(12,6) = 1848가지). R·G는 남은 퍽 중 비용이 작은 것부터 고른다. Y가 정해지면 R·G 선택은 서로 독립이므로 이 방법이 최적이다.
@@ -238,7 +255,7 @@ OpenCR 펌웨어에서는 **비차단** 방식(`tone()` + 타이머로 끄기)�
 |---|---|---|
 | `travel_pose` | — | 팔 전체가 차체 400×400 투영 안 + 최저 자세. **퍽을 쥐고 있어도 떨어뜨리지 않음** |
 | `align` | box_id 또는 location | 장소·박스 태그로 정밀 정렬 (Nav2 오차 보정) |
-| `observe_box` | box_id | 관측자세로 퍽 관측 → 인지 노드가 `/mission/puck_observations` 발행. 재탐색 회차마다 시점 변경 |
+| `observe_box` | box_id | 관측자세로 퍽 관측 → 인지 노드가 `/perception/puck_tracks` 발행. 재탐색 회차마다 시점 변경 |
 | `pick` | puck_id, box_id | 파지 확인 + 근접 판독 `detected_puck_id/color/shape` |
 | `load` / `unload` | puck_id, tray_slot | 칸 점유 확인. 실패 시 `DROPPED` |
 | `place` | location, cell, target(map, z=0.07) | 격자점에 내려놓기 |
@@ -264,14 +281,16 @@ OpenCR 펌웨어에서는 **비차단** 방식(`tone()` + 타이머로 끄기)�
 | 배정 50 case·동률, 주사위 좌표, 할당(무작위 40세계 브루트포스 대조), 부분 할당, 계획(용량·이동자세 가드·12칸 커버), 체크포인트, 재진입 | `nz2_mission/test/test_mission_core.py` | 190 passed |
 | 실제 `mission_locations.yaml`로 50 case 계획 | `nz2_mission/test/test_config_locations.py` | 31 passed, 20 skipped(해당 퍽 구성에서 출제 불가 조합) |
 
-- ROS 노드(`*_node.py`, `fake_skill_server.py`)는 작성 환경에 ROS 2가 없어 **문법·정적 분석(pyflakes)만 통과**했다. 첫 빌드 후 `dry_run`으로 실행 검증이 필요하다.
+- ROS 노드는 개발 PC(ROS 2 Lyrical)에서 실행 확인했다.
+  - `dry_run`: 기본, `fail_prob:=0.15`, EXECUTE 중 `kill -9` 후 RESUME 모두 DONE.
+  - `rehearsal` + 가짜 인지(`/perception/set_mode`·`barcodes`·`traffic_light` 흉내) + 실제 `signal_decoder`: 신호·바코드 확정 후 DONE. 미등록 바코드는 SAFE_STOP.
 - 실물 리허설 순서: `dry_run`(개발 PC) → `dry_signal`(로봇, 신호 생략) → 신호 단독(실물 신호등 녹화 rosbag 재생) → `rehearsal`.
 
 ## 11. 후속 작업
 
 1. 팔 스킬 서버 (`arm_skill`, §9 계약) — control/arm 담당
-2. 퍽 인지 노드 → `/mission/puck_observations` (2색 HSV + depth 형상 + 퍽 태그 판독)
-3. YOLO 신호등 **위치** 검출 노드 → `/perception/traffic_light/detections` (vision_msgs/Detection2DArray, class_id `traffic_light`)
+2. 퍽 인지 노드 → `/perception/puck_tracks` (2색 + depth 형상 + 퍽 태그 판독, map 좌표)
+3. 신호등·바코드 인지 노드 → `/perception/traffic_light`, `/perception/barcodes`, `/perception/set_mode` 서버 (§4.0~4.2)
 4. OpenCR 부저 펌웨어 + `/ui/beep` 브리지, `/state/estop`·`/state/hw_error` 발행
 5. 관제 프로그램 (시작 재전송, 상태 표, 링크 심박 표시, "시작 가능" 조건 표시)
 6. `single_stage`, `manual` 연습 모드
@@ -289,4 +308,7 @@ OpenCR 펌웨어에서는 **비차단** 방식(`tone()` + 타이머로 끄기)�
 - realsense2_camera 노드 이름·노출 파라미터 이름 (4.57.7)
 - 출발 자세에서 바코드(높이 450 mm)가 전면 카메라 시야에 들어오는지, `roi_xywh`·`fixed_roi_xywh` 값
 - `python3-pyzbar`의 rosdep 키 존재 여부 (없으면 README 설치 절차에 apt 명령 추가)
+- PR #22 `PerceptionState` 주석은 카메라를 그리퍼 D435 1대로 적었다. 설계 전제는 2대(전면·그리퍼). 신호등·바코드를 어느 카메라로 볼지
+- `/perception/summary` JSON 형식 (PR #22에서 신호 점멸 기록·주사위 판정을 담는다고 적었다. `nz2_signal`·mission_fsm과 역할이 겹치지 않게)
+- `Puck.position`이 map이 아닐 때(odom·광학 프레임) 처리
 - cuVSLAM 정지·재초기화 방법 (Isaac ROS 5.0 서비스 이름)

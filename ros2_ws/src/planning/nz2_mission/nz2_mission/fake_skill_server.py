@@ -1,7 +1,7 @@
 """dry_run 전용 가짜 서버 (개발 PC). 팔·Nav2·퍽 인지를 흉내 내 FSM 전체 흐름을 검증한다.
 
 - arm_skill(ArmSkill) / navigate_to_pose(NavigateToPose) 액션 서버
-- observe_box 요청 시 시나리오의 퍽 관측을 /mission/puck_observations로 발행
+- observe_box 요청 시 시나리오의 퍽 관측을 /perception/puck_tracks(PuckArray, map)로 발행
 - fail_prob로 무작위 실패(GRASP_FAIL·DROPPED·MISMATCH)를 주입해 회복 경로를 시험
 실제 로봇에서는 절대 실행하지 않는다.
 """
@@ -18,7 +18,7 @@ from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
 
 from nz2_interfaces.action import ArmSkill
-from nz2_interfaces.msg import PuckObservation, PuckObservationArray
+from nz2_interfaces.msg import Puck, PuckArray
 
 BOX_XY = {0: (1468, 950), 1: (3670, 3152), 2: (2936, 5354), 3: (734, 5354), 4: (2202, 5354), 5: (3670, 3886)}
 
@@ -39,7 +39,7 @@ class FakeSkillServer(Node):
         self.lock = threading.Lock()
         self.pos = (734.0, 950.0)
         cg = ReentrantCallbackGroup()
-        self.pub_obs = self.create_publisher(PuckObservationArray, "/mission/puck_observations", 10)
+        self.pub_obs = self.create_publisher(PuckArray, "/perception/puck_tracks", 10)
         ActionServer(self, ArmSkill, "arm_skill", self._arm, callback_group=cg)
         ActionServer(self, NavigateToPose, "navigate_to_pose", self._nav, callback_group=cg)
         self.get_logger().warning("FAKE 서버 실행 중 — 실제 로봇에서 사용 금지")
@@ -89,18 +89,21 @@ class FakeSkillServer(Node):
         return res
 
     def _publish_box(self, box):
-        msg = PuckObservationArray()
+        # arena_to_map = [0, 0, 0] 가정: 경기장 mm = map m × 1000
+        msg = PuckArray()
+        msg.header.stamp = self.get_clock().now().to_msg()
+        msg.header.frame_id = "map"
         for pid in (2 * box, 2 * box + 1):
-            o = PuckObservation()
-            o.stamp = self.get_clock().now().to_msg()
-            o.puck_id, o.box_id = pid, box
-            o.color, o.shape = self.p("puck_colors")[pid], self.p("puck_shapes")[pid]
-            o.conf_color = o.conf_shape = float(self.p("obs_conf"))
+            o = Puck()
+            o.header = msg.header
+            o.tag_id = o.track_id = pid
+            o.color = {"red": Puck.COLOR_RED, "green": Puck.COLOR_GREEN}[self.p("puck_colors")[pid]]
+            o.shape = {"cyl": Puck.SHAPE_CYLINDER, "cube": Puck.SHAPE_BOX}[self.p("puck_shapes")[pid]]
+            o.confidence = float(self.p("obs_conf"))
             bx, by = BOX_XY[box]
-            o.x_mm, o.y_mm = bx + (-40.0 if pid % 2 == 0 else 40.0), float(by)
-            msg.observations.append(o)
+            o.position.x, o.position.y = (bx + (-40.0 if pid % 2 == 0 else 40.0)) / 1000.0, by / 1000.0
+            msg.pucks.append(o)
         self.pub_obs.publish(msg)
-
 
 def main():
     rclpy.init()

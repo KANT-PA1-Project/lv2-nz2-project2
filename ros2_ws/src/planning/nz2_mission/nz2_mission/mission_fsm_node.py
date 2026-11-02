@@ -29,8 +29,8 @@ from std_msgs.msg import Bool, String, UInt8
 from std_srvs.srv import Trigger
 
 from nz2_interfaces.action import ArmSkill
-from nz2_interfaces.msg import PuckObservationArray
-from nz2_interfaces.srv import SetMode
+from nz2_interfaces.msg import BarcodeArray, PerceptionState, Puck, PuckArray
+from nz2_interfaces.srv import SetMode, SetPerceptionMode
 
 from .action_runner import ActionRunner, WaitRunner
 from .core import checkpoint
@@ -45,6 +45,8 @@ LATCHED = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL, relia
 BEST_EFFORT = QoSProfile(depth=1, reliability=ReliabilityPolicy.BEST_EFFORT)
 
 MODES = ("competition", "rehearsal", "dry_signal", "dry_run")
+COLOR_NAME = {Puck.COLOR_RED: "red", Puck.COLOR_GREEN: "green"}
+SHAPE_NAME = {Puck.SHAPE_CYLINDER: "cyl", Puck.SHAPE_BOX: "cube"}
 BEEP_PHASE, BEEP_MILESTONE, BEEP_RECOVERABLE, BEEP_SAFE_STOP = 1, 2, 3, 4
 NAV_SUBS = ("MOVE_TO_PICK", "MOVE_TO_PLACE", "MOVE")
 SKILL_OF = {"TRAVEL_POSE": "travel_pose", "ALIGN_PICK": "align", "ALIGN_PLACE": "align", "PICK": "pick",
@@ -75,7 +77,6 @@ class MissionFsm(Node):
         d("no_progress_s", 30.0)                    # 심판 "동작 불능" 기준보다 짧게 [확인]
         d("observe_timeout_s", 300.0)
         d("observe_call_retry_s", 2.0)
-        d("barcode_retries", 2)
         d("timeout_nav_s", 60.0)
         d("timeout_arm_s", 20.0)
         d("timeout_init_s", 30.0)
@@ -91,7 +92,7 @@ class MissionFsm(Node):
         d("dry_signal_sequence", "RGRRGRGGYGYG")
         d("dry_barcode", "P2-01")
         d("signal_start_srv", "/signal_decoder/start")
-        d("barcode_start_srv", "/barcode_reader/start")
+        d("perception_mode_srv", "/perception/set_mode")
 
         self.mode = self.p("mode")
         if self.mode not in MODES:
@@ -109,15 +110,15 @@ class MissionFsm(Node):
         self.create_service(Trigger, "~/abort", self._srv_abort)
         self.create_service(SetMode, "~/set_mode", self._srv_set_mode)
         self.create_subscription(String, "/mission/signal_result", self._on_signal, LATCHED)
-        self.create_subscription(String, "/mission/barcode_result", self._on_barcode, LATCHED)
-        self.create_subscription(PuckObservationArray, "/mission/puck_observations", self._on_obs, 20)
+        self.create_subscription(BarcodeArray, "/perception/barcodes", self._on_barcode, 10)
+        self.create_subscription(PuckArray, "/perception/puck_tracks", self._on_obs, 10)
         self.create_subscription(Bool, "/state/estop", self._on_estop, 10)
         self.create_subscription(String, "/state/hw_error", self._on_hw_error, 10)
         self.create_subscription(Bool, "/ui/arm_button", self._on_arm_button, 10)
         self.nav = ActionRunner(ActionClient(self, NavigateToPose, "navigate_to_pose"), self._on_feedback)
         self.arm = ActionRunner(ActionClient(self, ArmSkill, "arm_skill"), self._on_feedback)
         self.cli_sig = self.create_client(Trigger, self.p("signal_start_srv"))
-        self.cli_bar = self.create_client(Trigger, self.p("barcode_start_srv"))
+        self.cli_perc = self.create_client(SetPerceptionMode, self.p("perception_mode_srv"))
 
         self._new_state()
         self.armed = not self.p("require_arm_button")
@@ -161,10 +162,9 @@ class MissionFsm(Node):
         self.t_progress = time.monotonic()
         self.obs_requested = False
         self.sig_called = False
-        self.bar_called = False
+        self.perc_called = False
         self.t_obs = 0.0
         self.t_obs_call = 0.0
-        self.barcode_tries = 0
         self.initpose_sent = False
         self.estop = False
 
@@ -232,7 +232,7 @@ class MissionFsm(Node):
             "steps": [s.to_dict() for s in self.steps], "si": self.si, "survey_round": self.survey_round,
             "survey_targets": self.survey_targets, "plan_count": self.plan_count, "partial": self.partial,
             "verify_results": self.verify_results, "fail_reason": self.fail_reason,
-            "robot_mm": self.robot_mm, "barcode_tries": self.barcode_tries})
+            "robot_mm": self.robot_mm})
 
     def _try_resume(self):
         if not self.p("resume_enabled"):
@@ -253,7 +253,7 @@ class MissionFsm(Node):
         self.survey_round, self.survey_targets = cp["survey_round"], cp["survey_targets"]
         self.plan_count, self.partial = cp["plan_count"], cp["partial"]
         self.verify_results, self.fail_reason = cp["verify_results"], cp["fail_reason"]
-        self.robot_mm, self.barcode_tries = cp["robot_mm"], cp["barcode_tries"]
+        self.robot_mm = cp["robot_mm"]
         target = resume_entry(cp["phase"], self.signal is not None, self.barcode is not None)
         self.phase = Phase(cp["phase"])
         if target in TERMINAL:
@@ -307,34 +307,39 @@ class MissionFsm(Node):
         if r.get("status") == "confirmed":
             self.signal = r
             self._log("signal_confirmed", sequence=r["sequence"], counts=r["counts"],
-                      first_image_stamp=r.get("first_image_stamp"), start_cmd=self.t_start_cmd)
+                      first_sample_stamp=r.get("first_sample_stamp"), start_cmd=self.t_start_cmd)
             self._beep(BEEP_MILESTONE)
         else:
             self._enter(Phase.SAFE_STOP, f"signal_failed:{r.get('reason')}")
 
-    def _on_barcode(self, msg: String):
+    def _on_barcode(self, msg: BarcodeArray):
         if self.phase != Phase.OBSERVE or not self.obs_requested or self.barcode is not None:
             return
-        r = json.loads(msg.data)
-        if r.get("status") == "confirmed":
-            self.barcode = r
-            self._log("barcode_confirmed", code=r["code"])
-        elif r.get("status") == "unregistered":
-            self._enter(Phase.SAFE_STOP, f"unregistered_barcode:{r.get('code')}")
-        else:
-            self.barcode_tries += 1
-            if self.barcode_tries > self.p("barcode_retries"):
-                self._enter(Phase.SAFE_STOP, "barcode_failed")
-            else:
-                self._log("barcode_retry", n=self.barcode_tries)
-                self._call(self.cli_bar)
+        bmap = dict(s.split(":") for s in self.p("barcode_map"))
+        for c in msg.codes:
+            if c.confidence < 1.0:       # 인지 쪽 연속 판독 확정 전
+                continue
+            if c.data not in bmap:
+                self._enter(Phase.SAFE_STOP, f"unregistered_barcode:{c.data}")
+                return
+            self.barcode = {"status": "confirmed", "code": c.data}
+            self._log("barcode_confirmed", code=c.data)
+            return
 
-    def _on_obs(self, msg: PuckObservationArray):
+    def _on_obs(self, msg: PuckArray):
         if self.phase not in (Phase.SURVEY, Phase.VALIDATE):
             return
-        for o in msg.observations:
-            self.wm.observe(o.puck_id, o.color or None, o.shape or None, o.conf_color, o.conf_shape,
-                            o.box_id if o.box_id >= 0 else None, (o.x_mm, o.y_mm))
+        if msg.header.frame_id != self.p("map_frame"):
+            self._log("puck_frame_ignored", frame=msg.header.frame_id)
+            return
+        for o in msg.pucks:
+            if o.tag_id < 0:             # 태그 미확정 퍽은 ID가 없어 계획에 못 쓴다
+                continue
+            pos = self._from_map(o.position.x, o.position.y)
+            box = min(self.boxes, key=lambda k: math.hypot(self.boxes[k].center_mm[0] - pos[0],
+                                                          self.boxes[k].center_mm[1] - pos[1]))
+            self.wm.observe(o.tag_id, COLOR_NAME.get(o.color), SHAPE_NAME.get(o.shape),
+                            o.confidence, o.confidence, box, pos)
 
     def _on_estop(self, msg: Bool):
         if msg.data and not self.estop:
@@ -354,9 +359,9 @@ class MissionFsm(Node):
     def _on_feedback(self, fb):
         self.t_progress = time.monotonic()
 
-    def _call(self, cli):
+    def _call(self, cli, req=None):
         if cli.service_is_ready():
-            cli.call_async(Trigger.Request())
+            cli.call_async(req or Trigger.Request())
             return True
         self._log("service_unavailable", srv=cli.srv_name)
         return False
@@ -377,6 +382,12 @@ class MissionFsm(Node):
         tx, ty, th = self.p("arena_to_map")
         c, s = math.cos(th), math.sin(th)
         return ((c * x_mm - s * y_mm + tx) / 1000.0, (s * x_mm + c * y_mm + ty) / 1000.0, yaw + th)
+
+    def _from_map(self, x_m, y_m):
+        tx, ty, th = self.p("arena_to_map")
+        dx, dy = x_m * 1000.0 - tx, y_m * 1000.0 - ty
+        c, s = math.cos(th), math.sin(th)
+        return (c * dx + s * dy, -s * dx + c * dy)
 
     def _pose(self, x_mm, y_mm, yaw=0.0, z=0.0) -> Pose:
         x, y, th = self._to_map(x_mm, y_mm, yaw)
@@ -431,7 +442,7 @@ class MissionFsm(Node):
             else:
                 self.obs_requested, self.t_obs, self.t_obs_call = True, time.monotonic(), 0.0
                 self.sig_called = self.signal is not None
-                self.bar_called = self.barcode is not None
+                self.perc_called = False
                 self._log("observe_requested")
         if self.signal and self.barcode:
             self._enter(Phase.DECODE)
@@ -439,8 +450,9 @@ class MissionFsm(Node):
         now = time.monotonic()
         if self.obs_requested and now - self.t_obs_call >= self.p("observe_call_retry_s"):
             self.t_obs_call = now           # 서비스가 아직 안 떠 있으면 주기적으로 재호출
-            if not self.bar_called:
-                self.bar_called = self._call(self.cli_bar)
+            if not self.perc_called:     # 바코드·신호등·퍽 검출을 켠다 (PR #22 인지 모드)
+                self.perc_called = self._call(self.cli_perc, SetPerceptionMode.Request(
+                    mode=PerceptionState.MODE_NAVIGATE, enable_gripper=False))
             if not self.sig_called:
                 self.sig_called = self._call(self.cli_sig)
         if self.obs_requested and now - self.t_obs > self.p("observe_timeout_s"):

@@ -3,19 +3,14 @@
 <package format="3">
   <name>nz2_signal</name>
   <version>0.1.0</version>
-  <description>NZ2 신호등(무한루프 12회 점멸) 판독과 바코드(Code 128) 판독</description>
+  <description>NZ2 신호등 무한루프 12회 점멸 해독. 입력은 nz2_perception의 /perception/traffic_light (PR #22 계약)</description>
   <maintainer email="nz2@example.com">NZ2</maintainer>
   <license>MIT</license>
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>std_srvs</exec_depend>
-  <exec_depend>sensor_msgs</exec_depend>
-  <exec_depend>vision_msgs</exec_depend>
-  <exec_depend>cv_bridge</exec_depend>
-  <exec_depend>python3-opencv</exec_depend>
-  <exec_depend>python3-numpy</exec_depend>
-  <!-- 바코드 디코더: python3-pyzbar (apt, libzbar0 포함). rosdep 키 존재 여부 [확인] -->
+  <exec_depend>nz2_interfaces</exec_depend>
 
   <test_depend>python3-pytest</test_depend>
 

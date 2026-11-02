@@ -138,7 +138,7 @@ lv2-nz2-project2/
 | Dynamixel2Arduino | 0.8.1 | 소스 (커밋 `cfbbaf7`) | Jetson · OpenCR 펌웨어 |
 | arm-none-eabi-g++ | 13.2.1 | apt (`gcc-arm-none-eabi`) | Jetson · OpenCR 펌웨어 컴파일러 |
 | opencr_ld | 커밋 `68ec75d` | 소스 빌드 (OpenCR 저장소) | Jetson · OpenCR 펌웨어 업로드 |
-| pyzbar | 0.1.9 (apt 후보값, Jetson 설치 후 `apt policy`로 확인) | apt `python3-pyzbar` (`libzbar0t64` 함께 설치) | Jetson · 바코드 판독 (nz2_signal) |
+| pyzbar | 0.1.9 (apt 후보값, Jetson 설치 후 `apt policy`로 확인) | apt `python3-pyzbar` (`libzbar0t64` 함께 설치) | Jetson · 바코드 판독 (nz2_perception) |
 | pytest | 7.4.4 | apt `python3-pytest` | 개발 PC · 코어 단위 테스트 (nz2_signal, nz2_mission) |
 | dynamixel-sdk (pip) | `[확인 필요]` | pip (`tools/arm_motor_range_check/requirements.txt`) | 개발 PC · 팔 가동범위 측정 도구 |
 | pyserial | `[확인 필요]` | pip (`tools/arm_motor_range_check/requirements.txt`) | 개발 PC · 팔 가동범위 측정 도구 |

@@ -17,13 +17,12 @@ setup(
     zip_safe=True,
     maintainer="NZ2",
     maintainer_email="nz2@example.com",
-    description="NZ2 신호등·바코드 판독",
+    description="NZ2 신호 점멸 해독 (perception TrafficLight → K회 투표)",
     license="MIT",
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
             "signal_decoder_node = nz2_signal.signal_decoder_node:main",
-            "barcode_reader_node = nz2_signal.barcode_reader_node:main",
         ],
     },
 )

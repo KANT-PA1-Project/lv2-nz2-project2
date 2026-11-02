@@ -19,7 +19,6 @@ mission_fsm:
     no_progress_s: 30.0               # 심판 '동작 불능' 기준보다 짧게 [확인]
     observe_timeout_s: 300.0
     observe_call_retry_s: 2.0
-    barcode_retries: 2
     timeout_nav_s: 60.0
     timeout_arm_s: 20.0
     timeout_init_s: 30.0
@@ -35,4 +34,4 @@ mission_fsm:
     dry_signal_sequence: RGRRGRGGYGYG
     dry_barcode: P2-01
     signal_start_srv: /signal_decoder/start
-    barcode_start_srv: /barcode_reader/start
+    perception_mode_srv: /perception/set_mode
