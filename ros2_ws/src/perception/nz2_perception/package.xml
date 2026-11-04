@@ -2,22 +2,46 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>nz2_perception</name>
-  <version>0.0.0</version>
-  <description>NZ2 인지 레이어: 퍽·태그·신호등 인식 (스켈레톤)</description>
-  <maintainer email="ckhy2k@gmail.com">천경호</maintainer>
+  <version>0.0.1</version>
+  <description>NZ2 인지 노드: YOLO(TensorRT/OpenCV) 검출, AprilTag, 퍽 등록·추적, 신호등 프레임 판정, 바코드, 상태 집계</description>
+  <maintainer email="chj021216@gmail.com">nz2</maintainer>
   <license>MIT</license>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>vision_msgs</depend>
+  <exec_depend>visualization_msgs</exec_depend>   <!-- puck_registry RViz 마커 -->
+  <depend>nz2_interfaces</depend>
+  <depend>cv_bridge</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+
+  <depend>tf2</depend>
+  <depend>libopencv-dev</depend>
+  <depend>libzbar-dev</depend>
+  <exec_depend>std_srvs</exec_depend>
+
+  <!-- [수정 2026-10-24] isaac_ros_apriltag_interfaces 를 의존성에서 뺌.
+       Isaac ROS 가 없는 PC 에서 rosdep install 이 이 키를 못 찾아 에러가 났음.
+       shelf_detector 는 CMake 가 찾으면(QUIET) 빌드하고, 없으면 그 노드만 빠진다. -->
+
+  <!-- TensorRT·CUDA 는 rosdep 키가 없어 CMake 가 직접 찾는다 (없으면 OpenCV DNN 백엔드만 빌드) -->
+
+  <!-- yolo_detector.py (PC 테스트용). ultralytics 는 rosdep 키가 없어 yolo_env 에서 실행 -->
   <exec_depend>rclpy</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
-  <exec_depend>sensor_msgs</exec_depend>
-  <exec_depend>geometry_msgs</exec_depend>
-  <exec_depend>vision_msgs</exec_depend>
-  <exec_depend>nz2_interfaces</exec_depend>
+  <exec_depend>rcl_interfaces</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>   <!-- puck_registry 디버그 영상 -->
+
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
-  <exec_depend>realsense2_camera</exec_depend>
+  <exec_depend>ros2launch</exec_depend>
 
   <export>
-    <build_type>ament_python</build_type>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>
