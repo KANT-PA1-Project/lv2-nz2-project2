@@ -2,6 +2,126 @@
   "schema": 1,
   "models": [
     {
+      "path": "models/candidates/local-arm-gamma999/STATUS.md",
+      "bytes": 246,
+      "sha256": "e828845915a56925732a9fb268be5ac452e9202414e7345a7f08a6d389bb01f2",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/bounded_completion.json",
+      "bytes": 112,
+      "sha256": "f12d538bfa4076229f9cf96584dc6d780dafce4cdb67a8316b7bf511e60b2293",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/evaluation.json",
+      "bytes": 489,
+      "sha256": "9cd9bf0771163a5fe98c868b60d9d8ad0aeaa66f762f08fe47c649702a6ca3d1",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/evaluation_manifest.json",
+      "bytes": 773,
+      "sha256": "870f47998463a5e19b079e332e652372ec1616660a14396b3738c9327c11f092",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/exported/policy.onnx",
+      "bytes": 9636,
+      "sha256": "0e814b66ad46641789d8ea02f37faf98f8e9004517d9482281322709eabaae2d",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/exported/policy.pt",
+      "bytes": 37686,
+      "sha256": "90ff472cc0888e10152088322a174c8410a2e3518f287c8439dc1067ad87bc99",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/model_101.pt",
+      "bytes": 168315,
+      "sha256": "153905b03a1a1789d66d0356318f6dc2a0f8adf59741c7a59de0df9b56f1a838",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/progress.json",
+      "bytes": 366,
+      "sha256": "04031539467611ea07ce1190fc3dee827cbf3afb43d050b95a13e525c8ed0816",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/validation.json",
+      "bytes": 190,
+      "sha256": "f3cba487097d3c8c58928a7806a687b4f67360d444e597c7db7f9e32d7789ddc",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/STATUS.md",
+      "bytes": 246,
+      "sha256": "e828845915a56925732a9fb268be5ac452e9202414e7345a7f08a6d389bb01f2",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/bounded_completion.json",
+      "bytes": 112,
+      "sha256": "f12d538bfa4076229f9cf96584dc6d780dafce4cdb67a8316b7bf511e60b2293",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/evaluation.json",
+      "bytes": 491,
+      "sha256": "0fd9f6fb18d7be1c86296e4510627c0201f21a896114956ed2871b309ec40b9f",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/evaluation_manifest.json",
+      "bytes": 689,
+      "sha256": "62b8624e82aab2803f73b159b01c3a94868b96f5f343577f002667db23f75012",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/exported/policy.onnx",
+      "bytes": 8906,
+      "sha256": "09b750fe70a7961b0c8e92049b6b8711c8f77e1513abfa041f74fa4cfbb6f349",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/exported/policy.pt",
+      "bytes": 37750,
+      "sha256": "7c06277073dcfba9645620ad1a6cd4d7d63468572d475921cf6fbb93048404bb",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/model_101.pt",
+      "bytes": 168315,
+      "sha256": "f75ebef53997c2e249c6304a580b8c2e917d277c77dd3639675fd73bc054982e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/native_thresholds.json",
+      "bytes": 476,
+      "sha256": "5259d6ceead189faadb31f2c8835854b52ba52629caa1f11fc21a8aed11c7445",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/progress.json",
+      "bytes": 207,
+      "sha256": "0da10a0c350223ba737c0a8532bb84b35fbfb5dcbfc263b6103487d7a8e6bf00",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/settling_stats.json",
+      "bytes": 654,
+      "sha256": "98f59fa21967e85863d370591c2a6b9c1712642d6e1353dce6b2eaf744958f03",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/validation.json",
+      "bytes": 190,
+      "sha256": "f3cba487097d3c8c58928a7806a687b4f67360d444e597c7db7f9e32d7789ddc",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
       "path": "models/navigation/maze_grid.npz",
       "bytes": 698982,
       "sha256": "43ab67bb832e74c8e0f9eb532911b525010142e7677ec11d9e6e9846f1a843cc",

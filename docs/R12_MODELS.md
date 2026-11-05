@@ -43,3 +43,7 @@ python3 -m venv .venv
 ```
 
 전체 미션 실행·센서 수신·GPU 물리·추론 검증은 위 CPU 시험으로 대체할 수 없다. 모델 권리/출처는 기존 소스 LICENSE와 vendor/학습 모델의 원래 조건을 따른다. 이 스냅샷은 새로운 사용권을 부여하지 않는다.
+
+## 최신 팔 평가 후보
+
+`models/candidates/local-arm-gamma999/`와 `models/candidates/pa28-arm-v145/`에 최신 평가 checkpoint·export·검증 결과를 별도 포함했다. 기존 호환 모델을 교체하지 않았으며 자동 승격 금지다.
