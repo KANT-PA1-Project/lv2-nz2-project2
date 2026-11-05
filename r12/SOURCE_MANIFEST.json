@@ -3484,6 +3484,70 @@
       "sha256": "11d01b277e0b516d65ad3f5933819a8592bf2533c9f9b0e0623f939be1dd288a"
     },
     {
+      "path": "experiments/pa28-v159-failed/bench.py",
+      "sha256": "2d1abac9120e88df332de5fe881ffe152d03e65ab96cfacf1aa432b533f7b043"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/experiment_manifest.json",
+      "sha256": "7c24512d34465e4a5ffc6bc306be7c5ac168ef19da251e9f093c43311fb84e27"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/minimal.kit",
+      "sha256": "8258fe6e29a1202433ced5568a56b0e8acfe9fdb42d83b1654259657a3cbd458"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/after_close.json",
+      "sha256": "041e887e8cd3a0f3574bf0530938ec69f98855f19c92e7f9a9a4bb660550345a"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/before_close.json",
+      "sha256": "ab871cdfc40d171632b5ddbf72a22fcb64200852a6b70e13e5bce4a00aec39e9"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/exit_status.json",
+      "sha256": "43e078f7a040eab3e953887d0ac1ea78ed622a48cd17d35ba4ea8be663cbc02c"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/experiment_manifest.json",
+      "sha256": "7c24512d34465e4a5ffc6bc306be7c5ac168ef19da251e9f093c43311fb84e27"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/extension_readback.json",
+      "sha256": "d64c7edf4ba3a298200e8ce6aad1d15a9df560122d485f7b9cc6fa75c071e2cd"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/invocation.json",
+      "sha256": "831ca2f030e4b26e4ba49b54258224120495dc040edcbf7c0db10077938e81ce"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/owned_pids.json",
+      "sha256": "515d26349d2c66dbcd04b25d4c4640289c3d3032342e3f7120957e79123f1b2e"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/pre_close_extension_release.json",
+      "sha256": "6ac965923e6d633e946a3a063f21911e8f6a9f98b5af46904b61eefb0910086c"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/result.json",
+      "sha256": "b559f8a7bf0c06b81b5b8d6ece0aa6bac234a55c2c8fd05f223ad2f3fa526b00"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/source_manifest.json",
+      "sha256": "262deb96d3c3cd32a6465f93c3561616faa9114e9962a8a611445eea345ee4e2"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/result/supervisor_result.json",
+      "sha256": "5d571fb0317d215733d10d46f93d7f11016faff83741c0dea7ada8a82e2d6f97"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/source_manifest.json",
+      "sha256": "262deb96d3c3cd32a6465f93c3561616faa9114e9962a8a611445eea345ee4e2"
+    },
+    {
+      "path": "experiments/pa28-v159-failed/supervise.py",
+      "sha256": "aaf6c2aa492dad1c9ef50924b3e4a7900b1fb2b6970724cb784e7f89eb9c2e0b"
+    },
+    {
       "path": "experiments/pa33-v135/change_manifest.json",
       "sha256": "f6b2b41cd84f442261eeaa43d4572afd49412aadc7aa989390f8eaab6c1f1a01"
     },
@@ -6370,6 +6434,70 @@
     {
       "path": "experiments/pa33-v135/torque_parity.py",
       "sha256": "7266a8554121d2d5fa1e588914fd91baec9f4f6abeac6170766d5f0f92b6b093"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/dependencies.json",
+      "sha256": "0feef093ad937113b4602794b5d5cf745227a1475604d0fc8c58c672ee3adc8f"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/native_live_decoder.py",
+      "sha256": "ccd4cc09b7bf84e006657726dd5f5cedac4b24b48dd6313ee99ef1ab3d31b931"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/native_ros_publisher.py",
+      "sha256": "5dfb259a3223f39eaadc288d98f99e26d2ce3fe149f52a7f5b19e3d9c27cab4c"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/association.py",
+      "sha256": "0c132f95d260ef5d93a6e9de5863b2b108396ca85804b17a86f17c80f76a703f"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/combine.py",
+      "sha256": "eceabaa87b949b967bb36f22badca3a3bef29f9bdd0b1c9faa360272dd639107"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/dual_plane.py",
+      "sha256": "aace96d009092418c1c818b9341e3aa8874d1457fe2ccb8b8c3b38e3c1e716ca"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/live_decode_bridge.py",
+      "sha256": "8e7455a727cd80f352ddb1c3af568e5c70990fdba2684c6a9347a7a4861c0a50"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/live_publication_bridge.py",
+      "sha256": "e5e147ed8f7122eeedccaafed7b8a5b544beff534f2503e12361ee682b190e00"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/live_shadow_inputs.py",
+      "sha256": "d47be75f4f822b455b26f5c1362acb7b70d9d2a37fcc9dd37ab74658301e1400"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/priority_feedback_bridge.py",
+      "sha256": "3b324c1d181ac05a2ffd8e52eddee0648961b72ff7da5e73faef4a507c7e5c44"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/publication_rpc_wait.py",
+      "sha256": "dd410cf63e1c0ca5409b1f42a7a019a7d2bae19d6b18d9d83da9e3c17ea49b2e"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/overlay/arm_practice/native_rgbd/runtime_prepare.py",
+      "sha256": "c491ff37ccd07d77eb4da761db04156b68449ce3b27c6789c3f1d673ef4a8e22"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/priority_feedback_consumer.py",
+      "sha256": "a793421cb7c4d31cf822e8e461197c0f35c357138a9a554a122fc87ddfb9b645"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/reference_configs/mixed_camera_schema.json",
+      "sha256": "9a72afb847cb394c9b4a216e8e37a3b404fe969e50d786cb0163283ccf18c002"
+    },
+    {
+      "path": "experiments/pa33-v136-incomplete/reference_configs/r12_tcp_calibration.json",
+      "sha256": "fbda76490b103d14b18d35d4b245c4e5673ae71de0a0ff080d236d3754a88c9a"
+    },
+    {
+      "path": "tools/verify_model_manifest.py",
+      "sha256": "f4dbc1c62af2c3bf2cacb657601aa8b111b13a74d584f98230176bb3e5b98157"
     }
   ]
 }

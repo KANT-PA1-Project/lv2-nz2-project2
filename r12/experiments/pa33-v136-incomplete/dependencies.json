@@ -1,0 +1,57 @@
+{
+  "base": "/home/seongmin/Documents/Codex/2026-10-30/https-github-com-seongminjaden-manipulator-isaac61/outputs/r12/fleet_parallel_development_20261104/pa33/callback_native_v135",
+  "overlay_modules": [
+    "association.py",
+    "combine.py",
+    "dual_plane.py",
+    "live_decode_bridge.py",
+    "live_publication_bridge.py",
+    "live_shadow_inputs.py",
+    "priority_feedback_bridge.py",
+    "publication_rpc_wait.py"
+  ],
+  "existing_shared_core": {
+    "semantic_candidate.py": {
+      "shared_sha256": "6c5752ab595b521686302ef82fddeb37aa41ab628ca5b8a5802d256aef6fade5",
+      "v135_sha256": "6c5752ab595b521686302ef82fddeb37aa41ab628ca5b8a5802d256aef6fade5"
+    },
+    "pick_sensor_adapter.py": {
+      "shared_sha256": "314395c34d605e347e1939cbed809a8d0dbe8a35e8ca86eefb62803b237152a9",
+      "v135_sha256": "1c17b0f0bdc069c2f410673bf3278b35e03c17049de074b2dc4d404813f27851"
+    },
+    "camera_geometry.py": {
+      "shared_sha256": "1d4f73c5fc18ea258811e0f636d580a7ff44fdfe9a1b6b79f7b68406d0793d57",
+      "v135_sha256": "887aae526f7f2d09ce9f3e54bc05c933a507d92998284b82d21bc30f67aab563"
+    },
+    "trusted_capture_ipc.py": {
+      "shared_sha256": "45e74b040ee1fc912d5d1f22f09d64d8d7d935de044684d8d5b980d5f19bb206",
+      "v135_sha256": "1ab6345f4badd7593d7da78a9ed82aab8f5ad7d642eb25b3724c05ebe77d44d6"
+    },
+    "mixed_camera_schema.py": {
+      "shared_sha256": "f6facbc54d781c9a668feeea1460285714a626ff3ce127a3841c2aeab54bd298",
+      "v135_sha256": "f6facbc54d781c9a668feeea1460285714a626ff3ce127a3841c2aeab54bd298"
+    },
+    "renderer_epoch_issuer.py": {
+      "shared_sha256": "a4d9f380aa5c72bd165be95cd7edcea4097ebc6d58d758a6f70620bf7d681f24",
+      "v135_sha256": "305025cfd7f5d40d0d5d2611f2396e423cc50925f704dd9caa228ef546dcf791"
+    },
+    "settling_window.py": {
+      "shared_sha256": "fbf5807a9fb86174a95f49e7badaae79c5abb7f8418a7b8c85a596f3865d75a7",
+      "v135_sha256": "fbf5807a9fb86174a95f49e7badaae79c5abb7f8418a7b8c85a596f3865d75a7"
+    },
+    "separated_sensor_inputs.py": {
+      "shared_sha256": "447adbcfc6c6b559ff321bc1697f556cc6ba73904d258f0ea601bd9848dc50e5",
+      "v135_sha256": "447adbcfc6c6b559ff321bc1697f556cc6ba73904d258f0ea601bd9848dc50e5"
+    }
+  },
+  "external": [
+    "numpy",
+    "scipy",
+    "ROS lyrical/rclpy sensor_msgs geometry_msgs tf2_msgs rosgraph_msgs std_msgs",
+    "decoder venv: torch cv2 ultralytics train_centerpose detector deps",
+    "pinned perception weights and historical warmup npz",
+    "configs/sensors/camera_rig.json and models/r12/r12_arm.urdf for FK",
+    "actual camera/schema hash source scripts/sensor_runtime/camera_rig.py"
+  ],
+  "physics_fixture_copied": false
+}

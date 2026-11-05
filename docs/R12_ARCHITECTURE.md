@@ -70,3 +70,5 @@ sequenceDiagram
 ## 실행 분리
 
 현재 로컬만 실행한다. 원격 재개 승인 시의 예약 allocation은 local87/표시88, pa24 24/25, pa33 33/34, pa28 28/29이며 DDS는 호스트 사이를 연결하지 않는다. 파일·포트·모델·실험 잠금은 호스트별 분리한다. 이 allocation 표는 현재 원격 기동 권한이 아니다.
+
+최신 중단 시점의 추가 소스: `experiments/pa33-v136-incomplete/`는 미완성·실행 금지 패키지이며, `experiments/pa28-v159-failed/`는 종료 충돌 진단 실패본이다. v135/v152 등 비교 원본과 분리해 보존했다.

@@ -1,0 +1,6 @@
+Stopped at latest user instruction: local only; no remote relaunch.
+This v136 package is unfinished and NOT validated/integrated.
+Completed: dependencies.json read-only dependency inventory; overlay runtime-only missing modules copied from v135; child process entrypoints copied; RuntimePublicationPrepare prototype added, no CPU tests yet.
+Remaining: remove/parameterize pa33-only launch paths/domain/model+warmup locations; dependency mismatch review against current shared core; connect actual postcapture physical/currentfeedback/IMU callbacks; verify identity/freshness/failure lifetime and cleanup; CPU integration tests; only local future native validation under user instruction.
+No physics scene/world anchor/support setup copied. Do not execute this package as a complete runtime. Current child entrypoints and launcher adapters still refer to pa33: these are reference files, not portable local executables.
+Latest proven full source snapshot remains callback_native_v135 and v135_results. v136 cannot claim v135 native validation.
