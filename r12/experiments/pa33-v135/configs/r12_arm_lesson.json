@@ -1,0 +1,38 @@
+{
+  "source": "https://docs.google.com/presentation/d/19Cm20IOrMMtM20Oa2HlBS0TIKsHxAHagd9Dd_-BGxNg/edit#slide=id.p61",
+  "source_revision": "z7PeBnh7uWJM0A",
+  "planning": "MoveIt 2 OMPL baseline, cuMotion with R12 URDF/XRDF",
+  "final_correction": "MoveIt Servo using fresh transformed object pose",
+  "learning": "Isaac Lab PPO; compare against planner on held-out identical targets",
+  "control_ownership": [
+    "hold",
+    "planner",
+    "servo",
+    "policy"
+  ],
+  "mode_switch_stationary_rad_s": 0.02,
+  "command_feedback_timeout_s": 0.25,
+  "tcp": "grasp_tcp",
+  "tcp_calibration": "CAD only; physical calibration unverified",
+  "gripper_actuated": true,
+  "task_stages": [
+    "observe",
+    "approach",
+    "close_and_confirm",
+    "lift_and_confirm_retention",
+    "transport",
+    "release",
+    "retreat",
+    "vision_verify"
+  ],
+  "pick_place_ready": false,
+  "unresolved": [
+    "Perception to map/base TF and uncertainty gating",
+    "Collision checked plans using observed objects",
+    "Physical grasp and release evidence",
+    "Planner/Servo/arm policy comparison in integrated GUI"
+  ],
+  "gripper_hardware": "User confirmed standard OpenMANIPULATOR-X / XM430-W350-T",
+  "gripper_model_config": "configs/r12_gripper.json",
+  "gripper_simulation_contact_diagnostic": "passed; assumed mass/friction/force, not physical validation"
+}

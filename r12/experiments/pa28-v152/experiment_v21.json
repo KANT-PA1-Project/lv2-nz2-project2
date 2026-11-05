@@ -1,0 +1,14 @@
+{
+  "baseline": "pa24_full_unit_v20b_full_20261105",
+  "hypothesis": "Increasing object/support initial tool-X offset2mm may increase nonpad clearance reserve without reducing physical retention.",
+  "changed_factor": {
+    "fixture_tool_x_offset_m": [
+      0.0045,
+      0.0065
+    ]
+  },
+  "seed": 2408,
+  "wall_budget_s": 900,
+  "disk_budget_bytes": 800000000,
+  "scope": "Anchored cuboid unit, not sensor mission or uncertainty certificate"
+}

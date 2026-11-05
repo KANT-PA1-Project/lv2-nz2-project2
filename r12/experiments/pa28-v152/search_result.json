@@ -1,0 +1,914 @@
+{
+  "scope": "Isolated bench only, not mission table. Search FK-defined setup; no control commands; support10-30mm; puck30mm diameter60mm tall. Open/closed pad-only intended contact exemption; 3cm environment separation conservatively screened via inflated OBB. Sampled paths, not continuous/uncertainty/native certificate.",
+  "checks": [
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.49113839238344553
+      ],
+      "support_side_m": 0.01,
+      "tcp_above_center_m": 0.008,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": true
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.49113839238344553
+      ],
+      "support_side_m": 0.02,
+      "tcp_above_center_m": 0.008,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": [
+            {
+              "sample": 15,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": false
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.49113839238344553
+      ],
+      "support_side_m": 0.03,
+      "tcp_above_center_m": 0.008,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": [
+            {
+              "sample": 15,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            },
+            {
+              "sample": 16,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            },
+            {
+              "sample": 17,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "lift",
+          "q": [
+            -1.0588268471197088e-18,
+            0.15786751582061723,
+            -0.10569097371106662,
+            -0.05217654311148091,
+            -0.0961324637355307
+          ],
+          "position_error_m": 9.516462317701038e-11,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": false
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.48713839238344553
+      ],
+      "support_side_m": 0.01,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": true
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.48713839238344553
+      ],
+      "support_side_m": 0.02,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": true
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.48713839238344553
+      ],
+      "support_side_m": 0.03,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": true
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.3,
+        -0.3,
+        0.0,
+        0.0
+      ],
+      "center": [
+        0.31423863337172653,
+        0.0,
+        0.5107118719475249
+      ],
+      "support_side_m": 0.01,
+      "tcp_above_center_m": 0.008,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.3499998999999999,
+            -0.14722355412023166,
+            -0.3499998999999999,
+            0.0
+          ],
+          "position_error_m": 0.025713413194935086,
+          "axis_error_deg": 8.43528829600526,
+          "samples": 15,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.2839950994584818,
+            -0.08459824391246995,
+            -0.19939675628964024,
+            0.0
+          ],
+          "position_error_m": 1.0561980991247939e-08,
+          "axis_error_deg": 6.097163388881822e-06,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": false
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.3,
+        -0.3,
+        0.0,
+        0.0
+      ],
+      "center": [
+        0.31423863337172653,
+        0.0,
+        0.5107118719475249
+      ],
+      "support_side_m": 0.02,
+      "tcp_above_center_m": 0.008,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.3499998999999999,
+            -0.14722355412023166,
+            -0.3499998999999999,
+            0.0
+          ],
+          "position_error_m": 0.025713413194935086,
+          "axis_error_deg": 8.43528829600526,
+          "samples": 15,
+          "bad_samples": [
+            {
+              "sample": 11,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            },
+            {
+              "sample": 12,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            },
+            {
+              "sample": 13,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.2839950994584818,
+            -0.08459824391246995,
+            -0.19939675628964024,
+            0.0
+          ],
+          "position_error_m": 1.0561980991247939e-08,
+          "axis_error_deg": 6.097163388881822e-06,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": false
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.3,
+        -0.3,
+        0.0,
+        0.0
+      ],
+      "center": [
+        0.31423863337172653,
+        0.0,
+        0.5107118719475249
+      ],
+      "support_side_m": 0.03,
+      "tcp_above_center_m": 0.008,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.3499998999999999,
+            -0.14722355412023166,
+            -0.3499998999999999,
+            0.0
+          ],
+          "position_error_m": 0.025713413194935086,
+          "axis_error_deg": 8.43528829600526,
+          "samples": 15,
+          "bad_samples": [
+            {
+              "sample": 11,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            },
+            {
+              "sample": 12,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            },
+            {
+              "sample": 13,
+              "hits": [
+                [
+                  "/Robot/gripper_left/pad_collision",
+                  "support_3cm"
+                ],
+                [
+                  "/Robot/gripper_right/pad_collision",
+                  "support_3cm"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "lift",
+          "q": [
+            -2.1669754950283087e-19,
+            0.28399505837980066,
+            -0.08459810984142692,
+            -0.19939689780700875,
+            -0.22007468125597757
+          ],
+          "position_error_m": 3.7846027589377705e-09,
+          "axis_error_deg": 3.306651113363206e-06,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": false
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.3,
+        -0.3,
+        0.0,
+        0.0
+      ],
+      "center": [
+        0.31423863337172653,
+        0.0,
+        0.5067118719475249
+      ],
+      "support_side_m": 0.01,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.3499998999999999,
+            -0.14722355412023166,
+            -0.3499998999999999,
+            0.0
+          ],
+          "position_error_m": 0.025713413194935086,
+          "axis_error_deg": 8.43528829600526,
+          "samples": 15,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            8.809156977162073e-23,
+            0.28399500628545427,
+            -0.08459784120891059,
+            -0.1993972344814671,
+            0.2532346767810386
+          ],
+          "position_error_m": 7.071383932401777e-09,
+          "axis_error_deg": 4.353408482428142e-06,
+          "samples": 12,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": false
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.3,
+        -0.3,
+        0.0,
+        0.0
+      ],
+      "center": [
+        0.31423863337172653,
+        0.0,
+        0.5067118719475249
+      ],
+      "support_side_m": 0.02,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.3499998999999999,
+            -0.14722355412023166,
+            -0.3499998999999999,
+            0.0
+          ],
+          "position_error_m": 0.025713413194935086,
+          "axis_error_deg": 8.43528829600526,
+          "samples": 15,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            -7.395684408552394e-20,
+            0.2839950385943809,
+            -0.08459797552343755,
+            -0.19939707747127514,
+            0.2604959577180703
+          ],
+          "position_error_m": 1.0756686280091907e-09,
+          "axis_error_deg": 1.4787793334710982e-06,
+          "samples": 12,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": false
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.3,
+        -0.3,
+        0.0,
+        0.0
+      ],
+      "center": [
+        0.31423863337172653,
+        0.0,
+        0.5067118719475249
+      ],
+      "support_side_m": 0.03,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.3499998999999999,
+            -0.14722355412023166,
+            -0.3499998999999999,
+            0.0
+          ],
+          "position_error_m": 0.025713413194935086,
+          "axis_error_deg": 8.43528829600526,
+          "samples": 15,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.2839950994584818,
+            -0.08459824391246995,
+            -0.19939675628964024,
+            0.0
+          ],
+          "position_error_m": 1.0561980991247939e-08,
+          "axis_error_deg": 6.097163388881822e-06,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": false
+    }
+  ],
+  "survivors": [
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.49113839238344553
+      ],
+      "support_side_m": 0.01,
+      "tcp_above_center_m": 0.008,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": true
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.48713839238344553
+      ],
+      "support_side_m": 0.01,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": true
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.48713839238344553
+      ],
+      "support_side_m": 0.02,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": true
+    },
+    {
+      "q_grasp": [
+        0.0,
+        0.15,
+        -0.3,
+        0.15,
+        0.0
+      ],
+      "center": [
+        0.3404515697934848,
+        0.0,
+        0.48713839238344553
+      ],
+      "support_side_m": 0.03,
+      "tcp_above_center_m": 0.012,
+      "grasp_hits": [],
+      "stages": [
+        {
+          "stage": "pregrasp",
+          "q": [
+            0.0,
+            0.34465175559551103,
+            -0.20143811379486443,
+            -0.349988212478174,
+            0.0
+          ],
+          "position_error_m": 9.160038333252209e-11,
+          "axis_error_deg": 11.847310210451791,
+          "samples": 21,
+          "bad_samples": []
+        },
+        {
+          "stage": "lift",
+          "q": [
+            0.0,
+            0.1578675082058109,
+            -0.10569091880967896,
+            -0.052176615765720545,
+            0.0
+          ],
+          "position_error_m": 2.5621415926767567e-09,
+          "axis_error_deg": 0.0,
+          "samples": 10,
+          "bad_samples": []
+        }
+      ],
+      "partial_environment_clear": true
+    }
+  ],
+  "wall_s": 38.8775064329966,
+  "motion_authorized": false,
+  "native_smoke_ready": false,
+  "fsm_reference_slew_rad_s": 0.1,
+  "lqr_reference_slew_rad_s": 0.005
+}

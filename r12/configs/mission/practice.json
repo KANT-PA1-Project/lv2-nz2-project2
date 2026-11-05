@@ -1,0 +1,67 @@
+{
+  "description": "Synthetic practice inventory; Q1 signal only, not official placement.csv inventory",
+  "sequence": "RGRRGRGGYGYG",
+  "barcode": "P2-01",
+  "pucks": [
+    {
+      "id": 0,
+      "color": "R",
+      "shape": "cylinder"
+    },
+    {
+      "id": 1,
+      "color": "R",
+      "shape": "cuboid"
+    },
+    {
+      "id": 2,
+      "color": "R",
+      "shape": "cylinder"
+    },
+    {
+      "id": 3,
+      "color": "R",
+      "shape": "cuboid"
+    },
+    {
+      "id": 4,
+      "color": "R",
+      "shape": "cylinder"
+    },
+    {
+      "id": 5,
+      "color": "R",
+      "shape": "cuboid"
+    },
+    {
+      "id": 6,
+      "color": "G",
+      "shape": "cylinder"
+    },
+    {
+      "id": 7,
+      "color": "G",
+      "shape": "cuboid"
+    },
+    {
+      "id": 8,
+      "color": "G",
+      "shape": "cylinder"
+    },
+    {
+      "id": 9,
+      "color": "G",
+      "shape": "cuboid"
+    },
+    {
+      "id": 10,
+      "color": "G",
+      "shape": "cylinder"
+    },
+    {
+      "id": 11,
+      "color": "G",
+      "shape": "cuboid"
+    }
+  ]
+}

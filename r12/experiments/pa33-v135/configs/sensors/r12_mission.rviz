@@ -1,0 +1,134 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Fixed Frame: map
+    Background Color: 35; 38; 43
+    Frame Rate: 20
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 0.5
+      Plane Cell Count: 30
+    - Class: rviz_default_plugins/Marker
+      Name: Mission occupancy cells
+      Enabled: true
+      Topic:
+        Value: /r12/rviz/map
+        Durability Policy: Transient Local
+    - Class: rviz_default_plugins/Marker
+      Name: Costmap cells
+      Enabled: true
+      Topic:
+        Value: /r12/rviz/costmap
+        Durability Policy: Transient Local
+    - Class: rviz_default_plugins/PointCloud2
+      Name: Depth pointcloud (XYZ)
+      Enabled: true
+      Topic:
+        Value: /r12/points
+        Reliability Policy: Best Effort
+      Color Transformer: FlatColor
+      Color: 180; 190; 200
+      Position Transformer: XYZ
+      Style: Points
+      Size (Pixels): 2
+      Decay Time: 0
+    - Class: rviz_default_plugins/PointCloud2
+      Name: RGB fused pointcloud (XYZRGB)
+      Enabled: true
+      Topic:
+        Value: /r12/points_rgb
+        Reliability Policy: Best Effort
+      Color Transformer: RGB8
+      Position Transformer: XYZ
+      Style: Points
+      Size (Pixels): 3
+      Decay Time: 0
+    - Class: rviz_default_plugins/RobotModel
+      Name: R12 with moving gripper
+      Enabled: true
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+        Durability Policy: Transient Local
+      Visual Enabled: true
+      Collision Enabled: false
+    - Class: rviz_default_plugins/Path
+      Name: Nav2 plan
+      Enabled: true
+      Topic:
+        Value: /plan
+      Color: 0; 255; 140
+      Line Style: Lines
+      Line Width: 0.03
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: false
+    - Class: rviz_default_plugins/LaserScan
+      Name: Front right lidar
+      Enabled: true
+      Topic:
+        Value: /r12/lidar/front_right
+        Reliability Policy: Best Effort
+      Size (m): 0.025
+    - Class: rviz_default_plugins/LaserScan
+      Name: Rear left lidar
+      Enabled: true
+      Topic:
+        Value: /r12/lidar/rear_left
+        Reliability Policy: Best Effort
+      Size (m): 0.025
+    - Class: rviz_default_plugins/LaserScan
+      Name: Low front left lidar
+      Enabled: true
+      Topic:
+        Value: /r12/lidar/low_front_left
+        Reliability Policy: Best Effort
+      Size (m): 0.025
+    - Class: rviz_default_plugins/LaserScan
+      Name: Low rear right lidar
+      Enabled: true
+      Topic:
+        Value: /r12/lidar/low_rear_right
+        Reliability Policy: Best Effort
+      Size (m): 0.025
+    - Class: rviz_default_plugins/Image
+      Name: Upper camera 1
+      Enabled: true
+      Topic:
+        Value: /r12/stereo/left/image
+    - Class: rviz_default_plugins/Image
+      Name: Arm camera
+      Enabled: true
+      Topic:
+        Value: /r12/arm_camera/left/image
+    - Class: rviz_default_plugins/Image
+      Name: Upper camera 2
+      Enabled: false
+      Topic:
+        Value: /r12/r07_camera2/left/image
+    - Class: rviz_default_plugins/Image
+      Name: Upper camera 3
+      Enabled: false
+      Topic:
+        Value: /r12/r07_camera3/left/image
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 9
+      Focal Point: {X: 2.2, Y: 3.2, Z: 0}
+      Pitch: 1.1
+      Yaw: 0.8
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+Window Geometry:
+  Width: 1280
+  Height: 850

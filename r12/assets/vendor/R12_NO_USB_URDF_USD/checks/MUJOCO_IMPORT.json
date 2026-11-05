@@ -1,0 +1,5 @@
+{
+  "status": "NOT_RUN_ENVIRONMENT_BLOCKED",
+  "reason": "Windows application control blocked mujoco.dll loading (WinError 4551). No policy bypass attempted.",
+  "physics_pass": false
+}

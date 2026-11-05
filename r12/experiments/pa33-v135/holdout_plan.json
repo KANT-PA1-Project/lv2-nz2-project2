@@ -1,0 +1,14 @@
+{
+  "version": 90,
+  "distance_m": 0.31,
+  "yaw_deg": 40,
+  "epochs": 5,
+  "warmup": 2,
+  "measurement": 3,
+  "split": "new independent holdout; previous v87/88 used development",
+  "single_runtime_change": "bounded scale3 fallback only when1+2 lack two sameID agreed spatial tags",
+  "association": "v89 not integrated",
+  "camera_budget_ms": 500,
+  "encoder_budget_ms": 100,
+  "motion_authorized": false
+}

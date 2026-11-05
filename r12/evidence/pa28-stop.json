@@ -1,0 +1,36 @@
+{
+  "updated_at": 1793869457.6321754,
+  "reason": "User requests local-only execution; all remote R12 work stopped; no new remote runs",
+  "host": "pa28",
+  "Isaac_processes": 0,
+  "learner_processes": 0,
+  "R12_supervisors_or_drivers": 0,
+  "experiment_lock_owners": 0,
+  "tmux_sessions": 0,
+  "shared_process_preserved": {
+    "pid": 16249,
+    "command": "Omniverse Hub --mode=shared",
+    "old_inherited_run": "pa28_wrist_render_probe_v2_20261104",
+    "reason": "shared service, not active R12 simulator or experiment; do not kill by inherited env"
+  },
+  "latest_run": "pa28_v159_rep_lifetime_20261105",
+  "latest_result": "SIGSEGV after public Replicator disable+GC and app.close return; supervisor255; failed preserved",
+  "VRAM_free_MiB": 7508,
+  "temperature_C": 34,
+  "hashes": {
+    "replicator_minimal_v159/source_manifest.json": "262deb96d3c3cd32a6465f93c3561616faa9114e9962a8a611445eea345ee4e2",
+    "grasp_lift_v152/baseline/source_manifest.json": "9d5c997bc94c6494ea02a96b343ccd819f54732a749e068365212e0857c5e8a0",
+    "grasp_lift_v152/candidate/source_manifest.json": "b12fdccb033a33c862fc17920c2708292dd2b3d59089038bc1b799b2085ca7b4",
+    "grasp_lift_v152/baseline/models/r12/r12_mobile_gripper.usda": "1db851a81a8782c267baf73a9644ca85662f2309ac25dc5975671be73d35ff53"
+  },
+  "remote_latest_source": "/home/pa28/r12-development/pa28_replicator_minimal_v159",
+  "remote_physical_sources": "/home/pa28/r12-development/pa28_grasp_lift_v152/{baseline,candidate}",
+  "new_models_trained": false,
+  "remaining": [
+    "v159 lifecycle candidate failed; app.close imports Replicator again (after-close sys.modules true); investigate locally without private shutdown or error suppression",
+    "Physical baseline/candidate lift not executed; full teardown failure remains",
+    "v150 frame-corrected retreat monotonicity unproven",
+    "8mm grasp/+5mm carry uncertainty assumptions unvalidated"
+  ],
+  "mission_success": false
+}

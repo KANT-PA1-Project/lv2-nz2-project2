@@ -1,0 +1,48 @@
+planner_server:
+  ros__parameters:
+    use_sim_time: true
+    expected_planner_frequency: 1.0
+    planner_plugins: [GridBased]
+    GridBased:
+      plugin: nav2_navfn_planner::NavfnPlanner
+      tolerance: 0.05
+      use_astar: false
+      allow_unknown: false
+      use_final_approach_orientation: true
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      use_sim_time: true
+      global_frame: map
+      robot_base_frame: base_link
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      resolution: 0.025
+      footprint: '[[0.26478492744920584, 0.06325961274108932], [0.26478492744920584, -0.06325961274108932], [0.2387585776901105, -0.23912160953423583], [0.13444311248080673, -0.250223375253845], [-0.12634649868183226, -0.25022337525384497], [-0.14608812919796896, -0.24920013247400274], [-0.2390915598782346, -0.2390657782298032], [-0.250223375253845, -0.13444298654347742], [-0.250223375253845, 0.13444298654347742], [-0.2390915598782346, 0.2390657782298032], [-0.14608812919796896, 0.24920013247400274], [-0.12634649868183226, 0.25022337525384497], [0.13444311248080673, 0.250223375253845], [0.2387585776901105, 0.23912160953423583]]'
+      footprint_padding: 0.0
+      track_unknown_space: true
+      transform_tolerance: 0.3
+      always_send_full_costmap: true
+      plugins: [static_layer, nvblox_layer, obstacle_layer, inflation_layer]
+      static_layer:
+        plugin: nav2_costmap_2d::StaticLayer
+        map_subscribe_transient_local: true
+      nvblox_layer:
+        plugin: nvblox::nav2::NvbloxCostmapLayer
+        enabled: true
+        nav2_costmap_global_frame: map
+        nvblox_map_slice_topic: /nvblox_node/static_map_slice
+        convert_to_binary_costmap: true
+      inflation_layer:
+        plugin: nav2_costmap_2d::InflationLayer
+        inflation_radius: 0.45
+        cost_scaling_factor: 5.0
+
+      obstacle_layer:
+        plugin: nav2_costmap_2d::ObstacleLayer
+        enabled: true
+        observation_sources: front_right rear_left low_front_left low_rear_right
+        front_right: {topic: /r12/lidar/front_right, data_type: LaserScan, marking: true, clearing: true, obstacle_max_range: 5.0, raytrace_max_range: 6.0}
+        rear_left: {topic: /r12/lidar/rear_left, data_type: LaserScan, marking: true, clearing: true, obstacle_max_range: 5.0, raytrace_max_range: 6.0}
+        low_front_left: {topic: /r12/lidar/low_front_left, data_type: LaserScan, marking: true, clearing: true, obstacle_max_range: 5.0, raytrace_max_range: 6.0}
+        low_rear_right: {topic: /r12/lidar/low_rear_right, data_type: LaserScan, marking: true, clearing: true, obstacle_max_range: 5.0, raytrace_max_range: 6.0}

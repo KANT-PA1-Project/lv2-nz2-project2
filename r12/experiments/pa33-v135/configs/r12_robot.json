@@ -1,0 +1,83 @@
+{
+  "usd_path": "models/r12/r12_arm.usda",
+  "joint_names": [
+    "arm_joint1",
+    "arm_joint2",
+    "arm_joint3",
+    "arm_joint4",
+    "arm_joint5"
+  ],
+  "tcp_link": "arm_link5",
+  "home": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "lower": [
+    -1.5707963267948966,
+    -0.35,
+    -0.35,
+    -0.35,
+    -0.35
+  ],
+  "upper": [
+    1.5707963267948966,
+    0.35,
+    0.35,
+    0.35,
+    0.35
+  ],
+  "action_scale": [
+    0.5,
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "effort": [
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0
+  ],
+  "velocity": [
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4
+  ],
+  "stiffness": [
+    40.0,
+    40.0,
+    40.0,
+    40.0,
+    40.0
+  ],
+  "damping": [
+    4.0,
+    4.0,
+    4.0,
+    4.0,
+    4.0
+  ],
+  "target_range": {
+    "x": [
+      0.2,
+      0.26
+    ],
+    "y": [
+      -0.06,
+      0.06
+    ],
+    "z": [
+      0.48,
+      0.55
+    ]
+  },
+  "success_distance_m": 0.015,
+  "target_positions_path": "models/r12/reach_targets.json"
+}

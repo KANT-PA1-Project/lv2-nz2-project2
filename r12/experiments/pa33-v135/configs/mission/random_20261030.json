@@ -1,0 +1,80 @@
+{
+  "description": "Solvable synthetic random practice seed 20261030; no perception evidence",
+  "seed": 20261030,
+  "sequence": "YGYYGGRRRRYR",
+  "barcode": "P2-02",
+  "pucks": [
+    {
+      "color": "G",
+      "shape": "cuboid",
+      "id": 0,
+      "source": "S3"
+    },
+    {
+      "color": "R",
+      "shape": "cylinder",
+      "id": 1,
+      "source": "S1"
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 2,
+      "source": "S6"
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 3,
+      "source": "S1"
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 4,
+      "source": "S5"
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 5,
+      "source": "S6"
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 6,
+      "source": "S5"
+    },
+    {
+      "color": "G",
+      "shape": "cuboid",
+      "id": 7,
+      "source": "S2"
+    },
+    {
+      "color": "G",
+      "shape": "cuboid",
+      "id": 8,
+      "source": "S2"
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 9,
+      "source": "S4"
+    },
+    {
+      "color": "R",
+      "shape": "cylinder",
+      "id": 10,
+      "source": "S4"
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 11,
+      "source": "S3"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+#usda 1.0
+(
+    defaultPrim = "Robot"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Robot" (
+    prepend references = @../../assets/vendor/R12_NO_USB_URDF_USD/usd/r12_no_usb.usdc@
+)
+{
+    over "Joints"
+    {
+        over PhysicsFixedJoint "lh1_steer_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+        }
+
+        over PhysicsFixedJoint "lh1_wheel_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+        }
+
+        over PhysicsFixedJoint "rh1_steer_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+        }
+
+        over PhysicsFixedJoint "rh1_wheel_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+        }
+
+        over PhysicsFixedJoint "lh2_steer_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+        }
+
+        over PhysicsFixedJoint "lh2_wheel_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+        }
+
+        over PhysicsFixedJoint "rh2_steer_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+        }
+
+        over PhysicsFixedJoint "rh2_wheel_joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+        }
+
+        def PhysicsFixedJoint "world_fixed"
+        {
+            rel physics:body1 = </Robot/base_link>
+        }
+    }
+}
+
