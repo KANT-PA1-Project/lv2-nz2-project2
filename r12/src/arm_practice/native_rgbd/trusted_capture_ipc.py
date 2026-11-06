@@ -19,7 +19,7 @@ import time
 import numpy as np
 from .renderer_epoch_issuer import canonical, digest_image, digest_depth
 
-from .mixed_camera_schema import WIRE_V1,WIRE_V2,MixedCameraSchema
+from .mixed_camera_schema import WIRE_V1,WIRE_V2,WIRE_V3,MixedCameraSchema
 
 MAX_HEADER = 262144
 MAX_BYTES = 16 * 1024 * 1024
@@ -52,7 +52,9 @@ def send_packet(sock, data, blobs=(), *, wire_version=WIRE_V1, camera_schema=Non
 
 def wire_limit(version,schema):
     if version==WIRE_V1 and schema is None:return MAX_BYTES
-    if version==WIRE_V2 and isinstance(schema,MixedCameraSchema):return 48*1024*1024
+    if isinstance(schema,MixedCameraSchema) and version==schema.wire_schema:
+        if version==WIRE_V2:return 48*1024*1024
+        if version==WIRE_V3:return MAX_BYTES
     raise ValueError('unsupported_wire_profile')
 
 

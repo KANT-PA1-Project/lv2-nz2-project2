@@ -7,7 +7,7 @@ from arm_practice.native_rgbd.trusted_capture_ipc import send_packet,receive_pac
 ROOT=Path(__file__).resolve().parents[1]
 
 def fixture():
- schema=MixedCameraSchema.from_file(ROOT/'configs/mixed_camera_schema.json');cams=list(schema.config['cameras']);deps=schema.config['depth']
+ schema=MixedCameraSchema(build_config(ROOT));cams=list(schema.config['cameras']);deps=schema.config['depth']
  x=RendererEpochIssuer(run_id='mixed',clock_epoch='e',cameras=cams,joint_names=['q'],physics_hz=960,model_sha256='0'*64,source_sha256='1'*64,fk=lambda q:{k:np.eye(4) for k in cams},depth_camera_map={k:v['rgb_camera'] for k,v in deps.items()},camera_schema=schema)
  for step,start in [(96,1_000_000_000),(144,1_050_000_000)]:x.record_encoder_epoch(physics_step=step,sim_time_s=step/960,read_start_ns=start,read_end_ns=start+100,measured_encoder=[.1])
  rgb={k:np.zeros(v['rgb_shape'],np.uint8) for k,v in schema.config['cameras'].items()};depth={k:np.ones(v['shape'],np.float32) for k,v in deps.items()}
@@ -16,7 +16,7 @@ def fixture():
  return schema,x,rgb,depth,a
 
 class MixedContract(unittest.TestCase):
- def setUp(self):self.schema=MixedCameraSchema.from_file(ROOT/'configs/mixed_camera_schema.json')
+ def setUp(self):self.schema=MixedCameraSchema(build_config(ROOT))
  def test_exact_profile_and_payload(self):
   s,x,r,d,a=fixture();cert=x.issue(**a);self.assertTrue(x.verify(cert,pixels=r,depths=d,now_ns=a['now_ns'])['matched']);self.assertEqual(sum(v.nbytes for v in [*r.values(),*d.values()]),36_864_000);self.assertEqual(cert['body']['camera_schema_sha256'],s.sha256)
  def test_wrong_K_even_rehashed(self):

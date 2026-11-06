@@ -1,4 +1,4 @@
-"""Explicit mixed-resolution profile. Legacy640/v1 limits remain unchanged."""
+"""Pinned mixed and uniform640 profiles with explicit wire/calibration binding."""
 import copy,hashlib,json
 from pathlib import Path
 import numpy as np
@@ -8,35 +8,41 @@ def sha(x):return hashlib.sha256(canonical(x)).hexdigest()
 WIRE_V1='r12-rgbd-wire-v1'
 WIRE_V2='r12-rgbd-wire-v2-mixed-all'
 VERSION='r12-mixed-camera-calibration-v1'
+WIRE_V3='r12-rgbd-wire-v3-uniform640'
+UNIFORM_VERSION='r12-camera-calibration-v2-uniform640'
+PROFILES={VERSION:(WIRE_V2,36_864_000),UNIFORM_VERSION:(WIRE_V3,12_288_000)}
 
-def pinned_specs():
+def pinned_specs(profile=VERSION):
+ if profile not in PROFILES:raise ValueError("unsupported_mixed_camera_schema")
  specs={}
  for camera in ['r07_camera1','r07_camera2','r07_camera3','arm_camera']:
-  w,h=(1920,1440) if camera=='arm_camera' else (640,480)
+  w,h=(1920,1440) if camera=='arm_camera' and profile==VERSION else (640,480)
   for side in ['left','right']:
    name=camera+'_'+side+'_optical'
    specs[name]={'camera':camera,'camera_frame':name,'resolution_wh':[w,h],'rgb_dtype':'uint8','rgb_shape':[h,w,3],'intrinsics':[float(w*.625),float(h*.625/.75),(w-1)/2.,(h-1)/2.],'optical_axes':'x_right_y_down_z_forward','pixel_convention':'isaac_pixel_center_v1','focal_length_mm':20.955*.625,'horizontal_aperture_mm':20.955,'vertical_aperture_mm':20.955*.75,'clipping_range_m':[.01,30.],'distortion':'none','hardware_calibrated':False,'uncertainty_certified':False}
  return specs
 
-def build_config(root):
+def build_config(root,profile=VERSION):
+ if profile not in PROFILES:raise ValueError("unsupported_mixed_camera_schema")
  sources={n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n in ('configs/sensors/camera_rig.json','models/r12/r12_arm.urdf','scripts/sensor_runtime/camera_rig.py','configs/r12_tcp_calibration.json')}
- depth={c+'_depth':{'rgb_camera':c+'_left_optical','dtype':'float32','shape':pinned_specs()[c+'_left_optical']['rgb_shape'][:2],'unit':'m','quantity':'distance_to_image_plane'} for c in ['r07_camera1','r07_camera2','r07_camera3','arm_camera']}
- payload={'schema':VERSION,'wire_schema':WIRE_V2,'cameras':pinned_specs(),'depth':depth,'extrinsic_source_sha256':sources}
+ depth={c+'_depth':{'rgb_camera':c+'_left_optical','dtype':'float32','shape':pinned_specs(profile)[c+'_left_optical']['rgb_shape'][:2],'unit':'m','quantity':'distance_to_image_plane'} for c in ['r07_camera1','r07_camera2','r07_camera3','arm_camera']}
+ payload={'schema':profile,'wire_schema':PROFILES[profile][0],'cameras':pinned_specs(profile),'depth':depth,'extrinsic_source_sha256':sources}
  return dict(payload,calibration_sha256=sha(payload))
 
 class MixedCameraSchema:
  def __init__(self,config):
   self.config=copy.deepcopy(config)
-  if self.config.get('schema')!=VERSION or self.config.get('wire_schema')!=WIRE_V2:raise ValueError('unsupported_mixed_camera_schema')
-  if canonical(self.config.get('cameras'))!=canonical(pinned_specs()):raise ValueError('unpinned_camera_shape_K_or_optics')
+  profile=self.config.get('schema')
+  if profile not in PROFILES or self.config.get('wire_schema')!=PROFILES[profile][0]:raise ValueError('unsupported_mixed_camera_schema')
+  if canonical(self.config.get('cameras'))!=canonical(pinned_specs(profile)):raise ValueError('unpinned_camera_shape_K_or_optics')
   sources=self.config.get('extrinsic_source_sha256',{})
   required={'configs/sensors/camera_rig.json','models/r12/r12_arm.urdf','scripts/sensor_runtime/camera_rig.py','configs/r12_tcp_calibration.json'}
   if set(sources)!=required or any(type(v) is not str or len(v)!=64 or any(c not in '0123456789abcdef' for c in v) for v in sources.values()):raise ValueError('invalid_extrinsic_hashes')
-  expected_depth={c+'_depth':{'rgb_camera':c+'_left_optical','dtype':'float32','shape':pinned_specs()[c+'_left_optical']['rgb_shape'][:2],'unit':'m','quantity':'distance_to_image_plane'} for c in ['r07_camera1','r07_camera2','r07_camera3','arm_camera']}
+  expected_depth={c+'_depth':{'rgb_camera':c+'_left_optical','dtype':'float32','shape':pinned_specs(profile)[c+'_left_optical']['rgb_shape'][:2],'unit':'m','quantity':'distance_to_image_plane'} for c in ['r07_camera1','r07_camera2','r07_camera3','arm_camera']}
   if canonical(self.config.get('depth'))!=canonical(expected_depth):raise ValueError('unpinned_depth_schema')
   body={k:v for k,v in self.config.items() if k!='calibration_sha256'}
   if set(body)!={'schema','wire_schema','cameras','depth','extrinsic_source_sha256'} or self.config.get('calibration_sha256')!=sha(body):raise ValueError('calibration_hash_mismatch')
-  self.sha256=sha(self.config);self.calibration_sha256=self.config['calibration_sha256'];self.wire_schema=WIRE_V2
+  self.sha256=sha(self.config);self.calibration_sha256=self.config['calibration_sha256'];self.wire_schema=PROFILES[profile][0];self.payload_bytes=PROFILES[profile][1]
  @classmethod
  def from_file(cls,path):
   path=Path(path);obj=cls(json.loads(path.read_text()));root=path.parent.parent
@@ -65,7 +71,7 @@ class MixedCameraSchema:
   expected=[self.descriptor(k,'rgb') for k in sorted(self.config['cameras'])]+[self.descriptor(k,'depth') for k in sorted(self.config['depth'])]
   if canonical(ds)!=canonical(expected) or len(lengths)!=len(expected):raise ValueError('mixed_wire_descriptors_mismatch')
   sizes=[int(np.prod(d['shape']))*np.dtype(d['dtype']).itemsize for d in expected]
-  if lengths!=sizes or sum(lengths)!=36_864_000:raise ValueError('mixed_wire_lengths_mismatch')
+  if lengths!=sizes or sum(lengths)!=self.payload_bytes:raise ValueError('mixed_wire_lengths_mismatch')
  def archive_fields(self):return {'camera_schema_json':np.array(canonical(self.config).decode()),'camera_schema_sha256':np.array(self.sha256)}
  def verify_archive(self,frame):
   for k in ('camera_schema_json','camera_schema_sha256'):

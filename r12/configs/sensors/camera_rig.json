@@ -5,12 +5,13 @@
   "nvblox_depth_sources": ["r07_camera1", "r07_camera2", "r07_camera3", "arm_camera"],
   "arm_camera": {
     "parent": "arm_link5",
-    "optical_center_xyz_m": [0.04741517, 0.0, 0.059],
-    "optical_rpy_rad": [-1.5707963267948966, 0.0, -1.5707963267948966],
+    "optical_center_xyz_m": [0.04263, 0.0, 0.05244],
+    "optical_rpy_rad": [-2.0943951023931953, 0.0, -1.5707963267948966],
     "stereo_baseline_m": 0.05,
-    "calibration": "Provisional CAD camera housing front-plane/height and nominal D435 baseline; not physical hand-eye calibration"
+    "mount_pitch_down_deg": 30.0,
+    "calibration": "CAD136 housing front face points 30 degrees below arm_link5 +X. Front-face center and nominal stereo baseline remain provisional; not physical hand-eye calibration"
   },
   "resolution": [640, 480],
-  "intrinsics": [400, 400, 320, 240],
+  "intrinsics": [400, 400, 319.5, 239.5],
   "intrinsics_status": "Simulation camera parameters; not hardware calibration"
 }

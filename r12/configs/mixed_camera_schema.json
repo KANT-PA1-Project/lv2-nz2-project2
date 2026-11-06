@@ -1,6 +1,6 @@
 {
-  "schema": "r12-mixed-camera-calibration-v1",
-  "wire_schema": "r12-rgbd-wire-v2-mixed-all",
+  "schema": "r12-camera-calibration-v2-uniform640",
+  "wire_schema": "r12-rgbd-wire-v3-uniform640",
   "cameras": {
     "r07_camera1_left_optical": {
       "camera": "r07_camera1",
@@ -198,20 +198,20 @@
       "camera": "arm_camera",
       "camera_frame": "arm_camera_left_optical",
       "resolution_wh": [
-        1920,
-        1440
+        640,
+        480
       ],
       "rgb_dtype": "uint8",
       "rgb_shape": [
-        1440,
-        1920,
+        480,
+        640,
         3
       ],
       "intrinsics": [
-        1200.0,
-        1200.0,
-        959.5,
-        719.5
+        400.0,
+        400.0,
+        319.5,
+        239.5
       ],
       "optical_axes": "x_right_y_down_z_forward",
       "pixel_convention": "isaac_pixel_center_v1",
@@ -230,20 +230,20 @@
       "camera": "arm_camera",
       "camera_frame": "arm_camera_right_optical",
       "resolution_wh": [
-        1920,
-        1440
+        640,
+        480
       ],
       "rgb_dtype": "uint8",
       "rgb_shape": [
-        1440,
-        1920,
+        480,
+        640,
         3
       ],
       "intrinsics": [
-        1200.0,
-        1200.0,
-        959.5,
-        719.5
+        400.0,
+        400.0,
+        319.5,
+        239.5
       ],
       "optical_axes": "x_right_y_down_z_forward",
       "pixel_convention": "isaac_pixel_center_v1",
@@ -294,18 +294,18 @@
       "rgb_camera": "arm_camera_left_optical",
       "dtype": "float32",
       "shape": [
-        1440,
-        1920
+        480,
+        640
       ],
       "unit": "m",
       "quantity": "distance_to_image_plane"
     }
   },
   "extrinsic_source_sha256": {
-    "configs/sensors/camera_rig.json": "535ac2857e436dd81525e8379c681051f485bbd7df93d6007255d93f33f655de",
+    "configs/sensors/camera_rig.json": "780b5215944b9b7df6ac018d0297febd11ee30baa6dd60f7e621930c7bb49985",
     "models/r12/r12_arm.urdf": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
     "scripts/sensor_runtime/camera_rig.py": "e394cb1dec3a4432c52e647391625629e8decec6f775c1846992d76b97dd9fae",
     "configs/r12_tcp_calibration.json": "fbda76490b103d14b18d35d4b245c4e5673ae71de0a0ff080d236d3754a88c9a"
   },
-  "calibration_sha256": "dc80ceb4fa980e6dfd735f8a0948b888f7131c9087e5d19a681d59991d0db8c5"
+  "calibration_sha256": "947c48dc4d2693bc88f29729d964d99171c415b25d5b98611ceec4250689f587"
 }

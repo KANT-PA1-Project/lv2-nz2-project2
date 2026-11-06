@@ -3,6 +3,15 @@ import subprocess,os,json,time,traceback,sys
 ROOT=Path(__file__).resolve().parent;OUT=Path(os.environ['FLEET_RUN_DIR']);child=None
 def save(n,d):
  p=OUT/n;t=p.with_suffix('.tmp');t.write_text(json.dumps(d,indent=2));t.replace(p)
+def disk_usage_bytes(root):
+ total=0
+ for path in root.rglob('*'):
+  try:
+   if path.is_file() and not path.is_symlink():total+=path.stat().st_size
+  except FileNotFoundError:
+   # Producer atomically renames temporary telemetry while we enumerate it.
+   continue
+ return total
 try:
  with(OUT/'render.log').open('w')as log:
   child=subprocess.Popen([os.environ.get('PA24_ISAAC_PYTHON',sys.executable),str(ROOT/'render_axis.py')],stdout=log,stderr=subprocess.STDOUT)
@@ -12,7 +21,7 @@ try:
    with(OUT/'resources.jsonl').open('a')as out:out.write(json.dumps(dict(updated_at=time.time(),free_mib=f,gpu_util_percent=u))+'\n')
    if f<1024:raise RuntimeError('VRAM reserve below1024 MiB')
    if time.monotonic()-begin>360:raise RuntimeError('renderer deadline360s')
-   disk_bytes=sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file() and not p.is_symlink())
+   disk_bytes=disk_usage_bytes(OUT)
    if disk_bytes>500*1024*1024:raise RuntimeError('disk budget500MiB')
    time.sleep(1)
   if child.returncode!=0:raise RuntimeError('renderer exit '+str(child.returncode))

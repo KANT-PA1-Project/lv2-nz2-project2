@@ -10,7 +10,7 @@ from types import SimpleNamespace
 from unittest.mock import Mock
 from arm_practice.native_rgbd.renderer_epoch_issuer import canonical
 from arm_practice.native_rgbd.trusted_capture_ipc import TrustedCaptureChannel,send_packet,receive_packet
-from arm_practice.native_rgbd.mixed_camera_schema import MixedCameraSchema,WIRE_V1,WIRE_V2
+from arm_practice.native_rgbd.mixed_camera_schema import MixedCameraSchema,WIRE_V1,WIRE_V2,build_config
 import native_rgbd_fixture as boundary_fixtures
 
 DENIAL={'reason':'refresh_capture_session_missing_or_expired','discard_capture':True,'motion_authorized':False}
@@ -101,7 +101,7 @@ class ConsumerRefreshTests(unittest.TestCase):
 class TerminalWireTests(unittest.TestCase):
     def setUp(self):
         self.a,self.b=socket.socketpair();self.addCleanup(self.a.close);self.addCleanup(self.b.close)
-        self.schema=MixedCameraSchema.from_file(Path(__file__).resolve().parents[1]/'configs/mixed_camera_schema.json')
+        self.schema=MixedCameraSchema(build_config(Path(__file__).resolve().parents[1]))
     def raw(self,data):
         body=canonical(data);self.a.sendall(struct.pack('!I',len(body))+body)
     def recv(self):return receive_packet(self.b,wire_version=WIRE_V2,camera_schema=self.schema,allow_control_finish=True)
