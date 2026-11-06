@@ -1,0 +1,45 @@
+#usda 1.0
+(
+    defaultPrim = "Robot"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Robot" (
+    prepend references = @r12_arm.usda@
+)
+{
+    over "Joints"
+    {
+        over "arm_joint1"
+        {
+            float physics:lowerLimit = -180
+            float physics:upperLimit = 180
+        }
+
+        over "arm_joint2"
+        {
+            float physics:lowerLimit = -180
+            float physics:upperLimit = 180
+        }
+
+        over "arm_joint3"
+        {
+            float physics:lowerLimit = -180
+            float physics:upperLimit = 180
+        }
+
+        over "arm_joint4"
+        {
+            float physics:lowerLimit = -180
+            float physics:upperLimit = 180
+        }
+
+        over "arm_joint5"
+        {
+            float physics:lowerLimit = -180
+            float physics:upperLimit = 180
+        }
+    }
+}
+

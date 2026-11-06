@@ -1,0 +1,22 @@
+{
+  "arm_target": [
+    0,
+    0.33,
+    0.33,
+    0.33,
+    0
+  ],
+  "joint_tolerance_rad": 0.04,
+  "joint_velocity_limit_rad_s": 0.15,
+  "settle_seconds": 0.5,
+  "geometry_validated": true,
+  "physics_validated": true,
+  "base_motion_requires_transport": true,
+  "folding_requires_stationary_base": true,
+  "unfolding_requires_stationary_base": true,
+  "scope": "Empty gripper only; carrying-object retention needs separate validation.",
+  "selection": "Smallest arm XY radius among four sampled collision-free candidates, not global optimum.",
+  "arm_stiffness": 80,
+  "arm_damping": 8,
+  "validation_report": "reports/local/transport_physics/evaluation_encoder.json"
+}

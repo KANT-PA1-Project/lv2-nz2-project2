@@ -1,0 +1,11 @@
+{
+  "original_file": "v52/scripts/r12_sensor_sim.py",
+  "source_body_sha256": "5e22457cee674472211eba17a8501f6ca963e94b420b68df33076a5754693c6b",
+  "refactored_body_sha256": "5e22457cee674472211eba17a8501f6ca963e94b420b68df33076a5754693c6b",
+  "refactor": "Identical original control application+world.step(False) block, one indentation removed into common function; both regular and postcapture loop call it",
+  "extra_physics_steps_max": 16,
+  "sampling_hz": 120,
+  "physics_hz": 960,
+  "native_ready_unchanged": true,
+  "independent_parent_clock_fix": "3f3750a8ed1026f795fe745f0ad34d16d4d8f741de58ce85f8ab13bfa471ae07"
+}

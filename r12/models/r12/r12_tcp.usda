@@ -1,0 +1,12 @@
+#usda 1.0
+(defaultPrim = "Robot"
+ metersPerUnit = 1
+ upAxis = "Z")
+def Xform "Robot" (prepend references = @r12_arm.usda@) {
+ over "arm_link5" {
+  def Xform "grasp_tcp" {
+   double3 xformOp:translate = (0.12475, 0, 0)
+   uniform token[] xformOpOrder = ["xformOp:translate"]
+  }
+ }
+}

@@ -1,0 +1,75 @@
+{
+  "motor": "ROBOTIS DYNAMIXEL XM430-W210",
+  "identification": "TurtleBot3 Waffle Pi official actuator; user identifies swerve motors as Waffle Pi motors",
+  "sources": [
+    "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+    "https://emanual.robotis.com/docs/en/dxl/x/xm430-w210/"
+  ],
+  "wheel_radius_m": 0.03068719889482,
+  "voltage_and_external_reduction_confirmed": false,
+  "steering_motor_confirmed": false,
+  "operating_points": [
+    {
+      "voltage_V": 11.1,
+      "no_load_output_rpm": 70,
+      "no_load_output_rad_s": 7.330382858376184,
+      "ideal_direct_wheel_speed_m_s": 0.22494891675016912,
+      "stall_torque_Nm": 2.7,
+      "if_wheel_four_times_motor_speed_m_s": 0.8997956670006765,
+      "if_wheel_quarter_motor_speed_m_s": 0.05623722918754228
+    },
+    {
+      "voltage_V": 12,
+      "no_load_output_rpm": 77,
+      "no_load_output_rad_s": 8.063421144213802,
+      "ideal_direct_wheel_speed_m_s": 0.24744380842518604,
+      "stall_torque_Nm": 3.0,
+      "if_wheel_four_times_motor_speed_m_s": 0.9897752337007442,
+      "if_wheel_quarter_motor_speed_m_s": 0.06186095210629651
+    },
+    {
+      "voltage_V": 14.8,
+      "no_load_output_rpm": 95,
+      "no_load_output_rad_s": 9.94837673636768,
+      "ideal_direct_wheel_speed_m_s": 0.30528781558951523,
+      "stall_torque_Nm": 3.7,
+      "if_wheel_four_times_motor_speed_m_s": 1.221151262358061,
+      "if_wheel_quarter_motor_speed_m_s": 0.07632195389737881
+    }
+  ],
+  "control_table": {
+    "velocity_unit_rpm": 0.229,
+    "velocity_limit_address": 44,
+    "documented_initial_velocity_limit": 330,
+    "goal_velocity_address": 104,
+    "present_velocity_address": 128,
+    "present_input_voltage_address": 144
+  },
+  "limitations": [
+    "No-load speed is not sustained loaded speed.",
+    "Stall torque is not continuous torque and is not available simultaneously with no-load speed.",
+    "Output rpm already includes internal 212.6:1 reduction; only external gearing changes wheel conversion.",
+    "14.8V entry is a manufacturer operating point, not authorization to change robot supply voltage."
+  ],
+  "implementation_status": "4x speed-increase conversion and register helpers implemented and unit tested. Legacy simulator and PPO remain low-speed direct-wheel baselines; not a validated motor torque-speed or high-speed deployment.",
+  "external_drive_ratio_magnitude_user_confirmed": 4,
+  "external_drive_ratio_direction_confirmed": true,
+  "steering_output_per_motor_output_rev": 1,
+  "cad_evidence": [
+    "M26_REINFORCED_51_LH_R35_DRIVE_T48_BEARING_RETAINED_CLEAR_1_51",
+    "M26_REINFORCED_42_LH_R35_MIDDLE_COMPOUND_SUPPORTED_1_42",
+    "M26_REINFORCED_41_LH_R35_WHEEL_GEAR_HUB_T28_CAPPED_1_41"
+  ],
+  "wheel_revolutions_per_motor_output_revolution": 4,
+  "battery": {
+    "assumed_model": "ROBOTIS LB-012, standard TurtleBot3 battery",
+    "nominal_voltage_V": 11.1,
+    "capacity_mAh": 1800,
+    "user_confirmed_brand": "ROBOTIS",
+    "exact_model_label_confirmed": false,
+    "source": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/"
+  },
+  "nominal_ideal_wheel_speed_rad_s": 29.321531433504735,
+  "nominal_ideal_linear_speed_m_s": 0.8997956670006765,
+  "nominal_lossless_wheel_stall_torque_Nm": 0.675
+}

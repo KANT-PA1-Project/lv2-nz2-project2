@@ -1,0 +1,7 @@
+/runs/
+/review/
+/*.json
+/integration/
+/.pytest_cache/
+__pycache__/
+*.pyc

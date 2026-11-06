@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-11-05T09:02:15.158409+00:00",
+  "host": {
+    "host": "pa28",
+    "hostname": "pa28pc",
+    "user": "pa28",
+    "domain": 28,
+    "display_domain": 29,
+    "port": 20028
+  },
+  "pid": 466953,
+  "cwd": "/home/pa28",
+  "command": [
+    "/home/pa28/pa-course/robot_learning/IsaacLab-3.0-EA/.venv/bin/python",
+    "/home/pa28/r12-development/pa28_replicator_minimal_v159/supervise.py",
+    "smoke"
+  ],
+  "environment": {
+    "FLEET_HOST": "pa28",
+    "ROS_DOMAIN_ID": "28",
+    "FLEET_RVIZ_DOMAIN_ID": "29",
+    "FLEET_SENSOR_PORT": "20028",
+    "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
+    "FLEET_RUN_ROOT": "/home/pa28/isaac-fleet-runs",
+    "FLEET_GPU_UTIL_TARGET": "90",
+    "FLEET_GPU_VRAM_RESERVE_MIB": "1024",
+    "FLEET_HEADLESS": "1",
+    "FLEET_RVIZ_GUI": "0",
+    "FLEET_RUN_ID": "pa28_v159_rep_lifetime_20261105",
+    "FLEET_RUN_DIR": "/home/pa28/isaac-fleet-runs/pa28_v159_rep_lifetime_20261105",
+    "R12_FRAME_FILE": "/home/pa28/isaac-fleet-runs/pa28_v159_rep_lifetime_20261105/frames.npz",
+    "GZ_PARTITION": "pa28_pa28_v159_rep_lifetime_20261105"
+  },
+  "scope": "Invocation record; add source/model hashes, seed, config and evaluation."
+}

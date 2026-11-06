@@ -1,0 +1,1 @@
+<library path="r12_rviz_readiness"><class name="r12/ReadinessProbe" type="r12::ReadinessProbe" base_class_type="rviz_common::Panel"><description>Read-only model status observer; does not change displays or control.</description></class></library>

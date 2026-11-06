@@ -1,0 +1,9 @@
+from pathlib import Path
+import sys,json,time,cv2,numpy as np
+root=Path(__file__).resolve().parents[1];sys.path.insert(0,str(root/'src'));from arm_practice.tag_detection import detect_tags
+b=root.parent.parent/'outputs/r12';src=b/'tag_render_v230';rows=json.loads((src/'manifest.json').read_text())['rows'];cv2.setNumThreads(1);det=cv2.aruco.ArucoDetector(cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_APRILTAG_36h11));images=[cv2.imread(str(src/f'frame_{r["index"]:03d}.png')) for r in rows]
+for im in images[:3]:detect_tags(im,det)
+times=[];out=[]
+for im,r in zip(images,rows):
+ start=time.perf_counter_ns();tags=detect_tags(im,det);times.append((time.perf_counter_ns()-start)/1e6);out.append({'frame':r['index'],'expected_id':r['tag_id'],'ids':[t['id'] for t in tags]})
+report={'complete':True,'frames':len(rows),'median_ms':float(np.median(times)),'p95_ms':float(np.quantile(times,.95)),'correct_frames':sum(r['expected_id']>=0 and r['expected_id'] in r['ids'] for r in out),'wrong_id_frames':sum(any(i!=r['expected_id'] for i in r['ids']) for r in out),'scope':'Existing runtime detect_tags unchanged, scales1/2/3/4 cubic with2scale spatial agreement. Local CPU, preloaded BGR, OpenCV1thread,warmup3frames,one pass. No renderer/IO/YOLO/CenterPose/ROS cost. Not directly identical timing protocol to V231 three repeats.','timestamp_audit':{'frame_archive':'capture_monotonic_ns and run_id recorded in frame.npz','worker_output':'echoes request stamp_ns, not capture_monotonic_ns/run_id','clock':'stamp_ns synthetic20Hz; cannot establish wall-clock age','caller':'blocking readline, accepts any JSON containing stamp_ns; no equality check or timeout visible','runtime_changed':False},'decoded':out};(b/'v232_runtime_audit.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='decoded'},indent=2))

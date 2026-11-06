@@ -1,0 +1,12 @@
+"""Replay terminal evidence; archived data never becomes a fresh live command."""
+import json,hashlib
+from pathlib import Path
+import numpy as np
+from arm_practice.frame_packet_identity import check_live_frame_provenance
+root=Path(__file__).resolve().parents[1];run=root/'reports/local/terminal_observation_v167'
+rows=json.loads((run/'sim_results.json').read_text());meta=json.loads((run/'terminal_observation/001051.json').read_text());file=run/'terminal_observation'/meta['frame_file'];last=rows[-1];window=rows[-11:]
+with np.load(file,allow_pickle=False) as frame:
+ provenance=check_live_frame_provenance(frame,last,expected_frame_index=last['frame'],expected_run_id=meta['run_id'],now_ns=last['packet_processed_monotonic_ns'],max_age_ns=250_000_000)
+checks={'hash':hashlib.sha256(file.read_bytes()).hexdigest()==meta['sha256'],'same_run':all(r['capture_run_id']==meta['run_id'] for r in window),'consecutive_20hz':all(b['stamp_ns']-a['stamp_ns']==50_000_000 for a,b in zip(window,window[1:])),'finished_entire_window':all(r['finished'] for r in window),'arm_valid':all(r['arm_feedback_valid'] for r in window),'arm_stopped':all(np.max(np.abs(r['arm_measured_velocity']))<.02 for r in window),'base_valid':all(r['base_sensor_feedback']['valid'] for r in window),'base_stopped':all(np.linalg.norm(r['base_sensor_feedback']['twist'][:2])<.01 and abs(r['base_sensor_feedback']['twist'][2])<.02 for r in window),'processing_age_under_250ms':all(0<=r['packet_processed_monotonic_ns']-r['frame_capture_monotonic_ns']<=250_000_000 for r in window),'terminal_settled':last['terminal_observation']['settled']}
+r={'complete':True,'checks':checks,'checks_passed':all(checks.values()),'historical_provenance':provenance,'frames':[r['frame'] for r in window],'dwell_s':(window[-1]['stamp_ns']-window[0]['stamp_ns'])/1e9,'max_processing_age_ms':max((r['packet_processed_monotonic_ns']-r['frame_capture_monotonic_ns'])/1e6 for r in window),'final_arm_q':meta['arm_measured_position'],'execution_authorized':False,'scope':'Offline replay of acquisition-time evidence. Processing age is a lower bound on simulator receive age; runtime gate also checks its current monotonic clock but that exact check time is not logged. Archive is stale now. No environment clearance, home-path or grasp authorization.'}
+(root.parent.parent/'outputs/r12/v168_terminal_audit.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r,indent=2))

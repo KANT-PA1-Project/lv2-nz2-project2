@@ -1,0 +1,24 @@
+{
+  "planned": 1,
+  "completed": 1,
+  "counts": {
+    "success": 1,
+    "timeout": 0,
+    "safety_gate": 0,
+    "error": 0,
+    "interrupted": 0
+  },
+  "success_fraction_planned": 1.0,
+  "performance_accepted": false,
+  "episodes": [
+    {
+      "index": 0,
+      "outcome": "success",
+      "final_distance_m": 2.5508898033876903e-06,
+      "elapsed_sim_s": 80.0,
+      "max_native_qd_rad_s": 0.005003027617931366,
+      "max_torque_Nm": 1.726030707359314,
+      "details": null
+    }
+  ]
+}

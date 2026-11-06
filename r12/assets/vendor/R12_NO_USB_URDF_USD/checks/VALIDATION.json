@@ -1,0 +1,53 @@
+{
+  "status": "STRUCTURAL_VALIDATION_PASS_NOT_PHYSICS_QUALIFIED",
+  "source_f3d": "D:\\tuetlebot_upgrade\\design\\exports\\MAST450_SENSOR_REVIEW\\R12\\CAD136_R12_V10_OPENCR_R04_NO_USB_CABLES.f3d",
+  "source_sha256": "479ea00739d09581fb91637c0a37c0df6318ad8ca79c603ac5a4605d2bdea316",
+  "visible_CAD_bodies": 4443,
+  "links": 29,
+  "movable_joints": [
+    "lh1_steer_joint",
+    "lh1_wheel_joint",
+    "rh1_steer_joint",
+    "rh1_wheel_joint",
+    "lh2_steer_joint",
+    "lh2_wheel_joint",
+    "rh2_steer_joint",
+    "rh2_wheel_joint",
+    "arm_joint1",
+    "arm_joint2",
+    "arm_joint3",
+    "arm_joint4",
+    "arm_joint5"
+  ],
+  "visual_meshes": 43,
+  "max_urdf_usd_zero_pose_error": 9.079758211960609e-08,
+  "lidar_geometry_checks": [
+    {
+      "sensor": "R12_front_right_sensor",
+      "bbox_error_m": 4.377441406250293e-05
+    },
+    {
+      "sensor": "R12_front_left_sensor",
+      "bbox_error_m": 4.377441406250293e-05
+    },
+    {
+      "sensor": "R12_rear_left_sensor",
+      "bbox_error_m": 4.377441406250293e-05
+    },
+    {
+      "sensor": "R12_rear_right_sensor",
+      "bbox_error_m": 4.377441406250293e-05
+    }
+  ],
+  "nominal_mass_scenario_kg": 4.0,
+  "unresolved_USD_dependencies": [],
+  "collision_geometry": "current static occurrence AABBs + inherited articulated proxies; conservative, not assembly-clearance geometry",
+  "not_verified": [
+    "Isaac Sim runtime / PhysX cooking",
+    "ROS topic streaming / calibrated camera intrinsics",
+    "real masses and inertias",
+    "self-collision and cable collision",
+    "physical 360 degree detection or 30 mm obstacle detection",
+    "gripper opening and internal gear contacts"
+  ]
+}

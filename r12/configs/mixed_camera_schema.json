@@ -1,0 +1,311 @@
+{
+  "schema": "r12-camera-calibration-v2-uniform640",
+  "wire_schema": "r12-rgbd-wire-v3-uniform640",
+  "cameras": {
+    "r07_camera1_left_optical": {
+      "camera": "r07_camera1",
+      "camera_frame": "r07_camera1_left_optical",
+      "resolution_wh": [
+        640,
+        480
+      ],
+      "rgb_dtype": "uint8",
+      "rgb_shape": [
+        480,
+        640,
+        3
+      ],
+      "intrinsics": [
+        400.0,
+        400.0,
+        319.5,
+        239.5
+      ],
+      "optical_axes": "x_right_y_down_z_forward",
+      "pixel_convention": "isaac_pixel_center_v1",
+      "focal_length_mm": 13.096874999999999,
+      "horizontal_aperture_mm": 20.955,
+      "vertical_aperture_mm": 15.716249999999999,
+      "clipping_range_m": [
+        0.01,
+        30.0
+      ],
+      "distortion": "none",
+      "hardware_calibrated": false,
+      "uncertainty_certified": false
+    },
+    "r07_camera1_right_optical": {
+      "camera": "r07_camera1",
+      "camera_frame": "r07_camera1_right_optical",
+      "resolution_wh": [
+        640,
+        480
+      ],
+      "rgb_dtype": "uint8",
+      "rgb_shape": [
+        480,
+        640,
+        3
+      ],
+      "intrinsics": [
+        400.0,
+        400.0,
+        319.5,
+        239.5
+      ],
+      "optical_axes": "x_right_y_down_z_forward",
+      "pixel_convention": "isaac_pixel_center_v1",
+      "focal_length_mm": 13.096874999999999,
+      "horizontal_aperture_mm": 20.955,
+      "vertical_aperture_mm": 15.716249999999999,
+      "clipping_range_m": [
+        0.01,
+        30.0
+      ],
+      "distortion": "none",
+      "hardware_calibrated": false,
+      "uncertainty_certified": false
+    },
+    "r07_camera2_left_optical": {
+      "camera": "r07_camera2",
+      "camera_frame": "r07_camera2_left_optical",
+      "resolution_wh": [
+        640,
+        480
+      ],
+      "rgb_dtype": "uint8",
+      "rgb_shape": [
+        480,
+        640,
+        3
+      ],
+      "intrinsics": [
+        400.0,
+        400.0,
+        319.5,
+        239.5
+      ],
+      "optical_axes": "x_right_y_down_z_forward",
+      "pixel_convention": "isaac_pixel_center_v1",
+      "focal_length_mm": 13.096874999999999,
+      "horizontal_aperture_mm": 20.955,
+      "vertical_aperture_mm": 15.716249999999999,
+      "clipping_range_m": [
+        0.01,
+        30.0
+      ],
+      "distortion": "none",
+      "hardware_calibrated": false,
+      "uncertainty_certified": false
+    },
+    "r07_camera2_right_optical": {
+      "camera": "r07_camera2",
+      "camera_frame": "r07_camera2_right_optical",
+      "resolution_wh": [
+        640,
+        480
+      ],
+      "rgb_dtype": "uint8",
+      "rgb_shape": [
+        480,
+        640,
+        3
+      ],
+      "intrinsics": [
+        400.0,
+        400.0,
+        319.5,
+        239.5
+      ],
+      "optical_axes": "x_right_y_down_z_forward",
+      "pixel_convention": "isaac_pixel_center_v1",
+      "focal_length_mm": 13.096874999999999,
+      "horizontal_aperture_mm": 20.955,
+      "vertical_aperture_mm": 15.716249999999999,
+      "clipping_range_m": [
+        0.01,
+        30.0
+      ],
+      "distortion": "none",
+      "hardware_calibrated": false,
+      "uncertainty_certified": false
+    },
+    "r07_camera3_left_optical": {
+      "camera": "r07_camera3",
+      "camera_frame": "r07_camera3_left_optical",
+      "resolution_wh": [
+        640,
+        480
+      ],
+      "rgb_dtype": "uint8",
+      "rgb_shape": [
+        480,
+        640,
+        3
+      ],
+      "intrinsics": [
+        400.0,
+        400.0,
+        319.5,
+        239.5
+      ],
+      "optical_axes": "x_right_y_down_z_forward",
+      "pixel_convention": "isaac_pixel_center_v1",
+      "focal_length_mm": 13.096874999999999,
+      "horizontal_aperture_mm": 20.955,
+      "vertical_aperture_mm": 15.716249999999999,
+      "clipping_range_m": [
+        0.01,
+        30.0
+      ],
+      "distortion": "none",
+      "hardware_calibrated": false,
+      "uncertainty_certified": false
+    },
+    "r07_camera3_right_optical": {
+      "camera": "r07_camera3",
+      "camera_frame": "r07_camera3_right_optical",
+      "resolution_wh": [
+        640,
+        480
+      ],
+      "rgb_dtype": "uint8",
+      "rgb_shape": [
+        480,
+        640,
+        3
+      ],
+      "intrinsics": [
+        400.0,
+        400.0,
+        319.5,
+        239.5
+      ],
+      "optical_axes": "x_right_y_down_z_forward",
+      "pixel_convention": "isaac_pixel_center_v1",
+      "focal_length_mm": 13.096874999999999,
+      "horizontal_aperture_mm": 20.955,
+      "vertical_aperture_mm": 15.716249999999999,
+      "clipping_range_m": [
+        0.01,
+        30.0
+      ],
+      "distortion": "none",
+      "hardware_calibrated": false,
+      "uncertainty_certified": false
+    },
+    "arm_camera_left_optical": {
+      "camera": "arm_camera",
+      "camera_frame": "arm_camera_left_optical",
+      "resolution_wh": [
+        640,
+        480
+      ],
+      "rgb_dtype": "uint8",
+      "rgb_shape": [
+        480,
+        640,
+        3
+      ],
+      "intrinsics": [
+        400.0,
+        400.0,
+        319.5,
+        239.5
+      ],
+      "optical_axes": "x_right_y_down_z_forward",
+      "pixel_convention": "isaac_pixel_center_v1",
+      "focal_length_mm": 13.096874999999999,
+      "horizontal_aperture_mm": 20.955,
+      "vertical_aperture_mm": 15.716249999999999,
+      "clipping_range_m": [
+        0.01,
+        30.0
+      ],
+      "distortion": "none",
+      "hardware_calibrated": false,
+      "uncertainty_certified": false
+    },
+    "arm_camera_right_optical": {
+      "camera": "arm_camera",
+      "camera_frame": "arm_camera_right_optical",
+      "resolution_wh": [
+        640,
+        480
+      ],
+      "rgb_dtype": "uint8",
+      "rgb_shape": [
+        480,
+        640,
+        3
+      ],
+      "intrinsics": [
+        400.0,
+        400.0,
+        319.5,
+        239.5
+      ],
+      "optical_axes": "x_right_y_down_z_forward",
+      "pixel_convention": "isaac_pixel_center_v1",
+      "focal_length_mm": 13.096874999999999,
+      "horizontal_aperture_mm": 20.955,
+      "vertical_aperture_mm": 15.716249999999999,
+      "clipping_range_m": [
+        0.01,
+        30.0
+      ],
+      "distortion": "none",
+      "hardware_calibrated": false,
+      "uncertainty_certified": false
+    }
+  },
+  "depth": {
+    "r07_camera1_depth": {
+      "rgb_camera": "r07_camera1_left_optical",
+      "dtype": "float32",
+      "shape": [
+        480,
+        640
+      ],
+      "unit": "m",
+      "quantity": "distance_to_image_plane"
+    },
+    "r07_camera2_depth": {
+      "rgb_camera": "r07_camera2_left_optical",
+      "dtype": "float32",
+      "shape": [
+        480,
+        640
+      ],
+      "unit": "m",
+      "quantity": "distance_to_image_plane"
+    },
+    "r07_camera3_depth": {
+      "rgb_camera": "r07_camera3_left_optical",
+      "dtype": "float32",
+      "shape": [
+        480,
+        640
+      ],
+      "unit": "m",
+      "quantity": "distance_to_image_plane"
+    },
+    "arm_camera_depth": {
+      "rgb_camera": "arm_camera_left_optical",
+      "dtype": "float32",
+      "shape": [
+        480,
+        640
+      ],
+      "unit": "m",
+      "quantity": "distance_to_image_plane"
+    }
+  },
+  "extrinsic_source_sha256": {
+    "configs/sensors/camera_rig.json": "780b5215944b9b7df6ac018d0297febd11ee30baa6dd60f7e621930c7bb49985",
+    "models/r12/r12_arm.urdf": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
+    "scripts/sensor_runtime/camera_rig.py": "e394cb1dec3a4432c52e647391625629e8decec6f775c1846992d76b97dd9fae",
+    "configs/r12_tcp_calibration.json": "fbda76490b103d14b18d35d4b245c4e5673ae71de0a0ff080d236d3754a88c9a"
+  },
+  "calibration_sha256": "947c48dc4d2693bc88f29729d964d99171c415b25d5b98611ceec4250689f587"
+}

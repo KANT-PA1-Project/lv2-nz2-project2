@@ -1,0 +1,6 @@
+{
+  "name": "c",
+  "distance_m": 0.39,
+  "yaw_deg": 70,
+  "split": "v101 independent heldout"
+}

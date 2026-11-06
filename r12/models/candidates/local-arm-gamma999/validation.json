@@ -1,0 +1,7 @@
+{
+  "bounded_run_valid": true,
+  "smoke_only": true,
+  "all8_evaluation_valid": false,
+  "performance_accepted": false,
+  "reason": "execution/coverage only, no success threshold declared"
+}

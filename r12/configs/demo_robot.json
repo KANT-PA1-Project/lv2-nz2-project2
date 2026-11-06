@@ -1,0 +1,15 @@
+{
+  "usd_path": "models/demo_arm.usd",
+  "joint_names": ["joint1", "joint2", "joint3"],
+  "tcp_link": "tool0",
+  "home": [0.0, -0.5, 1.0],
+  "lower": [-2.5, -1.5, -2.0],
+  "upper": [2.5, 1.5, 2.0],
+  "action_scale": [0.6, 0.6, 0.6],
+  "effort": [15.0, 15.0, 8.0],
+  "velocity": [1.0, 1.0, 1.0],
+  "stiffness": [80.0, 80.0, 40.0],
+  "damping": [8.0, 8.0, 4.0],
+  "target_range": {"x": [0.30, 0.40], "y": [-0.08, 0.08], "z": [0.16, 0.26]},
+  "success_distance_m": 0.03
+}

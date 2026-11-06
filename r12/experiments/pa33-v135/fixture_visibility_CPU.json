@@ -1,0 +1,121 @@
+{
+  "scope": "setup/evaluator only; frustum bounds do not prove rendered visibility",
+  "fixture": {
+    "scope": "Evaluator/setup only; not a perception or controller input",
+    "asset": "/World/Mission/Pucks/Puck0",
+    "nominal_shape": "existing green cuboid",
+    "setup_world_center": [
+      0.05723482999999996,
+      0.925,
+      0.5869000000000001
+    ],
+    "support_top_m": 0.5568000000000001,
+    "optical_fixture_distance_m": 0.39,
+    "setup_yaw_deg": 70,
+    "body_attachment": false,
+    "object_pose_reads_for_control": false,
+    "motion_authorized": false
+  },
+  "objects": [
+    {
+      "path": "/World/Mission/Pucks/Puck0",
+      "projected_world_AABB_bbox": [
+        897.276623999256,
+        622.3088000479428,
+        1021.7233760007433,
+        816.6911999520573
+      ],
+      "camera_depth_range_m": [
+        0.370774308968054,
+        0.409225691031946
+      ],
+      "composed_children": [
+        {
+          "path": "/World/Mission/Pucks/Puck0",
+          "type": "Xform"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/Body",
+          "type": "Cube"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/top",
+          "type": "Xform"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/top/Surface",
+          "type": "Mesh"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/bottom",
+          "type": "Xform"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/bottom/Surface",
+          "type": "Mesh"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/px",
+          "type": "Xform"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/px/Surface",
+          "type": "Mesh"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/nx",
+          "type": "Xform"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/nx/Surface",
+          "type": "Mesh"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/py",
+          "type": "Xform"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/py/Surface",
+          "type": "Mesh"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/ny",
+          "type": "Xform"
+        },
+        {
+          "path": "/World/Mission/Pucks/Puck0/ny/Surface",
+          "type": "Mesh"
+        }
+      ],
+      "world_matrix": [
+        [
+          0.34202014332566855,
+          -0.9396926207859086,
+          0.0,
+          0.05723482999999996
+        ],
+        [
+          0.9396926207859086,
+          0.34202014332566855,
+          0.0,
+          0.925
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5869000000000001
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "projected_bbox_gap_px": null,
+  "fixture_source_sha256": "fc05c17717a8ab37a35e46e84a86e9bcf2e4f32b86417797e0fc6b8aae8ca1c1",
+  "motion_authorized": false
+}

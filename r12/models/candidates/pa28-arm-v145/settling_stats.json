@@ -1,0 +1,20 @@
+{
+  "tick": 38400,
+  "sim_s": 80.0,
+  "tcp_error_m": 2.5508898033876903e-06,
+  "joint_ref_error_rad": 4.51505184173584e-06,
+  "reference_to_final_ik_error_rad": 1.8591772010800867e-09,
+  "native_max_qd_rad_s": 3.5120226584695047e-06,
+  "fd120_max_qd_rad_s": 6.651478812180756e-10,
+  "continuous_settling_dwell_s": 36.84375,
+  "max_settling_dwell_s": 36.84375,
+  "first_original_task_dwell_s": 35.610416666666666,
+  "fullrun_fd120_peak_rad_s": 0.005000978242605925,
+  "thresholds": {
+    "tcp_error_m": 0.015,
+    "joint_ref_error_rad": 0.001,
+    "reference_to_final_ik_rad": 1e-06,
+    "native_and_fd_speed_rad_s": 0.001
+  },
+  "diagnostic_only": true
+}

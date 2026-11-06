@@ -1,0 +1,15 @@
+"""Read-only historical sensor schema audit; never infer missing evidence."""
+import json,hashlib
+from pathlib import Path
+import numpy as np
+repo=Path(__file__).resolve().parents[1];out=repo.parents[1]/'outputs/r12';folder=repo/'reports/local/observed_history_v159/observation_history';rows=[]
+for p in sorted(folder.glob('*.json')):
+ m=json.loads(p.read_text());v=m.get('visual_pose') or {};frame=folder/m['frame_file']
+ with np.load(frame,allow_pickle=False) as f:
+  keys=set(f.files);index=int(f['frame_index']);stamp=int(f['stamp_ns']);run=str(f['run_id'].item());capture=int(f['capture_monotonic_ns']) if 'capture_monotonic_ns' in keys else None
+ cov=np.asarray(v.get('covariance',[]),float);q=np.asarray(v.get('quaternion_xyzw',[]),float)
+ rows.append(dict(frame_index=index,metadata_stamp_match=m.get('stamp_ns')==stamp,pose_stamp_match=v.get('stamp_ns')==stamp,run_match=m.get('run_id')==run,frame_capture_present=capture is not None,metadata_capture_present='capture_monotonic_ns' in m,capture_matches=m.get('capture_monotonic_ns')==capture if capture is not None else False,camera_name_in_frame='rgb_camera' in keys,camera_transforms_archived='camera_transforms' in m,calibration_id_archived='calibration_id' in m,raw_pose_frames_archived='raw_visual_pose' in m,pose_frames=[v.get('frame_id'),v.get('child_frame_id')],covariance_finite_36=bool(cov.size==36 and np.isfinite(cov).all()),quaternion_unit=bool(q.shape==(4,) and np.isfinite(q).all() and abs(np.linalg.norm(q)-1)<.01)))
+fields=[k for k in rows[0] if isinstance(rows[0][k],bool)];counts={k:sum(r[k] for r in rows) for k in fields}
+files=['scripts/r12_sensor_ros.py','scripts/r12_sensor_sim.py','src/arm_practice/observed_frame_archive.py','configs/sensors/camera_rig.json','models/r12/r12_arm.urdf']
+report=dict(frames=len(rows),counts=counts,rows=rows,source_sha256={p:hashlib.sha256((repo/p).read_bytes()).hexdigest() for p in files},findings=['ROS odom/status keyed by source stamp;visual_pose records stamp/frames/position/quaternion/covariance.','r12_sensor_ros.py overwrites incoming odometry frame IDs and covariance floors in-place;archived values are not unmodified source evidence.','Simulator packet supplies measured-joint camera_transforms, but archive function does not persist camera_transforms or calibration hash.','CameraInfo runtime640x480 K400 differs from diagnostic1920 render/1280 decoder;do not mix intrinsics or corner coordinate domains.','Arm camera calibration explicitly provisional CAD,not physical hand-eye.'],required_for_pose_join=['Original source topic/status and frame IDs/covariance before mutation','Run/clock reset identity for pose stream and frame capture clock mapping','Explicit camera name, intrinsics/resolution and extrinsic calibration hash with capture-time measured joints','Validated finite SE3 transform and uncertainty;cross-time correlations/calibration errors not available'],runtime_changed=False,pose_join_verified=False,execution_authorized=False)
+(out/'v294_pose_schema.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(frames=len(rows),counts=counts),indent=2))

@@ -1,0 +1,528 @@
+{
+  "schema": 1,
+  "models": [
+    {
+      "path": "models/candidates/local-arm-gamma999/STATUS.md",
+      "bytes": 246,
+      "sha256": "e828845915a56925732a9fb268be5ac452e9202414e7345a7f08a6d389bb01f2",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/bounded_completion.json",
+      "bytes": 112,
+      "sha256": "f12d538bfa4076229f9cf96584dc6d780dafce4cdb67a8316b7bf511e60b2293",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/evaluation.json",
+      "bytes": 489,
+      "sha256": "9cd9bf0771163a5fe98c868b60d9d8ad0aeaa66f762f08fe47c649702a6ca3d1",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/evaluation_manifest.json",
+      "bytes": 773,
+      "sha256": "870f47998463a5e19b079e332e652372ec1616660a14396b3738c9327c11f092",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/exported/policy.onnx",
+      "bytes": 9636,
+      "sha256": "0e814b66ad46641789d8ea02f37faf98f8e9004517d9482281322709eabaae2d",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/exported/policy.pt",
+      "bytes": 37686,
+      "sha256": "90ff472cc0888e10152088322a174c8410a2e3518f287c8439dc1067ad87bc99",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/model_101.pt",
+      "bytes": 168315,
+      "sha256": "153905b03a1a1789d66d0356318f6dc2a0f8adf59741c7a59de0df9b56f1a838",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/progress.json",
+      "bytes": 366,
+      "sha256": "04031539467611ea07ce1190fc3dee827cbf3afb43d050b95a13e525c8ed0816",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/local-arm-gamma999/validation.json",
+      "bytes": 190,
+      "sha256": "f3cba487097d3c8c58928a7806a687b4f67360d444e597c7db7f9e32d7789ddc",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/STATUS.md",
+      "bytes": 246,
+      "sha256": "e828845915a56925732a9fb268be5ac452e9202414e7345a7f08a6d389bb01f2",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/bounded_completion.json",
+      "bytes": 112,
+      "sha256": "f12d538bfa4076229f9cf96584dc6d780dafce4cdb67a8316b7bf511e60b2293",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/evaluation.json",
+      "bytes": 491,
+      "sha256": "0fd9f6fb18d7be1c86296e4510627c0201f21a896114956ed2871b309ec40b9f",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/evaluation_manifest.json",
+      "bytes": 689,
+      "sha256": "62b8624e82aab2803f73b159b01c3a94868b96f5f343577f002667db23f75012",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/exported/policy.onnx",
+      "bytes": 8906,
+      "sha256": "09b750fe70a7961b0c8e92049b6b8711c8f77e1513abfa041f74fa4cfbb6f349",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/exported/policy.pt",
+      "bytes": 37750,
+      "sha256": "7c06277073dcfba9645620ad1a6cd4d7d63468572d475921cf6fbb93048404bb",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/model_101.pt",
+      "bytes": 168315,
+      "sha256": "f75ebef53997c2e249c6304a580b8c2e917d277c77dd3639675fd73bc054982e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/native_thresholds.json",
+      "bytes": 476,
+      "sha256": "5259d6ceead189faadb31f2c8835854b52ba52629caa1f11fc21a8aed11c7445",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/progress.json",
+      "bytes": 207,
+      "sha256": "0da10a0c350223ba737c0a8532bb84b35fbfb5dcbfc263b6103487d7a8e6bf00",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/settling_stats.json",
+      "bytes": 654,
+      "sha256": "98f59fa21967e85863d370591c2a6b9c1712642d6e1353dce6b2eaf744958f03",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/candidates/pa28-arm-v145/validation.json",
+      "bytes": 190,
+      "sha256": "f3cba487097d3c8c58928a7806a687b4f67360d444e597c7db7f9e32d7789ddc",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/maze_grid.npz",
+      "bytes": 698982,
+      "sha256": "43ab67bb832e74c8e0f9eb532911b525010142e7677ec11d9e6e9846f1a843cc",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/mission_navigation.json",
+      "bytes": 2698,
+      "sha256": "4977864170599b3aba0c58b782afa0c4674814ef7c414b7740c45dc09a692a70",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/mission_scene.usda",
+      "bytes": 107909,
+      "sha256": "208743b490e430658bca79db94c9db09fb836d02e23fb44479dde0d518b0a36e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/precision_audit.json",
+      "bytes": 111191,
+      "sha256": "b72debce65796e69bd2d627e503d2e97a808638c14e5e960665419b4b0143b4e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/q1_practice_route.json",
+      "bytes": 6517,
+      "sha256": "4b4dfee8a2cf6e6e3793820f4f12192149d92a409649ad3a57437b61c522f47f",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/random_20261030_route.json",
+      "bytes": 6478,
+      "sha256": "755342c8f85d4e01cdd320718441101593d18eeda4b8f2d52468db594dfbb08e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/routes.json",
+      "bytes": 108172,
+      "sha256": "4d0d62f75f8363f72781ec7134dc27adfa6cb4857b35d31ef493b4a64e7e4c73",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/scene_fixture.json",
+      "bytes": 2736,
+      "sha256": "297e0a5669064c9ebea89e43886fac8b2043d598faa1c932f8e7de52ad667040",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/survey_route.json",
+      "bytes": 108172,
+      "sha256": "4d0d62f75f8363f72781ec7134dc27adfa6cb4857b35d31ef493b4a64e7e4c73",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/mission_code128.png",
+      "bytes": 1306,
+      "sha256": "09be3bec8ce898384b365268c441fc6cebba9962b036e217d29673622fff4da3",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-0.png",
+      "bytes": 1291,
+      "sha256": "aa96929251cb5e7c891e35afc4d8b9143ae87836681a9fda0e0a9bae02f4e61a",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-1.png",
+      "bytes": 1305,
+      "sha256": "6c0491e8aac263412013c17b444ccb7d0a00f27e126d35dac962f661db6c8ca2",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-10.png",
+      "bytes": 1304,
+      "sha256": "30f490cebf69342c18685e3a44d90fa493118d3d6d105bf683f5a33371b140d3",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-11.png",
+      "bytes": 1298,
+      "sha256": "1e080c77bc10021b6d95d8a1bcda48fdefa5bc6fd0bd78702bd34d8d50ebedf1",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-2.png",
+      "bytes": 1300,
+      "sha256": "6bdbc58ca907b10891234e95a69b453a52077cff53c69dec4dc88b2f0e165cc3",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-3.png",
+      "bytes": 1305,
+      "sha256": "704806b2c2daffd2b32c8cd105522fe687e0db745b569262d35c4cae2ca35894",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-4.png",
+      "bytes": 1304,
+      "sha256": "26ccca35450d68c293d952ba9fef59e1cf915b69c22bc64ce046e0af2494656d",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-5.png",
+      "bytes": 1304,
+      "sha256": "26ba8b3678bfb273acda2acb8f3c5f88cbd0d09f0035054a1a6f1d7c9d7ac445",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-6.png",
+      "bytes": 1293,
+      "sha256": "044c304da42e81806b4adac755819b4506d46637b4a4f84b9f54f22f14ad3e7d",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-7.png",
+      "bytes": 1303,
+      "sha256": "a54cd323fb48c8f068197ad0fdbd70070d009cfbd598aff7e9e6483c561d321c",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-8.png",
+      "bytes": 1304,
+      "sha256": "4e5b2b5ac72e9bca7b977d487c0dd8b328391c40f17d4ba90fe51920827b42f4",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/textures/tag36h11-9.png",
+      "bytes": 1298,
+      "sha256": "807893cd2cf29a5d05d15d2427a4253d69ebcd20d43cc18e9c98e8988d86bc50",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/waypoint_policy.pt",
+      "bytes": 21109,
+      "sha256": "b5f45906a86854c97b5d234f1f8098b21414f8456890b54832a87d2fc7668a97",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/navigation/waypoint_policy.ts",
+      "bytes": 32246,
+      "sha256": "e7f263915b3b4c2d43e850768fed9c2f9a61e97e4b92b9d8a18314e0631dede5",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/perception/centerpose/best.pt",
+      "bytes": 75526583,
+      "sha256": "3ed5fe5711a5d96298a829a491ab0b1cc33f642434a3e3dc0a166ba60b2d1ae4",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/perception/inference.json",
+      "bytes": 309,
+      "sha256": "55ef3bd1d17d7a27dc85b0e86d66e085cfa0b165fbfc3bc5e332a75a80230bc5",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/perception/yolo/weights/best.pt",
+      "bytes": 18333558,
+      "sha256": "e844ec62ac01bb42272ce4a05f2f39128e2d57306b9857d96ef855c10757c473",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/gripper_meshes/fixed.stl",
+      "bytes": 906084,
+      "sha256": "39420c815e45872a2d7d819b319fa6f9cc4037a97166a9aae8c1e45ee544c536",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/gripper_meshes/left.stl",
+      "bytes": 87484,
+      "sha256": "4051483e75e47a254d996cbcac01ecef028510a9c00905f2c6ec9496db4891bd",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/gripper_meshes/right.stl",
+      "bytes": 87484,
+      "sha256": "626cae129c69ce5b08dc4c75c5f5dbdcf11f4eccce484e86e67662fd4098ce13",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/policy/model_599.pt",
+      "bytes": 160635,
+      "sha256": "03f62d98c9c9f496474ce20e0c71f5dd1cd82dcda9bfa788b67632d85b5719f3",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/policy/policy.onnx",
+      "bytes": 33531,
+      "sha256": "92924f8ac08dcdb746fd7620d2e3b656c209986991aff57145a8496133c23f09",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/policy/policy.pt",
+      "bytes": 36406,
+      "sha256": "f24f6a0cc86856aefb243d65922cef5e7188d763182568759fbd05248b3f5f87",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/policy/training/agent.yaml",
+      "bytes": 1190,
+      "sha256": "96e0ca65861e2f393c36d563edd062fd64e0b6417524b6c6554b088c03e9e436",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/policy/training/env.yaml",
+      "bytes": 20530,
+      "sha256": "b04881befb314340fcdf9b8e60fd389a3e25b76111b492ca4d79184a081e8f4b",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_arm.urdf",
+      "bytes": 115461,
+      "sha256": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_arm.usda",
+      "bytes": 1475,
+      "sha256": "8c24d29c2e28f3adaad790d126988ca542c8b87dade30a3c7021b091cff40006",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_exploration.urdf",
+      "bytes": 116273,
+      "sha256": "e5a2ef3db700f21365a8dfbb4823872b1817e3e291d64f193ad586839d501f42",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_exploration.usda",
+      "bytes": 846,
+      "sha256": "0c80e93d50503bdfab9b8001b654b2f15199de4c4f092b4162cde42b0cf2769f",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_mobile_gripper.urdf",
+      "bytes": 119218,
+      "sha256": "a9de21e11fc32802b7633a54877607ead497cfc84ace3bc31c22d756cff99292",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_mobile_gripper.usda",
+      "bytes": 940119,
+      "sha256": "1db851a81a8782c267baf73a9644ca85662f2309ac25dc5975671be73d35ff53",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_mobile_rl.usda",
+      "bytes": 275,
+      "sha256": "cde5364990995bbe038c52f00f8f3cfc2c393d2fd5e1f338b210bdf401a35d4e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_tcp.urdf",
+      "bytes": 115638,
+      "sha256": "09adf4307acbac439f5663ba7beb20e957fbf6b048cdef6808c3f47486f79163",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/r12_tcp.usda",
+      "bytes": 283,
+      "sha256": "107db3b721095994b892733f990dda747f075f516aee84b1de0425b398ffed69",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r12/reach_targets.json",
+      "bytes": 355035,
+      "sha256": "b54f7e03b353a9c128068532ea19e95f69916ff875cb8963311449f06c9945d4",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/deployed/84e55f313b9836f533758200101a7c25488ddd6702dfd1cddcc9b95bad2f256f.pt",
+      "bytes": 296885,
+      "sha256": "84e55f313b9836f533758200101a7c25488ddd6702dfd1cddcc9b95bad2f256f",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/deployed/aa878364d434533c2e28abfd07b88dfdf203fe2b0345fdafc7e7577aab2780e8.pt",
+      "bytes": 294573,
+      "sha256": "aa878364d434533c2e28abfd07b88dfdf203fe2b0345fdafc7e7577aab2780e8",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/deployed/d92d5cbd1c4eeefcef262c7b2cb90e8f8734b470b8166870115ba213f71d4e7e.pt",
+      "bytes": 297013,
+      "sha256": "d92d5cbd1c4eeefcef262c7b2cb90e8f8734b470b8166870115ba213f71d4e7e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/deployed/latest.json",
+      "bytes": 376,
+      "sha256": "888e4c221e987cbb851a9834ec8164b286f0ae172f414b9a62ab9a53d1004cce",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/policy.pt",
+      "bytes": 3293,
+      "sha256": "7958835b9d7806b83d0861e487938649fcfdf56f56fdc0346c35800ee342d313",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/policy.ts",
+      "bytes": 9126,
+      "sha256": "877ca11c5d7a438aa8d9961790423e47f6856c0c46e7640f8fcda89fc4fb9b27",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl/policy.pt",
+      "bytes": 32561,
+      "sha256": "fa300c5f202d931ba0adc47fa923d43bf04d8c267df326688efc202f61a347f2",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl/policy_v1.pt",
+      "bytes": 32497,
+      "sha256": "6daf68ab27395974d6fbe6959a8e341d32cf5d1cdc1063169ed81b2aaea778e3",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl/policy_v2.pt",
+      "bytes": 34033,
+      "sha256": "b50cbcc367344790857cea671ee0f7910a849836b166c1978e7a89317022d630",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl/policy_v3.pt",
+      "bytes": 34097,
+      "sha256": "a2bcefac4679899f64a1d728344037ad2463e55ea00709a73935181d58e94ee8",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl/policy_v4.pt",
+      "bytes": 32561,
+      "sha256": "80d2ac15c6d73c5329064fdfdfafb92a227c9a1f0526c2b971ea89b27e212317",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_base_root_v2/policy.pt",
+      "bytes": 296885,
+      "sha256": "84e55f313b9836f533758200101a7c25488ddd6702dfd1cddcc9b95bad2f256f",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_continuous_gpu_v1/policy.pt",
+      "bytes": 297013,
+      "sha256": "958d1eafd4c2607894117969a678526d6c099bd61f2b3b5e7864ec01eab60b01",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_continuous_graph_resume_v1/policy.pt",
+      "bytes": 297013,
+      "sha256": "d92d5cbd1c4eeefcef262c7b2cb90e8f8734b470b8166870115ba213f71d4e7e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_continuous_graph_v1/policy.pt",
+      "bytes": 297077,
+      "sha256": "a5fbe7ec9f93a888db76e607e1a431111863cbfaa845397fe54de5acaaca3640",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_continuous_v1/policy.pt",
+      "bytes": 294765,
+      "sha256": "6e237bf31b3687c2b1a3b955140001b2bb12ace2f546bfa669d37bee1493114e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_highspeed/policy.pt",
+      "bytes": 32753,
+      "sha256": "68c9c0adc73f4a91415cc2e1375ef33e511ee6c9fd87aff55d63fb5cb18309ed",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_highspeed_v2/policy.pt",
+      "bytes": 294573,
+      "sha256": "aa878364d434533c2e28abfd07b88dfdf203fe2b0345fdafc7e7577aab2780e8",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_joint_control_v3/policy.pt",
+      "bytes": 310517,
+      "sha256": "5f00f304bfb9de32a9811f5bec36ac69feb1aa270cbeec00bbde989f1539c6fc",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_joint_control_v3_smoke/policy.pt",
+      "bytes": 310517,
+      "sha256": "6c103a758cfd3fb56828bd74d0c4486977832617763f7e5abffff3b6a9933750",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_slew_control_v4/policy.pt",
+      "bytes": 335093,
+      "sha256": "0b0c4e244281b30ff22a82aac6c4a3998209c2546b2eb9d76eb67cfb3abc5e99",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/swerve/rl_slew_control_v4_smoke/policy.pt",
+      "bytes": 335093,
+      "sha256": "a8113faebc7f12f410774e36fbc638a9dd3fa7f069acabf413ac2447befe3a2d",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    }
+  ],
+  "policy": "upload is not deployment; do not auto-promote candidates"
+}

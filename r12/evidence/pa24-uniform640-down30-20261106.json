@@ -1,0 +1,172 @@
+{
+  "schema": "pa24-uniform640-down30-local-verification-v1",
+  "wire_schema": "r12-rgbd-wire-v3-uniform640",
+  "payload_bytes": 12288000,
+  "mount_pitch_down_deg": 30,
+  "camera_schema_sha256": "0229ed890a1afe48f91fface051ef30faa4b7d0f1ad5c0b79f6663166233294a",
+  "calibration_sha256": "947c48dc4d2693bc88f29729d964d99171c415b25d5b98611ceec4250689f587",
+  "tests": {
+    "common_targeted_passed": 102,
+    "pa33_candidate_targeted_passed": 104,
+    "cross_process_profile_tests_passed": 1,
+    "cross_process_payload_bytes": [
+      36864000,
+      12288000
+    ],
+    "full_native_suite_passed": 324,
+    "full_native_suite_failed": 4,
+    "known_baseline_failures": "AdapterHistoricalPoseTests mocks removed transforms symbol; reproduced with pre-change source"
+  },
+  "runs": [
+    {
+      "name": "down30-uniform640-01",
+      "passed": false,
+      "reason": "supervisor temporary telemetry rename race; fixed, no success claimed"
+    },
+    {
+      "name": "down30-uniform640-02",
+      "passed": true,
+      "launcher": {
+        "supervisor_exit_code": 0,
+        "source_unchanged": true,
+        "motion_authorized": false
+      },
+      "supervisor": {
+        "renderer_exit_code": 0,
+        "frames": 3,
+        "live_proposals": 3,
+        "expected_ambiguous_rejections": 0,
+        "identity_reobservation_verified": false,
+        "diagnostic_motion_verified": false,
+        "movement_dispatch_count": 0,
+        "min_vram_free_mib": 3543.0,
+        "calibration_accepted": false,
+        "motion_authorized": false,
+        "scope": "fresh_in_process_proposal_only_no_movement"
+      },
+      "captures": [
+        {
+          "step": 502,
+          "renders": 3,
+          "ready_ms": 141.191072,
+          "accepted": true,
+          "id": 0,
+          "pixel": [
+            320.0520820617676,
+            177.125
+          ],
+          "capture_age_ms": 235.621225,
+          "identity_streak": 1
+        },
+        {
+          "step": 550,
+          "renders": 3,
+          "ready_ms": 126.596498,
+          "accepted": true,
+          "id": 0,
+          "pixel": [
+            319.7708320617676,
+            177.1875
+          ],
+          "capture_age_ms": 217.617496,
+          "identity_streak": 2
+        },
+        {
+          "step": 598,
+          "renders": 3,
+          "ready_ms": 60.614685,
+          "accepted": true,
+          "id": 0,
+          "pixel": [
+            319.88541412353516,
+            177.07291793823242
+          ],
+          "capture_age_ms": 146.19403,
+          "identity_streak": 3
+        }
+      ],
+      "source_sha256": {
+        "render_axis.py": "07a9b8c2ad1c014cbb244196339659a7a3f5597c3dccb21478b9d7e86eb20515",
+        "run_manifest.json": "68ea5e148e0f401b0bc3b1592d4e882fcacb0ffe2295da5420702abb62a32fb4",
+        "models/r12/r12_arm.urdf": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
+        "configs/sensors/camera_rig.json": "780b5215944b9b7df6ac018d0297febd11ee30baa6dd60f7e621930c7bb49985",
+        "cad_geometry.json": "986934142ad4a33dc029c016443d8edc5a7d6a1b4c853c37a6f6ac7ba74d9a34"
+      }
+    },
+    {
+      "name": "repository-down30-repro",
+      "passed": true,
+      "launcher": {
+        "supervisor_exit_code": 0,
+        "source_unchanged": true,
+        "motion_authorized": false
+      },
+      "supervisor": {
+        "renderer_exit_code": 0,
+        "frames": 3,
+        "live_proposals": 3,
+        "expected_ambiguous_rejections": 0,
+        "identity_reobservation_verified": false,
+        "diagnostic_motion_verified": false,
+        "movement_dispatch_count": 0,
+        "min_vram_free_mib": 3457.0,
+        "calibration_accepted": false,
+        "motion_authorized": false,
+        "scope": "fresh_in_process_proposal_only_no_movement"
+      },
+      "captures": [
+        {
+          "step": 502,
+          "renders": 3,
+          "ready_ms": 121.690934,
+          "accepted": true,
+          "id": 0,
+          "pixel": [
+            320.0520820617676,
+            177.125
+          ],
+          "capture_age_ms": 210.420185,
+          "identity_streak": 1
+        },
+        {
+          "step": 550,
+          "renders": 3,
+          "ready_ms": 69.436473,
+          "accepted": true,
+          "id": 0,
+          "pixel": [
+            319.7708320617676,
+            177.1875
+          ],
+          "capture_age_ms": 161.273743,
+          "identity_streak": 2
+        },
+        {
+          "step": 598,
+          "renders": 3,
+          "ready_ms": 64.045674,
+          "accepted": true,
+          "id": 0,
+          "pixel": [
+            319.88541412353516,
+            177.07291793823242
+          ],
+          "capture_age_ms": 149.247171,
+          "identity_streak": 3
+        }
+      ],
+      "source_sha256": {
+        "render_axis.py": "07a9b8c2ad1c014cbb244196339659a7a3f5597c3dccb21478b9d7e86eb20515",
+        "run_manifest.json": "68ea5e148e0f401b0bc3b1592d4e882fcacb0ffe2295da5420702abb62a32fb4",
+        "models/r12/r12_arm.urdf": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
+        "configs/sensors/camera_rig.json": "780b5215944b9b7df6ac018d0297febd11ee30baa6dd60f7e621930c7bb49985",
+        "cad_geometry.json": "986934142ad4a33dc029c016443d8edc5a7d6a1b4c853c37a6f6ac7ba74d9a34"
+      }
+    }
+  ],
+  "remote_started": false,
+  "physical_calibration_verified": false,
+  "calibration_accepted": false,
+  "motion_authorized": false,
+  "mission_complete": false
+}

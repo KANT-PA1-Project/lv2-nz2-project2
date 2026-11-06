@@ -1,0 +1,47 @@
+{
+  "hardware_confirmed_by_user": "Standard OpenMANIPULATOR-X gripper, unchanged",
+  "actuator": "DYNAMIXEL XM430-W350-T",
+  "independent_gripper_actuators": 1,
+  "finger_coupling": "symmetric parallel fingers, one independent opening command",
+  "manufacturer_opening_range_m": [
+    0.02,
+    0.075
+  ],
+  "official_urdf_finger_joint_range_m": [
+    -0.011,
+    0.02
+  ],
+  "official_urdf_mimic": {
+    "joint": "gripper_left_joint",
+    "multiplier": 1
+  },
+  "specification_url": "https://emanual.robotis.com/docs/en/platform/openmanipulator_x/specification/",
+  "official_repository": "https://github.com/ROBOTIS-GIT/open_manipulator",
+  "official_commit": "b83daec7b98c08d00adb856d7e31f2b0065d3be9",
+  "r12_tcp_cad_offset_m": 0.12475,
+  "official_end_effector_offset_m": 0.126,
+  "tcp_alignment_difference_m": 0.00125,
+  "simulation_integration_complete": true,
+  "physical_grasp_verified": false,
+  "motor_torque_to_finger_force_mapping": null,
+  "notes": [
+    "Official URDF effort=1000 and velocity=4.8 are description limits, not measured gripper force/speed; do not use as motor ratings.",
+    "Existing R12 fixed finger meshes and whole-hand collision cube must be replaced/split before adding moving fingers.",
+    "30mm puck lies inside manufacturer opening range; grasp stability unverified.",
+    "R12 five arm joints are retained; standard product four-arm-joint topology does not replace the supplied custom R12 arm."
+  ],
+  "cad_zero_aperture_m": 0.019627738744020462,
+  "simulation_finger_displacement_m": [
+    0.0001861306279897692,
+    0.027686130627989768
+  ],
+  "simulation_force_limit_per_finger_N": 10,
+  "simulation_speed_per_finger_m_s": 0.04,
+  "simulation_mass_per_finger_kg": 0.025,
+  "assumptions": "CAD palms/pads retained, parallel-slide approximation; crank/rods remain visual only. Force, speed and mass are provisional, not measured motor equivalents. Existing whole robot assumed mass not reidentified.",
+  "usd": "models/r12/r12_mobile_gripper.usda",
+  "urdf": "models/r12/r12_mobile_gripper.urdf",
+  "model_prepared": true,
+  "contact_diagnostic_passed": true,
+  "contact_diagnostic_report": "reports/local/gripper_contact/evaluation.json"
+}

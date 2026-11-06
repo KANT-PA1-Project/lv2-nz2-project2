@@ -1,0 +1,369 @@
+{
+  "scope": "CPU position-only near pregrasp optimization. Same isolatedbench geometry/5DOF limits. Grasp orientation fixed. No approach pad exception. 3cm conservative OBB test not continuous distance certificate. Actual native contact/dwell/vision unverified. No native execution.",
+  "seed": 2408,
+  "arm_reference_rate_rad_s": 0.005,
+  "rows": [
+    {
+      "pregrasp_retreat_m": 0.002,
+      "pregrasp_q": [
+        0.0,
+        0.1616310118694592,
+        -0.3034605560043667,
+        0.13583484788299297,
+        0.0
+      ],
+      "position_error_m": 3.617516400335202e-11,
+      "axis_error_deg": 0.3434707946987043,
+      "max_joint_delta_to_grasp_rad": 0.01416515211700703,
+      "reference_travel_s": 207.92092955483773,
+      "legs_s": [
+        60.69211120087334,
+        2.833030423401406,
+        40.43532315314411,
+        40.43532315314411,
+        2.833030423401406,
+        60.69211120087334
+      ],
+      "cycle_from_pregrasp_s": 147.22881835396439,
+      "geometry_3cm_failed_pairs": [
+        [
+          "pregrasp",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "pregrasp",
+          "/Robot/gripper_right/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_right/pad_collision"
+        ]
+      ],
+      "nominal_overlap_pairs": [],
+      "pose_pass": true,
+      "travel_under180": false,
+      "motion_authorized": false
+    },
+    {
+      "pregrasp_retreat_m": 0.005,
+      "pregrasp_q": [
+        0.0,
+        0.17742541652218835,
+        -0.3217053531042004,
+        0.14080645215762785,
+        0.0
+      ],
+      "position_error_m": 2.6720397876964344e-11,
+      "axis_error_deg": 0.1990159977131148,
+      "max_joint_delta_to_grasp_rad": 0.027425416522188356,
+      "reference_travel_s": 220.5229541568437,
+      "legs_s": [
+        64.34107062084007,
+        5.485083304437671,
+        40.43532315314411,
+        40.43532315314411,
+        5.485083304437671,
+        64.34107062084007
+      ],
+      "cycle_from_pregrasp_s": 156.18188353600362,
+      "geometry_3cm_failed_pairs": [
+        [
+          "pregrasp",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "pregrasp",
+          "/Robot/gripper_right/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_right/pad_collision"
+        ]
+      ],
+      "nominal_overlap_pairs": [],
+      "pose_pass": true,
+      "travel_under180": false,
+      "motion_authorized": false
+    },
+    {
+      "pregrasp_retreat_m": 0.01,
+      "pregrasp_q": [
+        0.0,
+        0.20490832108531895,
+        -0.3429538885681336,
+        0.13143689059567717,
+        0.0
+      ],
+      "position_error_m": 4.5569845071995634e-11,
+      "axis_error_deg": 0.37864929379871065,
+      "max_joint_delta_to_grasp_rad": 0.054908321085318956,
+      "reference_travel_s": 240.01553016766925,
+      "legs_s": [
+        68.59077771362672,
+        10.981664217063791,
+        40.43532315314411,
+        40.43532315314411,
+        10.981664217063791,
+        68.59077771362672
+      ],
+      "cycle_from_pregrasp_s": 171.42475245404253,
+      "geometry_3cm_failed_pairs": [
+        [
+          "pregrasp",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "pregrasp",
+          "/Robot/gripper_right/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_right/pad_collision"
+        ]
+      ],
+      "nominal_overlap_pairs": [],
+      "pose_pass": true,
+      "travel_under180": false,
+      "motion_authorized": false
+    },
+    {
+      "pregrasp_retreat_m": 0.015,
+      "pregrasp_q": [
+        0.0,
+        0.23378441892620955,
+        -0.34990937830505303,
+        0.09511761569961823,
+        0.0
+      ],
+      "position_error_m": 3.217945407052012e-10,
+      "axis_error_deg": 1.2036321315998906,
+      "max_joint_delta_to_grasp_rad": 0.08378441892620955,
+      "reference_travel_s": 254.34816519879325,
+      "legs_s": [
+        69.9818756610106,
+        16.75688378524191,
+        40.43532315314411,
+        40.43532315314411,
+        16.75688378524191,
+        69.9818756610106
+      ],
+      "cycle_from_pregrasp_s": 184.36628953778265,
+      "geometry_3cm_failed_pairs": [
+        [
+          "pregrasp",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "pregrasp",
+          "/Robot/gripper_right/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_right/pad_collision"
+        ]
+      ],
+      "nominal_overlap_pairs": [],
+      "pose_pass": true,
+      "travel_under180": false,
+      "motion_authorized": false
+    },
+    {
+      "pregrasp_retreat_m": 0.02,
+      "pregrasp_q": [
+        0.0,
+        0.2624654370621961,
+        -0.3499998991663225,
+        0.04768420745413977,
+        0.0
+      ],
+      "position_error_m": 1.6547093891060722e-10,
+      "axis_error_deg": 2.283251403965559,
+      "max_joint_delta_to_grasp_rad": 0.11246543706219611,
+      "reference_travel_s": 265.8567807976957,
+      "legs_s": [
+        69.9999798332645,
+        22.493087412439223,
+        40.43532315314411,
+        40.43532315314411,
+        22.493087412439223,
+        69.9999798332645
+      ],
+      "cycle_from_pregrasp_s": 195.85680096443116,
+      "geometry_3cm_failed_pairs": [
+        [
+          "pregrasp",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "pregrasp",
+          "/Robot/gripper_right/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_right/pad_collision"
+        ]
+      ],
+      "nominal_overlap_pairs": [],
+      "pose_pass": true,
+      "travel_under180": false,
+      "motion_authorized": false
+    },
+    {
+      "pregrasp_retreat_m": 0.025,
+      "pregrasp_q": [
+        0.0,
+        0.2902672423657841,
+        -0.3499998999801833,
+        0.002244302687632116,
+        0.0
+      ],
+      "position_error_m": 2.2326166465579594e-10,
+      "axis_error_deg": 3.2938401084535207,
+      "max_joint_delta_to_grasp_rad": 0.14775569731236787,
+      "reference_travel_s": 279.9728852233087,
+      "legs_s": [
+        69.99997999603666,
+        29.551139462473575,
+        40.43532315314411,
+        40.43532315314411,
+        29.551139462473575,
+        69.99997999603666
+      ],
+      "cycle_from_pregrasp_s": 209.97290522727204,
+      "geometry_3cm_failed_pairs": [
+        [
+          "pregrasp",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "pregrasp",
+          "/Robot/gripper_right/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_right/pad_collision"
+        ]
+      ],
+      "nominal_overlap_pairs": [],
+      "pose_pass": true,
+      "travel_under180": false,
+      "motion_authorized": false
+    },
+    {
+      "pregrasp_retreat_m": 0.03,
+      "pregrasp_q": [
+        0.0,
+        0.31731527912393487,
+        -0.3499998249480027,
+        -0.0412974914930933,
+        0.0
+      ],
+      "position_error_m": 2.654119524920021e-10,
+      "axis_error_deg": 4.2388584980524655,
+      "max_joint_delta_to_grasp_rad": 0.1912974914930933,
+      "reference_travel_s": 297.3895728827266,
+      "legs_s": [
+        69.99996498960054,
+        38.25949829861866,
+        40.43532315314411,
+        40.43532315314411,
+        38.25949829861866,
+        69.99996498960054
+      ],
+      "cycle_from_pregrasp_s": 227.38960789312608,
+      "geometry_3cm_failed_pairs": [
+        [
+          "pregrasp",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "pregrasp",
+          "/Robot/gripper_right/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_right/pad_collision"
+        ]
+      ],
+      "nominal_overlap_pairs": [],
+      "pose_pass": true,
+      "travel_under180": false,
+      "motion_authorized": false
+    },
+    {
+      "pregrasp_retreat_m": 0.04,
+      "pregrasp_q": [
+        0.0,
+        0.349999897781253,
+        -0.2255733977270181,
+        -0.31523480624709127,
+        0.0
+      ],
+      "position_error_m": 1.930090240738657e-09,
+      "axis_error_deg": 10.932510640890506,
+      "max_joint_delta_to_grasp_rad": 0.46523480624709124,
+      "reference_travel_s": 406.9645279176259,
+      "legs_s": [
+        69.9999795562506,
+        93.04696124941825,
+        40.43532315314411,
+        40.43532315314411,
+        93.04696124941825,
+        69.9999795562506
+      ],
+      "cycle_from_pregrasp_s": 336.9645483613753,
+      "geometry_3cm_failed_pairs": [
+        [
+          "pregrasp",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "pregrasp",
+          "/Robot/gripper_right/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_left/pad_collision"
+        ],
+        [
+          "grasp_approach_endpoint",
+          "/Robot/gripper_right/pad_collision"
+        ]
+      ],
+      "nominal_overlap_pairs": [],
+      "pose_pass": true,
+      "travel_under180": false,
+      "motion_authorized": false
+    }
+  ],
+  "total_wall_s": 1.4079424510127865,
+  "native_smoke_ready": false
+}

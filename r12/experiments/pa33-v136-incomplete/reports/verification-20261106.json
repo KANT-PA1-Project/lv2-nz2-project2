@@ -1,0 +1,318 @@
+{
+  "scope": "offline_native_observation_evidence_not_full_pa33_acceptance",
+  "run_id": "pa33_v136_65ea5fe512a2",
+  "observation_bench_pass": false,
+  "native_sensor_observations_pass": true,
+  "child_normal_exit": true,
+  "parent_process_exit_code": -11,
+  "errors": [
+    "native_parent_process_failed"
+  ],
+  "attempted": 10,
+  "fixed_phases": {
+    "warmup": 2,
+    "measurement": 8
+  },
+  "ACK_all_attempts": {
+    "schema": "v136-ACK-analysis-v1",
+    "input": "/home/pa33/git/lv2-nz2-project2/r12/experiments/pa33-v136-incomplete/.runtime/isaac-validation-20261106-10/run/observer/producer_ack.jsonl",
+    "definition": {
+      "start": "capture_monotonic_ns",
+      "end": "producer_transport_timing.ack_receive_end_ns",
+      "unit": "ms",
+      "clock": "same-host-monotonic-ns",
+      "percentile": "linear interpolation at (n-1)*q"
+    },
+    "valid": true,
+    "summary": {
+      "samples": 10,
+      "p50": 344.9775525,
+      "p95": 415.6685907,
+      "max": 423.826512
+    },
+    "valid_subset_summary": null,
+    "skipped_uncaptured": 0,
+    "errors": [],
+    "stage_summary": {
+      "blob_copy_ms": {
+        "samples": 10,
+        "p50": 0.0453605,
+        "p95": 0.05083355,
+        "max": 0.051527
+      },
+      "serialization_ms": null,
+      "unix_send_ms": null,
+      "serialization_and_send_ms": {
+        "samples": 10,
+        "p50": 20.943173,
+        "p95": 37.127989199999995,
+        "max": 39.510156
+      },
+      "ack_receive_ms": {
+        "samples": 10,
+        "p50": 0.3362,
+        "p95": 0.4512439999999999,
+        "max": 0.485561
+      },
+      "ack_validation_ms": {
+        "samples": 10,
+        "p50": 0.003232,
+        "p95": 0.00493815,
+        "max": 0.005214
+      }
+    },
+    "stage_missing_samples": {
+      "blob_copy_ms": 0,
+      "serialization_ms": 10,
+      "unix_send_ms": 10,
+      "serialization_and_send_ms": 0,
+      "ack_receive_ms": 0,
+      "ack_validation_ms": 0
+    },
+    "samples": [
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 1970,
+        "capture_stamp_ns": 2052083333,
+        "capture_monotonic_ns": 175627249572451,
+        "ack_receive_end_ns": 175627673398963,
+        "producer_ACK_ms": 423.826512,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.045004,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 34.216452,
+          "ack_receive_ms": 0.324044,
+          "ack_validation_ms": 0.005214
+        },
+        "input_record": 1,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2034,
+        "capture_stamp_ns": 2118750000,
+        "capture_monotonic_ns": 175628057401920,
+        "ack_receive_end_ns": 175628463099718,
+        "producer_ACK_ms": 405.697798,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.049986,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 39.510156,
+          "ack_receive_ms": 0.296226,
+          "ack_validation_ms": 0.004601
+        },
+        "input_record": 2,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2098,
+        "capture_stamp_ns": 2185416666,
+        "capture_monotonic_ns": 175628849635036,
+        "ack_receive_end_ns": 175629174888570,
+        "producer_ACK_ms": 325.253534,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.045151,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 21.188029,
+          "ack_receive_ms": 0.366729,
+          "ack_validation_ms": 0.00316
+        },
+        "input_record": 3,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2162,
+        "capture_stamp_ns": 2252083333,
+        "capture_monotonic_ns": 175629629595938,
+        "ack_receive_end_ns": 175629977425217,
+        "producer_ACK_ms": 347.829279,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.04557,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 23.033459,
+          "ack_receive_ms": 0.357058,
+          "ack_validation_ms": 0.003067
+        },
+        "input_record": 4,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2226,
+        "capture_stamp_ns": 2318750000,
+        "capture_monotonic_ns": 175630403598478,
+        "ack_receive_end_ns": 175630723466664,
+        "producer_ACK_ms": 319.868186,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.042016,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 13.081545,
+          "ack_receive_ms": 0.310098,
+          "ack_validation_ms": 0.00273
+        },
+        "input_record": 5,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2290,
+        "capture_stamp_ns": 2385416666,
+        "capture_monotonic_ns": 175631182849023,
+        "ack_receive_end_ns": 175631522510605,
+        "producer_ACK_ms": 339.661582,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.041624,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 20.698317,
+          "ack_receive_ms": 0.409301,
+          "ack_validation_ms": 0.003926
+        },
+        "input_record": 6,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2354,
+        "capture_stamp_ns": 2452083333,
+        "capture_monotonic_ns": 175632125253892,
+        "ack_receive_end_ns": 175632516176202,
+        "producer_ACK_ms": 390.92231,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.040836,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 23.263339,
+          "ack_receive_ms": 0.485561,
+          "ack_validation_ms": 0.00448
+        },
+        "input_record": 7,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2418,
+        "capture_stamp_ns": 2518750000,
+        "capture_monotonic_ns": 175633035233594,
+        "ack_receive_end_ns": 175633375712465,
+        "producer_ACK_ms": 340.478871,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.051527,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 17.097263,
+          "ack_receive_ms": 0.279824,
+          "ack_validation_ms": 0.002589
+        },
+        "input_record": 8,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2482,
+        "capture_stamp_ns": 2585416666,
+        "capture_monotonic_ns": 175633859311776,
+        "ack_receive_end_ns": 175634215708055,
+        "producer_ACK_ms": 356.396279,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.049524,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 12.108247,
+          "ack_receive_ms": 0.292239,
+          "ack_validation_ms": 0.003304
+        },
+        "input_record": 9,
+        "input_layout": "v136-producer-ack-v1"
+      },
+      {
+        "run_id": "pa33_v136_65ea5fe512a2",
+        "clock_epoch": "pa33_v136_65ea5fe512a2-physics-epoch1",
+        "source_sha256": "c2aae2535a0063a9399f4be5cd721de8dc4645cf4c5a8f461174de6c3d2a0f3d",
+        "capture_physics_step": 2546,
+        "capture_stamp_ns": 2652083333,
+        "capture_monotonic_ns": 175634694867392,
+        "ack_receive_end_ns": 175635036993218,
+        "producer_ACK_ms": 342.125826,
+        "ros_domain_id": 33,
+        "required_samples": 31,
+        "frame": null,
+        "stages": {
+          "blob_copy_ms": 0.04726,
+          "serialization_ms": null,
+          "unix_send_ms": null,
+          "serialization_and_send_ms": 20.182507,
+          "ack_receive_ms": 0.348356,
+          "ack_validation_ms": 0.00289
+        },
+        "input_record": 10,
+        "input_layout": "v136-producer-ack-v1"
+      }
+    ],
+    "scope": "offline_transport_statistics_not_mission_acceptance"
+  },
+  "ACK_measurement_only": {
+    "samples": 8,
+    "p50": 341.3023485,
+    "p95": 378.83819915,
+    "max": 390.92231
+  },
+  "full_sensor_ROS_verified": true,
+  "coverage_IPC_fault_injection_verified": true,
+  "native_fault_injection_verified": false,
+  "full_pa33_acceptance": false,
+  "mission_success": false,
+  "performance_accepted": false
+}
