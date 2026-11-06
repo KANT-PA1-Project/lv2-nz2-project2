@@ -1,8 +1,11 @@
 """Warmed unchanged GPU models on a bounded trusted same-host live capture stream."""
 import argparse,hashlib,json,os,socket,sys,time,subprocess
 from pathlib import Path
-root=Path(__file__).resolve().parent;base=Path('/home/pa33/.cache/isaac-fleet-r12/mission_native_perception_v23')
-sys.path[:0]=[str(root/'src'),str(base/'work/perception_deps'),str(base/'work/perception_implementation/scripts')]
+root=Path(__file__).resolve().parent;sys.path.insert(0,str(root/'src'))
+from arm_practice.native_rgbd.runtime_settings import RuntimeSettings
+settings=RuntimeSettings.from_env();paths,pin=settings.decoder()
+settings.verify_models(paths,pin)
+sys.path[:0]=[str(root/'src'),str(paths['decoder_deps']),str(paths['decoder_scripts'])]
 import numpy as np,cv2,torch
 from ultralytics import YOLO
 from train_centerpose import load_model,infer
@@ -24,8 +27,7 @@ def safe(x):
 def write(name,x):(out/name).write_text(json.dumps(safe(x),indent=2))
 def free():return int(subprocess.check_output(['nvidia-smi','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True).splitlines()[0])
 sock=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM);sock.settimeout(60);sock.connect(a.socket);require_peer(peer_credentials(sock),a.producer_pid,os.getuid())
-model=base/'models/perception';pin=json.loads((base/'perception_model_manifest.json').read_text())['model_sha256']
-for name,sha in pin.items():assert hashlib.sha256((model/name).read_bytes()).hexdigest()==sha
+model=paths['model_root']
 schema=MixedCameraSchema.from_file(root/'configs/mixed_camera_schema.json');fk=CaptureFK(root)
 fx,fy,cx,cy=schema.config['cameras']['arm_camera_left_optical']['intrinsics'];K=np.array([[fx,0,cx],[0,fy,cy],[0,0,1.]])
 cfg=json.loads((model/'inference.json').read_text());cv2.setNumThreads(4);torch.set_num_threads(2);load_start=time.monotonic_ns()
@@ -43,7 +45,7 @@ def decode(rgb,depth):
   records.append(r)
  return tags,records,t
 # Explicit historical image used only to warm model kernels; never emitted as live.
-archive=Path('/home/pa33/isaac-fleet-runs/pa33_tagged_puck_fixture_v80_20261105/native_raw_02.npz')
+archive=paths['warmup_npz']
 with np.load(archive,allow_pickle=False)as z:wrgb=z['arm_camera_left_optical'];wdepth=z['arm_camera_depth']
 warm=[]
 for i in range(2):

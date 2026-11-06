@@ -3,13 +3,15 @@ import atexit,hashlib,json,os,secrets,socket,subprocess,tempfile,time
 from pathlib import Path
 from .trusted_capture_ipc import send_packet,receive_packet,peer_credentials,require_peer
 from .renderer_epoch_issuer import canonical
+from .runtime_settings import RuntimeSettings
 class PriorityFeedbackBridge:
-    def __init__(self,root,out,run_id,source_sha):
+    def __init__(self,root,out,run_id,source_sha,*,settings=None):
+        settings=settings or RuntimeSettings.from_env();python=settings.path("ros_python",executable=True)
         self.out=Path(out);self.sequence=0;self.closed=False;self.stream=secrets.token_hex(16);self.run=run_id;self.source=source_sha
-        self.temp=tempfile.TemporaryDirectory(prefix='pa33-priority-');path=str(Path(self.temp.name)/'feedback.sock');self.listener=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM);self.listener.bind(path);os.chmod(path,0o600);self.listener.listen(1);self.listener.settimeout(15)
-        self.log=(self.out/'priority_feedback_consumer.log').open('w');env=os.environ.copy()
+        self.temp=tempfile.TemporaryDirectory(prefix='r12-priority-');path=str(Path(self.temp.name)/'feedback.sock');self.listener=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM);self.listener.bind(path);os.chmod(path,0o600);self.listener.listen(1);self.listener.settimeout(15)
+        self.log=(self.out/'priority_feedback_consumer.log').open('w');env=settings.child_env()
         for key in ['PYTHONPATH','LD_LIBRARY_PATH','AMENT_PREFIX_PATH','COLCON_PREFIX_PATH','ROS_DISTRO']:env.pop(key,None)
-        self.child=subprocess.Popen(['/usr/bin/python3',str(Path(root)/'priority_feedback_consumer.py'),'--socket',path,'--producer-pid',str(os.getpid()),'--run-id',run_id,'--source-sha',source_sha,'--stream-id',self.stream,'--out',str(out)],env=env,stdout=self.log,stderr=subprocess.STDOUT)
+        self.child=subprocess.Popen([str(python),str(Path(root)/'priority_feedback_consumer.py'),'--socket',path,'--producer-pid',str(os.getpid()),'--run-id',run_id,'--source-sha',source_sha,'--stream-id',self.stream,'--out',str(out)],env=env,stdout=self.log,stderr=subprocess.STDOUT)
         self.sock,_=self.listener.accept();self.sock.settimeout(15);peer=peer_credentials(self.sock);require_peer(peer,self.child.pid,os.getuid());hello,blobs=receive_packet(self.sock)
         if blobs or hello!=dict(kind='priority_ready',run_id=run_id,stream_id=self.stream):raise ValueError('priority_handshake_invalid')
         atexit.register(self.close);(self.out/'priority_feedback_session.json').write_text(json.dumps(dict(producer_pid=os.getpid(),consumer_pid=self.child.pid,peer=list(peer),run_id=run_id,stream_id=self.stream)))
