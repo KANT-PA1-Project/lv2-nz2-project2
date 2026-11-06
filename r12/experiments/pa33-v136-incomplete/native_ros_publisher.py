@@ -1,13 +1,15 @@
-"""Domain33 localhost ROS publication and subscriber audit; never mission commands."""
+"""Configured localhost ROS publication and subscriber audit; never mission commands."""
 import argparse,hashlib,json,os,socket,sys,time
 from pathlib import Path
 import numpy as np
 from scipy.spatial.transform import Rotation
 root=Path(__file__).resolve().parent;sys.path.insert(0,str(root/'src'))
-from arm_practice.native_rgbd.trusted_capture_ipc import send_packet,receive_packet,peer_credentials,require_peer
+from arm_practice.native_rgbd.trusted_capture_ipc import receive_packet,peer_credentials,require_peer
+from arm_practice.native_rgbd.timed_send import send_packet
 from arm_practice.native_rgbd.mixed_camera_schema import MixedCameraSchema
 from arm_practice.native_rgbd.ros_current_contract import CurrentROSGuard
 from arm_practice.native_rgbd.renderer_epoch_issuer import canonical
+from arm_practice.native_rgbd.runtime_settings import RuntimeSettings
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import SingleThreadedExecutor
@@ -18,12 +20,15 @@ from tf2_msgs.msg import TFMessage
 from rosgraph_msgs.msg import Clock
 from std_msgs.msg import String
 from builtin_interfaces.msg import Time
-p=argparse.ArgumentParser();p.add_argument('--socket');p.add_argument('--producer-pid',type=int);p.add_argument('--run-id');p.add_argument('--output');a=p.parse_args()
-assert os.environ['ROS_DOMAIN_ID']=='33' and os.environ['ROS_AUTOMATIC_DISCOVERY_RANGE']=='LOCALHOST'
+p=argparse.ArgumentParser();p.add_argument('--socket');p.add_argument('--producer-pid',type=int);p.add_argument('--run-id');p.add_argument('--source-sha',required=True);p.add_argument('--output');a=p.parse_args()
+DOMAIN,_,_=RuntimeSettings.from_env().ros()
+if os.environ.get('ROS_DOMAIN_ID')!=str(DOMAIN) or os.environ.get('ROS_AUTOMATIC_DISCOVERY_RANGE')!='LOCALHOST':raise ValueError('ROS_local_domain_mismatch')
+if len(a.source_sha)!=64 or any(c not in '0123456789abcdef' for c in a.source_sha):raise ValueError('invalid_source_sha256')
+bundle_sha=hashlib.sha256((root/'native_entrypoint_manifest.json').read_bytes()).hexdigest()
 schema=MixedCameraSchema.from_file(root/'configs/mixed_camera_schema.json');out=Path(a.output)
 sock=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM);sock.settimeout(25);sock.connect(a.socket);require_peer(peer_credentials(sock),a.producer_pid,os.getuid())
 rclpy.init();pubnode=Node('r12_native_diagnostic_publisher');subnode=Node('r12_native_diagnostic_subscriber');executor=SingleThreadedExecutor();executor.add_node(pubnode);executor.add_node(subnode)
-qos=QoSProfile(depth=32,reliability=ReliabilityPolicy.RELIABLE,history=HistoryPolicy.KEEP_LAST)
+qos=QoSProfile(depth=256,reliability=ReliabilityPolicy.RELIABLE,history=HistoryPolicy.KEEP_LAST)
 prefix='/r12/native_diagnostic/'+a.run_id;publishers={};subscriptions=[];expected={};received={};errors=[];records=[]
 def ns(t):return t.sec*10**9+t.nanosec
 def tm(n):return Time(sec=n//10**9,nanosec=n%10**9)
@@ -52,14 +57,21 @@ deadline=time.monotonic()+10
 while not all(x.get_subscription_count()>=1 for x in publishers.values()):
     if time.monotonic()>deadline:raise RuntimeError('local_ROS_discovery_timeout')
     executor.spin_once(timeout_sec=.05)
-guard=CurrentROSGuard(a.run_id,hashlib.sha256((root/'native_entrypoint_manifest.json').read_bytes()).hexdigest());early_records=[];last_early=None
-send_packet(sock,dict(kind='ready',run_id=a.run_id,domain=33))
+from arm_practice.native_rgbd.coverage_transport import CoverageEndpoint
+coverage=CoverageEndpoint(pubnode,subnode,executor,qos,schema=schema,run_id=a.run_id,source=a.source_sha,output=out)
+guard=CurrentROSGuard(a.run_id,a.source_sha);early_records=[];last_early=None
+send_packet(sock,dict(kind='ready',run_id=a.run_id,domain=DOMAIN,source_sha256=a.source_sha,bundle_manifest_sha256=bundle_sha))
 try:
  while True:
     receive_start=time.monotonic_ns()
     message,blobs=receive_packet(sock,wire_version=schema.wire_schema,camera_schema=schema,allow_control_finish=True)
     receive_end=time.monotonic_ns()
     if message['kind']=='finish':break
+    if message['kind']=='sensor_coverage':
+        if blobs:raise ValueError('coverage_control_blobs_forbidden')
+        require_peer(peer_credentials(sock),a.producer_pid,os.getuid())
+        send_packet(sock,coverage.handle(message))
+        continue
     if message['kind']=='current_feedback':
         if blobs:raise ValueError('unexpected_feedback_blobs')
         require_peer(peer_credentials(sock),a.producer_pid,os.getuid())
@@ -103,7 +115,7 @@ try:
     deadline=time.monotonic()+8
     while len(received)<len(expected) and not errors and time.monotonic()<deadline:
         spin_start=time.monotonic_ns();cpu_start=time.thread_time_ns();count_before=len(callbacks);executor.spin_once(timeout_sec=.02);spin_timings.append(dict(start_ns=spin_start,end_ns=time.monotonic_ns(),thread_cpu_ns=time.thread_time_ns()-cpu_start,callbacks_before=count_before,callbacks_after=len(callbacks)))
-    result=dict(kind='publication_result',all_received=len(received)==len(expected)and not errors,expected=len(expected),received=len(received),errors=errors,capture_stamp_ns=capture_stamp,current_stamp_ns=current_stamp,publication_started_ns=started,publication_finished_ns=time.monotonic_ns(),capture_wall_age_ms=(started-body['capture_monotonic_lower_bound_ns'])/1e6,current_encoder_wall_age_ms=(last_early['publish_start_ns']-current['velocity']['read_start_ns'])/1e6,motion_authorized=False,mission_admitted=False,domain=33,raw_bytes_hash_verified=len(blobs),received_samples=[dict(topic=k[0],**v)for k,v in received.items()])
+    result=dict(kind='publication_result',all_received=len(received)==len(expected)and not errors,expected=len(expected),received=len(received),errors=errors,capture_stamp_ns=capture_stamp,current_stamp_ns=current_stamp,publication_started_ns=started,publication_finished_ns=time.monotonic_ns(),capture_wall_age_ms=(started-body['capture_monotonic_lower_bound_ns'])/1e6,current_encoder_wall_age_ms=(last_early['publish_start_ns']-current['velocity']['read_start_ns'])/1e6,motion_authorized=False,mission_admitted=False,domain=DOMAIN,raw_bytes_hash_verified=len(blobs),received_samples=[dict(topic=k[0],**v)for k,v in received.items()])
     result['stages']=dict(unix_receive_start_ns=receive_start,unix_receive_end_ns=receive_end,message_construction_start_ns=construction_start,message_construction_end_ns=construction_end,raw_hash=hash_timings,publish=publish_timings,callbacks=callbacks,image_construction=image_construction,image_callback_copy_hash=image_callback_details,spin=spin_timings)
     encoder_callbacks=[x for x in callbacks if x['topic']=='current_arm_encoder']
     result['current_encoder_receipt_age_ms']=last_early['callback_age_ms'];result['early_current_feedback']=last_early;result['current_encoder_separate_from_image_batch']=True

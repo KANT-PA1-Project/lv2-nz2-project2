@@ -1,0 +1,11 @@
+{
+  "decoder_python": "~/.venv-yolo/bin/python",
+  "model_root": "~/.cache/isaac-fleet-r12/mission_native_perception_v23/models/perception",
+  "model_manifest": "../../MODEL_MANIFEST.json",
+  "decoder_deps": "~/.cache/isaac-fleet-r12/mission_native_perception_v23/work/perception_deps",
+  "decoder_scripts": "~/.cache/isaac-fleet-r12/mission_native_perception_v23/work/perception_implementation/scripts",
+  "warmup_npz": "~/isaac-fleet-runs/pa33_tagged_puck_fixture_v80_20261105/native_raw_02.npz",
+  "ros_python": "/usr/bin/python3",
+  "ros_setup": "/opt/ros/lyrical/setup.bash",
+  "ros_domain_id": 33
+}

@@ -2,17 +2,22 @@ import atexit,json,os,socket,subprocess,tempfile,time,secrets,hashlib
 from .renderer_epoch_issuer import canonical
 from .trusted_capture_ipc import make_request,request_matches
 from pathlib import Path
-from .trusted_capture_ipc import send_packet,receive_packet,require_peer,peer_credentials
+from .trusted_capture_ipc import receive_packet,require_peer,peer_credentials
+from .timed_send import send_packet
+from .immutable_blobs import immutable_blob
+from .runtime_settings import RuntimeSettings
+
 class LiveDecodeBridge:
-    def __init__(self,root,out,run_id,schema,issuer,read_feedback):
+    def __init__(self,root,out,run_id,schema,issuer,read_feedback,*,settings=None):
+        settings=settings or RuntimeSettings.from_env();paths,_=settings.decoder()
         self.issuer=issuer;self.read_feedback=read_feedback;self.feedback_sequence=0;self.gid=secrets.token_hex(24);self.stream='shadow-local-'+run_id;self.expected=None;self.verified_once=False;self.refreshed_once=False
         self.root=Path(root);self.out=Path(out);self.run_id=run_id;self.schema=schema;self.closed=False;self.child=None;self.conn=None;self.pending=None
-        self.temp=tempfile.TemporaryDirectory(prefix='pa33-decode-');self.path=str(Path(self.temp.name)/'decode.sock')
+        self.temp=tempfile.TemporaryDirectory(prefix='r12-decode-');self.path=str(Path(self.temp.name)/'decode.sock')
         self.listener=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM);self.listener.bind(self.path);os.chmod(self.path,0o600);self.listener.listen(1);self.listener.settimeout(60)
-        self.log=(self.out/'live_decoder.log').open('w');env=os.environ.copy()
+        self.log=(self.out/'live_decoder.log').open('w');env=settings.child_env()
         for k in ['PYTHONPATH','LD_LIBRARY_PATH','AMENT_PREFIX_PATH','COLCON_PREFIX_PATH','ROS_DISTRO']:env.pop(k,None)
         env['CUDA_VISIBLE_DEVICES']='0'
-        self.child=subprocess.Popen([str(Path.home()/'.venv-yolo/bin/python'),str(self.root/'native_live_decoder.py'),'--socket',self.path,'--producer-pid',str(os.getpid()),'--run-id',run_id,'--output',str(out)],env=env,stdout=self.log,stderr=subprocess.STDOUT)
+        self.child=subprocess.Popen([str(paths['decoder_python']),str(self.root/'native_live_decoder.py'),'--socket',self.path,'--producer-pid',str(os.getpid()),'--run-id',run_id,'--output',str(out)],env=env,stdout=self.log,stderr=subprocess.STDOUT)
         atexit.register(self.close);self.conn,_=self.listener.accept();self.conn.settimeout(30);require_peer(peer_credentials(self.conn),self.child.pid,os.getuid())
         ready,blobs=receive_packet(self.conn)
         if blobs or ready.get('kind')!='ready' or ready.get('run_id')!=run_id or ready.get('gpu_free_MiB',0)<1024:raise ValueError('decoder_not_warmed_or_resource_guard')
@@ -23,8 +28,9 @@ class LiveDecodeBridge:
         self.expected=make_request(certificate,pixels,depths,nonce=secrets.token_hex(16),gid=self.gid,camera_schema=self.schema);self.verification=verification;self.certificate=certificate;self.verified_once=False;self.refreshed_once=False
         t={'blob_copy_start_ns':time.monotonic_ns()}
         desc=[self.schema.descriptor(k,'rgb')for k in sorted(pixels)]+[self.schema.descriptor(k,'depth')for k in sorted(depths)]
-        blobs=[pixels[k].tobytes()for k in sorted(pixels)]+[depths[k].tobytes()for k in sorted(depths)]
+        blobs=[immutable_blob(pixels[k])for k in sorted(pixels)]+[immutable_blob(depths[k])for k in sorted(depths)]
         t['blob_copy_end_ns']=time.monotonic_ns()
+        t['blob_preparation']='readonly_owning_array_views_no_copy'
         send_packet(self.conn,dict(kind='capture',run_id=self.run_id,frame=frame,certificate=certificate,arrays=desc,live_issuer_verification=verification,receipt_session=dict(nonce=self.expected['nonce'],publisher_gid=self.gid,feedback_stream_id=self.stream,clock_epoch=self.issuer.epoch,source_sha256=self.issuer.source,model_sha256=self.issuer.model)),blobs,wire_version=self.schema.wire_schema,camera_schema=self.schema,timing=t)
         self.pending=(frame,t);self.pending_terminal=None
     def verify_before_publication(self):
