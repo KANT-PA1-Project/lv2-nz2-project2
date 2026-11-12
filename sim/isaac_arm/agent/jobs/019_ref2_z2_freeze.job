@@ -1,0 +1,10 @@
+# 018 과 같은 조건에서 매 스텝 인식 잡음만 끔 (에피소드 편향 6/2 mm·근접 재관측 2 mm 는 유지)
+# 목적: 떨림 원인(목표점에 매 스텝 더해지는 AR(1) 잡음) 확인 + '재관측 후 목표 고정' 방식의 성공률
+MODE=expert-check
+NZ2_CHASSIS=r20d
+NZ2_LIE_ROLL=1
+NZ2_REFINE_BIAS_MM=2
+NZ2_POSE_BIAS_Z_MM=2
+NZ2_POSE_NOISE_MM=0
+NZ2_POSE_NOISE_Z_MM=0
+NOISE=1

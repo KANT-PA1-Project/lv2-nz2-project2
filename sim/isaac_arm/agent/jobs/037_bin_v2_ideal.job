@@ -1,0 +1,8 @@
+# 11/11 적재통 v2: 집은 방향에서 먼저 세운(TILT) 뒤 j1 회전 → 컵 위 수직 하강 (v1 035: TILT 중 손가락–컵 접촉 100 %). 인식 오차 0
+MODE=expert-check
+NZ2_TO_BIN=1
+NZ2_TARGET_LIE=1
+NZ2_CHASSIS=r20d
+NZ2_LIE_ROLL=1
+STAGE=3
+NOISE=0

@@ -1,0 +1,392 @@
+{
+  "episodes": 256,
+  "success": 241,
+  "rate_pct": 94.1,
+  "unreachable": 0,
+  "ik_fail_midway": 0,
+  "alpha": 0.1,
+  "pose_bias_mm": 6.0,
+  "pose_noise_mm": 0.0,
+  "pose_bias_z_mm": 2.0,
+  "pose_noise_z_mm": 0.0,
+  "close_gate_mm": 0.0,
+  "refine_bias_mm": 2.0,
+  "other_keepout": true,
+  "other_keep_mm": 3.0,
+  "lie_grasp_up_mm": 5.0,
+  "stage": 3,
+  "kin_j1_z": 0.209,
+  "arm_z": 0.209,
+  "kin_source": "/home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf",
+  "kin_fk_vs_urdf_mm": 0.0,
+  "end_reasons": {
+    "success": 241,
+    "time_out": 8,
+    "target_disturbed": 1,
+    "other_disturbed": 6,
+    "끝난 단계:TO_VIA": 1,
+    "끝난 단계:DESCEND": 1,
+    "끝난 단계:APPROACH": 1,
+    "끝난 단계:CLOSE": 1,
+    "끝난 단계:LIFT": 2,
+    "끝난 단계:HOLD": 242,
+    "끝난 단계:DONE": 8
+  },
+  "by_cond": {
+    "누움·축∥반경(지름 쥠) / 옆퍽 뒤(먼 쪽)": {
+      "n": 14,
+      "ok": 13,
+      "rate_pct": 92.9,
+      "fail_phase": {
+        "DONE": 1
+      },
+      "fail_reason": {
+        "time_out": 1
+      },
+      "close_n": 14,
+      "close_ez_mean_mm": 4.35,
+      "close_ez_min_mm": 3.03,
+      "close_exy_mean_mm": 1.25
+    },
+    "누움·축∥반경(지름 쥠) / 옆퍽 앞(베이스 쪽)": {
+      "n": 9,
+      "ok": 8,
+      "rate_pct": 88.9,
+      "fail_phase": {
+        "DONE": 1
+      },
+      "fail_reason": {
+        "time_out": 1
+      },
+      "close_n": 9,
+      "close_ez_mean_mm": 6.82,
+      "close_ez_min_mm": 5.18,
+      "close_exy_mean_mm": 1.17
+    },
+    "누움·축∥반경(지름 쥠) / 옆퍽 좌우(집게 방향)": {
+      "n": 28,
+      "ok": 25,
+      "rate_pct": 89.3,
+      "fail_phase": {
+        "APPROACH": 1,
+        "DONE": 1,
+        "DESCEND": 1
+      },
+      "fail_reason": {
+        "other_disturbed": 2,
+        "time_out": 1
+      },
+      "close_n": 26,
+      "close_ez_mean_mm": 5.16,
+      "close_ez_min_mm": 3.36,
+      "close_exy_mean_mm": 1.35
+    },
+    "누움·축⊥반경(길이 쥠) / 옆퍽 뒤(먼 쪽)": {
+      "n": 12,
+      "ok": 11,
+      "rate_pct": 91.7,
+      "fail_phase": {
+        "CLOSE": 1
+      },
+      "fail_reason": {
+        "target_disturbed": 1
+      },
+      "close_n": 12,
+      "close_ez_mean_mm": 4.07,
+      "close_ez_min_mm": 3.05,
+      "close_exy_mean_mm": 1.14
+    },
+    "누움·축⊥반경(길이 쥠) / 옆퍽 앞(베이스 쪽)": {
+      "n": 10,
+      "ok": 9,
+      "rate_pct": 90.0,
+      "fail_phase": {
+        "DONE": 1
+      },
+      "fail_reason": {
+        "time_out": 1
+      },
+      "close_n": 10,
+      "close_ez_mean_mm": 6.4,
+      "close_ez_min_mm": 4.21,
+      "close_exy_mean_mm": 1.15
+    },
+    "누움·축⊥반경(길이 쥠) / 옆퍽 좌우(집게 방향)": {
+      "n": 27,
+      "ok": 21,
+      "rate_pct": 77.8,
+      "fail_phase": {
+        "DONE": 4,
+        "LIFT": 1,
+        "HOLD": 1
+      },
+      "fail_reason": {
+        "time_out": 4,
+        "other_disturbed": 2
+      },
+      "close_n": 27,
+      "close_ez_mean_mm": 5.33,
+      "close_ez_min_mm": 3.7,
+      "close_exy_mean_mm": 0.93
+    },
+    "세움·사각 대각 / 옆퍽 뒤(먼 쪽)": {
+      "n": 8,
+      "ok": 8,
+      "rate_pct": 100.0,
+      "fail_phase": {},
+      "fail_reason": {},
+      "close_n": 8,
+      "close_ez_mean_mm": 4.15,
+      "close_ez_min_mm": 3.19,
+      "close_exy_mean_mm": 1.08
+    },
+    "세움·사각 대각 / 옆퍽 앞(베이스 쪽)": {
+      "n": 11,
+      "ok": 11,
+      "rate_pct": 100.0,
+      "fail_phase": {},
+      "fail_reason": {},
+      "close_n": 11,
+      "close_ez_mean_mm": 5.33,
+      "close_ez_min_mm": 3.45,
+      "close_exy_mean_mm": 0.75
+    },
+    "세움·사각 대각 / 옆퍽 좌우(집게 방향)": {
+      "n": 16,
+      "ok": 16,
+      "rate_pct": 100.0,
+      "fail_phase": {},
+      "fail_reason": {},
+      "close_n": 16,
+      "close_ez_mean_mm": 4.78,
+      "close_ez_min_mm": 3.04,
+      "close_exy_mean_mm": 0.82
+    },
+    "세움·사각 면정렬 / 옆퍽 뒤(먼 쪽)": {
+      "n": 6,
+      "ok": 6,
+      "rate_pct": 100.0,
+      "fail_phase": {},
+      "fail_reason": {},
+      "close_n": 6,
+      "close_ez_mean_mm": 3.79,
+      "close_ez_min_mm": 2.72,
+      "close_exy_mean_mm": 0.76
+    },
+    "세움·사각 면정렬 / 옆퍽 앞(베이스 쪽)": {
+      "n": 10,
+      "ok": 10,
+      "rate_pct": 100.0,
+      "fail_phase": {},
+      "fail_reason": {},
+      "close_n": 10,
+      "close_ez_mean_mm": 5.28,
+      "close_ez_min_mm": 3.5,
+      "close_exy_mean_mm": 0.8
+    },
+    "세움·사각 면정렬 / 옆퍽 좌우(집게 방향)": {
+      "n": 20,
+      "ok": 19,
+      "rate_pct": 95.0,
+      "fail_phase": {
+        "LIFT": 1
+      },
+      "fail_reason": {
+        "other_disturbed": 1
+      },
+      "close_n": 20,
+      "close_ez_mean_mm": 4.8,
+      "close_ez_min_mm": 3.35,
+      "close_exy_mean_mm": 1.06
+    },
+    "세움·원기둥 / 옆퍽 뒤(먼 쪽)": {
+      "n": 18,
+      "ok": 18,
+      "rate_pct": 100.0,
+      "fail_phase": {},
+      "fail_reason": {},
+      "close_n": 18,
+      "close_ez_mean_mm": 3.76,
+      "close_ez_min_mm": 2.84,
+      "close_exy_mean_mm": 1.06
+    },
+    "세움·원기둥 / 옆퍽 앞(베이스 쪽)": {
+      "n": 26,
+      "ok": 26,
+      "rate_pct": 100.0,
+      "fail_phase": {},
+      "fail_reason": {},
+      "close_n": 26,
+      "close_ez_mean_mm": 4.85,
+      "close_ez_min_mm": 1.94,
+      "close_exy_mean_mm": 0.96
+    },
+    "세움·원기둥 / 옆퍽 좌우(집게 방향)": {
+      "n": 41,
+      "ok": 40,
+      "rate_pct": 97.6,
+      "fail_phase": {
+        "TO_VIA": 1
+      },
+      "fail_reason": {
+        "other_disturbed": 1
+      },
+      "close_n": 40,
+      "close_ez_mean_mm": 4.98,
+      "close_ez_min_mm": 2.87,
+      "close_exy_mean_mm": 0.73
+    }
+  },
+  "by_pitch": {
+    "하향 ≥45°": {
+      "n": 256,
+      "ok": 241,
+      "rate_pct": 94.1
+    }
+  },
+  "by_roll_mode": {
+    "누움 diam(지름 쥠)": {
+      "n": 82,
+      "ok": 70,
+      "rate_pct": 85.4,
+      "roll_abs_mean_deg": 40.2,
+      "jaw_cos_mean": 0.069
+    },
+    "누움 length(긴 쪽 쥠)": {
+      "n": 18,
+      "ok": 17,
+      "rate_pct": 94.4,
+      "roll_abs_mean_deg": 0.0,
+      "jaw_cos_mean": 0.925
+    },
+    "세움(롤 0)": {
+      "n": 156,
+      "ok": 154,
+      "rate_pct": 98.7,
+      "roll_abs_mean_deg": 0.0,
+      "jaw_cos_mean": 0.0
+    }
+  },
+  "disturb_first": {
+    "TO_VIA/옆퍽/누운원기둥": {
+      "n": 13,
+      "step_mean": 65.2,
+      "step_min": 29,
+      "within3": 0,
+      "r_mm": 132,
+      "tcp_z_mm": 332,
+      "tip_z_mm": 316
+    },
+    "TO_VIA/목표/누운원기둥": {
+      "n": 10,
+      "step_mean": 73.1,
+      "step_min": 35,
+      "within3": 0,
+      "r_mm": 149,
+      "tcp_z_mm": 318,
+      "tip_z_mm": 301
+    },
+    "DESCEND/옆퍽/누운원기둥": {
+      "n": 6,
+      "step_mean": 141.7,
+      "step_min": 116,
+      "within3": 0,
+      "r_mm": 227,
+      "tcp_z_mm": 237,
+      "tip_z_mm": 217
+    },
+    "DESCEND/목표/누운원기둥": {
+      "n": 5,
+      "step_mean": 134.0,
+      "step_min": 120,
+      "within3": 0,
+      "r_mm": 220,
+      "tcp_z_mm": 218,
+      "tip_z_mm": 198
+    },
+    "LIFT/옆퍽/누운원기둥": {
+      "n": 1,
+      "step_mean": 249.0,
+      "step_min": 249,
+      "within3": 0,
+      "r_mm": 227,
+      "tcp_z_mm": 175,
+      "tip_z_mm": 155
+    },
+    "CLOSE/옆퍽/누운원기둥": {
+      "n": 1,
+      "step_mean": 186.0,
+      "step_min": 186,
+      "within3": 0,
+      "r_mm": 204,
+      "tcp_z_mm": 131,
+      "tip_z_mm": 111
+    },
+    "APPROACH/목표/누운원기둥": {
+      "n": 1,
+      "step_mean": 176.0,
+      "step_min": 176,
+      "within3": 0,
+      "r_mm": 255,
+      "tcp_z_mm": 152,
+      "tip_z_mm": 132
+    }
+  },
+  "sag_ki": 3.0,
+  "sag_mode": "static",
+  "settle": {
+    "on": true,
+    "err_rad": 0.01,
+    "qd_rad_s": 0.05,
+    "hold_s": 0.2,
+    "max_s": 1.0,
+    "via": {
+      "n": 290,
+      "timeout": 0,
+      "wait_mean_s": 0.62
+    },
+    "pre": {
+      "n": 258,
+      "timeout": 40,
+      "wait_mean_s": 0.836
+    }
+  },
+  "dip": {
+    "누운 퍽": {
+      "n": 100,
+      "dip_mean_mm": -2.65,
+      "dip_min_mm": -8.06,
+      "dip_over_3mm": 24,
+      "dip_over_3mm_fail": 3,
+      "dip_phase": {
+        "DESCEND": 24
+      },
+      "vz_mean_mms": -184.2,
+      "vz_min_mms": -250.6,
+      "vz_phase": {
+        "DESCEND": 100
+      },
+      "qint_close_mean_deg": 1.51,
+      "qint_close_max_deg": 2.14
+    },
+    "세운 퍽": {
+      "n": 156,
+      "dip_mean_mm": -3.17,
+      "dip_min_mm": -15.45,
+      "dip_over_3mm": 60,
+      "dip_over_3mm_fail": 0,
+      "dip_phase": {
+        "DESCEND": 60
+      },
+      "vz_mean_mms": -177.7,
+      "vz_min_mms": -241.3,
+      "vz_phase": {
+        "DESCEND": 139,
+        "APPROACH": 16,
+        "WAIT": 1
+      },
+      "qint_close_mean_deg": 1.64,
+      "qint_close_max_deg": 2.44
+    }
+  }
+}
