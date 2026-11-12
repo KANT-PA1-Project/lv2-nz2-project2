@@ -5,10 +5,10 @@
 #          /r12/swerve_joint_commands(JointState) ↔ 좌·우 OpenCR 2보드 시리얼.
 #
 # [입력]  /r12/swerve_joint_commands (sensor_msgs/JointState): 조향 position(rad)·휠 velocity(rad/s).
-#         이름 lh1/rh1/lh2/rh2 ×_steer/_wheel_joint = FL FR RL RR.
+#         이름 {front_left,front_right,rear_left,rear_right} ×_steer/_wheel_joint = FL FR RL RR.
 # [출력]  각 보드로 'C <en> <w...> <s...>' (휠 rad/s, 조향 rad, 보드 cfg order 순) 50 Hz.
 #         보드 상태 JSON({"mod":[{c,sp,wv}]}) → /r12/joint_states (sensor_msgs/JointState) 재발행.
-# [규약]  보드 모듈코드→조인트 prefix : FL→lh1 FR→rh1 RL→lh2 RR→rh2. order·side 는 부팅 '?' cfg 에서 읽는다.
+# [규약]  보드 모듈코드→조인트 prefix : FL→front_left FR→front_right RL→rear_left RR→rear_right. order·side 는 부팅 '?' cfg 에서 읽는다.
 #         명령이 timeout_s 넘게 끊기면 en=0·휠 0 (안전 정지). 조향각은 마지막 값을 유지한다.
 # [의존]  pyserial (package.xml: python3-serial). 펌웨어 프로토콜은 r12/firmware/opencr_swerve_*.
 # =============================================================
@@ -19,8 +19,9 @@ import serial
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
 
-CODE_TO_PREFIX = {'FL': 'lh1', 'FR': 'rh1', 'RL': 'lh2', 'RR': 'rh2'}
-PREFIX = ['lh1', 'rh1', 'lh2', 'rh2']
+CODE_TO_PREFIX = {'FL': 'front_left', 'FR': 'front_right',
+                  'RL': 'rear_left', 'RR': 'rear_right'}   # r21_description 조인트명
+PREFIX = ['front_left', 'front_right', 'rear_left', 'rear_right']
 STEER = {p + '_steer_joint': p for p in PREFIX}   # 조인트명 → prefix
 WHEEL = {p + '_wheel_joint': p for p in PREFIX}
 

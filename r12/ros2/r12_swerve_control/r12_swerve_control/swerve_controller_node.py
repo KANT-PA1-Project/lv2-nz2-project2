@@ -8,7 +8,7 @@
 #         stale 스탬프(>timeout_s)·비정상 frame·NaN 은 정지로 처리(r12 계약).
 # [출력]  /r12/swerve_joint_commands (sensor_msgs/JointState) 2통, 학습 노드와 같은 규약:
 #            ① name=STEER, position=조향각 rad   ② name=WHEEL, velocity=휠 각속도 rad/s
-#         조인트 이름 = lh1/rh1/lh2/rh2 ×_steer_joint/_wheel_joint = FL FR RL RR.
+#         조인트 이름 = {front_left,front_right,rear_left,rear_right} ×_steer_joint/_wheel_joint (r21_description).
 # [설계]  r12_learned_swerve_node 는 시뮬/RL 정책용. 이 노드는 같은 토픽·규약을 쓰되
 #         학습 없이 결정론적 해석 IK(swerve_kinematics)로 명령을 만든다. 하드웨어 브리지가
 #         JointState 를 받아 OpenCR 로 내려보낸다. 한계·기하는 r12_navigation_contract.json.
@@ -22,7 +22,7 @@ from sensor_msgs.msg import JointState
 
 from r12_swerve_control.swerve_kinematics import inverse_kinematics, optimize_angle
 
-PREFIX = ['lh1', 'rh1', 'lh2', 'rh2']            # FL FR RL RR
+PREFIX = ['front_left', 'front_right', 'rear_left', 'rear_right']   # FL FR RL RR (r21_description)
 STEER = [p + '_steer_joint' for p in PREFIX]
 WHEEL = [p + '_wheel_joint' for p in PREFIX]
 HOLD_SPEED = 1e-4                                 # 이 미만이면 조향 유지, 바퀴만 정지
