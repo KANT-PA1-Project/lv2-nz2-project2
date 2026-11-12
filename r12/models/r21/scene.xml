@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mujoco model="r21">
-  <compiler angle="radian" />
+  <compiler angle="radian" meshdir="../../assets/vendor/R21_URDF_USD" />
   <asset>
     <texture name="grid" type="2d" builtin="checker" rgb1="0.16 0.21 0.25" rgb2="0.23 0.29 0.33" width="256" height="256" />
     <material name="floor_mat" texture="grid" texrepeat="25 25" texuniform="true" reflectance=".08" />

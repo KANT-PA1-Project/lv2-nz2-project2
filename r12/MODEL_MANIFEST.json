@@ -393,212 +393,14 @@
     },
     {
       "path": "models/r21/README.md",
-      "bytes": 7215,
-      "sha256": "9f1b08c0f7cb2e219e8de1b0ca34dcc7cbf247bc36a0f5d1ad750a8d2ce161d2",
+      "bytes": 7468,
+      "sha256": "5ed8d31755184f7bb4d8732b9ea271318c6cdbc955ac371c8648e4b30af0df69",
       "acceptance": "development snapshot; not full mission or hardware certified"
     },
     {
       "path": "models/r21/demo.usda",
-      "bytes": 121901,
-      "sha256": "264130c382b191e5cfca38f4fc11d9a52b1335e7fddd1e5c44d57799a209529e",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/arm_yaw_0.stl",
-      "bytes": 973984,
-      "sha256": "e41f47a4b704b514471a096b7e0f9a434a088f116eee596230f7417d124d66bc",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/base_link_0.stl",
-      "bytes": 6483684,
-      "sha256": "141961cc7773fdf4eb71b5836b94039d0f9ba9a006090a4834ba13078890fc25",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/elbow_0.stl",
-      "bytes": 1281984,
-      "sha256": "2ed972a727afe0fe48aeb47aa35d522131f4736815e6aa5c29274ee370b2da45",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_left_steer_0.stl",
-      "bytes": 9362284,
-      "sha256": "de25255e255bbd1518d5d30c4a53d5a0c9991d5c77c8cf072c9d774d5973526d",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_left_steer_1.stl",
-      "bytes": 9464984,
-      "sha256": "6e11f28ca3e03449417e7ad673e78f4660caa1de1d3979d601ff625eafca9c59",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_left_steer_2.stl",
-      "bytes": 9328184,
-      "sha256": "d095760c5241a469d19ae76a9f046ff89923e06c798341af10a164cf3e2a5155",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_left_steer_3.stl",
-      "bytes": 9390184,
-      "sha256": "92dfda845b2e3da725b354bc9fbcb645a9327c6a92e877dba5de9803a2eef96d",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_left_steer_4.stl",
-      "bytes": 9164084,
-      "sha256": "846eba0893303f97b11f184192748c1058a6dc9799a89677372eceb917f2a34d",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_left_wheel_0.stl",
-      "bytes": 2307084,
-      "sha256": "2773ca4c6baba5fd01e6a4cec5672bcebd62786cb5e3d2558f7da44567b34fed",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_right_steer_0.stl",
-      "bytes": 9362284,
-      "sha256": "42a0ff0ec06aa5ebfd826746ad91aabf8ad806844cb2013e108e6d7a0acbe571",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_right_steer_1.stl",
-      "bytes": 9464984,
-      "sha256": "d967ba915fc7e97e481070bd0cad3f3ff3a10bac803bb7eec32caeba803a6ed0",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_right_steer_2.stl",
-      "bytes": 9328184,
-      "sha256": "c14627f11ede714b324ce4b33d0a5067474b668602c931ecc5c08b4dc42cf8d0",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_right_steer_3.stl",
-      "bytes": 9390184,
-      "sha256": "6de1ab2861d5ade38b5fcc59d4f8c657795cb15c7225db39995543f171347d85",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_right_steer_4.stl",
-      "bytes": 9164084,
-      "sha256": "aac630f25cf9ef8f225d0737308880f945f6a1e07f2b86d2434d559ac8f4d600",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/front_right_wheel_0.stl",
-      "bytes": 2307084,
-      "sha256": "e25ef6a3bb6138fc5140ab72dd03e60e24dad58131b883df7535b3ab2c830557",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/jaw_left_0.stl",
-      "bytes": 193384,
-      "sha256": "ea2d92eb8e74e2450ffe796ea87c45529595dfcc78638343d443ebc9e206daa1",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/jaw_right_0.stl",
-      "bytes": 193384,
-      "sha256": "098ad3208ffdb6b9d90bcb2c983d3662965eac00a4380353746740d6e3d1df23",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/puck_trays_white.stl",
-      "bytes": 102084,
-      "sha256": "113da198f72592e5f24d6497fce7a131a522b353818e16fa3f0f52c14a1548a1",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_left_steer_0.stl",
-      "bytes": 9362284,
-      "sha256": "d92c72277d91de3138d68cc5d2d9a2c6fec10df0fc721d671590a7000cc34086",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_left_steer_1.stl",
-      "bytes": 9464984,
-      "sha256": "45b343bf052ddf1812aedfb09dbf519c90bff6483034bc070ce7b73520cdf5cb",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_left_steer_2.stl",
-      "bytes": 9328184,
-      "sha256": "e101b14dc9e58ab17a9d5fa95a0d670255bdb9fca5b210b9ed29a8b5e820d0b1",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_left_steer_3.stl",
-      "bytes": 9390184,
-      "sha256": "f28b1d14afdb32eda7ffa38873dbf0288cc3400243e7cb679fd5c7940744b48b",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_left_steer_4.stl",
-      "bytes": 9164084,
-      "sha256": "fa21f14d60a831dd47fdddb60a4888068ab5872e6e88b43ce531d613084b620e",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_left_wheel_0.stl",
-      "bytes": 2307084,
-      "sha256": "0bd5e14f989b3b327209fc6bb7de3739159255462959147ba28317d8c731d0e4",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_right_steer_0.stl",
-      "bytes": 9362284,
-      "sha256": "282f7f17afeafa4c3d642ec60ef17357caf5f0c55349ed946b12ca91f331a4ab",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_right_steer_1.stl",
-      "bytes": 9464984,
-      "sha256": "6d546055192fd878c00e17b71ed0d637dd9dfcb364b0779a3c3c38ab656fab86",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_right_steer_2.stl",
-      "bytes": 9328184,
-      "sha256": "9cdaef2d4df2d30d251e7c048d7f0d1a657670a737d1dd7abc97daea120c695b",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_right_steer_3.stl",
-      "bytes": 9390184,
-      "sha256": "8af1945dfac49894971f9a48533f7eeb9209246d6a63b3848998fe6eec3ab16d",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_right_steer_4.stl",
-      "bytes": 9164084,
-      "sha256": "d54433c6178a6d944189b0719877b6ae9a905d1f21debf6074e8b2f1712b2a77",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/rear_right_wheel_0.stl",
-      "bytes": 2307084,
-      "sha256": "cd722e708268dd725ee0f53da4479467be471b253077dffb33fa2385511ad6bc",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/shoulder_0.stl",
-      "bytes": 1567984,
-      "sha256": "be3a00a4a8bc6ab899680a2e84b4df455b0efa604e2cb843570db9d00eb16916",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/wrist_pitch_0.stl",
-      "bytes": 826284,
-      "sha256": "36ff227a576981962bc427000b61258573f79a5dd3943ce1d97ef077639a2a34",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/meshes/wrist_roll_0.stl",
-      "bytes": 7127184,
-      "sha256": "80fb6665001f7ef4c6aeca6fc392e5779fbb7ab958b5e34ca6533d1ed949f121",
+      "bytes": 121937,
+      "sha256": "99c8fb6a79713203b6a1dca5042285c05aebe841a76807545305fcee99eba947",
       "acceptance": "development snapshot; not full mission or hardware certified"
     },
     {
@@ -662,18 +464,6 @@
       "acceptance": "development snapshot; not full mission or hardware certified"
     },
     {
-      "path": "models/r21/r21.urdf",
-      "bytes": 88242,
-      "sha256": "3b60235168865945abe078f25b3eb30d46aff888903831afa9011046e661a47a",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
-      "path": "models/r21/r21.usd",
-      "bytes": 42252158,
-      "sha256": "a41e5562b8293ebf22062922f1d4112bd8621d92e4ab6b5c6b4d59a59b4c1208",
-      "acceptance": "development snapshot; not full mission or hardware certified"
-    },
-    {
       "path": "models/r21/replay.py",
       "bytes": 4047,
       "sha256": "8cbe42899ed3ebfee922e822b6c1afc248a39a28ff7111574748bd2bd87fbdee",
@@ -687,8 +477,8 @@
     },
     {
       "path": "models/r21/scene.xml",
-      "bytes": 56504,
-      "sha256": "b9389a09d611fc2869f8278b3acf5b42a77c4cce19b0775b8579f8dcdc7bc9cf",
+      "bytes": 56547,
+      "sha256": "3eb9a004e2745dc8540b1f3c415d7551fb0d8b2c824b3e16037d2d31a2ef0ce7",
       "acceptance": "development snapshot; not full mission or hardware certified"
     },
     {

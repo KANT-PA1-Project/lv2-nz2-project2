@@ -1,8 +1,8 @@
 # 스워브 이동 로봇과 손목 롤 로봇팔
 
-> r12 통합 참고: 이 폴더에서 assembly.urdf/assembly.usd는 r21.urdf/r21.usd로 이름이 바뀌었습니다. 저장소 용량 정책상 assembly_full_mm.stl(164MB), 미리보기/동영상(assembly_preview.jpg, *.mp4), 원시 캡처(sensor_sample/)는 포함하지 않았습니다. 중립 자세 STL 확인이 필요하면 원본 배포본을 사용하세요.
+> r12 통합 참고: 로봇 지오메트리(urdf/usd/meshes)는 중복을 피해 `r12/assets/vendor/R21_URDF_USD/`(colcon 패키지 r21_description)에만 둡니다. 이 폴더(models/r21)는 MuJoCo scene.xml·demo.usda·puck_slots·센서 도구만 두고 벤더 메시를 참조합니다(scene.xml meshdir, demo.usda references). 제외: assembly_full_mm.stl(164MB)·mp4·sensor_sample·pdf.
 
-전체 중립 자세를 STL 뷰어나 슬라이서에서 확인할 때는 assembly_full_mm.stl을 mm로 엽니다. 이 파일은 Fusion 자체 STL 내보내기 결과입니다. meshes 폴더의 STL은 링크 좌표계의 m 단위 시각 메시입니다. URDF는 meshes 폴더와 함께 사용합니다. r21.usd는 메시를 포함한 로봇 단독 파일입니다. demo.usda를 r21.usd와 같은 폴더에서 열면 지면과 12초 분량의 USD Physics 구동 목표가 추가됩니다. USD 재생에는 물리 시뮬레이션을 지원하는 호스트가 필요합니다.
+상세 메시·URDF·USD는 이 폴더가 아니라 `../../assets/vendor/R21_URDF_USD/`에 있습니다: 메시는 `meshes/`, URDF는 `urdf/r21.urdf`(도구용, `../meshes/`)와 `urdf/r21_ros.urdf`(ROS용, `package://`), USD는 `usd/r21.usda`(→`r21.usdc`). `meshes/`의 STL은 링크 좌표계 m 단위 시각 메시입니다. 전체 중립 자세용 assembly_full_mm.stl(164MB)은 저장소에서 제외했으니 필요하면 원본 배포본을 쓰세요. 이 폴더의 demo.usda를 열면 지면과 12초 분량의 USD Physics 구동 목표가 추가되며, 벤더 `usd/r21.usdc`를 참조합니다. USD 재생에는 물리 시뮬레이션을 지원하는 호스트가 필요합니다.
 
 ## MuJoCo 실행
 
@@ -47,7 +47,7 @@ MUJOCO_GL=egl python sensor_reader.py --output sensor_sample
 
 sensors.npz에 RGB(uint8), 깊이(float32, m), 좌우 모노 영상(uint8), 거리 스캔(float32, m)이 들어 있습니다. 깊이의 무효값은 NaN, 라이다 미검출은 +inf입니다. 반복 수집은 SensorReader.read(data)를 매 물리 스텝 뒤에 호출합니다. 기본 하드웨어 파라미터 외에 출력 해상도, 깊이 클리핑, 핀홀 투영, 순간 평면 스캔은 시뮬레이션 선택값입니다. IR 영상은 좌우 카메라 위치에서 렌더한 밝기이며 능동 IR 패턴과 실제 스테레오 매칭 오류는 모델링하지 않았습니다.
 
-Gazebo Sim용 센서와 고정 TF는 r21.urdf에 있습니다. ROS 2와 ros_gz 설치 환경에서 패키지 폴더를 작업 디렉터리로 두고 아래 명령을 차례로 실행합니다. 첫 번째와 마지막 명령은 별도 터미널에서 실행합니다.
+Gazebo Sim용 센서와 고정 TF는 `../../assets/vendor/R21_URDF_USD/urdf/r21.urdf`에 있습니다. ROS 2와 ros_gz 설치 환경에서 아래 명령을 차례로 실행합니다(URDF_DIR는 벤더 urdf 폴더). 첫 번째와 마지막 명령은 별도 터미널에서 실행합니다.
 
 ~~~bash
 export GZ_SIM_RESOURCE_PATH="$PWD:${GZ_SIM_RESOURCE_PATH:-}"
@@ -55,11 +55,11 @@ gz sim -r sensor_world.sdf
 ~~~
 
 ~~~bash
-ros2 run ros_gz_sim create -world sensor_lab -name robot -file "$PWD/r21.urdf" -z 0.182
+ros2 run ros_gz_sim create -world sensor_lab -name robot -file "$PWD/../../assets/vendor/R21_URDF_USD/urdf/r21.urdf" -z 0.182
 ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:="$PWD/ros_gz_bridge.yaml"
 ~~~
 
-영상은 /wrist_d435/color/image_raw 등 각 센서명/스트림 아래에 있으며 같은 경로의 camera_info에 투영 정보가 전달됩니다. 스캔은 /lidar_front/scan 등 네 방향별 토픽입니다. ROS에서 TF를 사용하려면 r21.urdf를 robot_state_publisher에 전달하고 가동 관절 상태를 공급합니다.
+영상은 /wrist_d435/color/image_raw 등 각 센서명/스트림 아래에 있으며 같은 경로의 camera_info에 투영 정보가 전달됩니다. 스캔은 /lidar_front/scan 등 네 방향별 토픽입니다. ROS에서 TF를 사용하려면 벤더 패키지의 `urdf/r21_ros.urdf`(package:// 경로)를 robot_state_publisher에 전달하고 가동 관절 상태를 공급합니다.
 
 USD의 카메라 및 렌더 제품은 /Robot/<부모 링크>/<센서명>과 /Robot/Render 아래에 있습니다. 깊이는 DistanceToImagePlane, RGB·IR 원본은 LdrColor 렌더 변수입니다. USD IR 출력을 모노 영상으로 쓸 때 밝기로 변환합니다. 라이다 네 개는 /Robot/base_link 아래 NVIDIA OmniLidar입니다. Isaac Sim에서 RTX 센서 확장이 필요합니다. URDF와 USD의 구조·참조를 검사했고, 센서 출력 시험은 MuJoCo에서 진행했습니다. Gazebo/ROS 2 토픽 발행과 Isaac Sim RTX 실행은 미검증입니다.
 

@@ -17,7 +17,7 @@
     </collision>
     <visual name="base_link_visual_0">
       <geometry>
-        <mesh filename="meshes/base_link_0.stl" />
+        <mesh filename="package://r21_description/meshes/base_link_0.stl" />
       </geometry>
       <material name="base_link_color">
         <color rgba="0.64 0.68 0.72 1" />
@@ -1420,7 +1420,7 @@
     </visual>
     <visual name="base_link_visual_156">
       <geometry>
-        <mesh filename="meshes/puck_trays_white.stl" />
+        <mesh filename="package://r21_description/meshes/puck_trays_white.stl" />
       </geometry>
       <material name="white_FDM">
         <color rgba=".91 .91 .91 1" />
@@ -1441,7 +1441,7 @@
     </collision>
     <visual name="rear_left_steer_visual_0">
       <geometry>
-        <mesh filename="meshes/rear_left_steer_0.stl" />
+        <mesh filename="package://r21_description/meshes/rear_left_steer_0.stl" />
       </geometry>
       <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1449,7 +1449,7 @@
     </visual>
     <visual name="rear_left_steer_visual_1">
       <geometry>
-        <mesh filename="meshes/rear_left_steer_1.stl" />
+        <mesh filename="package://r21_description/meshes/rear_left_steer_1.stl" />
       </geometry>
       <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1457,7 +1457,7 @@
     </visual>
     <visual name="rear_left_steer_visual_2">
       <geometry>
-        <mesh filename="meshes/rear_left_steer_2.stl" />
+        <mesh filename="package://r21_description/meshes/rear_left_steer_2.stl" />
       </geometry>
       <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1465,7 +1465,7 @@
     </visual>
     <visual name="rear_left_steer_visual_3">
       <geometry>
-        <mesh filename="meshes/rear_left_steer_3.stl" />
+        <mesh filename="package://r21_description/meshes/rear_left_steer_3.stl" />
       </geometry>
       <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1473,7 +1473,7 @@
     </visual>
     <visual name="rear_left_steer_visual_4">
       <geometry>
-        <mesh filename="meshes/rear_left_steer_4.stl" />
+        <mesh filename="package://r21_description/meshes/rear_left_steer_4.stl" />
       </geometry>
       <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1501,7 +1501,7 @@
     </collision>
     <visual name="rear_left_wheel_visual_0">
       <geometry>
-        <mesh filename="meshes/rear_left_wheel_0.stl" />
+        <mesh filename="package://r21_description/meshes/rear_left_wheel_0.stl" />
       </geometry>
       <material name="rear_left_wheel_color">
         <color rgba="0.15 0.19 0.22 1" />
@@ -1529,7 +1529,7 @@
     </collision>
     <visual name="front_right_steer_visual_0">
       <geometry>
-        <mesh filename="meshes/front_right_steer_0.stl" />
+        <mesh filename="package://r21_description/meshes/front_right_steer_0.stl" />
       </geometry>
       <material name="front_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1537,7 +1537,7 @@
     </visual>
     <visual name="front_right_steer_visual_1">
       <geometry>
-        <mesh filename="meshes/front_right_steer_1.stl" />
+        <mesh filename="package://r21_description/meshes/front_right_steer_1.stl" />
       </geometry>
       <material name="front_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1545,7 +1545,7 @@
     </visual>
     <visual name="front_right_steer_visual_2">
       <geometry>
-        <mesh filename="meshes/front_right_steer_2.stl" />
+        <mesh filename="package://r21_description/meshes/front_right_steer_2.stl" />
       </geometry>
       <material name="front_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1553,7 +1553,7 @@
     </visual>
     <visual name="front_right_steer_visual_3">
       <geometry>
-        <mesh filename="meshes/front_right_steer_3.stl" />
+        <mesh filename="package://r21_description/meshes/front_right_steer_3.stl" />
       </geometry>
       <material name="front_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1561,7 +1561,7 @@
     </visual>
     <visual name="front_right_steer_visual_4">
       <geometry>
-        <mesh filename="meshes/front_right_steer_4.stl" />
+        <mesh filename="package://r21_description/meshes/front_right_steer_4.stl" />
       </geometry>
       <material name="front_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1589,7 +1589,7 @@
     </collision>
     <visual name="front_right_wheel_visual_0">
       <geometry>
-        <mesh filename="meshes/front_right_wheel_0.stl" />
+        <mesh filename="package://r21_description/meshes/front_right_wheel_0.stl" />
       </geometry>
       <material name="front_right_wheel_color">
         <color rgba="0.15 0.19 0.22 1" />
@@ -1617,7 +1617,7 @@
     </collision>
     <visual name="front_left_steer_visual_0">
       <geometry>
-        <mesh filename="meshes/front_left_steer_0.stl" />
+        <mesh filename="package://r21_description/meshes/front_left_steer_0.stl" />
       </geometry>
       <material name="front_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1625,7 +1625,7 @@
     </visual>
     <visual name="front_left_steer_visual_1">
       <geometry>
-        <mesh filename="meshes/front_left_steer_1.stl" />
+        <mesh filename="package://r21_description/meshes/front_left_steer_1.stl" />
       </geometry>
       <material name="front_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1633,7 +1633,7 @@
     </visual>
     <visual name="front_left_steer_visual_2">
       <geometry>
-        <mesh filename="meshes/front_left_steer_2.stl" />
+        <mesh filename="package://r21_description/meshes/front_left_steer_2.stl" />
       </geometry>
       <material name="front_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1641,7 +1641,7 @@
     </visual>
     <visual name="front_left_steer_visual_3">
       <geometry>
-        <mesh filename="meshes/front_left_steer_3.stl" />
+        <mesh filename="package://r21_description/meshes/front_left_steer_3.stl" />
       </geometry>
       <material name="front_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1649,7 +1649,7 @@
     </visual>
     <visual name="front_left_steer_visual_4">
       <geometry>
-        <mesh filename="meshes/front_left_steer_4.stl" />
+        <mesh filename="package://r21_description/meshes/front_left_steer_4.stl" />
       </geometry>
       <material name="front_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1677,7 +1677,7 @@
     </collision>
     <visual name="front_left_wheel_visual_0">
       <geometry>
-        <mesh filename="meshes/front_left_wheel_0.stl" />
+        <mesh filename="package://r21_description/meshes/front_left_wheel_0.stl" />
       </geometry>
       <material name="front_left_wheel_color">
         <color rgba="0.15 0.19 0.22 1" />
@@ -1705,7 +1705,7 @@
     </collision>
     <visual name="rear_right_steer_visual_0">
       <geometry>
-        <mesh filename="meshes/rear_right_steer_0.stl" />
+        <mesh filename="package://r21_description/meshes/rear_right_steer_0.stl" />
       </geometry>
       <material name="rear_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1713,7 +1713,7 @@
     </visual>
     <visual name="rear_right_steer_visual_1">
       <geometry>
-        <mesh filename="meshes/rear_right_steer_1.stl" />
+        <mesh filename="package://r21_description/meshes/rear_right_steer_1.stl" />
       </geometry>
       <material name="rear_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1721,7 +1721,7 @@
     </visual>
     <visual name="rear_right_steer_visual_2">
       <geometry>
-        <mesh filename="meshes/rear_right_steer_2.stl" />
+        <mesh filename="package://r21_description/meshes/rear_right_steer_2.stl" />
       </geometry>
       <material name="rear_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1729,7 +1729,7 @@
     </visual>
     <visual name="rear_right_steer_visual_3">
       <geometry>
-        <mesh filename="meshes/rear_right_steer_3.stl" />
+        <mesh filename="package://r21_description/meshes/rear_right_steer_3.stl" />
       </geometry>
       <material name="rear_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1737,7 +1737,7 @@
     </visual>
     <visual name="rear_right_steer_visual_4">
       <geometry>
-        <mesh filename="meshes/rear_right_steer_4.stl" />
+        <mesh filename="package://r21_description/meshes/rear_right_steer_4.stl" />
       </geometry>
       <material name="rear_right_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
@@ -1765,7 +1765,7 @@
     </collision>
     <visual name="rear_right_wheel_visual_0">
       <geometry>
-        <mesh filename="meshes/rear_right_wheel_0.stl" />
+        <mesh filename="package://r21_description/meshes/rear_right_wheel_0.stl" />
       </geometry>
       <material name="rear_right_wheel_color">
         <color rgba="0.15 0.19 0.22 1" />
@@ -1793,7 +1793,7 @@
     </collision>
     <visual name="arm_yaw_visual_0">
       <geometry>
-        <mesh filename="meshes/arm_yaw_0.stl" />
+        <mesh filename="package://r21_description/meshes/arm_yaw_0.stl" />
       </geometry>
       <material name="arm_yaw_color">
         <color rgba="0.82 0.53 0.23 1" />
@@ -1821,7 +1821,7 @@
     </collision>
     <visual name="shoulder_visual_0">
       <geometry>
-        <mesh filename="meshes/shoulder_0.stl" />
+        <mesh filename="package://r21_description/meshes/shoulder_0.stl" />
       </geometry>
       <material name="shoulder_color">
         <color rgba="0.82 0.53 0.23 1" />
@@ -1849,7 +1849,7 @@
     </collision>
     <visual name="elbow_visual_0">
       <geometry>
-        <mesh filename="meshes/elbow_0.stl" />
+        <mesh filename="package://r21_description/meshes/elbow_0.stl" />
       </geometry>
       <material name="elbow_color">
         <color rgba="0.82 0.53 0.23 1" />
@@ -1877,7 +1877,7 @@
     </collision>
     <visual name="wrist_pitch_visual_0">
       <geometry>
-        <mesh filename="meshes/wrist_pitch_0.stl" />
+        <mesh filename="package://r21_description/meshes/wrist_pitch_0.stl" />
       </geometry>
       <material name="wrist_pitch_color">
         <color rgba="0.82 0.53 0.23 1" />
@@ -1905,7 +1905,7 @@
     </collision>
     <visual name="wrist_roll_visual_0">
       <geometry>
-        <mesh filename="meshes/wrist_roll_0.stl" />
+        <mesh filename="package://r21_description/meshes/wrist_roll_0.stl" />
       </geometry>
       <material name="wrist_roll_color">
         <color rgba="0.82 0.53 0.23 1" />
@@ -1933,7 +1933,7 @@
     </collision>
     <visual name="jaw_left_visual_0">
       <geometry>
-        <mesh filename="meshes/jaw_left_0.stl" />
+        <mesh filename="package://r21_description/meshes/jaw_left_0.stl" />
       </geometry>
       <material name="jaw_left_color">
         <color rgba="0.82 0.53 0.23 1" />
@@ -1961,7 +1961,7 @@
     </collision>
     <visual name="jaw_right_visual_0">
       <geometry>
-        <mesh filename="meshes/jaw_right_0.stl" />
+        <mesh filename="package://r21_description/meshes/jaw_right_0.stl" />
       </geometry>
       <material name="jaw_right_color">
         <color rgba="0.82 0.53 0.23 1" />

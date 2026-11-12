@@ -12,7 +12,7 @@
 def Xform "World"
 {
     def Xform "Robot" (
-        prepend references = @./r21.usd@
+        prepend references = @../../assets/vendor/R21_URDF_USD/usd/r21.usdc@
     )
     {
         double3 xformOp:translate = (0, 0, 0.182)
