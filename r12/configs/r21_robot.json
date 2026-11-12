@@ -1,5 +1,5 @@
 {
-  "usd_path": "models/r21/r21.usd",
+  "usd_path": "assets/vendor/R21_URDF_USD/usd/r21.usdc",
   "mjcf_path": "models/r21/scene.xml",
   "joint_names": [
     "arm_yaw_joint",

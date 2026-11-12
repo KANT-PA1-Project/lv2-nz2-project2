@@ -1,6 +1,6 @@
 # 스워브 이동 로봇과 손목 롤 로봇팔
 
-> r12 통합 참고: 이 폴더에서 assembly.urdf/assembly.usd는 r21.urdf/r21.usd로 이름이 바뀌었습니다. 저장소 용량 정책상 assembly_full_mm.stl(164MB), 미리보기/동영상(assembly_preview.jpg, *.mp4), 원시 캡처(sensor_sample/)는 포함하지 않았습니다. 중립 자세 STL 확인이 필요하면 원본 배포본을 사용하세요.
+> r12 통합 참고: 로봇 지오메트리(urdf/usd/meshes)는 중복을 피해 `r12/assets/vendor/R21_URDF_USD/`(colcon 패키지 r21_description)에만 둡니다. 이 폴더(models/r21)는 MuJoCo scene.xml·demo.usda·puck_slots·센서 도구만 두고 벤더 메시를 참조합니다(scene.xml meshdir, demo.usda references). 제외: assembly_full_mm.stl(164MB)·mp4·sensor_sample·pdf.
 
 전체 중립 자세를 STL 뷰어나 슬라이서에서 확인할 때는 assembly_full_mm.stl을 mm로 엽니다. 이 파일은 Fusion 자체 STL 내보내기 결과입니다. meshes 폴더의 STL은 링크 좌표계의 m 단위 시각 메시입니다. URDF는 meshes 폴더와 함께 사용합니다. r21.usd는 메시를 포함한 로봇 단독 파일입니다. demo.usda를 r21.usd와 같은 폴더에서 열면 지면과 12초 분량의 USD Physics 구동 목표가 추가됩니다. USD 재생에는 물리 시뮬레이션을 지원하는 호스트가 필요합니다.
 

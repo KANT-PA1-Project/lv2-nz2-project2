@@ -2605,7 +2605,7 @@
     },
     {
       "path": "configs/r21_robot.json",
-      "sha256": "cf89f5f71fadf878d8d2d8a42b84dfd995179d7006b4ce61a7839174ecbf17cc"
+      "sha256": "31bcce949aac74d5b82f865c901912a52bae04ab75a2ec50429da22ff6e1f5d9"
     },
     {
       "path": "configs/r12_tcp_calibration.json",
