@@ -21,12 +21,17 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 
-# r12/assets/vendor/R21_URDF_USD. symlink-install 에선 __file__ 이 설치본이라 상대경로가 틀어진다.
-# 레포 위치를 env R21_VENDOR_DIR 로 덮을 수 있게 하고, 기본값은 이 레포의 벤더 절대경로.
-_VENDOR = os.environ.get(
-    'R21_VENDOR_DIR',
-    '/media/pa28/Windows-SSD/git/lv2-nz2-project2/r12/assets/vendor/R21_URDF_USD')
 PKG = 'r12_swerve_control'
+
+
+def _vendor_dir():
+    """R21 지오메트리(urdf·meshes) 위치. 절대경로 하드코딩 금지(다른 PC 에서 깨짐).
+
+    기본은 벤더 패키지 r21_description 의 설치 share(CMakeLists 가 urdf·meshes·usd 를 거기 설치한다)
+    — 어느 PC/설치본이든 ament 가 찾아 준다. env R21_VENDOR_DIR 로 소스 트리 등을 덮어쓸 수 있다.
+    """
+    env = os.environ.get('R21_VENDOR_DIR')
+    return env if env else get_package_share_directory('r21_description')
 
 STEER = ['front_left_steer_joint', 'front_right_steer_joint',
          'rear_left_steer_joint', 'rear_right_steer_joint']
@@ -66,12 +71,13 @@ def _ros2_control_block(controllers_yaml):
 
 
 def _build_combined_urdf():
-    src = os.path.join(_VENDOR, 'urdf', 'r21_ros.urdf')
+    vendor = _vendor_dir()
+    src = os.path.join(vendor, 'urdf', 'r21_ros.urdf')
     with open(src) as f:
         urdf = f.read()
     # 메시 경로를 절대 file:// 로 (gz 리소스 경로 문제 회피)
     urdf = urdf.replace('package://r21_description/meshes/',
-                        'file://' + os.path.join(_VENDOR, 'meshes') + '/')
+                        'file://' + os.path.join(vendor, 'meshes') + '/')
     controllers = _controllers_yaml()
     block = _ros2_control_block(controllers)
     urdf = urdf.replace('</robot>', block + '</robot>')
