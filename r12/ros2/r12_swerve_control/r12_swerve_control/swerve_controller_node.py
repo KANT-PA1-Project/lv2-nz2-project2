@@ -4,8 +4,8 @@
 # 역할   : 실물 R21 스월브 결정론적 컨트롤러.
 #          /r12/cmd_vel(TwistStamped, base_link) → ±90° 제약 IK → /r12/swerve_joint_commands(JointState).
 #
-# [입력]  /r12/cmd_vel (geometry_msgs/TwistStamped): twist.linear.x,y, twist.angular.z. base_link 만.
-#         stale 스탬프(>timeout_s)·비정상 frame·NaN 은 정지로 처리(r12 계약).
+# [입력]  /r12/cmd_vel (geometry_msgs/TwistStamped): base_link, stale 스탬프·비정상 frame·NaN 정지(r12 계약).
+#         /cmd_vel (geometry_msgs/Twist): teleop 편의 입력. 스탬프·frame 불필요, 수신 시각으로 타임아웃 판정.
 # [출력]  /r12/swerve_joint_commands (sensor_msgs/JointState) 2통, 학습 노드와 같은 규약:
 #            ① name=STEER, position=조향각 rad   ② name=WHEEL, velocity=휠 각속도 rad/s
 #         조인트 이름 = {front_left,front_right,rear_left,rear_right} ×_steer_joint/_wheel_joint (r21_description).
@@ -16,7 +16,7 @@
 import math
 
 import rclpy
-from geometry_msgs.msg import TwistStamped
+from geometry_msgs.msg import Twist, TwistStamped
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
 
@@ -54,6 +54,8 @@ class SwerveControllerNode(Node):
         self.cmd_time = None
         self.pub = self.create_publisher(JointState, '/r12/swerve_joint_commands', 10)
         self.create_subscription(TwistStamped, '/r12/cmd_vel', self._on_cmd, 10)
+        # teleop 편의: 평범한 Twist 를 /cmd_vel 에서 바로 받는다(스탬프·frame 불필요).
+        self.create_subscription(Twist, '/cmd_vel', self._on_twist, 10)
         self.create_timer(1.0 / self.hz, self._tick)
         self.get_logger().info('r12_swerve_controller: 결정론적 ±90° 스월브 (R21)')
 
@@ -68,6 +70,13 @@ class SwerveControllerNode(Node):
             return
         self.cmd = v
         self.cmd_time = now
+
+    def _on_twist(self, msg):
+        v = (msg.linear.x, msg.linear.y, msg.angular.z)
+        if not all(map(math.isfinite, v)):
+            return
+        self.cmd = v
+        self.cmd_time = self.get_clock().now().nanoseconds * 1e-9
 
     def _stale(self):
         if self.cmd_time is None:

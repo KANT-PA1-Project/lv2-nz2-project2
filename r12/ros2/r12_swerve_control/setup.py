@@ -16,6 +16,7 @@ setup(
         (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
     ],
     install_requires=['setuptools'],
+    tests_require=['pytest'],
     zip_safe=True,
     maintainer='R12 Maintainer',
     maintainer_email='user@example.com',
@@ -25,6 +26,7 @@ setup(
         'console_scripts': [
             'swerve_controller = r12_swerve_control.swerve_controller_node:main',
             'opencr_bridge = r12_swerve_control.opencr_bridge_node:main',
+            'gz_command_relay = r12_swerve_control.gz_command_relay_node:main',
         ],
     },
 )
