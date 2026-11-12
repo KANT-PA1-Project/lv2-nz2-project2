@@ -1,0 +1,166 @@
+{
+  "wrist_d435_depth": {
+    "kind": "depth",
+    "frame": "wrist_d435_depth_optical_frame",
+    "parent": "wrist_roll",
+    "topic": "/wrist_d435/depth/image_raw",
+    "info": "/wrist_d435/depth/camera_info",
+    "rate": 30,
+    "size": [
+      640,
+      360
+    ],
+    "hfov_deg": 87,
+    "near": 0.105,
+    "far": 10
+  },
+  "wrist_d435_color": {
+    "kind": "color",
+    "frame": "wrist_d435_color_optical_frame",
+    "parent": "wrist_roll",
+    "topic": "/wrist_d435/color/image_raw",
+    "info": "/wrist_d435/color/camera_info",
+    "rate": 30,
+    "size": [
+      640,
+      360
+    ],
+    "hfov_deg": 69,
+    "near": 0.01,
+    "far": 30
+  },
+  "wrist_d435_infra1": {
+    "kind": "infra1",
+    "frame": "wrist_d435_infra1_optical_frame",
+    "parent": "wrist_roll",
+    "topic": "/wrist_d435/infra1/image_raw",
+    "info": "/wrist_d435/infra1/camera_info",
+    "rate": 30,
+    "size": [
+      640,
+      360
+    ],
+    "hfov_deg": 87,
+    "near": 0.01,
+    "far": 30
+  },
+  "wrist_d435_infra2": {
+    "kind": "infra2",
+    "frame": "wrist_d435_infra2_optical_frame",
+    "parent": "wrist_roll",
+    "topic": "/wrist_d435/infra2/image_raw",
+    "info": "/wrist_d435/infra2/camera_info",
+    "rate": 30,
+    "size": [
+      640,
+      360
+    ],
+    "hfov_deg": 87,
+    "near": 0.01,
+    "far": 30
+  },
+  "mast_d435_depth": {
+    "kind": "depth",
+    "frame": "mast_d435_depth_optical_frame",
+    "parent": "base_link",
+    "topic": "/mast_d435/depth/image_raw",
+    "info": "/mast_d435/depth/camera_info",
+    "rate": 30,
+    "size": [
+      640,
+      360
+    ],
+    "hfov_deg": 87,
+    "near": 0.105,
+    "far": 10
+  },
+  "mast_d435_color": {
+    "kind": "color",
+    "frame": "mast_d435_color_optical_frame",
+    "parent": "base_link",
+    "topic": "/mast_d435/color/image_raw",
+    "info": "/mast_d435/color/camera_info",
+    "rate": 30,
+    "size": [
+      640,
+      360
+    ],
+    "hfov_deg": 69,
+    "near": 0.01,
+    "far": 30
+  },
+  "mast_d435_infra1": {
+    "kind": "infra1",
+    "frame": "mast_d435_infra1_optical_frame",
+    "parent": "base_link",
+    "topic": "/mast_d435/infra1/image_raw",
+    "info": "/mast_d435/infra1/camera_info",
+    "rate": 30,
+    "size": [
+      640,
+      360
+    ],
+    "hfov_deg": 87,
+    "near": 0.01,
+    "far": 30
+  },
+  "mast_d435_infra2": {
+    "kind": "infra2",
+    "frame": "mast_d435_infra2_optical_frame",
+    "parent": "base_link",
+    "topic": "/mast_d435/infra2/image_raw",
+    "info": "/mast_d435/infra2/camera_info",
+    "rate": 30,
+    "size": [
+      640,
+      360
+    ],
+    "hfov_deg": 87,
+    "near": 0.01,
+    "far": 30
+  },
+  "lidar_left": {
+    "kind": "lidar",
+    "frame": "lidar_left_scan",
+    "topic": "/lidar_left/scan",
+    "rate": 10,
+    "samples": 400,
+    "angle_min": -3.141592653589793,
+    "increment": 0.015707963267948967,
+    "near": 0.05,
+    "far": 12.0
+  },
+  "lidar_rear": {
+    "kind": "lidar",
+    "frame": "lidar_rear_scan",
+    "topic": "/lidar_rear/scan",
+    "rate": 10,
+    "samples": 400,
+    "angle_min": -3.141592653589793,
+    "increment": 0.015707963267948967,
+    "near": 0.05,
+    "far": 12.0
+  },
+  "lidar_right": {
+    "kind": "lidar",
+    "frame": "lidar_right_scan",
+    "topic": "/lidar_right/scan",
+    "rate": 10,
+    "samples": 400,
+    "angle_min": -3.141592653589793,
+    "increment": 0.015707963267948967,
+    "near": 0.05,
+    "far": 12.0
+  },
+  "lidar_front": {
+    "kind": "lidar",
+    "frame": "lidar_front_scan",
+    "topic": "/lidar_front/scan",
+    "rate": 10,
+    "samples": 400,
+    "angle_min": -3.141592653589793,
+    "increment": 0.015707963267948967,
+    "near": 0.05,
+    "far": 12.0
+  }
+}
