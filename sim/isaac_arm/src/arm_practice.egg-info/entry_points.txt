@@ -1,0 +1,2 @@
+[isaaclab.tasks]
+arm_practice = arm_practice.tasks

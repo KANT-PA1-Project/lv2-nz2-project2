@@ -1,0 +1,4 @@
+MODE=expert-check
+NZ2_CHASSIS=r20d
+NZ2_LIE_ROLL=1
+NOISE=1

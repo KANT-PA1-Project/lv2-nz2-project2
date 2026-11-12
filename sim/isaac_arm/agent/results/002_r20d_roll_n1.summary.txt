@@ -1,0 +1,66 @@
+[NZ2] 차체 R20D: 팔 베이스 z 0.209 m, 차체 중심→팔 0.12 m, 팔→차체 앞끝(박스 기준) 0.100 m, 차체 충돌 근사 0.0,0.105,0.197
+[NZ2] 팔 높이 z 0.209 관측 자세 자동 탐색: (0.0, -1.548, 0.393, 1.622, 0.0) {'mean_depth_m': 0.412, 'occl_mm': 22.0}
+[NZ2-KIN] 차체 충돌 근사 (NZ2_CHASSIS_KEEPOUT): ((0.0, 0.105, 0.197),)
+[NZ2-KIN] 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf: 어깨 0.0595, L2 (0.0240, 0.1854), L3 0.1490, j4→j5 0.06635, TCP 0.1050 m / URDF FK 대조 최대 0.0 mm
+[NZ2-RES] α=0.1 (팔 5축, 최대 속도 비율), 인식 오차 편향 σ 6.0 mm + 잡음 σ 2.0 mm, 오프셋 한계 ±0.08 rad, 잔차 단계 ['APPROACH', 'CLOSE', 'LIFT'], 닫기 전 손끝 게이트 끔, 옆 퍽 장애물 켬 (여유 3 mm), via 들어올림 +60 mm, 누운 퍽 잡기 높이 +5 mm, 누운 퍽 롤 맞춤 켬 (기울기 한계 25°, yaw 편향 σ 5°)
+[NZ2-RES] FK 자기검사(시뮬 vs 해석 FK): TCP 오차 최대 0.0 mm (J1_Z=0.209, ARM_Z=0.209, 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf, URDF FK 대조 0.0 mm)
+[NZ2-RES] 에피소드 64: 성공 43 (67 %) / 도달불가 1 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 43, contact_fbad_l_stop 3, contact_fbad_r_stop 2, target_disturbed 7, other_disturbed 11, 끝난 단계:TO_VIA 13, 끝난 단계:DESCEND 3, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 1, 끝난 단계:HOLD 44, 끝난 단계:DONE 1
+[NZ2-RES] 에피소드 128: 성공 84 (66 %) / 도달불가 1 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 84, time_out 14, contact_fbad_l_stop 3, contact_fbad_r_stop 2, target_disturbed 13, other_disturbed 14, (SKIP 상태로 끝남) 1, 끝난 단계:TO_VIA 17, 끝난 단계:DESCEND 5, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 1, 끝난 단계:HOLD 87, 끝난 단계:DONE 15, 끝난 단계:SKIP 1
+[NZ2-RES] 에피소드 192: 성공 125 (65 %) / 도달불가 1 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 125, time_out 23, contact_fbad_l_stop 5, contact_fbad_r_stop 4, target_disturbed 21, other_disturbed 17, (SKIP 상태로 끝남) 1, 끝난 단계:TO_VIA 23, 끝난 단계:DESCEND 7, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 4, 끝난 단계:LIFT 2, 끝난 단계:HOLD 127, 끝난 단계:DONE 26, 끝난 단계:SKIP 1
+[NZ2-RES] 에피소드 256: 성공 163 (64 %) / 도달불가 1 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 163, time_out 38, contact_fbad_l_stop 5, contact_fbad_r_stop 6, target_disturbed 27, other_disturbed 20, (SKIP 상태로 끝남) 1, 끝난 단계:TO_VIA 29, 끝난 단계:DESCEND 8, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 6, 끝난 단계:LIFT 2, 끝난 단계:HOLD 165, 끝난 단계:DONE 43, 끝난 단계:SKIP 1
+[NZ2-RES] ===== 조건별 분해 (집게 닫힘 = 반경에 수직인 수평 방향) =====
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 뒤(먼 쪽): 4/13 (31 %) | CLOSE 진입 손끝 z오차 평균 +0.6 mm(최저 -4.0), 수평 5.2 mm (n=9)
+[NZ2-RES]      실패 단계: CLOSE 3, APPROACH 2, SKIP 1, DESCEND 1, LIFT 1, DONE 1
+[NZ2-RES]      실패 이유: contact_fbad_r_stop 4, contact_fbad_l_stop 3, time_out 2, target_disturbed 2
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 앞(베이스 쪽): 6/16 (38 %) | CLOSE 진입 손끝 z오차 평균 +1.2 mm(최저 -6.5), 수평 3.9 mm (n=11)
+[NZ2-RES]      실패 단계: TO_VIA 4, DONE 2, CLOSE 2, HOLD 1, DESCEND 1
+[NZ2-RES]      실패 이유: target_disturbed 5, time_out 2, other_disturbed 1, contact_fbad_r_stop 1, contact_fbad_l_stop 1
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 좌우(집게 방향): 15/27 (56 %) | CLOSE 진입 손끝 z오차 평균 +2.8 mm(최저 -7.3), 수평 3.8 mm (n=19)
+[NZ2-RES]      실패 단계: TO_VIA 6, DONE 4, DESCEND 2
+[NZ2-RES]      실패 이유: target_disturbed 8, other_disturbed 2, time_out 2
+[NZ2-RES]  누움·축⊥반경(길이 쥠) / 옆퍽 뒤(먼 쪽): 5/11 (45 %) | CLOSE 진입 손끝 z오차 평균 -2.3 mm(최저 -6.5), 수평 4.6 mm (n=8)
+--- 꼬리 ---
+|   11  | success_bonus         |   20.0 |
+|   12  | wrong_touch           |   -1.0 |
+|   13  | puck_fail             |  -10.0 |
+|   14  | res_l2                |  -0.01 |
++-------+-----------------------+--------+
+
+[INFO] Curriculum Manager:  <CurriculumManager> contains 2 active terms.
++-------------------------+
+| Active Curriculum Terms |
++-------+-----------------+
+| Index | Name            |
++-------+-----------------+
+|   0   | vispick_stage   |
+|   1   | success_rate    |
++-------+-----------------+
+
+[INFO]: Completed setting up the environment...
+[INFO]: Gym observation space: Dict('critic': Box(-inf, inf, (64, 79), float32), 'policy': Box(-inf, inf, (64, 60), float32))
+[INFO]: Gym action space: Box(-inf, inf, (64, 6), float32)
+[INFO] Zero agent is running, press Ctrl+C to exit...
+[NZ2-RES] FK 자기검사(시뮬 vs 해석 FK): TCP 오차 최대 0.0 mm (J1_Z=0.209, ARM_Z=0.209, 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf, URDF FK 대조 0.0 mm)
+[NZ2-RES] 에피소드 64: 성공 43 (67 %) / 도달불가 1 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 43, contact_fbad_l_stop 3, contact_fbad_r_stop 2, target_disturbed 7, other_disturbed 11, 끝난 단계:TO_VIA 13, 끝난 단계:DESCEND 3, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 1, 끝난 단계:HOLD 44, 끝난 단계:DONE 1
+[NZ2-RES] 에피소드 128: 성공 84 (66 %) / 도달불가 1 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 84, time_out 14, contact_fbad_l_stop 3, contact_fbad_r_stop 2, target_disturbed 13, other_disturbed 14, (SKIP 상태로 끝남) 1, 끝난 단계:TO_VIA 17, 끝난 단계:DESCEND 5, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 1, 끝난 단계:HOLD 87, 끝난 단계:DONE 15, 끝난 단계:SKIP 1
+[NZ2-RES] 에피소드 192: 성공 125 (65 %) / 도달불가 1 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 125, time_out 23, contact_fbad_l_stop 5, contact_fbad_r_stop 4, target_disturbed 21, other_disturbed 17, (SKIP 상태로 끝남) 1, 끝난 단계:TO_VIA 23, 끝난 단계:DESCEND 7, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 4, 끝난 단계:LIFT 2, 끝난 단계:HOLD 127, 끝난 단계:DONE 26, 끝난 단계:SKIP 1
+[NZ2-RES] 에피소드 256: 성공 163 (64 %) / 도달불가 1 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 163, time_out 38, contact_fbad_l_stop 5, contact_fbad_r_stop 6, target_disturbed 27, other_disturbed 20, (SKIP 상태로 끝남) 1, 끝난 단계:TO_VIA 29, 끝난 단계:DESCEND 8, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 6, 끝난 단계:LIFT 2, 끝난 단계:HOLD 165, 끝난 단계:DONE 43, 끝난 단계:SKIP 1
+[NZ2-RES] ===== 조건별 분해 (집게 닫힘 = 반경에 수직인 수평 방향) =====
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 뒤(먼 쪽): 4/13 (31 %) | CLOSE 진입 손끝 z오차 평균 +0.6 mm(최저 -4.0), 수평 5.2 mm (n=9)
+[NZ2-RES]      실패 단계: CLOSE 3, APPROACH 2, SKIP 1, DESCEND 1, LIFT 1, DONE 1
+[NZ2-RES]      실패 이유: contact_fbad_r_stop 4, contact_fbad_l_stop 3, time_out 2, target_disturbed 2
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 앞(베이스 쪽): 6/16 (38 %) | CLOSE 진입 손끝 z오차 평균 +1.2 mm(최저 -6.5), 수평 3.9 mm (n=11)
+[NZ2-RES]      실패 단계: TO_VIA 4, DONE 2, CLOSE 2, HOLD 1, DESCEND 1
+[NZ2-RES]      실패 이유: target_disturbed 5, time_out 2, other_disturbed 1, contact_fbad_r_stop 1, contact_fbad_l_stop 1
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 좌우(집게 방향): 15/27 (56 %) | CLOSE 진입 손끝 z오차 평균 +2.8 mm(최저 -7.3), 수평 3.8 mm (n=19)
+[NZ2-RES]      실패 단계: TO_VIA 6, DONE 4, DESCEND 2
+[NZ2-RES]      실패 이유: target_disturbed 8, other_disturbed 2, time_out 2
+[NZ2-RES]  누움·축⊥반경(길이 쥠) / 옆퍽 뒤(먼 쪽): 5/11 (45 %) | CLOSE 진입 손끝 z오차 평균 -2.3 mm(최저 -6.5), 수평 4.6 mm (n=8)
