@@ -1,0 +1,23 @@
+# R21 스월브 파라미터. 값 출처: r12/configs/r12_navigation_contract.json limits + R21 기하.
+# [확인] 기하·IMU·포트는 실측/배선 확정 전 출발값.
+/r12_swerve_controller:
+  ros__parameters:
+    half_wheelbase_m: 0.124       # [확인] R21 실측
+    half_track_m: 0.124           # [확인] R21 실측
+    wheel_radius_m: 0.033         # URDF r20d/r21
+    linear_speed_m_s: 0.2         # 계약 limits
+    yaw_rate_rad_s: 0.4
+    steering_angle_rad: 1.5707963267948966   # ±90°
+    steering_rate_rad_s: 1.0
+    wheel_speed_rad_s: 10.0
+    command_acceleration_m_s2: 0.2
+    timeout_s: 0.25
+    control_hz: 50.0
+
+/r12_opencr_bridge:
+  ros__parameters:
+    left_port: /dev/ttyACM0       # [확인] FL·RL 보드 포트
+    right_port: /dev/ttyACM1      # [확인] FR·RR 보드 포트
+    host_baud: 115200
+    bridge_hz: 50.0
+    cmd_timeout_s: 0.25
