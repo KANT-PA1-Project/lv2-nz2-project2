@@ -1,0 +1,31 @@
+# R21 스월브 파라미터. 값 출처: r12/configs/r12_navigation_contract.json limits + R21 기하.
+# [확인] 기하·IMU·포트는 실측/배선 확정 전 출발값.
+/r12_swerve_controller:
+  ros__parameters:
+    half_wheelbase_m: 0.124       # [확인] R21 실측
+    half_track_m: 0.124           # [확인] R21 실측
+    wheel_radius_m: 0.033         # URDF r20d/r21
+    linear_speed_m_s: 0.2         # 계약 limits
+    yaw_rate_rad_s: 0.4
+    steering_angle_rad: 1.5707963267948966   # ±90°
+    steering_rate_rad_s: 1.0
+    wheel_speed_rad_s: 10.0
+    command_acceleration_m_s2: 0.2
+    timeout_s: 0.25
+    control_hz: 50.0
+
+/r12_opencr_bridge:
+  ros__parameters:
+    # 포트 번호 대신 보드가 'I' 핸드셰이크로 말하는 role 로 찾는다.
+    # 스월브 L/R + arm 이 USB 허브에 꽂혀 ttyACM 번호가 바뀌어도 그대로 동작한다.
+    # arm 보드는 이 브리지가 아니라 arm 쪽 브리지가 board_roles: ['arm'] 으로 찾는다.
+    board_roles: ['swerve_left', 'swerve_right']
+    port_globs: ['/dev/ttyACM*', '/dev/serial/by-id/*']
+    # ports: ['/dev/serial/by-id/usb-ROBOTIS_OpenCR_...']   # 탐색을 끄려면 지정
+    discovery_interval_s: 2.0     # 보드가 빠졌을 때 재탐색 주기
+    discovery_timeout_s: 1.2      # 포트 하나당 핸드셰이크 대기(포트를 열 때 보드가 리셋되면 부팅을 기다림)
+    require_all_boards: true      # 두 보드가 다 있어야 주행 명령(en=1)
+    stop_on_fault: true           # 한 보드라도 flt/wd 면 모든 보드를 세운다
+    host_baud: 115200
+    bridge_hz: 50.0
+    cmd_timeout_s: 0.25
