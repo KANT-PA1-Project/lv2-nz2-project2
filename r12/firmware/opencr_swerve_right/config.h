@@ -18,7 +18,11 @@
 
 #define FW_NAME    "opencr_swerve_right"
 #define BOARD_SIDE "right"  // cfg 의 "side". 브리지가 포트와 보드를 맞춰 보는 용도
-#define FW_VERSION "0.2.1"
+// 핸드셰이크 식별자. 'I' 응답과 cfg 의 "board". USB 허브에서 ttyACM 번호가 바뀌어도
+// 호스트가 이 값으로 보드를 찾는다. 보드마다 반드시 달라야 한다(중복이면 브리지가 경고).
+#define BOARD_ROLE "swerve_right"
+#define BOARD_KIND "swerve"  // 같은 펌웨어 계열. arm 보드는 "arm"
+#define FW_VERSION "0.2.2"
 
 // ---------------- 버스 / 호스트 ----------------
 constexpr uint32_t DXL_BAUDRATE         = 1000000;  // [확인] 모터 설정과 일치해야 함

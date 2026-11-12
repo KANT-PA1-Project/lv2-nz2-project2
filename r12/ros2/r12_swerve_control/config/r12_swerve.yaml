@@ -16,8 +16,16 @@
 
 /r12_opencr_bridge:
   ros__parameters:
-    left_port: /dev/ttyACM0       # [확인] FL·RL 보드 포트
-    right_port: /dev/ttyACM1      # [확인] FR·RR 보드 포트
+    # 포트 번호 대신 보드가 'I' 핸드셰이크로 말하는 role 로 찾는다.
+    # 스월브 L/R + arm 이 USB 허브에 꽂혀 ttyACM 번호가 바뀌어도 그대로 동작한다.
+    # arm 보드는 이 브리지가 아니라 arm 쪽 브리지가 board_roles: ['arm'] 으로 찾는다.
+    board_roles: ['swerve_left', 'swerve_right']
+    port_globs: ['/dev/ttyACM*', '/dev/serial/by-id/*']
+    # ports: ['/dev/serial/by-id/usb-ROBOTIS_OpenCR_...']   # 탐색을 끄려면 지정
+    discovery_interval_s: 2.0     # 보드가 빠졌을 때 재탐색 주기
+    discovery_timeout_s: 1.2      # 포트 하나당 핸드셰이크 대기(포트를 열 때 보드가 리셋되면 부팅을 기다림)
+    require_all_boards: true      # 두 보드가 다 있어야 주행 명령(en=1)
+    stop_on_fault: true           # 한 보드라도 flt/wd 면 모든 보드를 세운다
     host_baud: 115200
     bridge_hz: 50.0
     cmd_timeout_s: 0.25

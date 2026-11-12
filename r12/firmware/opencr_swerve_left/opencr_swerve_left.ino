@@ -21,6 +21,9 @@
 //   D    토크 OFF.
 //   S    구동 0 (조향 유지). 다음 C 가 오면 다시 따른다.
 //   ?    설정과 레지스터 확인값(cfg) 송신.
+//   I    핸드셰이크. {"hello":1,"proto":1,"board":"swerve_left",...} 한 줄.
+//        USB 허브에서 ttyACM 번호가 바뀌어도 호스트가 이 응답으로 보드를 찾는다.
+//        설정 조회(?)와 달리 모터 레지스터를 읽지 않아 즉시 답한다. 상태 전송이 아니다.
 //   P <key> <값...>  파라미터 설정. 토크 OFF 일 때만. 브리지가 부팅 후 YAML 값을 내려보낸다.
 //        key: max_rpm min_rpm gain offset trim(2) ddir(2) cur_a pacc
 //             range home(2) sdir(2) spvel spacc wd_ms temp(3) batt(3) derate oc_ms
@@ -1082,9 +1085,24 @@ void sendImu() {
   Serial.println("}}");
 }
 
+// 핸드셰이크 응답: 이 보드가 누구인지 한 줄로. 모터 레지스터를 읽지 않아 즉답한다.
+void sendIdentity() {
+  Serial.print("{\"hello\":1,\"proto\":1,\"board\":\"" BOARD_ROLE "\"");
+  Serial.print(",\"side\":\"" BOARD_SIDE "\"");
+  Serial.print(",\"kind\":\"" BOARD_KIND "\"");
+  Serial.print(",\"fw\":\"" FW_NAME " " FW_VERSION "\"");
+  Serial.print(",\"order\":[");
+  for (uint8_t m = 0; m < MODULE_COUNT; m++) {
+    if (m) Serial.print(',');
+    Serial.print('"'); Serial.print(MODULE_NAMES[m]); Serial.print('"');
+  }
+  Serial.println("]}");
+}
+
 // 설정 송신. with_regs 이면 모터 레지스터를 직접 읽어 실제 적용값을 보인다(수용기준 6).
 void sendConfig(bool with_regs) {
   Serial.print("{\"cfg\":1,\"fw\":\"" FW_NAME " " FW_VERSION "\"");
+  Serial.print(",\"board\":\"" BOARD_ROLE "\"");
   Serial.print(",\"tq\":");  Serial.print(torque_on ? 1 : 0);
   Serial.print(",\"flt\":"); Serial.print(faults);
   // 컴파일 고정값: 브리지가 YAML 과 같은지 비교하는 용도
@@ -1371,6 +1389,7 @@ void handleLine(char* line) {
     case 'D': disableTorque(); sendConfig(false); break;
     case 'S': for (uint8_t m = 0; m < MODULE_COUNT; m++) cmd_wheel[m] = 0.0f; break;
     case '?': sendConfig(true); break;
+    case 'I': sendIdentity(); break;
     case 'P': handleParam(line + 1); break;
     default:  sendErr("unknown_cmd", -1); break;
   }
@@ -1846,6 +1865,7 @@ void setup() {
   last_cmd_ms = now;
   t_ctrl = t_fb = t_imu = t_err = t_batt = t_probe = now;
   sendConfig(false);
+  sendIdentity();  // 부팅 직후 한 번. 호스트가 늦게 열면 'I' 로 다시 받는다.
 }
 
 void loop() {
