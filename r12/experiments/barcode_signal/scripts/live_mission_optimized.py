@@ -42,9 +42,28 @@ def load_color_rule():
 
 
 def lens_boxes(box, shape):
+    """칸별 판독 영역. detect() 가 찾은 실제 R·Y·G 칸 위치가 있으면 그것을, 없으면 박스 세로 3등분.
+
+    실제 칸 위치: 이웃 칸과 겹치는 부분은 두 칸 중심의 중간선에서 자르고 안쪽 20% 여백
+    (비스듬한 구도에서 3등분이 칸과 어긋나 점등이 옆 칸에 번지던 문제, B07 multiple_lit:RY).
+    """
+    tiers = finder.observed_tiers(box)
+    result = {}
+    if tiers is not None:
+        centers = {c: t[1]+t[3]/2 for c, t in tiers.items()}
+        cuts = [-np.inf, (centers["R"]+centers["Y"])/2, (centers["Y"]+centers["G"])/2, np.inf]
+        for i, c in enumerate("RYG"):
+            x, y, w, h = tiers[c]
+            top, bottom = max(y, cuts[i]), min(y+h, cuts[i+1])
+            height = bottom-top
+            b = (int(np.floor(x+.2*w)), int(np.floor(top+.2*height)),
+                 int(np.ceil(x+w-.2*w)), int(np.ceil(bottom-.2*height)))
+            if b[0] < 0 or b[1] < 0 or b[2] > shape[1] or b[3] > shape[0] or b[2] <= b[0] or b[3] <= b[1]:
+                return None
+            result[c] = (*b, 0.)
+        return result
     x0, y0, x1, y1 = map(float, box)
     w, h = x1-x0, (y1-y0)/3.
-    result = {}
     for i, c in enumerate("RYG"):
         b = (int(np.floor(x0+.2*w)), int(np.floor(y0+(i+.2)*h)),
              int(np.ceil(x1-.2*w)), int(np.ceil(y0+(i+.8)*h)))

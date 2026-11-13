@@ -99,7 +99,6 @@
   },
   "neutral_floor": false,
   "note": "B25c = B25b 와 같음(바코드 먼저, -10 cm, 보정, 확정 후 팔 접기, 재이동 fallback) + 접은 자세만 신호등 반대쪽 [1.4,1.5,-0.5,0.5,0].",
-  "signal_patch": "oblique",
   "signal_fallback": {
     "initial_prepare_timeout_s": 2.0,
     "fallback_prepare_timeout_s": 30.0,

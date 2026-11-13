@@ -19,7 +19,6 @@ HERE_DATA = Path(__file__).resolve().parent / 'test_data'  # reports/ 대신 저
 sys.path[:0] = [str(HERE), str(ROOT / 'scripts')]
 from common import load_config
 from signal_fallback import SignalFallback, validate_fallback, wall_budget
-import tower_oblique as oblique
 import tower_live_hsv as finder
 import live_mission_optimized as live
 from mission_summary import MissionSession
@@ -50,7 +49,7 @@ class RoutingTests(unittest.TestCase):
         self.route = SignalFallback(self.cfg['signal_fallback'])
 
     def tearDown(self):
-        oblique.uninstall()
+        finder.clear_tiers()
 
     def environment(self):
         route = self.route
@@ -58,7 +57,7 @@ class RoutingTests(unittest.TestCase):
         for t in (0., .2, .4):
             session.observe_barcodes([dict(text='P2-02')], t)
         rule = live.load_color_rule()
-        oblique.install()
+        finder.clear_tiers()
         def new_preparation():
             return live.Preparation(rule, SimpleNamespace(auto_start=True, prepare_timeout=route.timeout_s,
                 search_hz=10., exposure='sim_fixed', wb='sim_fixed'))
@@ -67,7 +66,7 @@ class RoutingTests(unittest.TestCase):
         return dict(route=route, cfg=self.cfg, t=0., phase='prepare', phase_start=0.,
             prep=new_preparation(), new_preparation=new_preparation, session=session,
             started_signal=None, patch=object(), anchor=object(), box=None, result={},
-            signal_camera='mast', tower_oblique=oblique, np=np, cv2=SimpleNamespace(imwrite=Mock()),
+            signal_camera='mast', tower_live_hsv=finder, np=np, cv2=SimpleNamespace(imwrite=Mock()),
             side_by_side=np.hstack, out=Path('/tmp'), bgr=b, mast_bgr=b,
             base_pose=lambda: (np.array(self.cfg['barcode_base_xyz_yaw'][:3]), 0.),
             start_base_path=lambda t: dict(duration=3.), base_path=None,
@@ -133,8 +132,7 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(env['session'].barcode, 'P2-02')
         self.assertFalse(self.route.recording)
         self.assertIsNone(self.route.started)
-        self.assertFalse(oblique._original)
-        self.assertFalse(oblique._tiers)
+        self.assertFalse(finder._tiers)
         self.assertEqual(env['motion_goal'], self.cfg['signal_fallback']['base_xyz_yaw'])
 
     def test_fallback_waits_for_settling_then_uses_fresh_wrist_OFF(self):
@@ -238,7 +236,7 @@ class RoutingTests(unittest.TestCase):
     def test_mast_relocation_keeps_camera_arm_and_barcode(self):
         env = self.mast_environment()
         initial_target = env['target'].copy()
-        oblique._tiers[(1, 2, 3, 4)] = {'stale': True}
+        finder._tiers[(1, 2, 3, 4)] = {'stale': True}
         old_prep = env['prep']
         env['t'] = 2.; self.execute(env)
         self.assertEqual(env['phase'], 'move_base')
@@ -251,8 +249,7 @@ class RoutingTests(unittest.TestCase):
         self.assertIsNot(env['prep'], old_prep)
         self.assertIsNone(env['prep'].patch)
         self.assertIsNone(self.route.started)
-        self.assertTrue(oblique._original)
-        self.assertFalse(oblique._tiers)
+        self.assertFalse(finder._tiers)
         self.assertEqual(self.route.events[-1]['action'], 'relocate_mast')
         env.update(t=5., stable_since=None, base_path=None)
         self.execute(env, 'move')

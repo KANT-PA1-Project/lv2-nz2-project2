@@ -51,9 +51,6 @@ def main():
     from test_mission_camera_isaac import VideoSink
     from mission_summary import MissionSession
     import tower_live_hsv
-    if cfg.get('signal_patch') == 'oblique':  # 원본 파일 수정 없이 실행 중에만 판정 함수 교체
-        import tower_oblique
-        tower_oblique.install()
     import cv2
     import numpy as np
     out = args.out.expanduser().resolve()
@@ -518,10 +515,7 @@ def main():
                         raise ValueError('Camera fallback forbidden after recording started')
                     saved_barcode = session.barcode
                     patch, anchor, box = None, None, None
-                    if cfg.get('signal_patch') == 'oblique':
-                        tower_oblique.uninstall()  # Drop old-view blob/ROI cache.
-                        if route.camera == 'mast':
-                            tower_oblique.install()
+                    tower_live_hsv.clear_tiers()  # 이전 시점의 칸 위치 폐기
                     signal_camera = route.camera
                     prep = new_preparation()  # Fresh OFF baseline after settling at the new view.
                     motion_goal = list(cfg['signal_fallback']['base_xyz_yaw'])
@@ -563,9 +557,9 @@ def main():
                 if action != 'fallback':
                     box, acquired = prep.step(sig, t)
                     observed_tiers = None
-                    if (route and signal_camera == 'mast' and cfg.get('signal_patch') == 'oblique'
+                    if (route and signal_camera == 'mast'
                             and cfg['signal_fallback'].get('allow_partial_sides', True)):
-                        observed_tiers = tower_oblique.observed_tiers(box)
+                        observed_tiers = tower_live_hsv.observed_tiers(box)
                     if route and box is not None and not route.accepts_box(box, sig.shape, observed_tiers):
                         prep.clear()
                         prep.last_box = None

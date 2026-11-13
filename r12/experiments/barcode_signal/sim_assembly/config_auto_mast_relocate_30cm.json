@@ -99,7 +99,6 @@
   },
   "neutral_floor": false,
   "note": "B18: measured 30cm scene; strict initial side-clipping gate triggers base-only mast relocation. Kinematic chassis, no wheel driving validation.",
-  "signal_patch": "oblique",
   "signal_fallback": {
     "initial_prepare_timeout_s": 2.0,
     "fallback_prepare_timeout_s": 30.0,

@@ -99,7 +99,6 @@
   },
   "neutral_floor": false,
   "note": "B20 전체 과정: 시작 위치에서 바코드로 접근 → 그리퍼 바코드 → 상단 카메라 신호등(초기 2 s 실패 시 차체만 (783.5,730) 재이동) → 12회. 나머지 설정은 B18(config_auto_mast_relocate_30cm.json)과 같음.",
-  "signal_patch": "oblique",
   "signal_fallback": {
     "initial_prepare_timeout_s": 2.0,
     "fallback_prepare_timeout_s": 30.0,

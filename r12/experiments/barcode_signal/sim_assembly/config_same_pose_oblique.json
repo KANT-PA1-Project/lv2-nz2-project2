@@ -98,6 +98,5 @@
     "note": "연속 이동: 물리 스텝마다 차체 자세를 직선 보간(바퀴 구동 아님). 팔은 동시에 이동"
   },
   "neutral_floor": false,
-  "note": "B10: B09 와 같음(이동 없이 바코드 자세, 바코드=그리퍼, 신호등=상단 60°) + 판정 개선 후보 sim_assembly/tower_oblique.py (겹침 허용 70%, 칸 영역=실제 칸 위치). 원본 판정 파일 수정 없음.",
-  "signal_patch": "oblique"
+  "note": "B10: B09 와 같음(이동 없이 바코드 자세, 바코드=그리퍼, 신호등=상단 60°) 당시 판정 개선 후보(겹침 허용 70%, 칸 영역=실제 칸 위치)는 2026-11-13 원본 tower_live_hsv.py·live_mission_optimized.lens_boxes 에 합쳐짐."
 }

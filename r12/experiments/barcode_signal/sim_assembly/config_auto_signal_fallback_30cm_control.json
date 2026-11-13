@@ -99,7 +99,6 @@
   },
   "neutral_floor": false,
   "note": "Measured-distance scenario: tower-barcode horizontal displacement (+0.30,+0.30) m in assumed barcode axes. Initial barcode pose unchanged; fallback base shifts with tower to retain B08 wrist relative geometry. Kinematic base motion only. Control condition: disallow lateral clipping to exercise automatic B08 fallback; same physical geometry. Base moves and settles before arm motion. This is a routing regression control, not the recommended default.",
-  "signal_patch": "oblique",
   "signal_fallback": {
     "initial_prepare_timeout_s": 2.0,
     "fallback_prepare_timeout_s": 30.0,

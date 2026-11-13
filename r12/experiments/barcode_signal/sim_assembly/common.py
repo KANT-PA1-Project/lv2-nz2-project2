@@ -129,8 +129,6 @@ def load_config(path, check_poses=True):
         raise ValueError('order 는 barcode_first 또는 tower_first')
     if cfg.get('order') == 'tower_first' and not cfg.get('approach'):
         raise ValueError('order tower_first 는 approach(시작 위치) 필요')
-    if cfg.get('signal_patch') not in (None, 'oblique'):
-        raise ValueError('signal_patch 는 null 또는 oblique')
     if cfg.get('signal_camera', 'wrist') not in ('wrist', 'mast'):
         raise ValueError('signal_camera 는 wrist 또는 mast')
     pitch = cfg.get('mast_pitch_down_deg')

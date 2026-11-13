@@ -99,7 +99,6 @@
   },
   "neutral_floor": false,
   "note": "B25 바코드 먼저 + 보정 + 확정 후 팔 접기: 시작 (734,950) 팔 접음 → 차체 (600,700) → 팔 뻗기 → 바코드(미해독 시 보정) → 팔을 접은 자세로 → 상단 신호등 준비(2 s 실패 시 차체만 (783.5,730)) → 12회.",
-  "signal_patch": "oblique",
   "signal_fallback": {
     "initial_prepare_timeout_s": 2.0,
     "fallback_prepare_timeout_s": 30.0,

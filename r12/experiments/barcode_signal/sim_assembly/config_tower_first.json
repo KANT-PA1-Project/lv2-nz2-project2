@@ -99,7 +99,6 @@
   },
   "neutral_floor": false,
   "note": "B21 신호 먼저: 시작=규정 관측 위치 (734,950) yaw0, 팔 접음 → 상단 카메라(60° 그대로, oblique 판정)로 소등 기준·12회 기록 → 저장 후 팔 접은 채 차체만 (600,700) → 팔 뻗기 → 그리퍼 바코드 확정. 차체 재이동(fallback) 없음.",
-  "signal_patch": "oblique",
   "tower_scene": {
     "xy_m": [
       0.3035,
