@@ -12,7 +12,7 @@ headless:=true (기본) 서버만. 화면으로 보려면 headless:=false.
 import os
 import tempfile
 
-from ament_index_python.packages import get_package_share_directory
+from ament_index_python.packages import PackageNotFoundError, get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import (DeclareLaunchArgument, IncludeLaunchDescription,
                             RegisterEventHandler)
@@ -27,11 +27,18 @@ PKG = 'r12_swerve_control'
 def _vendor_dir():
     """R21 지오메트리(urdf·meshes) 위치. 절대경로 하드코딩 금지(다른 PC 에서 깨짐).
 
-    기본은 벤더 패키지 r21_description 의 설치 share(CMakeLists 가 urdf·meshes·usd 를 거기 설치한다)
-    — 어느 PC/설치본이든 ament 가 찾아 준다. env R21_VENDOR_DIR 로 소스 트리 등을 덮어쓸 수 있다.
+    순서: ① env R21_VENDOR_DIR ② 벤더 패키지 r21_description 의 설치 share(CMakeLists 가
+    urdf·meshes·usd 를 설치) ③ r21_description 을 따로 안 빌드했을 때: symlink-install 의 launch 를
+    realpath 로 소스로 되돌려 소스 트리의 r12/assets/vendor/R21_URDF_USD 로 폴백.
     """
     env = os.environ.get('R21_VENDOR_DIR')
-    return env if env else get_package_share_directory('r21_description')
+    if env:
+        return env
+    try:
+        return get_package_share_directory('r21_description')
+    except PackageNotFoundError:
+        here = os.path.dirname(os.path.realpath(__file__))   # 소스: r12/ros2/r12_swerve_control/launch
+        return os.path.normpath(os.path.join(here, '..', '..', '..', 'assets', 'vendor', 'R21_URDF_USD'))
 
 STEER = ['front_left_steer_joint', 'front_right_steer_joint',
          'rear_left_steer_joint', 'rear_right_steer_joint']
