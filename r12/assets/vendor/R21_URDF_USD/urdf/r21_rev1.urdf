@@ -2,9 +2,9 @@
 <robot name="r21">
   <link name="base_footprint" />
   <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0.181" rpy="0 0 3.14159265359" />
     <parent link="base_footprint" />
     <child link="base_link" />
-    <origin xyz="0 0 0.181" rpy="0 0 3.141592653589793" />
   </joint>
   <mujoco>
     <compiler strippath="false" discardvisual="false" fusestatic="false" balanceinertia="true" />
@@ -12,8 +12,8 @@
   <link name="base_link">
     <inertial>
       <origin xyz="0.004904241685 -1.3391976962e-05 0.019566562868" />
-      <mass value="2.1207941453417085" />
-      <inertia ixx="0.05349116665952935" ixy="-8.788113821458134e-05" ixz="-0.0032957307836042602" iyy="0.053105895721892095" iyz="1.766251463555721e-05" izz="0.05312348910005744" />
+      <mass value="2.120792127032916" />
+      <inertia ixx="0.053491115753272256" ixy="-8.788105458021523e-05" ixz="-0.003295727647136521" iyy="0.05310584518228809" iyz="1.7662497826566735e-05" izz="0.05312343854371024" />
     </inertial>
     <collision name="base_link_collision_0">
       <origin xyz="0 0 0" />
@@ -1436,8 +1436,8 @@
   <link name="rear_left_steer">
     <inertial>
       <origin xyz="-0.013376487305 -0.0053454288354 -0.074659209959" />
-      <mass value="0.41612529922544306" />
-      <inertia ixx="0.0009001994353107064" ixy="8.796156517509151e-05" ixz="-7.031613710575299e-05" iyy="0.0008904507789190257" iyz="-6.82987152332658e-06" izz="0.0007624572990969603" />
+      <mass value="0.4161249032090017" />
+      <inertia ixx="0.0009001985786125495" ixy="8.7961481464185e-05" ixz="-7.03160701875761e-05" iyy="0.0008904499314984307" iyz="-6.829865023502078e-06" izz="0.0007624565734846824" />
     </inertial>
     <collision name="rear_left_steer_collision_0">
       <origin xyz="-0.019248050861 0.0012516219635 -0.074932815582" />
@@ -1496,8 +1496,8 @@
   <link name="rear_left_wheel">
     <inertial>
       <origin xyz="2.3218322346e-06 -0.0055340442223 1.6924813713e-06" />
-      <mass value="0.04184114519089893" />
-      <inertia ixx="1.4738153155967867e-05" ixy="6.056371481165771e-09" ixz="-1.825177136927072e-09" iyy="1.8412772107260613e-05" iyz="-1.053102845023286e-09" izz="1.4738342883992712e-05" />
+      <mass value="0.04184110537168714" />
+      <inertia ixx="1.4738139130021894e-05" ixy="6.05636571746266e-09" ixz="-1.8251753999498781e-09" iyy="1.8412754584268143e-05" iyz="-1.0531018428106308e-09" izz="1.473832885786618e-05" />
     </inertial>
     <collision name="rear_left_wheel_collision_0">
       <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
@@ -1524,8 +1524,8 @@
   <link name="front_right_steer">
     <inertial>
       <origin xyz="0.013376487305 0.0053454288354 -0.074659209959" />
-      <mass value="0.41612529922544306" />
-      <inertia ixx="0.0009001994353107029" ixy="8.796156517509153e-05" ixz="7.031613710575758e-05" iyy="0.0008904507789190269" iyz="6.8298715233294846e-06" izz="0.0007624572990969662" />
+      <mass value="0.4161249032090017" />
+      <inertia ixx="0.0009001985786125461" ixy="8.796148146418503e-05" ixz="7.031607018758068e-05" iyy="0.000890449931498432" iyz="6.8298650235049836e-06" izz="0.0007624565734846883" />
     </inertial>
     <collision name="front_right_steer_collision_0">
       <origin xyz="0.019248050861 -0.0012516219635 -0.074932815582" />
@@ -1584,8 +1584,8 @@
   <link name="front_right_wheel">
     <inertial>
       <origin xyz="-2.3218322347e-06 0.0055340442223 1.6924813713e-06" />
-      <mass value="0.04184114519089893" />
-      <inertia ixx="1.4738153155967899e-05" ixy="6.056371481163588e-09" ixz="1.8251771369267494e-09" iyy="1.841277210726065e-05" iyz="1.0531028450227412e-09" izz="1.4738342883992717e-05" />
+      <mass value="0.04184110537168714" />
+      <inertia ixx="1.4738139130021926e-05" ixy="6.056365717460478e-09" ixz="1.8251753999495553e-09" iyy="1.841275458426818e-05" iyz="1.0531018428100861e-09" izz="1.4738328857866184e-05" />
     </inertial>
     <collision name="front_right_wheel_collision_0">
       <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
@@ -1612,8 +1612,8 @@
   <link name="front_left_steer">
     <inertial>
       <origin xyz="0.013376265499 -0.0053454288242 -0.074659209941" />
-      <mass value="0.41612529922940816" />
-      <inertia ixx="0.0009001994351764964" ixy="-8.796246145996549e-05" ixz="7.032089785182941e-05" iyy="0.0008904532396014071" iyz="-6.829871985927008e-06" izz="0.0007624597601135696" />
+      <mass value="0.4161249032129668" />
+      <inertia ixx="0.0009001985784783396" ixy="-8.796237774820602e-05" ixz="7.032083092912183e-05" iyy="0.0008904523921784704" iyz="-6.829865486102067e-06" izz="0.0007624590344989495" />
     </inertial>
     <collision name="front_left_steer_collision_0">
       <origin xyz="0.019182596328 0.0012186155343 -0.074758653575" />
@@ -1672,8 +1672,8 @@
   <link name="front_left_wheel">
     <inertial>
       <origin xyz="-1.0341949924e-06 -0.0055340442223 1.6924813713e-06" />
-      <mass value="0.04184114519089893" />
-      <inertia ixx="1.4738153155970274e-05" ixy="2.971911365273983e-09" ixz="-1.2738311933495993e-11" iyy="1.8412772288072345e-05" iyz="-1.0531028449757572e-09" izz="1.4738343064802047e-05" />
+      <mass value="0.04184110537168714" />
+      <inertia ixx="1.4738139130024301e-05" ixy="2.9719085369773977e-09" ixz="-1.2738299810750825e-11" iyy="1.8412754765079703e-05" iyz="-1.053101842763102e-09" izz="1.4738329038675343e-05" />
     </inertial>
     <collision name="front_left_wheel_collision_0">
       <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
@@ -1700,8 +1700,8 @@
   <link name="rear_right_steer">
     <inertial>
       <origin xyz="-0.013376265499 0.0053454288242 -0.074659209941" />
-      <mass value="0.41612529922940816" />
-      <inertia ixx="0.0009001994351764967" ixy="-8.79624614599657e-05" ixz="-7.032089785182951e-05" iyy="0.0008904532396014094" iyz="6.829871985927473e-06" izz="0.0007624597601135708" />
+      <mass value="0.4161249032129668" />
+      <inertia ixx="0.0009001985784783399" ixy="-8.796237774820622e-05" ixz="-7.032083092912193e-05" iyy="0.0008904523921784727" iyz="6.829865486102532e-06" izz="0.0007624590344989507" />
     </inertial>
     <collision name="rear_right_steer_collision_0">
       <origin xyz="-0.019182596328 -0.0012186155343 -0.074758653575" />
@@ -1760,8 +1760,8 @@
   <link name="rear_right_wheel">
     <inertial>
       <origin xyz="1.0341949924e-06 0.0055340442223 1.6924813714e-06" />
-      <mass value="0.04184114519089893" />
-      <inertia ixx="1.473815315597031e-05" ixy="2.9719113652949297e-09" ixz="1.2738311933116771e-11" iyy="1.8412772288072386e-05" iyz="1.0531028449740083e-09" izz="1.4738343064802058e-05" />
+      <mass value="0.04184110537168714" />
+      <inertia ixx="1.4738139130024335e-05" ixy="2.9719085369983444e-09" ixz="1.2738299810371604e-11" iyy="1.8412754765079743e-05" iyz="1.0531018427613532e-09" izz="1.4738329038675353e-05" />
     </inertial>
     <collision name="rear_right_wheel_collision_0">
       <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
@@ -1788,8 +1788,8 @@
   <link name="arm_yaw">
     <inertial>
       <origin xyz="-1.3861134462e-13 -0.00066857834431 0.025419490461" />
-      <mass value="0.03528109906901645" />
-      <inertia ixx="1.0820521399304291e-05" ixy="-1.5852032993705932e-19" ixz="5.923103010715478e-18" iyy="9.397041447139764e-06" iyz="3.691306958868653e-08" izz="5.831667194001034e-06" />
+      <mass value="0.035281065492842816" />
+      <inertia ixx="1.082051110167426e-05" ixy="-1.58520179077073e-19" ixz="5.9230973738407666e-18" iyy="9.397032504201375e-06" iyz="3.6913034459405794e-08" izz="5.8316616441435905e-06" />
     </inertial>
     <collision name="arm_yaw_collision_0">
       <origin xyz="0 -0.0021788749324 0.023475442176" />
@@ -1816,8 +1816,8 @@
   <link name="shoulder">
     <inertial>
       <origin xyz="-0.0071962976952 -0.017277623278 0.14318226307" />
-      <mass value="0.06246484325652591" />
-      <inertia ixx="0.00020946654449161044" ixy="-1.3299226662550155e-07" ixz="1.847564117180763e-05" iyy="0.00021300236518262755" iyz="9.958395162489354e-07" izz="1.63876460142483e-05" />
+      <mass value="0.062464783810236575" />
+      <inertia ixx="0.00020946634514733677" ixy="-1.3299214005995927e-07" ixz="1.8475623588984186e-05" iyy="0.00021300216247339835" iyz="9.958385685324134e-07" izz="1.6387630418519637e-05" />
     </inertial>
     <collision name="shoulder_collision_0">
       <origin xyz="-0.0113750007 -0.018108753384 0.098445664154" />
@@ -1844,8 +1844,8 @@
   <link name="elbow">
     <inertial>
       <origin xyz="-0.1110369942 -0.017352480781 8.8479433313e-07" />
-      <mass value="0.05213078393630436" />
-      <inertia ixx="8.43356123472179e-06" ixy="-6.32101675637772e-07" ixz="-1.9620232402071874e-09" iyy="9.416662054965176e-05" iyz="-2.0870685721015244e-11" izz="9.681568856978294e-05" />
+      <mass value="0.05213073432469079" />
+      <inertia ixx="8.43355320870435e-06" ixy="-6.321010740818065e-07" ixz="-1.9620213729968476e-09" iyy="9.416653093354326e-05" iyz="-2.087066585888549e-11" izz="9.68155964326201e-05" />
     </inertial>
     <collision name="elbow_collision_0">
       <origin xyz="-0.07874564688 -0.018108756585 -9.9182128621e-09" />
@@ -1872,8 +1872,8 @@
   <link name="wrist_pitch">
     <inertial>
       <origin xyz="-0.043744601283 -0.016899999993 0.011443802865" />
-      <mass value="0.036715525793593454" />
-      <inertia ixx="9.591645291419125e-06" ixy="-5.419846598227756e-15" ixz="2.472331590605128e-07" iyy="1.1799481715999433e-05" iyz="6.150301013344714e-16" izz="8.064448278527465e-06" />
+      <mass value="0.0367154908523104" />
+      <inertia ixx="9.591636163280937e-06" ixy="-5.419841440290071e-15" ixz="2.472329237746602e-07" iyy="1.1799470486716408e-05" iyz="6.150295160251127e-16" izz="8.064440603785954e-06" />
     </inertial>
     <collision name="wrist_pitch_collision_0">
       <origin xyz="-0.033103960913 -0.016905372072 0.011999999499" />
@@ -1900,8 +1900,8 @@
   <link name="wrist_roll">
     <inertial>
       <origin xyz="-0.028729946673 -0.00035430548576 0.025043514351" />
-      <mass value="0.11369490405017511" />
-      <inertia ixx="0.0001299652793177751" ixy="5.212407617364188e-08" ixz="-3.8983129546115525e-06" iyy="9.817912989428906e-05" iyz="1.292249284027026e-06" izz="6.634505312056444e-05" />
+      <mass value="0.11369479584946879" />
+      <inertia ixx="0.00012996515563294385" ixy="5.2124026568411934e-08" ixz="-3.898309244680851e-06" iyy="9.81790364595719e-05" iyz="1.2922480542244552e-06" izz="6.634498998157268e-05" />
     </inertial>
     <collision name="wrist_roll_collision_0">
       <origin xyz="-0.031454541765 0 0.025377658196" />
@@ -1928,8 +1928,8 @@
   <link name="jaw_left">
     <inertial>
       <origin xyz="0.014891956414 -0.0013888826866 8.3662231136e-06" />
-      <mass value="0.021528504650494034" />
-      <inertia ixx="6.37535986670611e-06" ixy="1.8771467558467076e-06" ixz="-1.539748507679686e-09" iyy="1.5396061583636038e-05" iyz="-6.363393700685999e-10" izz="1.2207269027484126e-05" />
+      <mass value="0.02152848416233382" />
+      <inertia ixx="6.3753537994294235e-06" ixy="1.877144969411277e-06" ixz="-1.5397470423380552e-09" iyy="1.5396046931574434e-05" iyz="-6.363387644797225e-10" izz="1.2207257410119722e-05" />
     </inertial>
     <collision name="jaw_left_collision_0">
       <origin xyz="0.0047330891082 -0.00057192339375 -2.4676322652e-09" />
@@ -1956,8 +1956,8 @@
   <link name="jaw_right">
     <inertial>
       <origin xyz="0.014891956139 0.0013888827044 -8.3662155254e-06" />
-      <mass value="0.02152850463267607" />
-      <inertia ixx="6.375358484393227e-06" ixy="-1.8771468751457444e-06" ixz="1.539699257012389e-09" iyy="1.5396058375360247e-05" iyz="-6.363362044553916e-10" izz="1.2207267186353734e-05" />
+      <mass value="0.021528484144515875" />
+      <inertia ixx="6.375352417117857e-06" ixy="-1.8771450887102001e-06" ixz="1.539697791717629e-09" iyy="1.5396043723301695e-05" iyz="-6.363355988695267e-10" izz="1.2207255568991083e-05" />
     </inertial>
     <collision name="jaw_right_collision_0">
       <origin xyz="0.004733090284 0.00057192339375 -2.4676322652e-09" />
@@ -2419,190 +2419,168 @@
     <origin xyz="0.035000000 -0.145000000 0.040000000" />
   </joint>
   <gazebo>
-    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher" />
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>/joint_states</topic>
+    </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>rear_left_steer_joint</joint_name>
-      <topic>/r21/gz/command/rear_left_steer_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>5</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0.25</d_gain>
-      <cmd_max>0.54</cmd_max>
-      <cmd_min>-0.54</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/swerve/sim/rear_left_steer_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>6.0</cmd_max>
+      <cmd_min>-6.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
-    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
-      <joint_name>rear_left_wheel_joint</joint_name>
-      <topic>/r21/gz/command/rear_left_wheel_joint</topic>
-      <use_force_commands>true</use_force_commands>
-      <initial_velocity>0</initial_velocity>
-      <p_gain>0.02</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0</d_gain>
-      <cmd_max>0.108</cmd_max>
-      <cmd_min>-0.108</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
-    </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>front_right_steer_joint</joint_name>
-      <topic>/r21/gz/command/front_right_steer_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>5</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0.25</d_gain>
-      <cmd_max>0.54</cmd_max>
-      <cmd_min>-0.54</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/swerve/sim/front_right_steer_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>6.0</cmd_max>
+      <cmd_min>-6.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
-    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
-      <joint_name>front_right_wheel_joint</joint_name>
-      <topic>/r21/gz/command/front_right_wheel_joint</topic>
-      <use_force_commands>true</use_force_commands>
-      <initial_velocity>0</initial_velocity>
-      <p_gain>0.02</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0</d_gain>
-      <cmd_max>0.108</cmd_max>
-      <cmd_min>-0.108</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
-    </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>front_left_steer_joint</joint_name>
-      <topic>/r21/gz/command/front_left_steer_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>5</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0.25</d_gain>
-      <cmd_max>0.54</cmd_max>
-      <cmd_min>-0.54</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/swerve/sim/front_left_steer_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>6.0</cmd_max>
+      <cmd_min>-6.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
-    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
-      <joint_name>front_left_wheel_joint</joint_name>
-      <topic>/r21/gz/command/front_left_wheel_joint</topic>
-      <use_force_commands>true</use_force_commands>
-      <initial_velocity>0</initial_velocity>
-      <p_gain>0.02</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0</d_gain>
-      <cmd_max>0.108</cmd_max>
-      <cmd_min>-0.108</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
-    </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>rear_right_steer_joint</joint_name>
-      <topic>/r21/gz/command/rear_right_steer_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>5</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0.25</d_gain>
-      <cmd_max>0.54</cmd_max>
-      <cmd_min>-0.54</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/swerve/sim/rear_right_steer_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>6.0</cmd_max>
+      <cmd_min>-6.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>rear_left_wheel_joint</joint_name>
+      <topic>/swerve/sim/rear_left_wheel_joint/cmd_vel</topic>
+      <initial_velocity>0.0</initial_velocity>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>front_right_wheel_joint</joint_name>
+      <topic>/swerve/sim/front_right_wheel_joint/cmd_vel</topic>
+      <initial_velocity>0.0</initial_velocity>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>front_left_wheel_joint</joint_name>
+      <topic>/swerve/sim/front_left_wheel_joint/cmd_vel</topic>
+      <initial_velocity>0.0</initial_velocity>
+    </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
       <joint_name>rear_right_wheel_joint</joint_name>
-      <topic>/r21/gz/command/rear_right_wheel_joint</topic>
-      <use_force_commands>true</use_force_commands>
-      <initial_velocity>0</initial_velocity>
-      <p_gain>0.02</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>0</d_gain>
-      <cmd_max>0.108</cmd_max>
-      <cmd_min>-0.108</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/swerve/sim/rear_right_wheel_joint/cmd_vel</topic>
+      <initial_velocity>0.0</initial_velocity>
     </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>arm_yaw_joint</joint_name>
-      <topic>/r21/gz/command/arm_yaw_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>80</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>8</d_gain>
-      <cmd_max>2</cmd_max>
-      <cmd_min>-2</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/arm/sim/arm_yaw_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>2.0</cmd_max>
+      <cmd_min>-2.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>shoulder_joint</joint_name>
-      <topic>/r21/gz/command/shoulder_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>80</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>8</d_gain>
-      <cmd_max>2</cmd_max>
-      <cmd_min>-2</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/arm/sim/shoulder_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>2.0</cmd_max>
+      <cmd_min>-2.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>elbow_joint</joint_name>
-      <topic>/r21/gz/command/elbow_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>80</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>8</d_gain>
-      <cmd_max>2</cmd_max>
-      <cmd_min>-2</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/arm/sim/elbow_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>2.0</cmd_max>
+      <cmd_min>-2.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>wrist_pitch_joint</joint_name>
-      <topic>/r21/gz/command/wrist_pitch_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>80</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>8</d_gain>
-      <cmd_max>2</cmd_max>
-      <cmd_min>-2</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/arm/sim/wrist_pitch_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>2.0</cmd_max>
+      <cmd_min>-2.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>wrist_roll_joint</joint_name>
-      <topic>/r21/gz/command/wrist_roll_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>80</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>8</d_gain>
-      <cmd_max>2</cmd_max>
-      <cmd_min>-2</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/arm/sim/wrist_roll_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>2.0</cmd_max>
+      <cmd_min>-2.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>jaw_left_joint</joint_name>
-      <topic>/r21/gz/command/jaw_left_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>1000</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>20</d_gain>
-      <cmd_max>10</cmd_max>
-      <cmd_min>-10</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/arm/sim/jaw_left_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>2.0</cmd_max>
+      <cmd_min>-2.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
+  </gazebo>
+  <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>jaw_right_joint</joint_name>
-      <topic>/r21/gz/command/jaw_right_joint</topic>
-      <initial_position>0</initial_position>
-      <p_gain>1000</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>20</d_gain>
-      <cmd_max>10</cmd_max>
-      <cmd_min>-10</cmd_min>
-      <i_max>0</i_max>
-      <i_min>0</i_min>
+      <topic>/arm/sim/jaw_right_joint/cmd_pos</topic>
+      <p_gain>10.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <cmd_max>2.0</cmd_max>
+      <cmd_min>-2.0</cmd_min>
+      <use_velocity_commands>true</use_velocity_commands>
     </plugin>
   </gazebo>
   <gazebo reference="rear_left_wheel">
