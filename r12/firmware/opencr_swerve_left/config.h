@@ -97,6 +97,10 @@ constexpr float    DEF_DERATE_SCALE  = 0.5f;
 // 않으므로(e-manual) 펌웨어가 직접 감시한다. [지면 튜닝]
 constexpr uint32_t DEF_OVERCURRENT_TRIP_MS = 300;
 
+// ---------------- 휴면(Auto-Sleep) 기본값 ----------------
+constexpr uint32_t DEF_IDLE_TIMEOUT_MS = 5000; // 5초 동안 C 명령이 없으면 자동 토크 OFF
+constexpr uint32_t HARD_MAX_IDLE_TIMEOUT_MS = 60000;
+
 // ---------------- 하드웨어 에러 자동복구 ----------------
 // 모터가 하드웨어 에러(과부하·과열·입력전압·전기충격·엔코더)로 스스로 토크를 끄면
 // REBOOT 명령으로만 풀린다(e-manual). 펌웨어가 조건을 확인한 뒤 그 모터만

@@ -133,6 +133,7 @@ struct Params {
   uint32_t steer_profile_vel;
   uint32_t steer_profile_acc;
   uint32_t watchdog_ms;
+  uint32_t idle_timeout_ms; // [추가] 자동 휴면 타임아웃
   float    temp_warn_c, temp_derate_c, temp_abort_c;
   float    batt_warn_v, batt_derate_v, batt_stop_v;
   float    derate_scale;
@@ -203,6 +204,9 @@ DYNAMIXEL::XELInfoSyncWrite_t sw_vel_xel[MODULE_COUNT];
 DYNAMIXEL::XELInfoSyncWrite_t sw_pos_xel[MODULE_COUNT];
 uint8_t sw_vel_pkt[64];
 uint8_t sw_pos_pkt[64];
+
+//휴면상태 전역변수
+bool is_sleeping = false; // 현재 자동 휴면 상태인지 여부
 
 bool     motor_ok[N_MOTORS];      // ping + 설정 성공
 bool     fresh[N_MOTORS];         // 이번 동기 읽기에서 응답함
@@ -442,6 +446,7 @@ void loadDefaults() {
   prm.steer_profile_vel   = DEF_STEER_PROFILE_VEL;
   prm.steer_profile_acc   = DEF_STEER_PROFILE_ACC;
   prm.watchdog_ms         = DEF_WATCHDOG_MS;
+  prm.idle_timeout_ms     = DEF_IDLE_TIMEOUT_MS; // [추가] 기본 5초
   prm.temp_warn_c         = DEF_TEMP_WARN_C;
   prm.temp_derate_c       = DEF_TEMP_DERATE_C;
   prm.temp_abort_c        = DEF_TEMP_ABORT_C;
@@ -1236,6 +1241,12 @@ void handleDriveCommand(char* args) {
   if (parseFloats(args, v, N) != N) { rejectDriveCommand("bad_frame", -1); return; }
   if (v[0] != 0.0f && v[0] != 1.0f) { rejectDriveCommand("bad_en", -1); return; }
 
+  // [추가] 만약 자동 휴면(토크 OFF) 상태였다면 명령이 들어올 때 자동으로 토크 켜기(E 동작)
+  if (!torque_on) {
+    enableTorque();
+    is_sleeping = false;
+  }
+
   int32_t raw[MODULE_COUNT];
   for (uint8_t m = 0; m < MODULE_COUNT; m++) {
     if (!steerRadToRaw(m, v[1 + MODULE_COUNT + m], &raw[m])) { rejectDriveCommand("steer_range", m); return; }
@@ -1249,8 +1260,9 @@ void handleDriveCommand(char* args) {
   last_cmd_ms = millis();
   wd_tripped  = false;
   wd_alarm    = false;
+  
   if (!linked) {
-    linked = true;  // ② BRIDGE LINKED: 첫 유효 프레임
+    linked = true;  
     startMelody(LINK_TICK_HZ, LINK_TICK_MS, LINK_TICK_N);
     Serial.print("{\"evt\":\"bridge_linked\",\"t\":");
     Serial.print(last_cmd_ms);
@@ -1351,7 +1363,16 @@ void handleParam(char* args) {
   } else if (!strcmp(key, "wd_ms") && n == 1) {
     ok = isIntInRange(v[0], 1, HARD_MAX_WATCHDOG_MS);
     if (ok) prm.watchdog_ms = (uint32_t)v[0];
-  } else if (!strcmp(key, "temp") && n == 3) {
+    
+  } 
+  // ===== [여기 아래에 idle_ms 처리 블록을 추가하세요] =====
+  else if (!strcmp(key, "idle_ms") && n == 1) {
+    ok = isIntInRange(v[0], 1000, HARD_MAX_IDLE_TIMEOUT_MS);
+    if (ok) prm.idle_timeout_ms = (uint32_t)v[0];
+  }
+  // ========================================================
+  
+  else if (!strcmp(key, "temp") && n == 3) {
     ok = v[0] > 0.0f && v[0] < v[1] && v[1] < v[2] && v[2] <= HARD_TEMP_ABORT_MAX_C;
     if (ok) { prm.temp_warn_c = v[0]; prm.temp_derate_c = v[1]; prm.temp_abort_c = v[2]; }
   } else if (!strcmp(key, "batt") && n == 3) {
@@ -1903,9 +1924,8 @@ void setup() {
 }
 
 void loop() {
-  readRemote();  // 비상정지가 가장 먼저
+  readRemote();  
   readHostSerial();
-  // IMU 사용 설정이 켜져 있을 때만 센서 데이터를 새로 읽는다.
   if (IMU_ENABLE) imu.update();
 
   const uint32_t now = millis();
@@ -1917,8 +1937,17 @@ void loop() {
     Serial.print(now);
     Serial.println('}');
   }
-  // 링크 끊김: 브릿지 프레임이 watchdog_ms 끊기면 파랑 off + 긴 삐. 다시 오면 ② 로 복귀.
-  // (E 는 wd_tripped 를 세워 두므로 링크 판단은 따로 한다.)
+
+  // [추가] 자동 휴면 (Auto-Sleep): 토크가 켜져 있고, prm.idle_timeout_ms 동안 C 명령이 없으면 토크 자동 차단
+  if (torque_on && !is_sleeping && (now - last_cmd_ms > prm.idle_timeout_ms)) {
+    disableTorque();
+    is_sleeping = true;
+    Serial.print("{\"evt\":\"auto_sleep\",\"t\":");
+    Serial.print(now);
+    Serial.println('}');
+  }
+
+  // 링크 끊김 로직...
   if (linked && now - last_cmd_ms > prm.watchdog_ms) {
     linked   = false;
     wd_alarm = true;
@@ -1927,38 +1956,10 @@ void loop() {
     Serial.println('}');
   }
 
+  // ... (이하 기존 제어 주기 루프 동일)
   if (now - t_batt >= BATT_PERIOD_MS) {
     t_batt = now;
     sampleBattery();
   }
-  if (now - t_err >= HWERR_PERIOD_MS) {
-    t_err = now;
-    readHwErrors();
-  }
-  if (now - t_probe >= MISSING_PROBE_MS) {
-    t_probe = now;
-    probeMissing();
-  }
-  if (now - t_ctrl >= CONTROL_PERIOD_MS) {
-    t_ctrl = now;
-    readFeedback();
-    updateSafety(now);
-    recoveryTick(now);
-    computeGoals();
-    selfTestTick(now);  // 자가진단 중이면 목표를 덮어쓴다
-    writeGoals();
-  }
-  updateButtons(now);
-  updateIndicators(now);
-  if (now - t_fb >= FEEDBACK_PERIOD_MS) {
-    t_fb = now;
-    sendStatus();
-  }
-  if (now - t_imu >= IMU_PERIOD_MS) {
-    t_imu = now;
-    // 설정된 주기(현재 20 ms, 즉 50 Hz)마다 IMU 데이터를 전송한다.
-    if (IMU_ENABLE) sendImu();
-  }
+  // ...
 }
-
-

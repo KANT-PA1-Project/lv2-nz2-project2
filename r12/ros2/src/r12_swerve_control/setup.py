@@ -27,6 +27,7 @@ setup(
             'swerve_controller = r12_swerve_control.swerve_controller_node:main',
             'opencr_bridge = r12_swerve_control.opencr_bridge_node:main',
             'gz_command_relay = r12_swerve_control.gz_command_relay_node:main',
+            'real_teleop = r12_swerve_control.real_teleop_node:main',
         ],
     },
 )

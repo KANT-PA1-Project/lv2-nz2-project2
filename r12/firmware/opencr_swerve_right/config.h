@@ -70,6 +70,10 @@ constexpr float   DEF_CURRENT_LIMIT_A = 1.5f;     // [지면 튜닝] 구동 4개
 // 10 → 모터 약 36 rpm/s → 바퀴 표면 약 0.5 m/s² (0→65rpm 약 1.8 s). "gentle" 출발값.
 constexpr uint32_t DEF_DRIVE_PROFILE_ACC = 10;    // [지면 튜닝]
 
+// ---------------- 휴면(Auto-Sleep) 기본값 ----------------
+constexpr uint32_t DEF_IDLE_TIMEOUT_MS = 5000; // 5초 동안 C 명령이 없으면 자동 토크 OFF
+constexpr uint32_t HARD_MAX_IDLE_TIMEOUT_MS = 60000;
+
 // ---------------- 조향 기본값 (handoff §4 steer) ----------------
 constexpr float  DEF_STEER_RANGE_RAD = 1.5708f;   // ±90° (URDF revolute)
 constexpr float  DEF_STEER_HOME_RAD[MODULE_COUNT] = {0.0f, 0.0f};  // [확인]
