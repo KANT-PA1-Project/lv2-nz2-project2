@@ -26,6 +26,9 @@ class GzCommandRelay(Node):
     def __init__(self):
         super().__init__('gz_command_relay')
         self.hz = self.declare_parameter('relay_hz', 50.0).value
+        # sim 전용 휠 방향 보정 노브(실물은 펌웨어 DEF_DRIVE_DIR). 기본 1.0=보정 없음.
+        # 전/후가 반대로 보이면 launch 에서 -1.0 로. (전방축 자체 문제는 모델 base_footprint 에서 해결)
+        self.wheel_sign = self.declare_parameter('sim_wheel_sign', 1.0).value
         self.steer = {}
         self.wheel = {}
         self.create_subscription(JointState, '/r12/swerve_joint_commands', self._on_cmd, 10)
@@ -48,7 +51,7 @@ class GzCommandRelay(Node):
             if p in self.steer:
                 self.pos_pub[p].publish(Float64(data=float(self.steer[p])))
             if p in self.wheel:
-                self.vel_pub[p].publish(Float64(data=float(self.wheel[p])))
+                self.vel_pub[p].publish(Float64(data=float(self.wheel[p]) * self.wheel_sign))
 
 
 def main(args=None):
