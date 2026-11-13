@@ -10,9 +10,10 @@ ros2_control + gz_ros2_control 플러그인 블록을 주입하고 메시 packag
 headless:=true (기본) 서버만. 화면으로 보려면 headless:=false.
 """
 import os
+import re
 import tempfile
 
-from ament_index_python.packages import get_package_share_directory
+from ament_index_python.packages import PackageNotFoundError, get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import (DeclareLaunchArgument, IncludeLaunchDescription,
                             RegisterEventHandler)
@@ -21,17 +22,32 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 
-# r12/assets/vendor/R21_URDF_USD. symlink-install 에선 __file__ 이 설치본이라 상대경로가 틀어진다.
-# 레포 위치를 env R21_VENDOR_DIR 로 덮을 수 있게 하고, 기본값은 이 레포의 벤더 절대경로.
-_VENDOR = os.environ.get(
-    'R21_VENDOR_DIR',
-    '/media/pa28/Windows-SSD/git/lv2-nz2-project2/r12/assets/vendor/R21_URDF_USD')
 PKG = 'r12_swerve_control'
+
+
+def _vendor_dir():
+    """R21 지오메트리(urdf·meshes) 위치. 절대경로 하드코딩 금지(다른 PC 에서 깨짐).
+
+    순서: ① env R21_VENDOR_DIR ② 벤더 패키지 r21_description 의 설치 share(CMakeLists 가
+    urdf·meshes·usd 를 설치) ③ r21_description 을 따로 안 빌드했을 때: symlink-install 의 launch 를
+    realpath 로 소스로 되돌려 소스 트리의 r12/assets/vendor/R21_URDF_USD 로 폴백.
+    """
+    env = os.environ.get('R21_VENDOR_DIR')
+    if env:
+        return env
+    try:
+        return get_package_share_directory('r21_description')
+    except PackageNotFoundError:
+        here = os.path.dirname(os.path.realpath(__file__))   # 소스: r12/ros2/r12_swerve_control/launch
+        return os.path.normpath(os.path.join(here, '..', '..', '..', 'assets', 'vendor', 'R21_URDF_USD'))
 
 STEER = ['front_left_steer_joint', 'front_right_steer_joint',
          'rear_left_steer_joint', 'rear_right_steer_joint']
 WHEEL = ['front_left_wheel_joint', 'front_right_wheel_joint',
          'rear_left_wheel_joint', 'rear_right_wheel_joint']
+# 팔·그리퍼는 보류(스월브 데모엔 컨트롤러 없음). sim 에서 free 면 중력에 늘어져 끌린다 →
+# 결합 URDF 에서만 fixed 로 고정해 홈 자세로 붙여 둔다(소스 URDF 는 revolute/prismatic 유지).
+ARM_HOLD = ['arm_yaw', 'shoulder', 'elbow', 'wrist_pitch', 'wrist_roll', 'jaw_left', 'jaw_right']
 
 
 def _controllers_yaml():
@@ -66,12 +82,16 @@ def _ros2_control_block(controllers_yaml):
 
 
 def _build_combined_urdf():
-    src = os.path.join(_VENDOR, 'urdf', 'r21_ros.urdf')
+    vendor = _vendor_dir()
+    src = os.path.join(vendor, 'urdf', 'r21_ros.urdf')
     with open(src) as f:
         urdf = f.read()
     # 메시 경로를 절대 file:// 로 (gz 리소스 경로 문제 회피)
     urdf = urdf.replace('package://r21_description/meshes/',
-                        'file://' + os.path.join(_VENDOR, 'meshes') + '/')
+                        'file://' + os.path.join(vendor, 'meshes') + '/')
+    # 팔·그리퍼 관절을 fixed 로 (보류 — 컨트롤러 없이 free 면 늘어짐)
+    names = '|'.join(j + '_joint' for j in ARM_HOLD)
+    urdf = re.sub(r'(<joint name="(?:' + names + r')" type=")[^"]+(">)', r'\1fixed\2', urdf)
     controllers = _controllers_yaml()
     block = _ros2_control_block(controllers)
     urdf = urdf.replace('</robot>', block + '</robot>')
