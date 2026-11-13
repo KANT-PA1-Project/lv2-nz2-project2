@@ -1,0 +1,141 @@
+{
+  "scope": "simulation_only_assembly_urdf_arm_observation",
+  "assembly_dir": "~/Desktop/assembly_puck_slots.",
+  "barcode_base_xyz_yaw": [
+    0.6,
+    0.7,
+    0.182,
+    0.0
+  ],
+  "tower_base_xyz_yaw": [
+    0.6,
+    0.7,
+    0.182,
+    0.0
+  ],
+  "barcode_arm_q_rad": [
+    -0.0392,
+    -0.6412,
+    -1.1046,
+    1.6642,
+    0.0
+  ],
+  "tower_arm_waypoints_rad": [
+    [
+      -0.0392,
+      -0.6412,
+      -1.1046,
+      1.6642,
+      0.0
+    ]
+  ],
+  "signal_camera": "mast",
+  "mast_pitch_down_deg": null,
+  "render": {
+    "spp": 32,
+    "denoiser": false,
+    "note": "B04 막대 경계 흐림 대응: 디노이저 끄고 픽셀당 32 샘플"
+  },
+  "arm_limits_rad": {
+    "lower": [
+      -3.0543,
+      -1.9722,
+      -1.4312,
+      -2.042,
+      -2.9671
+    ],
+    "upper": [
+      3.0543,
+      1.6581,
+      1.9373,
+      1.7279,
+      2.9671
+    ],
+    "note": "main ros2_ws/src/control/nz2_control/config/arm_params.yaml 2026-10-27 실측(끝에서 7° 안쪽)을 조립본 부호로 변환(조립본 = -팀 각: 팔이 base -X, yaw 축 -Z). 실물 영점 일치는 [확인 필요]. joint4 접힘 인터락 미반영"
+  },
+  "camera": {
+    "width": 640,
+    "height": 480,
+    "hfov_deg": 55.5,
+    "note": "실물 D435(이 PC) 640x480 컬러 intrinsics fx=607.9 fy=607.7 → 수평 55.5°/수직 43.1°. 조립본 sensors.json 은 640x360/69°"
+  },
+  "barcode": {
+    "code": "P2-02",
+    "center_m": [
+      0.0035,
+      0.65,
+      0.2
+    ],
+    "note": "실물처럼 미로 경계벽 아크릴판(표면 x=0.003, 프로파일 y0.40~파란 기둥 y0.81 사이)에 직접 부착, 높이 중간쯤 0.20 m [가정: 사용자 '중간쯤']. mission.pdf (80,650,450) 은 벽 높이 0.39 m 보다 높아 실제 설치와 다름 렌더=막대 형상(텍스처 축소 흐림 회피, 2026-11-12 B05 이후).",
+    "render": "geometry"
+  },
+  "sequence": "RGYRGYGRGRGG",
+  "trial_mode": "barcode_then_tower",
+  "renderer": "PathTracing",
+  "dome": 400.0,
+  "emissive": 1.0,
+  "max_seconds": 120.0,
+  "prepare_timeout_s": 30.0,
+  "barcode_timeout_s": 15.0,
+  "motion_timeout_s": 15.0,
+  "barcode_upscale": 2,
+  "record_video": true,
+  "camera_fps": 30,
+  "physics_hz": 960,
+  "arm_command_velocity_rad_s": 0.4,
+  "arm_drive": {
+    "stiffness_per_deg": 40.0,
+    "damping_per_deg": 4.0,
+    "max_force_nm": 20.0,
+    "note": "시뮬 가정. URDF effort 60 은 CAD 내보내기 기본값"
+  },
+  "jaw_open_m": -0.0276,
+  "floor_visual_usd": "~/git/p2_perception/lv_module6_usd/scene.usda",
+  "black_gripper": true,
+  "base_motion": {
+    "speed_mps": 0.1,
+    "yaw_rate_rad_s": 0.3,
+    "note": "연속 이동: 물리 스텝마다 차체 자세를 직선 보간(바퀴 구동 아님). 팔은 동시에 이동"
+  },
+  "neutral_floor": false,
+  "note": "Measured-distance scenario: tower-barcode horizontal displacement (+0.30,+0.30) m in assumed barcode axes. Initial barcode pose unchanged; fallback base shifts with tower to retain B08 wrist relative geometry. Kinematic base motion only. Control condition: disallow lateral clipping to exercise automatic B08 fallback; same physical geometry. Base moves and settles before arm motion. This is a routing regression control, not the recommended default.",
+  "signal_patch": "oblique",
+  "signal_fallback": {
+    "initial_prepare_timeout_s": 2.0,
+    "fallback_prepare_timeout_s": 30.0,
+    "base_xyz_yaw": [
+      0.734,
+      1.2,
+      0.182,
+      0.0
+    ],
+    "arm_waypoints_rad": [
+      [
+        -0.6468,
+        1.5879,
+        -1.3812,
+        -0.5079,
+        0.0011
+      ]
+    ],
+    "note": "Try mast at barcode pose. Before READY only: on timeout, keep barcode, move to B08 base/arm pose, restore original wrist finder and acquire fresh OFF reference. Before base travel, hold base still and move arm to high transport pose, settle, move/settle base, then move/settle observation arm. Clearance veto and speed limits retained. Measured-scene fallback replanned to base (0.734,1.20) to avoid wall at world X~1.069; nominal camera distance 0.356 m/look-down 35.06 deg. Previous translated-X target collided with maze wall.",
+    "allow_partial_sides": false,
+    "base_before_arm": true,
+    "transport_arm_q_rad": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "tower_scene": {
+    "xy_m": [
+      0.3035,
+      0.95
+    ],
+    "base_z_m": 0.0,
+    "note": "User measured about 30 cm forward and 30 cm left from barcode. Assumption: barcode-facing normal = world +X; local left = world +Y. Tower base height remains assumed 0 m; confirm orientation/height against real field."
+  },
+  "max_wall_seconds": 1200.0
+}

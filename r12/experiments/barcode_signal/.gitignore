@@ -1,0 +1,5 @@
+# 실행 결과·캐시는 저장소에 넣지 않음 (tutor AGENTS.md: 원본 로그 커밋 금지)
+reports/
+__pycache__/
+.pytest_cache/
+.serena/
