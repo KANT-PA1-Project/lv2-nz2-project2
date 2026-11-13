@@ -66,7 +66,10 @@ def load_config(path, check_poses=True):
     urdf = Path(cfg['assembly_dir']) / 'assembly.urdf'
     if not urdf.is_file():
         raise FileNotFoundError(urdf)
-    model = Model(urdf)
+    scale = cfg.get('mass_scale', 1.0)
+    if isinstance(scale, bool) or not isinstance(scale, (int, float)) or not 0 < scale <= 1:
+        raise ValueError('mass_scale: 0~1 (최종 URDF 질량 10배 오류 보정 0.100011)')
+    model = Model(urdf, mass_scale=scale)
     lower, upper = arm_limits(cfg, model)
     _vec(cfg['barcode_base_xyz_yaw'], 4, 'barcode_base_xyz_yaw')
     _vec(cfg['tower_base_xyz_yaw'], 4, 'tower_base_xyz_yaw')
@@ -113,6 +116,17 @@ def load_config(path, check_poses=True):
     motion = cfg['base_motion']
     if not (0 < motion['speed_mps'] <= 0.5 and 0 < motion['yaw_rate_rad_s'] <= 1.5):
         raise ValueError('base_motion: 0<speed_mps<=0.5, 0<yaw_rate_rad_s<=1.5')
+    if check_poses and cfg.get('firmware_check', False):
+        named = [('barcode_arm_q_rad', cfg['barcode_arm_q_rad'])]
+        named += [(f'tower_arm_waypoints_rad[{i}]', q) for i, q in enumerate(cfg['tower_arm_waypoints_rad'])]
+        if cfg.get('approach'):
+            named.append(('approach.start_arm_q_rad', cfg['approach']['start_arm_q_rad']))
+        if cfg.get('stow_arm_after_barcode_q_rad'):
+            named.append(('stow_arm_after_barcode_q_rad', cfg['stow_arm_after_barcode_q_rad']))
+        for name, q in named:
+            problems = firmware_check(q)
+            if problems:
+                raise ValueError(f'{name}: ' + '; '.join(problems))
     if cfg.get('approach'):
         ap = cfg['approach']
         _vec(ap['start_base_xyz_yaw'], 4, 'approach.start_base_xyz_yaw')
@@ -157,6 +171,26 @@ def arm_limits(cfg, model):
     return lower, upper
 
 
+# 팔 펌웨어 arm_config.h (FW_LIMITS_REV 8) 기준, 팀 각도[deg] = -조립본[rad]·180/π [추정: 부호·영점 실측 필요]
+FW_J_MIN_DEG = (-175., -95., -111., -99., -170.)
+FW_J_MAX_DEG = (175., 113., 82., 117., 170.)
+FW_SHOULDER_BODY_CONTACT_DEG = -102.   # 어깨가 이 각도에서 차체에 닿음(펌웨어 주석)
+FW_FOLD = dict(elbow_deg=45., shoulder_deg=-80., wrist_max_deg=0.)
+
+
+def firmware_check(q5):
+    """조립본 관절각 → 팀 각도로 바꿔 펌웨어 한계·접힘 인터락 검사. 문제 목록(빈 목록 = 통과)."""
+    team = [-math.degrees(float(v)) for v in q5]
+    problems = []
+    for i, (v, lo, hi) in enumerate(zip(team, FW_J_MIN_DEG, FW_J_MAX_DEG)):
+        if not lo <= v <= hi:
+            problems.append(f'joint{i+1} {v:.1f}° 가 펌웨어 범위 [{lo:g},{hi:g}] 밖')
+    shoulder, elbow, wrist = team[1], team[2], team[3]
+    if elbow > FW_FOLD['elbow_deg'] and shoulder < FW_FOLD['shoulder_deg'] and wrist > FW_FOLD['wrist_max_deg']:
+        problems.append(f'접힘 인터락: 팔꿈치 {elbow:.1f}°>45, 어깨 {shoulder:.1f}°<-80 에서 손목 {wrist:.1f}°>0')
+    return problems
+
+
 # ---------------------------------------------------------------- 정기구학
 def rpy_matrix(rpy):
     r, p, y = rpy
@@ -194,7 +228,7 @@ def _floats(text, n=3):
 
 class Model:
     """URDF 관절 트리. 손목 카메라·관절 위치·질량중심 계산용."""
-    def __init__(self, urdf):
+    def __init__(self, urdf, mass_scale=1.0):
         root = ET.parse(urdf).getroot()
         self.joints = {}
         self.by_child = {}
@@ -216,7 +250,7 @@ class Model:
             i = link.find('inertial')
             if i is not None and i.find('mass') is not None:
                 o = i.find('origin')
-                self.inertial[link.get('name')] = (float(i.find('mass').get('value')),
+                self.inertial[link.get('name')] = (float(i.find('mass').get('value')) * mass_scale,
                                                    np.array(_floats(o.get('xyz') if o is not None else None)))
 
     def limits(self, names):
@@ -292,7 +326,7 @@ class Model:
 
 
 # ---------------------------------------------------------------- URDF 정리
-def sanitize_urdf(source, destination, limits=None):
+def sanitize_urdf(source, destination, limits=None, mass_scale=1.0):
     """시뮬용 사본: 메시 절대경로, 조향·바퀴 고정, 센서/슬롯 프레임·gazebo 블록 제거.
 
     센서 프레임은 질량 없는 링크라 Isaac articulation 에 넣지 않고, run.py 가
@@ -321,6 +355,16 @@ def sanitize_urdf(source, destination, limits=None):
             limit = robot.find(f"joint[@name='{name}']/limit")
             limit.set('lower', repr(float(lo)))
             limit.set('upper', repr(float(hi)))
+    if mass_scale != 1.0:  # 최종 URDF 질량·관성 10배 오류(Nav2 핸드오프: 42.955 → 4.296 kg)
+        for inertial in robot.iter('inertial'):
+            mass = inertial.find('mass')
+            if mass is not None:
+                mass.set('value', repr(float(mass.get('value')) * mass_scale))
+            inertia = inertial.find('inertia')
+            if inertia is not None:
+                for key in ('ixx', 'ixy', 'ixz', 'iyy', 'iyz', 'izz'):
+                    if inertia.get(key) is not None:
+                        inertia.set(key, repr(float(inertia.get(key)) * mass_scale))
     for g in list(robot.findall('gazebo')):
         robot.remove(g)
     meshes = set()

@@ -84,6 +84,12 @@ class BarcodeSeek:
             hi = np.minimum(self.upper, q + self.max_step)
             r = minimize(self._cost, q, args=(q, target), method='L-BFGS-B', bounds=list(zip(lo, hi)))
             new = np.clip(r.x, lo, hi)
+            if self.cfg.get('firmware_check', False):
+                from common import firmware_check
+                problems = firmware_check(new)
+                if problems:  # 펌웨어 한계·접힘 인터락에 걸리는 보정은 하지 않음
+                    self.log.append(dict(t_s=t, mode='rejected_firmware', problems=problems, q_to=new.tolist()))
+                    return q.copy()
             self.log.append(dict(t_s=t, mode='candidate', pixel=[float(u), float(v)], width_px=width_px,
                                  est_depth_m=depth, target_world=target.tolist(), q_from=q.tolist(),
                                  q_to=new.tolist(), cost=float(r.fun)))

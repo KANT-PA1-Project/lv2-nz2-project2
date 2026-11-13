@@ -89,6 +89,7 @@ def main():
     wall_start = time.monotonic()
     log = (out / 'frames.jsonl').open('w', buffering=1)
     physics_log = (out / 'physics.jsonl').open('w', buffering=1)
+    logged_frames = 0
     try:
         from isaacsim import SimulationApp
         app = SimulationApp({'headless': True, 'renderer': cfg['renderer'],
@@ -391,12 +392,16 @@ def main():
                 cv2.imwrite(str(out/'first_frame.png'), side_by_side(bgr, mast_bgr))
             color, reason, reads, box = None, None, [], None
             if phase in ('settle_barcode', 'settle_tower', 'move', 'move_base', 'move_transport',
-                         'settle_start', 'approach_base', 'approach_arm', 'seek_move', 'stow_arm'):
+                         'settle_start', 'approach_base', 'approach_arm', 'seek_move', 'stow_retract', 'stow_arm'):
                 if t-phase_start > cfg['motion_timeout_s']:
                     raise ValueError('팔 이동/정착 시간 초과')
                 if stable_since is not None and t-stable_since >= .5:
                     if phase == 'seek_move':
                         phase, barcode_since = 'barcode', t   # 보정 자세 정착 → 다시 해독
+                    elif phase == 'stow_retract':
+                        result['stow_retract_settled_s'] = t
+                        target = np.array(cfg['stow_arm_after_barcode_q_rad'], dtype=float)
+                        phase, phase_start, stable_since = 'stow_arm', t, None
                     elif phase == 'stow_arm':
                         # 준비 시작(route.begin)·anchor·arrival_view 는 아래 공통 'prepare' 처리에서 한 번만
                         result['stow_after_barcode_settled_s'] = t
@@ -495,10 +500,16 @@ def main():
                         result.update(base_moved=True, base_motion_start_s=t,
                                       base_motion_duration_s=base_path['duration'])
                     if route and cfg.get('stow_arm_after_barcode_q_rad'):
-                        # 바코드 먼저: 보정으로 바뀐 팔이 상단 시야를 가리지 않게 접은 뒤 신호 준비
-                        target = np.array(cfg['stow_arm_after_barcode_q_rad'], dtype=float)
+                        # 바코드 먼저: 보정으로 바뀐 팔이 상단 시야를 가리지 않게 접은 뒤 신호 준비.
+                        # 보정 자세였으면 먼저 기준 바코드 자세로 거둔다(B25c: 바로 접다 벽·기둥 3 cm 근접).
+                        nominal = np.array(cfg['barcode_arm_q_rad'], dtype=float)
                         result['stow_after_barcode_start_s'] = t
-                        phase, phase_start, stable_since = 'stow_arm', t, None
+                        if np.max(np.abs(q - nominal)) > .02:
+                            target = nominal
+                            phase, phase_start, stable_since = 'stow_retract', t, None
+                        else:
+                            target = np.array(cfg['stow_arm_after_barcode_q_rad'], dtype=float)
+                            phase, phase_start, stable_since = 'stow_arm', t, None
                     elif route:
                         # No initial motion: keep barcode pose and prepare the mast image.
                         phase, phase_start = 'prepare', t
@@ -605,6 +616,7 @@ def main():
                     UsdGeom.Xformable(cam.GetPrim()).ComputeLocalToWorldTransform(0.)).tolist(),
                 contacts_N={name: np.asarray(probe.get_net_contact_forces(dt=1/physics_hz)).tolist()
                             for name, probe in contact_probes}), ensure_ascii=False) + '\n')
+            logged_frames += 1
             view = side_by_side(bgr, mast_bgr)
             if box is not None and phase in ('prepare', 'record'):
                 x0, y0, x1, y1 = map(int, box)
@@ -672,6 +684,8 @@ def main():
         physics_log.close()
         if video is not None:
             video.release()
+        # Include the post-completion hold frames in both execution orders.
+        result.update(frame_count=logged_frames, wall_s=time.monotonic()-wall_start)
         (out / 'result.json').write_text(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
         try:
             if world is not None:

@@ -20,7 +20,8 @@ def main():
     out.mkdir(parents=True, exist_ok=False)
     source = Path(cfg['assembly_dir']) / 'assembly.urdf'
     lower, upper = arm_limits(cfg, model)
-    manifest = sanitize_urdf(source, out / 'assembly_sim.urdf', (lower, upper))
+    manifest = sanitize_urdf(source, out / 'assembly_sim.urdf', (lower, upper), cfg.get('mass_scale', 1.0))
+    manifest['mass_scale'] = cfg.get('mass_scale', 1.0)
     manifest.update(
         config=cfg, status='prepared_not_isaac_validated',
         sensors_json_sha256=sha256(Path(cfg['assembly_dir']) / 'sensors.json'),

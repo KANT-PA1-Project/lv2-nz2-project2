@@ -1,0 +1,269 @@
+{
+  "status": "passed",
+  "scope": "simulation_only_assembly_urdf_arm_observation",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "robot_model": "assembly_puck_slots/assembly.urdf",
+  "driving_tested": false,
+  "learned_policy_tested": false,
+  "physical_robot_tested": false,
+  "arm_self_collision": false,
+  "trial_mode": "barcode_then_tower",
+  "barcode_tested": true,
+  "wall_budget_s": 1500.0,
+  "render": {
+    "spp": 32,
+    "denoiser": false
+  },
+  "signal_camera": "mast",
+  "physics_solver": "PGS",
+  "ground_visual": {
+    "source": "/home/pa33/git/p2_perception/lv_module6_usd/scene.usda",
+    "hidden_visuals": [
+      "/World/defaultGroundPlane/Environment/Geometry"
+    ],
+    "physics": "unchanged_default_ground",
+    "material": "/World/Looks/Module6Carpet",
+    "visual": "/World/Module6CarpetVisual"
+  },
+  "order": "barcode_first",
+  "gripper_visual": {
+    "links": [
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll",
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll/jaw_left",
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll/jaw_right"
+    ],
+    "diffuse_linear": [
+      0.01,
+      0.01,
+      0.01
+    ],
+    "roughness": 0.6,
+    "note": "Nominal black wrist/fingers, no geometry change"
+  },
+  "mast_camera": {
+    "pitch_down_deg": 60.0,
+    "frame": "mast_d435_color_optical_frame"
+  },
+  "camera": {
+    "width": 640,
+    "height": 480,
+    "fx_px": 608.2199579824833,
+    "hfov_deg": 55.5,
+    "parent": "wrist_roll",
+    "frame": "wrist_d435_color_optical_frame"
+  },
+  "dof_names": [
+    "arm_yaw_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_pitch_joint",
+    "wrist_roll_joint",
+    "jaw_left_joint",
+    "jaw_right_joint"
+  ],
+  "jaw_dofs": [
+    "jaw_left_joint",
+    "jaw_right_joint"
+  ],
+  "base_moved": true,
+  "signal_route": {
+    "mode": "fallback",
+    "camera": "mast",
+    "fallback_used": true,
+    "ready_issued": true,
+    "events": [
+      {
+        "event": "prepare_started",
+        "t_s": 22.30208449647762,
+        "camera": "mast"
+      },
+      {
+        "event": "fallback_requested",
+        "t_s": 24.302084600785747,
+        "reason": "searching; keep tower OFF",
+        "from_camera": "mast",
+        "to_camera": "mast",
+        "action": "relocate_mast"
+      },
+      {
+        "event": "prepare_started",
+        "t_s": 26.6687513908837,
+        "camera": "mast"
+      },
+      {
+        "event": "ready",
+        "t_s": 27.702084778109565,
+        "camera": "mast"
+      }
+    ]
+  },
+  "approach_start_s": 0.5020833595190197,
+  "approach_base_duration_s": 2.8364769926398563,
+  "approach_start_base": [
+    0.734,
+    0.95,
+    0.182,
+    0.0
+  ],
+  "base_motion_end_s": 26.16145969775971,
+  "approach_base_arrived_s": 3.868750201771036,
+  "approach_arm_settled_s": 10.035417190054432,
+  "barcode_seek": {
+    "attempts": 1,
+    "log": [
+      {
+        "t_s": 11.56875060335733,
+        "mode": "candidate",
+        "pixel": [
+          333.878662109375,
+          318.4115905761719
+        ],
+        "width_px": 93.37727008833667,
+        "est_depth_m": 0.39081456808949044,
+        "target_world": [
+          -0.059678519175546424,
+          0.6566779250007859,
+          0.04257895588681898
+        ],
+        "q_from": [
+          -0.0391998216509819,
+          -0.641197144985199,
+          -1.104597568511963,
+          1.6641942262649536,
+          3.7194146417299234e-13
+        ],
+        "q_to": [
+          -0.021049932417866547,
+          -1.141197144985199,
+          -0.6202282329042841,
+          1.5223524196224272,
+          0.007152929065973587
+        ],
+        "cost": 0.19761854300904252
+      }
+    ]
+  },
+  "barcode_saved_before_motion": "P2-02",
+  "barcode_saved_at_s": 14.06875073374249,
+  "tower_candidate_at_barcode_pose": [
+    570.0,
+    199.0,
+    640.0,
+    275.0
+  ],
+  "stow_after_barcode_start_s": 14.06875073374249,
+  "stow_retract_settled_s": 16.135417508194223,
+  "stow_after_barcode_settled_s": 22.30208449647762,
+  "base_motion_start_s": 24.302084600785747,
+  "base_motion_duration_s": 1.8593605490630318,
+  "fallback_used": true,
+  "fallback_reason": "searching; keep tower OFF",
+  "barcode_preserved_on_fallback": true,
+  "barcode_saved_before_fallback": "P2-02",
+  "ready_evidence": {
+    "prestart_off_guaranteed": true,
+    "recovery_long_off_observed": false,
+    "stable_off_s": 1.0000000521540642,
+    "baseline_frames": 5,
+    "max_jitter_px": 3,
+    "horizontal_crop_allowed": false,
+    "observed_tiers": null
+  },
+  "mission": {
+    "status": "ready",
+    "error": null,
+    "barcode": "P2-02",
+    "direction": "descending",
+    "sequence": [
+      "R",
+      "G",
+      "Y",
+      "R",
+      "G",
+      "Y",
+      "G",
+      "R",
+      "G",
+      "R",
+      "G",
+      "G"
+    ],
+    "counts": {
+      "R": 4,
+      "Y": 2,
+      "G": 6
+    },
+    "signal_complete": true,
+    "locations": [
+      {
+        "location": "L1",
+        "group": "G",
+        "count": 6,
+        "constraint": {
+          "color": "G",
+          "shape": "any"
+        }
+      },
+      {
+        "location": "L2",
+        "group": "R",
+        "count": 4,
+        "constraint": {
+          "color": "R",
+          "shape": "any"
+        }
+      },
+      {
+        "location": "L3",
+        "group": "Y",
+        "count": 2,
+        "constraint": {
+          "color": "any",
+          "shape": "one_common_shape_pending_inventory"
+        }
+      }
+    ],
+    "puck_allocation": "pending_inventory",
+    "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+    "barcodes": [
+      {
+        "barcode": "P2-02",
+        "sortOrder": "DESC",
+        "sortLabel": "내림차순"
+      }
+    ],
+    "sortOrder": "DESC",
+    "sortLabel": "내림차순",
+    "tie_order": [
+      "R",
+      "Y",
+      "G"
+    ]
+  },
+  "observed_sequence": "RGYRGYGRGRGG",
+  "expected_sequence_for_scoring": "RGYRGYGRGRGG",
+  "expected_barcode_for_scoring": "P2-02",
+  "signal_saved": true,
+  "later_lamp_ignored": true,
+  "classified_frames": 810,
+  "correct_color_frames": 810,
+  "measured_peak_arm_velocity_rad_s": 0.40009406208992004,
+  "measured_start_q": [
+    1.4,
+    1.5,
+    -0.5,
+    0.5,
+    0.0
+  ],
+  "measured_final_q": [
+    1.3999942541122437,
+    1.4999942779541016,
+    -0.4999985694885254,
+    0.5000028610229492,
+    5.0001127370469245e-14
+  ],
+  "frame_count": 1701,
+  "wall_s": 1256.2097634680104,
+  "initial_tower_absence_requires_video_review": true,
+  "process_exit_code": 0
+}
