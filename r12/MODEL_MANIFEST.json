@@ -512,6 +512,114 @@
       "acceptance": "development snapshot; not full mission or hardware certified"
     },
     {
+      "path": "models/r25/README.md",
+      "bytes": 7689,
+      "sha256": "a2391a1e722b50af42f6c13fcc751ab616e27e4e082e625d31d0fbcc3e09c612",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/demo.usda",
+      "bytes": 121937,
+      "sha256": "dd367bf222440983f768b4c271030e2ffcb07f5a9451199150dbb0204a1458b7",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/capture_ros.py",
+      "bytes": 3725,
+      "sha256": "eb4698b4a373ac81af79b230cc453774465088dfaaf87e7c98473889b108c663",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/locate.py",
+      "bytes": 6748,
+      "sha256": "06cb59fdeb77a11c821457723c37525ba7a9b61654a807850166a6756304c861",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/offset_validation.jpg",
+      "bytes": 152002,
+      "sha256": "a70396ae6947f101d3751fd5f8c307a75856f52f9d6734d08e453aeb2efbe5e2",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/offset_validation.json",
+      "bytes": 2622,
+      "sha256": "fa5c29d07724b1274d9f2cf218b4124b149acb1b94e034d023101899bd841b7a",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/slots.json",
+      "bytes": 1467,
+      "sha256": "841021f831e3e0c9e6dd157c651aef6503238cbd85524fcba44e51b4322eb505",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/views.json",
+      "bytes": 608,
+      "sha256": "2197d2f957ec96f4e6949520fb0caffef92e318c775254132db7f1d8362a87e6",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/wrist_tray_test.jpg",
+      "bytes": 137821,
+      "sha256": "2beb32044a6699dca7d6794d261909f28eb0ea32bc12630ccd93d6bf6f837d59",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/wrist_tray_test.json",
+      "bytes": 728,
+      "sha256": "c5c7ca6104770f0ceaad9ff22f3f9933cc72285bf993f323d153a958e77a91f7",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/puck_slots/사용방법.md",
+      "bytes": 4483,
+      "sha256": "6c5a242039ea83533f3c6e90f2de79e03865ae1ea292636a782c098c6ac9ae74",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/replay.py",
+      "bytes": 4047,
+      "sha256": "8cbe42899ed3ebfee922e822b6c1afc248a39a28ff7111574748bd2bd87fbdee",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/ros_gz_bridge.yaml",
+      "bytes": 3720,
+      "sha256": "1df84a861d7572004d135af0391195fa45a87176a0834f83e34be1c4f30fe528",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/scene.xml",
+      "bytes": 54657,
+      "sha256": "a3957731a4a18b0f441cdd2eacb267d69c88b72f83a68d95a03c246d06430cc9",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/sensor_reader.py",
+      "bytes": 3338,
+      "sha256": "a2232413fd082b28292a4cb4df0e14d6b60b05ca2383483048af82a33f12166d",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/sensor_world.sdf",
+      "bytes": 868,
+      "sha256": "6db4c756ddadaf32d89da6634dd2fe025a0d9d2983a6db23cec34fafb3e1c8c8",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/sensors.json",
+      "bytes": 3622,
+      "sha256": "b6debca3ef877a5c8456a04b7fd7200800fb3a49ae8b6c5505755379cc4ec6b9",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
+      "path": "models/r25/verification.json",
+      "bytes": 1321,
+      "sha256": "f9417247c6aceeb70244fbb290be80bcfde859f9379278bc691c1d5a7632693e",
+      "acceptance": "development snapshot; not full mission or hardware certified"
+    },
+    {
       "path": "models/swerve/deployed/84e55f313b9836f533758200101a7c25488ddd6702dfd1cddcc9b95bad2f256f.pt",
       "bytes": 296885,
       "sha256": "84e55f313b9836f533758200101a7c25488ddd6702dfd1cddcc9b95bad2f256f",

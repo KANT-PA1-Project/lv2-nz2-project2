@@ -1,0 +1,84 @@
+{
+  "mujoco": "3.3.7",
+  "duration_s": 12.000000000000677,
+  "timestep_s": 0.002,
+  "steps": 6000,
+  "controls": 14,
+  "moving_joints": 15,
+  "joint_ranges": {
+    "rear_left_steer": [
+      -3.6e-05,
+      0.720041
+    ],
+    "rear_left_wheel": [
+      -7.7e-05,
+      11.944732
+    ],
+    "front_right_steer": [
+      -3.6e-05,
+      0.720036
+    ],
+    "front_right_wheel": [
+      -7.7e-05,
+      11.936202
+    ],
+    "front_left_steer": [
+      -3.6e-05,
+      0.720041
+    ],
+    "front_left_wheel": [
+      -7.6e-05,
+      11.941668
+    ],
+    "rear_right_steer": [
+      -3.6e-05,
+      0.720035
+    ],
+    "rear_right_wheel": [
+      -7.8e-05,
+      11.913057
+    ],
+    "arm_yaw": [
+      -0.000454,
+      0.619482
+    ],
+    "shoulder": [
+      -0.029169,
+      0.36296
+    ],
+    "elbow": [
+      -0.672047,
+      -0.0
+    ],
+    "wrist_pitch": [
+      -0.008706,
+      0.461538
+    ],
+    "wrist_roll": [
+      -3e-06,
+      1.079965
+    ],
+    "jaw_left": [
+      -0.027693,
+      4e-06
+    ],
+    "jaw_right": [
+      -0.027662,
+      4e-05
+    ]
+  },
+  "base_travel_m": 0.36746853687279524,
+  "maximum_base_tilt_deg": 0.024047704942015417,
+  "max_jaw_mismatch_m": 4.5327986010889644e-05,
+  "minimum_contacts_after_1s": 4,
+  "solver_warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

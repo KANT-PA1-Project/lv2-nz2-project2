@@ -1,0 +1,104 @@
+{
+  "usd_path": "assets/vendor/R25_URDF_USD/usd/r25.usdc",
+  "mjcf_path": "models/r25/scene.xml",
+  "joint_names": [
+    "arm_yaw_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_pitch_joint",
+    "wrist_roll_joint"
+  ],
+  "tcp_link": "wrist_roll",
+  "home": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "lower": [
+    -1.57,
+    -1.57,
+    -1.57,
+    -1.57,
+    -3.14
+  ],
+  "upper": [
+    1.57,
+    1.57,
+    1.57,
+    1.57,
+    3.14
+  ],
+  "action_scale": [
+    0.5,
+    0.25,
+    0.25,
+    0.25,
+    0.5
+  ],
+  "effort": [
+    60.0,
+    60.0,
+    60.0,
+    60.0,
+    60.0
+  ],
+  "velocity": [
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0
+  ],
+  "stiffness": [
+    40.0,
+    40.0,
+    40.0,
+    40.0,
+    40.0
+  ],
+  "damping": [
+    4.0,
+    4.0,
+    4.0,
+    4.0,
+    4.0
+  ],
+  "gripper": {
+    "joint_names": [
+      "jaw_left_joint",
+      "jaw_right_joint"
+    ],
+    "mimic": {
+      "joint": "jaw_left_joint",
+      "multiplier": 1,
+      "offset": 0
+    },
+    "position_range_m": [
+      -0.027686130404472348,
+      0.0
+    ]
+  },
+  "base_joints": {
+    "steer": [
+      "front_left_steer_joint",
+      "front_right_steer_joint",
+      "rear_left_steer_joint",
+      "rear_right_steer_joint"
+    ],
+    "wheel": [
+      "front_left_wheel_joint",
+      "front_right_wheel_joint",
+      "rear_left_wheel_joint",
+      "rear_right_wheel_joint"
+    ]
+  },
+  "notes": [
+    "assembly_puck_slots v25(=r25) 최종 모델. 조인트 구조는 r21과 동일, 질량 43.0208kg·상단 카메라/마스트 +35mm·마운트/관성 갱신.",
+    "lower/upper/effort/velocity는 URDF 선언값. effort=60, velocity=10은 URDF 기술 한계이며 측정 모터값 아님(AGENTS.md).",
+    "stiffness/damping/action_scale은 r21에서 이어받은 시뮬 시작 게인이며 r25용 미튜닝.",
+    "tcp_link=wrist_roll은 추정값이고 그리퍼 TCP 오프셋 미반영. reach 타깃/target_range는 미생성으로 생략.",
+    "지오메트리는 assets/vendor/R25_URDF_USD/ 단일 소스. 활성 파이프라인 전환은 별도 작업."
+  ]
+}
