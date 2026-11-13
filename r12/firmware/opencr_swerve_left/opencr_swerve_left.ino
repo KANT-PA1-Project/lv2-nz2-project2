@@ -7,6 +7,7 @@
 //          구동(ID 1·4) = Velocity 모드, 조향(ID 7·5) = Position 모드. IK 는 하지 않는다.
 //          모듈 순서는 항상 FL, RL (앞, 뒤). 반대쪽 모듈은 다른 OpenCR 이 맡는다.
 //          조향 모터는 STEER_ENABLE = true 일 때 제어한다. 자가진단 중에는 0 rad를 유지하고 토크를 켠다.
+//          자가진단이 끝나거나 중단돼도 토크는 끄지 않는다(구동 0 = 능동 제동, 조향 0 rad 유지).
 //          실제 ID·배선·방향을 확인한 뒤 사용한다.
 //
 // [시리얼 프로토콜] USB CDC, 한 줄 = 명령 1개 / 레코드 1개. 최종 포맷은 interfaces 패키지 소유.
@@ -211,7 +212,8 @@ uint32_t oc_since_ms[N_MOTORS];
 bool     fault_off[N_MOTORS];     // 과열·과전류로 토크를 끈 모터
 int32_t  vel_limit_raw[N_MOTORS];  // Velocity Limit(44) 레지스터 (구동은 속도 상한에 사용)
 bool     hwerr_fresh[N_MOTORS];   // 마지막 Hardware Error 동기 읽기에서 응답함
-// 미검출 모터: 연속 무응답이면 동기 읽기 목록에서 빼고 주기적으로 ping 해서 돌아오면 다시 넣는다.
+// 미검출 모터: 연속 무응답이면 동기 읽기 목록에서 빼고 주기적으로 ping 해서 돌아오면
+// 재설정(configureMotor)까지 마친 뒤 다시 넣는다. 다시 꽂으면 E 없이 READY 로 복귀한다.
 // (목록에 남겨 두면 그 뒤 모터까지 못 읽어서 어느 모터가 빠졌는지 알 수 없다.)
 bool     missing[N_MOTORS];
 uint8_t  probe_idx = 0;
@@ -631,23 +633,29 @@ void readFeedback() {
   }
 }
 
-// 미검출 모터를 하나씩 돌아가며 ping. 응답하면 목록에 다시 넣는다.
-// 전원이 다시 들어온 모터는 설정(RAM)이 초기화됐으므로 E 로 재설정해야 쓸 수 있다.
+// 미검출 모터를 하나씩 돌아가며 ping. 응답하면 재설정하고 목록에 다시 넣는다.
+// 전원이 다시 들어온 모터는 설정(RAM: 운전 모드·프로파일)이 초기화되고 토크도 꺼져 있다.
+// 여기서 configureMotor() 까지 해 두어야 다시 꽂았을 때 E 없이 READY 로 돌아온다.
+// (토크는 configureMotor 가 끈 상태로 둔다. 주행 중 재연결은 FLT_COMM 래치가 남아 E 로 푼다.)
 void probeMissing() {
   for (uint8_t i = 0; i < N_ACTIVE; i++) {
     const uint8_t k = (probe_idx + i) % N_ACTIVE;
     if (!missing[k] || rcv_busy[k]) continue;
     probe_idx = (k + 1) % N_ACTIVE;
-    if (dxl.ping(motorId(k))) {
-      missing[k]   = false;
-      comm_fail[k] = 0;
-      rebuildSyncReadLists();
-      Serial.print("{\"evt\":\"motor_found\",\"id\":");
-      Serial.print(motorId(k));
-      Serial.print(",\"t\":");
-      Serial.print(millis());
-      Serial.println('}');
-    }
+    if (!dxl.ping(motorId(k))) return;
+
+    // 응답만 하고 설정에 실패하면 미검출로 남겨 다음 주기에 다시 시도한다.
+    if (!configureMotor(k)) return;
+
+    motor_ok[k]  = true;
+    missing[k]   = false;
+    comm_fail[k] = 0;
+    rebuildSyncReadLists();
+    Serial.print("{\"evt\":\"motor_found\",\"id\":");
+    Serial.print(motorId(k));
+    Serial.print(",\"t\":");
+    Serial.print(millis());
+    Serial.println('}');
     return;  // 한 번에 하나만 (ping 실패 시 약 10 ms 대기)
   }
 }
@@ -1592,11 +1600,37 @@ void printSelfTestEvent(const char* what) {
   Serial.println('}');
 }
 
+// 자가진단을 끝내거나 중단할 때 토크는 끄지 않는다. 토크를 끄면 조향축이 풀려
+// 차체가 방향을 잃고 바퀴가 굴러간다. 구동만 0(능동 제동)으로 세우고 조향은 0 rad 로 잡는다.
+void holdSelfTestStop() {
+  for (uint8_t m = 0; m < MODULE_COUNT; m++) {
+    cmd_wheel[m]    = 0.0f;
+    goal_vel_raw[m] = 0;
+  }
+  if (STEER_ENABLE) {
+    for (uint8_t m = 0; m < MODULE_COUNT; m++) {
+      int32_t raw;
+      if (steerRadToRaw(m, 0.0f, &raw)) {
+        goal_pos_raw[m]  = raw;
+        cmd_steer_raw[m] = raw;
+      }
+    }
+  }
+  motion_en = false;
+  if (!torque_on) return;
+  sw_vel.is_info_changed = true;
+  dxl.syncWrite(&sw_vel);
+  if (STEER_ENABLE) {
+    sw_pos.is_info_changed = true;
+    dxl.syncWrite(&sw_pos);
+  }
+}
+
 void abortSelfTest(const char* why) {
   if (st_phase == ST_IDLE) return;
   const bool was_running = (st_phase == ST_RUN);
   st_phase = ST_IDLE;
-  if (was_running) disableTorque();
+  if (was_running) holdSelfTestStop();
   Serial.print("{\"evt\":\"selftest_abort\",\"why\":\"");
   Serial.print(why);
   Serial.print("\",\"t\":");
@@ -1661,7 +1695,7 @@ void startSelfTest(uint32_t now) {
   const float v_mps = motorRpmToWheelRads(st_rpm) * WHEEL_RADIUS_M;
   if (v_mps < SELFTEST_MIN_SPEED_MPS) {
     st_phase = ST_IDLE;
-    disableTorque();
+    holdSelfTestStop();
     sendErr("selftest_speed_too_low", -1);
     return;
   }
@@ -1698,7 +1732,7 @@ void finishSelfTest() {
   Serial.println("\"}}");
 
   st_phase = ST_IDLE;
-  disableTorque();
+  holdSelfTestStop();  // 토크 유지: 시험이 끝나도 조향을 잡고 구동은 0(능동 제동)
   if (pass) startMelody(READY_JINGLE_HZ, READY_JINGLE_MS, READY_JINGLE_N);
   else raiseFault(FLT_SELFTEST, -1, 0.0f);  // 래치: 결과를 보고 E 로 해제
 }
