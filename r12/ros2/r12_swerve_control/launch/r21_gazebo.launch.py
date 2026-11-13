@@ -10,6 +10,7 @@ ros2_control + gz_ros2_control 플러그인 블록을 주입하고 메시 packag
 headless:=true (기본) 서버만. 화면으로 보려면 headless:=false.
 """
 import os
+import re
 import tempfile
 
 from ament_index_python.packages import PackageNotFoundError, get_package_share_directory
@@ -44,6 +45,9 @@ STEER = ['front_left_steer_joint', 'front_right_steer_joint',
          'rear_left_steer_joint', 'rear_right_steer_joint']
 WHEEL = ['front_left_wheel_joint', 'front_right_wheel_joint',
          'rear_left_wheel_joint', 'rear_right_wheel_joint']
+# 팔·그리퍼는 보류(스월브 데모엔 컨트롤러 없음). sim 에서 free 면 중력에 늘어져 끌린다 →
+# 결합 URDF 에서만 fixed 로 고정해 홈 자세로 붙여 둔다(소스 URDF 는 revolute/prismatic 유지).
+ARM_HOLD = ['arm_yaw', 'shoulder', 'elbow', 'wrist_pitch', 'wrist_roll', 'jaw_left', 'jaw_right']
 
 
 def _controllers_yaml():
@@ -85,6 +89,9 @@ def _build_combined_urdf():
     # 메시 경로를 절대 file:// 로 (gz 리소스 경로 문제 회피)
     urdf = urdf.replace('package://r21_description/meshes/',
                         'file://' + os.path.join(vendor, 'meshes') + '/')
+    # 팔·그리퍼 관절을 fixed 로 (보류 — 컨트롤러 없이 free 면 늘어짐)
+    names = '|'.join(j + '_joint' for j in ARM_HOLD)
+    urdf = re.sub(r'(<joint name="(?:' + names + r')" type=")[^"]+(">)', r'\1fixed\2', urdf)
     controllers = _controllers_yaml()
     block = _ros2_control_block(controllers)
     urdf = urdf.replace('</robot>', block + '</robot>')
