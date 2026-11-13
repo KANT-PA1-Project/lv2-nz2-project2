@@ -1,0 +1,89 @@
+{
+  "family": "tag36h11",
+  "black_edge_m": 0.0216,
+  "label_m": 0.027,
+  "marker_height_above_floor_m": 0.00012,
+  "frame": "base_link",
+  "slots": [
+    {
+      "id": 0,
+      "frame": "puck_slot_0",
+      "floor_center_m": [
+        -0.035,
+        0.145,
+        0.05
+      ],
+      "floor_width_mm": 35
+    },
+    {
+      "id": 1,
+      "frame": "puck_slot_1",
+      "floor_center_m": [
+        0.035,
+        0.145,
+        0.05
+      ],
+      "floor_width_mm": 35
+    },
+    {
+      "id": 2,
+      "frame": "puck_slot_2",
+      "floor_center_m": [
+        -0.035,
+        0.095,
+        0.05
+      ],
+      "floor_width_mm": 35
+    },
+    {
+      "id": 3,
+      "frame": "puck_slot_3",
+      "floor_center_m": [
+        0.035,
+        0.095,
+        0.05
+      ],
+      "floor_width_mm": 31
+    },
+    {
+      "id": 4,
+      "frame": "puck_slot_4",
+      "floor_center_m": [
+        -0.035,
+        -0.095,
+        0.05
+      ],
+      "floor_width_mm": 35
+    },
+    {
+      "id": 5,
+      "frame": "puck_slot_5",
+      "floor_center_m": [
+        0.035,
+        -0.095,
+        0.05
+      ],
+      "floor_width_mm": 35
+    },
+    {
+      "id": 6,
+      "frame": "puck_slot_6",
+      "floor_center_m": [
+        -0.035,
+        -0.145,
+        0.05
+      ],
+      "floor_width_mm": 35
+    },
+    {
+      "id": 7,
+      "frame": "puck_slot_7",
+      "floor_center_m": [
+        0.035,
+        -0.145,
+        0.05
+      ],
+      "floor_width_mm": 31
+    }
+  ]
+}

@@ -2608,6 +2608,10 @@
       "sha256": "31bcce949aac74d5b82f865c901912a52bae04ab75a2ec50429da22ff6e1f5d9"
     },
     {
+      "path": "configs/r25_robot.json",
+      "sha256": "7ddb3ebf44556d523eddcd976bb99611164e1e1b57faa4c8b5429a4f0c53cadc"
+    },
+    {
       "path": "configs/r12_tcp_calibration.json",
       "sha256": "fbda76490b103d14b18d35d4b245c4e5673ae71de0a0ff080d236d3754a88c9a"
     },

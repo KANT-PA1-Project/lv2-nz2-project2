@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="swerve_manipulator">
+  <compiler angle="radian" meshdir="../../assets/vendor/R25_URDF_USD" />
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1="0.16 0.21 0.25" rgb2="0.23 0.29 0.33" width="256" height="256" />
+    <material name="floor_mat" texture="grid" texrepeat="25 25" texuniform="true" reflectance=".08" />
+    <mesh name="base_link_0" file="meshes/base_link_0.stl" />
+    <mesh name="rear_left_steer_0" file="meshes/rear_left_steer_0.stl" />
+    <mesh name="rear_left_steer_1" file="meshes/rear_left_steer_1.stl" />
+    <mesh name="rear_left_steer_2" file="meshes/rear_left_steer_2.stl" />
+    <mesh name="rear_left_steer_3" file="meshes/rear_left_steer_3.stl" />
+    <mesh name="rear_left_steer_4" file="meshes/rear_left_steer_4.stl" />
+    <mesh name="rear_left_wheel_0" file="meshes/rear_left_wheel_0.stl" />
+    <mesh name="front_right_steer_0" file="meshes/front_right_steer_0.stl" />
+    <mesh name="front_right_steer_1" file="meshes/front_right_steer_1.stl" />
+    <mesh name="front_right_steer_2" file="meshes/front_right_steer_2.stl" />
+    <mesh name="front_right_steer_3" file="meshes/front_right_steer_3.stl" />
+    <mesh name="front_right_steer_4" file="meshes/front_right_steer_4.stl" />
+    <mesh name="front_right_wheel_0" file="meshes/front_right_wheel_0.stl" />
+    <mesh name="front_left_steer_0" file="meshes/front_left_steer_0.stl" />
+    <mesh name="front_left_steer_1" file="meshes/front_left_steer_1.stl" />
+    <mesh name="front_left_steer_2" file="meshes/front_left_steer_2.stl" />
+    <mesh name="front_left_steer_3" file="meshes/front_left_steer_3.stl" />
+    <mesh name="front_left_steer_4" file="meshes/front_left_steer_4.stl" />
+    <mesh name="front_left_wheel_0" file="meshes/front_left_wheel_0.stl" />
+    <mesh name="rear_right_steer_0" file="meshes/rear_right_steer_0.stl" />
+    <mesh name="rear_right_steer_1" file="meshes/rear_right_steer_1.stl" />
+    <mesh name="rear_right_steer_2" file="meshes/rear_right_steer_2.stl" />
+    <mesh name="rear_right_steer_3" file="meshes/rear_right_steer_3.stl" />
+    <mesh name="rear_right_steer_4" file="meshes/rear_right_steer_4.stl" />
+    <mesh name="rear_right_wheel_0" file="meshes/rear_right_wheel_0.stl" />
+    <mesh name="arm_yaw_0" file="meshes/arm_yaw_0.stl" />
+    <mesh name="shoulder_0" file="meshes/shoulder_0.stl" />
+    <mesh name="elbow_0" file="meshes/elbow_0.stl" />
+    <mesh name="wrist_pitch_0" file="meshes/wrist_pitch_0.stl" />
+    <mesh name="wrist_roll_0" file="meshes/wrist_roll_0.stl" />
+    <mesh name="jaw_left_0" file="meshes/jaw_left_0.stl" />
+    <mesh name="jaw_right_0" file="meshes/jaw_right_0.stl" />
+    <mesh name="puck_trays_white" file="meshes/puck_trays_white.stl" />
+  </asset>
+  <worldbody>
+    <geom name="floor" type="plane" size="5 5 0.05" material="floor_mat" contype="2" conaffinity="1" friction="1.15 0.003 0.0002" />
+    <body name="base_link" pos="0 0 0.182">
+      <freejoint name="floating_base" />
+      <inertial pos="0.00526316752281 -2.81125942954e-05 0.0240587792805" quat="0.0059451952319 -0.497065622417 0.0147349985653 0.867567462208" mass="21.2710722717681" diaginertia="0.508295617673 0.570271204189 0.59730066265" />
+      <geom size="0.17 0.17 0.0095" type="box" rgba="0.64 0.68 0.72 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+      <body name="rear_left_steer" pos="-0.124 0.124 -0.003">
+        <inertial pos="-0.0133765 -0.00534543 -0.0746592" quat="0.91608 0.17787 0.190362 0.30483" mass="4.1608" diaginertia="0.00997143 0.00828848 0.00726836" />
+        <joint name="rear_left_steer_joint" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+        <geom size="0.0746872 0.0572516 0.0941328" pos="-0.0192481 0.00125162 -0.0749328" type="box" rgba="0.23 0.46 0.51 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+        <body name="rear_left_wheel" pos="0 0 -0.145">
+          <inertial pos="2.32183e-06 -0.00553404 1.69248e-06" quat="0.650101 0.279631 0.279357 0.64895" mass="0.418365" diaginertia="0.000184108 0.000147384 0.000147348" />
+          <joint name="rear_left_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+          <geom size="0.033 0.0091" quat="0.707107 0.707107 0 0" type="cylinder" rgba="0.15 0.19 0.22 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.15 0.19 0.22 1" mesh="rear_left_wheel_0" />
+        </body>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_left_steer_0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_left_steer_1" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_left_steer_2" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_left_steer_3" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_left_steer_4" />
+      </body>
+      <body name="front_right_steer" pos="0.124 -0.124 -0.003">
+        <inertial pos="0.0133765 0.00534543 -0.0746592" quat="0.91608 -0.17787 -0.190362 0.30483" mass="4.1608" diaginertia="0.00997143 0.00828848 0.00726836" />
+        <joint name="front_right_steer_joint" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+        <geom size="0.0746872 0.0572516 0.0941328" pos="0.0192481 -0.00125162 -0.0749328" type="box" rgba="0.23 0.46 0.51 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+        <body name="front_right_wheel" pos="0 0 -0.145">
+          <inertial pos="-2.32183e-06 0.00553404 1.69248e-06" quat="0.279631 0.650101 0.64895 0.279357" mass="0.418365" diaginertia="0.000184108 0.000147384 0.000147348" />
+          <joint name="front_right_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+          <geom size="0.033 0.0091" quat="0.707107 0.707107 0 0" type="cylinder" rgba="0.15 0.19 0.22 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.15 0.19 0.22 1" mesh="front_right_wheel_0" />
+        </body>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_right_steer_0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_right_steer_1" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_right_steer_2" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_right_steer_3" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_right_steer_4" />
+      </body>
+      <body name="front_left_steer" pos="0.124 0.124 -0.003">
+        <inertial pos="0.0133763 -0.00534543 -0.0746592" quat="0.916078 0.177877 -0.190371 -0.304826" mass="4.1608" diaginertia="0.00997146 0.00828851 0.00726834" />
+        <joint name="front_left_steer_joint" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+        <geom size="0.0747509 0.0572186 0.0939586" pos="0.0191826 0.00121862 -0.0747587" type="box" rgba="0.23 0.46 0.51 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+        <body name="front_left_wheel" pos="0 0 -0.145">
+          <inertial pos="-1.03419e-06 -0.00553404 1.69248e-06" quat="0.515436 0.484489 0.484245 0.514881" mass="0.418365" diaginertia="0.000184107 0.000147367 0.000147365" />
+          <joint name="front_left_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+          <geom size="0.033 0.0091" quat="0.707107 0.707107 0 0" type="cylinder" rgba="0.15 0.19 0.22 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.15 0.19 0.22 1" mesh="front_left_wheel_0" />
+        </body>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_left_steer_0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_left_steer_1" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_left_steer_2" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_left_steer_3" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="front_left_steer_4" />
+      </body>
+      <body name="rear_right_steer" pos="-0.124 -0.124 -0.003">
+        <inertial pos="-0.0133763 0.00534543 -0.0746592" quat="0.916078 -0.177877 0.190371 -0.304826" mass="4.1608" diaginertia="0.00997146 0.00828851 0.00726834" />
+        <joint name="rear_right_steer_joint" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+        <geom size="0.0747509 0.0572186 0.0939586" pos="-0.0191826 -0.00121862 -0.0747587" type="box" rgba="0.23 0.46 0.51 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+        <body name="rear_right_wheel" pos="0 0 -0.145">
+          <inertial pos="1.03419e-06 0.00553404 1.69248e-06" quat="0.484489 0.515436 0.514881 0.484245" mass="0.418365" diaginertia="0.000184107 0.000147367 0.000147365" />
+          <joint name="rear_right_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+          <geom size="0.033 0.0091" quat="0.707107 0.707107 0 0" type="cylinder" rgba="0.15 0.19 0.22 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.15 0.19 0.22 1" mesh="rear_right_wheel_0" />
+        </body>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_right_steer_0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_right_steer_1" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_right_steer_2" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_right_steer_3" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.23 0.46 0.51 1" mesh="rear_right_steer_4" />
+      </body>
+      <body name="arm_yaw" pos="-0.15384 -0.000125 0.05335">
+        <inertial pos="0 -0.000668578 0.0254195" quat="0.999987 0.00517584 0 0" mass="0.352772" diaginertia="0.000108193 9.39639e-05 5.83064e-05" />
+        <joint name="arm_yaw_joint" pos="0 0 0" axis="0 0 -1" range="-1.57 1.57" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+        <geom size="0.01425 0.0212386 0.0259246" pos="0 -0.00217887 0.0234754" type="box" rgba="0.82 0.53 0.23 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+        <body name="shoulder" pos="0 0.0169 0.03815">
+          <inertial pos="-0.0071963 -0.0172776 0.143182" quat="0.698615 -0.032003 -0.0348608 0.713931" mass="0.62458" diaginertia="0.00212985 0.00211195 0.000146289" />
+          <joint name="shoulder_joint" pos="0 0 0" axis="0 1 0" range="-1.57 1.57" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+          <geom size="0.023875 0.0222088 0.101204" pos="-0.011375 -0.0181088 0.0984457" type="box" rgba="0.82 0.53 0.23 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+          <body name="elbow" pos="-0.024 0 0.1854">
+            <inertial pos="-0.111037 -0.0173525 8.84794e-07" quat="-0.00260741 0.707094 0.00260564 0.70711" mass="0.521251" diaginertia="0.00096805 0.000941609 8.42797e-05" />
+            <joint name="elbow_joint" pos="0 0 0" axis="0 1 0" range="-1.57 1.57" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+            <geom size="0.0815043 0.0222088 0.01425" pos="-0.0787456 -0.0181088 -9.91821e-09" type="box" rgba="0.82 0.53 0.23 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+            <body name="wrist_pitch" pos="-0.149 0 0">
+              <inertial pos="-0.0437446 -0.0169 0.0114438" quat="0.704941 -0.0552962 -0.0552962 0.704941" mass="0.367115" diaginertia="0.000117982 9.62961e-05 8.02454e-05" />
+              <joint name="wrist_pitch_joint" pos="0 0 0" axis="0 1 0" range="-1.57 1.57" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+              <geom size="0.0353584 0.0205376 0.02325" pos="-0.033104 -0.0169054 0.012" type="box" rgba="0.82 0.53 0.23 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+              <body name="wrist_roll" pos="-0.06635 -0.0169 0">
+                <inertial pos="-0.0287299 -0.000354305 0.0250435" quat="0.999333 0.0200912 0.0304745 -0.00103038" mass="1.13682" diaginertia="0.00130189 0.000982203 0.000660478" />
+                <joint name="wrist_roll_joint" pos="0 0 0" axis="1 0 0" range="-3.14 3.14" actuatorfrcrange="-60 60" armature=".001" damping="0.06" />
+                <geom size="0.0338045 0.0643 0.0518777" pos="-0.0314545 0 0.0253777" type="box" rgba="0.82 0.53 0.23 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+                <body name="jaw_left" pos="-0.085 -0.0187439 0">
+                  <inertial pos="0.014892 -0.00138888 8.36622e-06" quat="0.546909 0.54667 0.448375 0.448333" mass="0.215261" diaginertia="0.000157694 0.000122059 5.99967e-05" />
+                  <joint name="jaw_left_joint" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0276861 0" actuatorfrcrange="-60 60" armature=".003" damping="0.06" />
+                  <geom size="0.0436169 0.0194519 0.029" pos="0.00473309 -0.000571923 -2.46763e-09" type="box" rgba="0.82 0.53 0.23 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.82 0.53 0.23 1" mesh="jaw_left_0" />
+                </body>
+                <body name="jaw_right" pos="-0.085 0.0187439 0">
+                  <inertial pos="0.014892 0.00138888 -8.36622e-06" quat="0.448375 0.448333 0.546909 0.54667" mass="0.215261" diaginertia="0.000157694 0.000122059 5.99967e-05" />
+                  <joint name="jaw_right_joint" pos="0 0 0" axis="0 -1 0" type="slide" range="-0.0276861 0" actuatorfrcrange="-60 60" armature=".003" damping="0.06" />
+                  <geom size="0.0436169 0.0194519 0.029" pos="0.00473309 0.000571923 -2.46763e-09" type="box" rgba="0.82 0.53 0.23 1" group="3" contype="1" conaffinity="2" friction="1.15 0.003 0.0002" />
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.82 0.53 0.23 1" mesh="jaw_right_0" />
+                </body>
+                <camera name="wrist_d435_depth" pos="-0.04265 -0.0175 0.05243" quat="0.612372435696 0.353553390593 0.353553390593 0.612372435696" fovy="56.185936694665564" resolution="640 360" />
+                <camera name="wrist_d435_color" pos="-0.04265 -0.0325 0.05243" quat="0.612372435696 0.353553390593 0.353553390593 0.612372435696" fovy="42.27255895009058" resolution="640 360" />
+                <camera name="wrist_d435_infra1" pos="-0.04265 -0.0175 0.05243" quat="0.612372435696 0.353553390593 0.353553390593 0.612372435696" fovy="56.185936694665564" resolution="640 360" />
+                <camera name="wrist_d435_infra2" pos="-0.04265 0.0325 0.05243" quat="0.612372435696 0.353553390593 0.353553390593 0.612372435696" fovy="56.185936694665564" resolution="640 360" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.82 0.53 0.23 1" mesh="wrist_roll_0" />
+              </body>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.82 0.53 0.23 1" mesh="wrist_pitch_0" />
+            </body>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.82 0.53 0.23 1" mesh="elbow_0" />
+          </body>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.82 0.53 0.23 1" mesh="shoulder_0" />
+        </body>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.82 0.53 0.23 1" mesh="arm_yaw_0" />
+      </body>
+      <camera name="mast_d435_depth" pos="0.0059346118474 -0.0175 0.500442556704" quat="0.683012701892 0.183012701892 0.183012701892 0.683012701892" fovy="56.185936694665564" resolution="640 360" />
+      <camera name="mast_d435_color" pos="0.0059346118474 -0.0325 0.500442556704" quat="0.683012701892 0.183012701892 0.183012701892 0.683012701892" fovy="42.27255895009058" resolution="640 360" />
+      <camera name="mast_d435_infra1" pos="0.0059346118474 -0.0175 0.500442556704" quat="0.683012701892 0.183012701892 0.183012701892 0.683012701892" fovy="56.185936694665564" resolution="640 360" />
+      <camera name="mast_d435_infra2" pos="0.0059346118474 0.0325 0.500442556704" quat="0.683012701892 0.183012701892 0.183012701892 0.683012701892" fovy="56.185936694665564" resolution="640 360" />
+      <site name="lidar_left_scan" pos="1.02140518266e-16 0.189 -0.1335" quat="-0.707106781187 -1.35247848784e-30 9.34121816218e-31 0.707106781187" size=".001" rgba="0 0 0 0" group="5" />
+      <site name="lidar_rear_scan" pos="-0.189 9.2855016605e-18 -0.1335" quat="1 1.00963732281e-17 -2.83488349557e-17 -6.97674241611e-16" size=".001" rgba="0 0 0 0" group="5" />
+      <site name="lidar_right_scan" pos="2.62955061765e-15 -0.189 -0.1335" quat="0.707106781187 -8.8559636827e-16 -1.03965425027e-15 0.707106781187" size=".001" rgba="0 0 0 0" group="5" />
+      <site name="lidar_front_scan" pos="0.189 -4.72349432295e-17 -0.1335" quat="1.2111523905e-15 -1.65715125543e-14 -1.1085146872e-29 1" size=".001" rgba="0 0 0 0" group="5" />
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.64 0.68 0.72 1" mesh="base_link_0" />
+      <geom name="tag0_000" type="box" pos="-0.035 0.145 0.05005" size="0.013500000 0.013500000 0.000050000" rgba="0.940000000 0.940000000 0.940000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_001" type="box" pos="-0.035 0.15445 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_002" type="box" pos="-0.04175 0.15175 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_003" type="box" pos="-0.0296 0.15175 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_004" type="box" pos="-0.0431 0.14905 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_005" type="box" pos="-0.03365 0.14905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_006" type="box" pos="-0.0269 0.14905 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_007" type="box" pos="-0.0404 0.14635 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_008" type="box" pos="-0.03095 0.14635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_009" type="box" pos="-0.02555 0.14635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_010" type="box" pos="-0.0404 0.14365 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_011" type="box" pos="-0.0269 0.14365 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_012" type="box" pos="-0.04445 0.14095 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_013" type="box" pos="-0.03905 0.14095 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_014" type="box" pos="-0.0269 0.14095 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_015" type="box" pos="-0.04445 0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_016" type="box" pos="-0.03905 0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_017" type="box" pos="-0.03365 0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_018" type="box" pos="-0.02555 0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag0_019" type="box" pos="-0.035 0.13555 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_020" type="box" pos="0.035 0.145 0.05005" size="0.013500000 0.013500000 0.000050000" rgba="0.940000000 0.940000000 0.940000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_021" type="box" pos="0.035 0.15445 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_022" type="box" pos="0.02555 0.15175 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_023" type="box" pos="0.0323 0.15175 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_024" type="box" pos="0.04175 0.15175 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_025" type="box" pos="0.02555 0.14905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_026" type="box" pos="0.03095 0.14905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_027" type="box" pos="0.03905 0.14905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_028" type="box" pos="0.04445 0.14905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_029" type="box" pos="0.0296 0.14635 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_030" type="box" pos="0.0431 0.14635 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_031" type="box" pos="0.02825 0.14365 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_032" type="box" pos="0.04445 0.14365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_033" type="box" pos="0.02555 0.14095 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_034" type="box" pos="0.03635 0.14095 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_035" type="box" pos="0.0431 0.14095 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_036" type="box" pos="0.0269 0.13825 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_037" type="box" pos="0.03635 0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_038" type="box" pos="0.04445 0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag1_039" type="box" pos="0.035 0.13555 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_040" type="box" pos="-0.035 0.095 0.05005" size="0.013500000 0.013500000 0.000050000" rgba="0.940000000 0.940000000 0.940000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_041" type="box" pos="-0.035 0.10445 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_042" type="box" pos="-0.0431 0.10175 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_043" type="box" pos="-0.02825 0.10175 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_044" type="box" pos="-0.04175 0.09905 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_045" type="box" pos="-0.0296 0.09905 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_046" type="box" pos="-0.04445 0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_047" type="box" pos="-0.0377 0.09635 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_048" type="box" pos="-0.02825 0.09635 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_049" type="box" pos="-0.0377 0.09365 0.05011" size="0.008100000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_050" type="box" pos="-0.02555 0.09365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_051" type="box" pos="-0.0431 0.09095 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_052" type="box" pos="-0.035 0.09095 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_053" type="box" pos="-0.0269 0.09095 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_054" type="box" pos="-0.04445 0.08825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_055" type="box" pos="-0.03365 0.08825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_056" type="box" pos="-0.02555 0.08825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag2_057" type="box" pos="-0.035 0.08555 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_058" type="box" pos="0.035 0.095 0.05005" size="0.013500000 0.013500000 0.000050000" rgba="0.940000000 0.940000000 0.940000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_059" type="box" pos="0.035 0.10445 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_060" type="box" pos="0.0296 0.10175 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_061" type="box" pos="0.0431 0.10175 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_062" type="box" pos="0.0269 0.09905 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_063" type="box" pos="0.035 0.09905 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_064" type="box" pos="0.04445 0.09905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_065" type="box" pos="0.02555 0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_066" type="box" pos="0.0323 0.09635 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_067" type="box" pos="0.03905 0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_068" type="box" pos="0.04445 0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_069" type="box" pos="0.02555 0.09365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_070" type="box" pos="0.0377 0.09365 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_071" type="box" pos="0.04445 0.09365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_072" type="box" pos="0.02555 0.09095 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_073" type="box" pos="0.0404 0.09095 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_074" type="box" pos="0.02555 0.08825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_075" type="box" pos="0.0323 0.08825 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_076" type="box" pos="0.04445 0.08825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag3_077" type="box" pos="0.035 0.08555 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_078" type="box" pos="-0.035 -0.095 0.05005" size="0.013500000 0.013500000 0.000050000" rgba="0.940000000 0.940000000 0.940000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_079" type="box" pos="-0.035 -0.08555 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_080" type="box" pos="-0.0431 -0.08825 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_081" type="box" pos="-0.03365 -0.08825 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_082" type="box" pos="-0.02555 -0.08825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_083" type="box" pos="-0.0377 -0.09095 0.05011" size="0.008100000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_084" type="box" pos="-0.02555 -0.09095 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_085" type="box" pos="-0.0431 -0.09365 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_086" type="box" pos="-0.03635 -0.09365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_087" type="box" pos="-0.02825 -0.09365 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_088" type="box" pos="-0.04445 -0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_089" type="box" pos="-0.03095 -0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_090" type="box" pos="-0.02555 -0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_091" type="box" pos="-0.04175 -0.09905 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_092" type="box" pos="-0.02555 -0.09905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_093" type="box" pos="-0.0431 -0.10175 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_094" type="box" pos="-0.03635 -0.10175 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_095" type="box" pos="-0.02555 -0.10175 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag4_096" type="box" pos="-0.035 -0.10445 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_097" type="box" pos="0.035 -0.095 0.05005" size="0.013500000 0.013500000 0.000050000" rgba="0.940000000 0.940000000 0.940000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_098" type="box" pos="0.035 -0.08555 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_099" type="box" pos="0.02825 -0.08825 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_100" type="box" pos="0.03905 -0.08825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_101" type="box" pos="0.04445 -0.08825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_102" type="box" pos="0.0269 -0.09095 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_103" type="box" pos="0.04175 -0.09095 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_104" type="box" pos="0.02555 -0.09365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_105" type="box" pos="0.03365 -0.09365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_106" type="box" pos="0.03905 -0.09365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_107" type="box" pos="0.04445 -0.09365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_108" type="box" pos="0.0269 -0.09635 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_109" type="box" pos="0.03635 -0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_110" type="box" pos="0.04445 -0.09635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_111" type="box" pos="0.02555 -0.09905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_112" type="box" pos="0.03365 -0.09905 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_113" type="box" pos="0.04445 -0.09905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_114" type="box" pos="0.02825 -0.10175 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_115" type="box" pos="0.04445 -0.10175 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag5_116" type="box" pos="0.035 -0.10445 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_117" type="box" pos="-0.035 -0.145 0.05005" size="0.013500000 0.013500000 0.000050000" rgba="0.940000000 0.940000000 0.940000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_118" type="box" pos="-0.035 -0.13555 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_119" type="box" pos="-0.04445 -0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_120" type="box" pos="-0.03905 -0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_121" type="box" pos="-0.0296 -0.13825 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_122" type="box" pos="-0.0431 -0.14095 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_123" type="box" pos="-0.03095 -0.14095 0.05011" size="0.006750000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_124" type="box" pos="-0.04445 -0.14365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_125" type="box" pos="-0.03905 -0.14365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_126" type="box" pos="-0.0269 -0.14365 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_127" type="box" pos="-0.04445 -0.14635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_128" type="box" pos="-0.0377 -0.14635 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_129" type="box" pos="-0.03095 -0.14635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_130" type="box" pos="-0.02555 -0.14635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_131" type="box" pos="-0.0431 -0.14905 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_132" type="box" pos="-0.03365 -0.14905 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_133" type="box" pos="-0.0269 -0.14905 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_134" type="box" pos="-0.04445 -0.15175 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_135" type="box" pos="-0.0323 -0.15175 0.05011" size="0.008100000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag6_136" type="box" pos="-0.035 -0.15445 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_137" type="box" pos="0.035 -0.145 0.05005" size="0.013500000 0.013500000 0.000050000" rgba="0.940000000 0.940000000 0.940000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_138" type="box" pos="0.035 -0.13555 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_139" type="box" pos="0.02825 -0.13825 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_140" type="box" pos="0.03635 -0.13825 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_141" type="box" pos="0.0431 -0.13825 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_142" type="box" pos="0.02555 -0.14095 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_143" type="box" pos="0.0404 -0.14095 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_144" type="box" pos="0.0269 -0.14365 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_145" type="box" pos="0.03905 -0.14365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_146" type="box" pos="0.04445 -0.14365 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_147" type="box" pos="0.02825 -0.14635 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_148" type="box" pos="0.03635 -0.14635 0.05011" size="0.001350000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_149" type="box" pos="0.0431 -0.14635 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_150" type="box" pos="0.0269 -0.14905 0.05011" size="0.002700000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_151" type="box" pos="0.0404 -0.14905 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_152" type="box" pos="0.02825 -0.15175 0.05011" size="0.004050000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_153" type="box" pos="0.0404 -0.15175 0.05011" size="0.005400000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom name="tag7_154" type="box" pos="0.035 -0.15445 0.05011" size="0.010800000 0.001350000 0.000010000" rgba="0.012000000 0.012000000 0.012000000 1.000000000" group="1" contype="0" conaffinity="0" mass="0" />
+      <geom type="mesh" mesh="puck_trays_white" rgba=".91 .91 .91 1" contype="0" conaffinity="0" group="1" mass="0" />
+    </body>
+    <light pos="-1 -1 2" dir="0.3 0.3 -1" directional="true" diffuse=".8 .8 .8" />
+    <light pos="1 1 2" dir="-.2 -.2 -1" directional="true" diffuse=".45 .49 .52" castshadow="false" />
+  </worldbody>
+  <option timestep=".002" integrator="implicitfast" iterations="70" cone="elliptic" />
+  <visual>
+    <global offwidth="960" offheight="640" />
+    <quality shadowsize="1024" offsamples="2" />
+  </visual>
+  <actuator>
+    <position name="rear_left_steer" joint="rear_left_steer_joint" kp="160" kv="10" forcerange="-50 50" ctrlrange="-1.57 1.57" />
+    <velocity name="rear_left_wheel" joint="rear_left_wheel_joint" kv="1.6" forcerange="-12 12" ctrlrange="-15 15" />
+    <position name="front_right_steer" joint="front_right_steer_joint" kp="160" kv="10" forcerange="-50 50" ctrlrange="-1.57 1.57" />
+    <velocity name="front_right_wheel" joint="front_right_wheel_joint" kv="1.6" forcerange="-12 12" ctrlrange="-15 15" />
+    <position name="front_left_steer" joint="front_left_steer_joint" kp="160" kv="10" forcerange="-50 50" ctrlrange="-1.57 1.57" />
+    <velocity name="front_left_wheel" joint="front_left_wheel_joint" kv="1.6" forcerange="-12 12" ctrlrange="-15 15" />
+    <position name="rear_right_steer" joint="rear_right_steer_joint" kp="160" kv="10" forcerange="-50 50" ctrlrange="-1.57 1.57" />
+    <velocity name="rear_right_wheel" joint="rear_right_wheel_joint" kv="1.6" forcerange="-12 12" ctrlrange="-15 15" />
+    <position name="arm_yaw" joint="arm_yaw_joint" kp="220" kv="12" forcerange="-60 60" ctrlrange="-1.57 1.57" />
+    <position name="shoulder" joint="shoulder_joint" kp="220" kv="12" forcerange="-60 60" ctrlrange="-1.57 1.57" />
+    <position name="elbow" joint="elbow_joint" kp="220" kv="12" forcerange="-60 60" ctrlrange="-1.57 1.57" />
+    <position name="wrist_pitch" joint="wrist_pitch_joint" kp="220" kv="12" forcerange="-60 60" ctrlrange="-1.57 1.57" />
+    <position name="wrist_roll" joint="wrist_roll_joint" kp="220" kv="12" forcerange="-60 60" ctrlrange="-3.14 3.14" />
+    <position name="jaw_left" joint="jaw_left_joint" kp="1600" kv="30" forcerange="-60 60" ctrlrange="-0.0276861304 0" />
+  </actuator>
+  <equality>
+    <joint name="finger_coupling" joint1="jaw_right_joint" joint2="jaw_left_joint" polycoef="0 1 0 0 0" solref=".003 1" />
+  </equality>
+</mujoco>
