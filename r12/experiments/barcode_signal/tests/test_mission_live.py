@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import live_tower_mission as live
 import mission_live_support as adapter
+import barcode_support  # decode_rgb 는 adapter.process() 안에서 import (11-11 변경)
 from replay_mission_summary import replay
 
 SEQ = "RGYRGYGRGRGG"
@@ -78,7 +79,7 @@ class MockLiveTests(unittest.TestCase):
                              option=option, camera_info=SimpleNamespace(name=1, serial_number=2))
         clock = itertools.count(0, .3)
         with patch.dict(sys.modules, pyrealsense2=rs),              patch.object(sys, "argv", ["live", "--mission", "--no-auto", "--exposure", "150",
-                                       "--wb", "4600", "--out", str(output)]),              patch.object(live.hsv_finder, "detect", return_value=(20, 20, 80, 200)),              patch.object(live.cv2, "imshow"), patch.object(live.cv2, "destroyAllWindows"),              patch.object(live.cv2, "waitKey", side_effect=keys),              patch.object(adapter, "ThreadPoolExecutor", ImmediatePool),              patch.object(adapter, "decode_rgb", return_value=dict(reads=[dict(text="P2-01")], decode_ms=1.)),              patch.object(adapter.time, "monotonic", side_effect=lambda:next(clock)),              patch("builtins.print"):
+                                       "--wb", "4600", "--out", str(output)]),              patch.object(live.hsv_finder, "detect", return_value=(20, 20, 80, 200)),              patch.object(live.cv2, "imshow"), patch.object(live.cv2, "destroyAllWindows"),              patch.object(live.cv2, "waitKey", side_effect=keys),              patch.object(adapter, "ThreadPoolExecutor", ImmediatePool),              patch.object(barcode_support, "decode_rgb", return_value=dict(reads=[dict(text="P2-01")], decode_ms=1.)),              patch.object(adapter.time, "monotonic", side_effect=lambda:next(clock)),              patch("builtins.print"):
             live.main()
         pipe.stop.assert_called_once()
         summary = json.loads((output / "mission_summary.json").read_text())

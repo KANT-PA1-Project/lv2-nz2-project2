@@ -82,14 +82,21 @@ class MissionSummaryTests(unittest.TestCase):
         self.assertEqual(out["locations"], [])
         self.assertNotEqual(out["status"], "ready")
 
-    def test_barcode_change_invalidates_ready(self):
+    def test_barcode_change_withdraws_confirmed_barcode(self):
+        # 11-11 규칙: 확정 뒤 다른 등록 코드가 읽히면 오류가 아니라 바코드만 철회(신호 기록은 유지)
         out = replay(initial() + stream() + [dict(kind="barcode", reads=[dict(text="P2-02")])])
-        self.assertEqual(out["status"], "error")
+        self.assertEqual(out["status"], "waiting_barcode")
+        self.assertIsNone(out["barcode"])
+        self.assertEqual(out["sequence"], list(SEQ))
         self.assertEqual(out["locations"], [])
 
-    def test_ambiguous_or_unknown_barcode_fails(self):
+    def test_ambiguous_or_unknown_barcode_is_not_confirmed(self):
+        # 11-11 규칙: 미등록 코드는 무시, 등록 코드 2종이 함께 읽히면 확정 보류(오류 아님)
         for reads in [[dict(text="P2-99")], [dict(text="P2-01"), dict(text="P2-02")]]:
-            self.assertEqual(replay([dict(kind="barcode", reads=reads)])["status"], "error")
+            events = [dict(kind="barcode", t_s=i*.2, reads=reads) for i in range(5)]
+            out = replay(events)
+            self.assertNotEqual(out["status"], "error")
+            self.assertIsNone(out["barcode"])
 
     def test_arm_requires_operator_OFF_and_fixed_settings(self):
         for color, off, fixed in [("R", True, True), ("OFF", False, True), ("OFF", True, False)]:
@@ -103,10 +110,13 @@ class MissionSummaryTests(unittest.TestCase):
         self.assertEqual(out["locations"], [])
         self.assertIsNone(out["barcode"])
 
-    def test_more_flashes_after_ready_invalidates(self):
+    def test_more_flashes_after_ready_are_ignored(self):
+        # 11-11 규칙: 12회 저장 뒤 추가 점등은 무시하고 저장 결과 유지(시뮬 later_lamp_ignored 와 같음)
+        before = replay(initial() + stream())
         out = replay(initial() + stream() + [dict(kind="signal", t_s=26.1, color="R")])
-        self.assertEqual(out["status"], "error")
-        self.assertEqual(out["locations"], [])
+        self.assertEqual(out["status"], "ready")
+        self.assertEqual(out["sequence"], before["sequence"])
+        self.assertEqual(out["locations"], before["locations"])
 
     def test_presence_guard_rejects_empty_fixed_ROI(self):
         image = np.zeros((90, 30, 3), np.uint8)

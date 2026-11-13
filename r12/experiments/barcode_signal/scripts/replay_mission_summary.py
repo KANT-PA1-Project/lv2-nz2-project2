@@ -16,7 +16,7 @@ def replay(events):
             session = MissionSession()
             session.barcode = code
         elif kind == "barcode":
-            session.observe_barcodes(event["reads"], time_s=event.get("capture_s", event["t_s"]))
+            session.observe_barcodes(event["reads"], time_s=event.get("capture_s", event.get("t_s")))
         elif kind == "arm":
             source = event.get("confirmed_off")
             preparation = event.get("preparation") or {}
