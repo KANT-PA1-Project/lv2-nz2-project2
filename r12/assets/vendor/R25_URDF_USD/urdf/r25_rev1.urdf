@@ -2,7 +2,7 @@
 <robot name="r25">
   <link name="base_footprint" />
   <joint name="base_footprint_joint" type="fixed">
-    <origin xyz="0 0 0.181" rpy="0 0 3.14159265359" />
+    <origin xyz="0 0 0.181" rpy="0 0 0" />
     <parent link="base_footprint" />
     <child link="base_link" />
   </joint>
