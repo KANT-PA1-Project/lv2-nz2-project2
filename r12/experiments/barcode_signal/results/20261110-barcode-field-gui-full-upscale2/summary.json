@@ -1,0 +1,836 @@
+{
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "barcode": {
+    "code": "P2-02",
+    "center_world_m": [
+      0.15,
+      1.03,
+      0.14
+    ],
+    "label_m": [
+      0.075,
+      0.025
+    ],
+    "bars_m": [
+      0.06,
+      0.015
+    ],
+    "mount_rotation_deg": 0,
+    "texture": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/references/P2-02.png",
+    "placement_confirmed": false,
+    "manifest": {
+      "source": "barcodes-photo.png",
+      "source_sha256": "efabff22b89a863754e289e619fe8e06c2c1319c489423da6aab86426d05de8d",
+      "source_pixels": [
+        500,
+        720
+      ],
+      "bars_mm": [
+        60,
+        15
+      ],
+      "label_mm": [
+        75,
+        25
+      ],
+      "label_size_approximate": true,
+      "rotation_on_mount_deg": 0,
+      "processing": "manual quadrilateral; perspective rectification INTER_CUBIC; white margins; no regenerated pattern",
+      "limitation": "Low resolution photo; rectification and resampling cannot restore lost print detail.",
+      "assets": [
+        {
+          "code": "P2-01",
+          "quad_source_px": [
+            [
+              51,
+              548
+            ],
+            [
+              215,
+              538
+            ],
+            [
+              215,
+              583
+            ],
+            [
+              52,
+              594
+            ]
+          ],
+          "homography": [
+            [
+              5.289429318672724,
+              -0.11498759388418846,
+              -206.74769380377367
+            ],
+            [
+              0.29157885267775063,
+              4.781893183915069,
+              -2635.3479862720237
+            ],
+            [
+              -0.00013832427329407143,
+              -0.00011990364325775641,
+              1.0
+            ]
+          ],
+          "texture": "P2-01.png",
+          "sha256": "970d149745468e22edad5fe8fc4f62c6719b17134f8cc35de0b044b3cedc7378",
+          "decoded": [
+            {
+              "text": "P2-01",
+              "format": "Code 128",
+              "allowed": true,
+              "corners": [
+                [
+                  120,
+                  221
+                ],
+                [
+                  1074,
+                  221
+                ],
+                [
+                  1074,
+                  224
+                ],
+                [
+                  120,
+                  224
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "code": "P2-02",
+          "quad_source_px": [
+            [
+              285,
+              535
+            ],
+            [
+              429,
+              527
+            ],
+            [
+              429,
+              570
+            ],
+            [
+              285,
+              578
+            ]
+          ],
+          "homography": [
+            [
+              6.659722222222232,
+              4.889256399905002e-16,
+              -1898.0208333333367
+            ],
+            [
+              0.30878552971576334,
+              5.558139534883727,
+              -3061.6085271317866
+            ],
+            [
+              2.4966303635785235e-18,
+              3.44614174532627e-19,
+              1.0
+            ]
+          ],
+          "texture": "P2-02.png",
+          "sha256": "d5ee7a814a6ce2044a5259bd5e105014aece8688d8232863d87bb8299f6723f8",
+          "decoded": [
+            {
+              "text": "P2-02",
+              "format": "Code 128",
+              "allowed": true,
+              "corners": [
+                [
+                  120,
+                  90
+                ],
+                [
+                  1075,
+                  90
+                ],
+                [
+                  1076,
+                  310
+                ],
+                [
+                  120,
+                  310
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "code": "P2-03",
+          "quad_source_px": [
+            [
+              53,
+              628
+            ],
+            [
+              215,
+              616
+            ],
+            [
+              215,
+              658
+            ],
+            [
+              54,
+              671
+            ]
+          ],
+          "homography": [
+            [
+              5.254306840744136,
+              -0.12219318234288729,
+              -201.74094404810594
+            ],
+            [
+              0.37252231646084194,
+              5.029051272221384,
+              -3177.9878817274534
+            ],
+            [
+              -0.00015066553477758782,
+              -0.00012741729128559672,
+              1.0
+            ]
+          ],
+          "texture": "P2-03.png",
+          "sha256": "03fda10567145376f50800c56a5c0311f743dcddc15818cfe006188d09d02dd1",
+          "decoded": [
+            {
+              "text": "P2-03",
+              "format": "Code 128",
+              "allowed": true,
+              "corners": [
+                [
+                  120,
+                  82
+                ],
+                [
+                  1079,
+                  82
+                ],
+                [
+                  1079,
+                  312
+                ],
+                [
+                  120,
+                  312
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "code": "P2-04",
+          "quad_source_px": [
+            [
+              285,
+              610
+            ],
+            [
+              429,
+              601
+            ],
+            [
+              429,
+              643
+            ],
+            [
+              286,
+              653
+            ]
+          ],
+          "homography": [
+            [
+              5.6493497835874145,
+              -0.1313802275252808,
+              -1529.922749531992
+            ],
+            [
+              0.30008910928027377,
+              4.801425748484346,
+              -3014.3951027203293
+            ],
+            [
+              -0.0001588477030827839,
+              -0.0001369971089940364,
+              1.0
+            ]
+          ],
+          "texture": "P2-04.png",
+          "sha256": "3bc88a767441993730f629152562b8362bfd65c2c06bccbe1708a32719dc8a04",
+          "decoded": [
+            {
+              "text": "P2-04",
+              "format": "Code 128",
+              "allowed": true,
+              "corners": [
+                [
+                  120,
+                  231
+                ],
+                [
+                  1076,
+                  231
+                ],
+                [
+                  1074,
+                  303
+                ],
+                [
+                  120,
+                  303
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sequence": "RGYRGYGRGRGG",
+  "sequence_counts": {
+    "R": 4,
+    "Y": 2,
+    "G": 6
+  },
+  "frames": 570,
+  "full_frames": 570,
+  "smoke_or_truncated": false,
+  "r12_src": "/home/pa33/git/lv2-nz2-project2/r12/src",
+  "tower_signal_source": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py",
+  "field_scene_source": "/home/pa33/git/lv2-nz2-project2/r12/models/navigation/mission_scene.usda",
+  "excluded_field_prims": [
+    "/World/Mission/StartPanel/Board",
+    "/World/Mission/StartPanel/Barcode"
+  ],
+  "maze_prim_count": 214,
+  "renderer": "PathTracing",
+  "scene_saved": false,
+  "fixed_robot_pose": [
+    0.734,
+    0.95,
+    0.008,
+    180.0
+  ],
+  "random_view_ranges": null,
+  "seed": 0,
+  "camera_mode": "barcode",
+  "field": true,
+  "camera_height_m": null,
+  "pose_error_m": 0.0,
+  "dome": 1800.0,
+  "subframes": 2,
+  "resolution": [
+    640,
+    480
+  ],
+  "K": [
+    [
+      400.0,
+      0.0,
+      319.5
+    ],
+    [
+      0.0,
+      400.0,
+      239.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "tower": {
+    "xy_m": [
+      0.12,
+      0.95
+    ],
+    "base_z_m": 0.0,
+    "lens_diameter_m": 0.0396,
+    "tiers": {
+      "G": [
+        0.08445,
+        0.11935
+      ],
+      "Y": [
+        0.12045,
+        0.15535
+      ],
+      "R": [
+        0.15645,
+        0.19135
+      ]
+    }
+  },
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "results": [
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 0,
+      "frame_accuracy": 1.0,
+      "first_wrong_frames": [],
+      "confusion": {
+        "OFF->OFF": 294,
+        "R->R": 68,
+        "G->G": 102,
+        "Y->Y": 34
+      },
+      "recorder_complete": true,
+      "recorder_error": null,
+      "recorded_sequence": "RGYRGYGRGRGG",
+      "sequence_match": true,
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "decision_counts": {
+        "off": 330,
+        "single": 240
+      },
+      "frame_trace": "frames_e1_v0_0.2m.jsonl",
+      "view_index": 0,
+      "view_parameters": null,
+      "camera_world": [
+        [
+          -0.21242964433104386,
+          0.2862052551557629,
+          -0.9343233905509436,
+          0.35
+        ],
+        [
+          0.9771763639228008,
+          0.06221853372951373,
+          -0.20311378055455315,
+          1.0
+        ],
+        [
+          0.0,
+          -0.9561461216685314,
+          -0.2928900715596655,
+          0.21000000000000002
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          -0.21242964433104386,
+          0.2862052551557629,
+          -0.9343233905509436,
+          0.35
+        ],
+        [
+          0.9771763639228008,
+          0.06221853372951373,
+          -0.20311378055455315,
+          1.0
+        ],
+        [
+          0.0,
+          -0.9561461216685314,
+          -0.2928900715596655,
+          0.21000000000000002
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 1.0,
+      "distance_m": 0.23537204591879637,
+      "unknown_reasons": {},
+      "lit_ratio_min": {
+        "R": 1.0,
+        "Y": 1.0,
+        "G": 1.0
+      },
+      "lens_px": [
+        61,
+        64
+      ],
+      "barcode": {
+        "expected": "P2-02",
+        "metadata": {
+          "code": "P2-02",
+          "center_world_m": [
+            0.15,
+            1.03,
+            0.14
+          ],
+          "label_m": [
+            0.075,
+            0.025
+          ],
+          "bars_m": [
+            0.06,
+            0.015
+          ],
+          "mount_rotation_deg": 0,
+          "texture": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/references/P2-02.png",
+          "placement_confirmed": false,
+          "manifest": {
+            "source": "barcodes-photo.png",
+            "source_sha256": "efabff22b89a863754e289e619fe8e06c2c1319c489423da6aab86426d05de8d",
+            "source_pixels": [
+              500,
+              720
+            ],
+            "bars_mm": [
+              60,
+              15
+            ],
+            "label_mm": [
+              75,
+              25
+            ],
+            "label_size_approximate": true,
+            "rotation_on_mount_deg": 0,
+            "processing": "manual quadrilateral; perspective rectification INTER_CUBIC; white margins; no regenerated pattern",
+            "limitation": "Low resolution photo; rectification and resampling cannot restore lost print detail.",
+            "assets": [
+              {
+                "code": "P2-01",
+                "quad_source_px": [
+                  [
+                    51,
+                    548
+                  ],
+                  [
+                    215,
+                    538
+                  ],
+                  [
+                    215,
+                    583
+                  ],
+                  [
+                    52,
+                    594
+                  ]
+                ],
+                "homography": [
+                  [
+                    5.289429318672724,
+                    -0.11498759388418846,
+                    -206.74769380377367
+                  ],
+                  [
+                    0.29157885267775063,
+                    4.781893183915069,
+                    -2635.3479862720237
+                  ],
+                  [
+                    -0.00013832427329407143,
+                    -0.00011990364325775641,
+                    1.0
+                  ]
+                ],
+                "texture": "P2-01.png",
+                "sha256": "970d149745468e22edad5fe8fc4f62c6719b17134f8cc35de0b044b3cedc7378",
+                "decoded": [
+                  {
+                    "text": "P2-01",
+                    "format": "Code 128",
+                    "allowed": true,
+                    "corners": [
+                      [
+                        120,
+                        221
+                      ],
+                      [
+                        1074,
+                        221
+                      ],
+                      [
+                        1074,
+                        224
+                      ],
+                      [
+                        120,
+                        224
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "code": "P2-02",
+                "quad_source_px": [
+                  [
+                    285,
+                    535
+                  ],
+                  [
+                    429,
+                    527
+                  ],
+                  [
+                    429,
+                    570
+                  ],
+                  [
+                    285,
+                    578
+                  ]
+                ],
+                "homography": [
+                  [
+                    6.659722222222232,
+                    4.889256399905002e-16,
+                    -1898.0208333333367
+                  ],
+                  [
+                    0.30878552971576334,
+                    5.558139534883727,
+                    -3061.6085271317866
+                  ],
+                  [
+                    2.4966303635785235e-18,
+                    3.44614174532627e-19,
+                    1.0
+                  ]
+                ],
+                "texture": "P2-02.png",
+                "sha256": "d5ee7a814a6ce2044a5259bd5e105014aece8688d8232863d87bb8299f6723f8",
+                "decoded": [
+                  {
+                    "text": "P2-02",
+                    "format": "Code 128",
+                    "allowed": true,
+                    "corners": [
+                      [
+                        120,
+                        90
+                      ],
+                      [
+                        1075,
+                        90
+                      ],
+                      [
+                        1076,
+                        310
+                      ],
+                      [
+                        120,
+                        310
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "code": "P2-03",
+                "quad_source_px": [
+                  [
+                    53,
+                    628
+                  ],
+                  [
+                    215,
+                    616
+                  ],
+                  [
+                    215,
+                    658
+                  ],
+                  [
+                    54,
+                    671
+                  ]
+                ],
+                "homography": [
+                  [
+                    5.254306840744136,
+                    -0.12219318234288729,
+                    -201.74094404810594
+                  ],
+                  [
+                    0.37252231646084194,
+                    5.029051272221384,
+                    -3177.9878817274534
+                  ],
+                  [
+                    -0.00015066553477758782,
+                    -0.00012741729128559672,
+                    1.0
+                  ]
+                ],
+                "texture": "P2-03.png",
+                "sha256": "03fda10567145376f50800c56a5c0311f743dcddc15818cfe006188d09d02dd1",
+                "decoded": [
+                  {
+                    "text": "P2-03",
+                    "format": "Code 128",
+                    "allowed": true,
+                    "corners": [
+                      [
+                        120,
+                        82
+                      ],
+                      [
+                        1079,
+                        82
+                      ],
+                      [
+                        1079,
+                        312
+                      ],
+                      [
+                        120,
+                        312
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "code": "P2-04",
+                "quad_source_px": [
+                  [
+                    285,
+                    610
+                  ],
+                  [
+                    429,
+                    601
+                  ],
+                  [
+                    429,
+                    643
+                  ],
+                  [
+                    286,
+                    653
+                  ]
+                ],
+                "homography": [
+                  [
+                    5.6493497835874145,
+                    -0.1313802275252808,
+                    -1529.922749531992
+                  ],
+                  [
+                    0.30008910928027377,
+                    4.801425748484346,
+                    -3014.3951027203293
+                  ],
+                  [
+                    -0.0001588477030827839,
+                    -0.0001369971089940364,
+                    1.0
+                  ]
+                ],
+                "texture": "P2-04.png",
+                "sha256": "3bc88a767441993730f629152562b8362bfd65c2c06bccbe1708a32719dc8a04",
+                "decoded": [
+                  {
+                    "text": "P2-04",
+                    "format": "Code 128",
+                    "allowed": true,
+                    "corners": [
+                      [
+                        120,
+                        231
+                      ],
+                      [
+                        1076,
+                        231
+                      ],
+                      [
+                        1074,
+                        303
+                      ],
+                      [
+                        120,
+                        303
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "bars_projection": {
+          "corners": [
+            [
+              400.5940773580155,
+              271.68167406750575
+            ],
+            [
+              524.4207290800211,
+              281.2341493056668
+            ],
+            [
+              529.0858366921783,
+              252.4569506625682
+            ],
+            [
+              402.3305603608655,
+              244.40925144636935
+            ]
+          ],
+          "width_px": 124.19456292390002,
+          "height_px": 27.327649164263278
+        },
+        "frames": 570,
+        "upscale": 2,
+        "raw_read_frames": 0,
+        "correct_frames": 160,
+        "wrong_frames": 0,
+        "stable_correct_frames": 144,
+        "trace": "barcodes_e1_v0_0.2m.jsonl"
+      }
+    }
+  ],
+  "passed": 1,
+  "conditions": 1,
+  "scope": "단독 렌더 시험의 조건별 성공·실패 기록. 이 해상도·화각·렌더 설정에서만 유효. 로봇·위치추정·ROS·실물 카메라·실물 신호등 판정 근거가 아님"
+}

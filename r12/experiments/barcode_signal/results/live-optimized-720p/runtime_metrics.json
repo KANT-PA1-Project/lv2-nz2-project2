@@ -1,0 +1,26 @@
+{
+  "frames": 833,
+  "frame_processing_excluding_capture_and_gui": {
+    "samples": 833,
+    "median_ms": 0.37609899300150573,
+    "p95_ms": 1.9157523929607123
+  },
+  "barcode_decode": {
+    "samples": 137,
+    "median_ms": 14.299403002951294,
+    "p95_ms": 18.818169407313686
+  },
+  "error": null,
+  "last_window_fps": {
+    "RX": 30.0,
+    "SIG": 0.0,
+    "GUI": 7.5
+  },
+  "fps_window_s": 2.0,
+  "fps_event_counts": {
+    "RX": 833,
+    "SIG": 0,
+    "GUI": 210
+  },
+  "scope": "local runtime measurements, not model accuracy or Jetson certification"
+}

@@ -1,0 +1,56 @@
+{
+  "images": 61,
+  "provisional_off_images": 16,
+  "lit_images_refused": 45,
+  "offsets": [
+    [
+      0,
+      0
+    ],
+    [
+      10,
+      -10
+    ],
+    [
+      -20,
+      20
+    ],
+    [
+      30,
+      -30
+    ],
+    [
+      -40,
+      40
+    ]
+  ],
+  "methods": {
+    "previous": {
+      "cases": 80,
+      "found": 80,
+      "recovered": 65,
+      "found_but_outside_tolerance": 15,
+      "reasons": {
+        "found": 80
+      }
+    },
+    "boundary_fixed_size": {
+      "cases": 80,
+      "found": 80,
+      "recovered": 75,
+      "found_but_outside_tolerance": 5,
+      "reasons": {
+        "found": 80
+      }
+    }
+  },
+  "off_reference_real_evaluated": 0,
+  "source_sha256": "fc7b2fafa387886b4f59c7447e608b5d19ca3f7424e00276f59f1271e6a74248",
+  "scope": "Still-image diagnostic with provisional visual OFF labels and manually supplied body geometry, translation perturbation only; no automatic OFF or full-frame detection accuracy.",
+  "limitations": [
+    "45 lit images are protocol rejection tests, not successful acquisition attempts.",
+    "No three-frame matched OFF baseline or real timed sequence was fabricated.",
+    "Manual geometry is approximate and tolerance is a diagnostic 0.25 tier pitch, minimum2px.",
+    "These images may become development evidence; parameters were frozen before this run."
+  ]
+}

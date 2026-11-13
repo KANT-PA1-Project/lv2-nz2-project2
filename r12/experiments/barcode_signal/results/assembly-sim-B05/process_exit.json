@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/pa33/pa-course/.venv-isaacsim/bin/python",
+    "-B",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/run.py",
+    "--config",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/config.json",
+    "--prepared",
+    "/tmp/claude-1000/-home-pa33-git-p2-perception/5e108a56-b690-49ca-8a9a-f70dc7cbb674/scratchpad/assembly-prepared-B05",
+    "--out",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/assembly-sim-B05"
+  ],
+  "pid": 1223435,
+  "returncode": 1,
+  "timed_out": false,
+  "wall_s": 124.1961985269736,
+  "result_status": "failed"
+}

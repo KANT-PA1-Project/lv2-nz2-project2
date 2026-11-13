@@ -35,14 +35,15 @@ def _load_dependencies():
     """tutor 를 수정하지 않고 읽어오는 구성.
 
     - SignalRecorder (arm_practice.mission): tutor src 에서 읽음. 위치 = --r12-src 또는 환경변수 R12_SRC,
-      없으면 이 스크립트가 tutor r12/scripts 안에 있을 때의 ../src, 마지막으로 ~/git/lv2-nz2-project2/r12/src
+      없으면 ../src, 이 파일이 속한 저장소 r12/src, 마지막으로 ~/git/lv2-nz2-project2/r12/src
     - tower_signal: tutor 에 이미 있으면 그것, 없으면 이 스크립트 옆 폴더의 ../src/arm_practice/tower_signal.py
     """
     argv_src = None
     if '--r12-src' in sys.argv:
         argv_src = sys.argv[sys.argv.index('--r12-src') + 1]
     here = Path(__file__).resolve().parent
-    candidates = [argv_src, os.environ.get('R12_SRC'), here.parent / 'src', Path.home() / 'git/lv2-nz2-project2/r12/src']
+    repo = next((p / 'src' for p in Path(__file__).resolve().parents if p.name == 'r12' and (p / 'src/arm_practice/mission.py').is_file()), None)
+    candidates = [argv_src, os.environ.get('R12_SRC'), here.parent / 'src', repo, Path.home() / 'git/lv2-nz2-project2/r12/src']
     r12_src = next((Path(c).expanduser() for c in candidates if c and (Path(c).expanduser() / 'arm_practice/mission.py').is_file()), None)
     if r12_src is None:
         raise SystemExit('tutor r12/src 를 찾지 못함 (arm_practice/mission.py 필요). --r12-src 또는 R12_SRC 로 지정')

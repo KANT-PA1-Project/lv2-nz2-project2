@@ -1,0 +1,90 @@
+[
+  {
+    "video": "camera_1794386649848806430.mp4",
+    "video_frames": 2626,
+    "sample_stride": 6,
+    "sample_hz": 5,
+    "modes": {
+      "upscale1": {
+        "sampled": 438,
+        "hits": 5,
+        "texts": {
+          "P2-01": 5
+        },
+        "first_confirmed_at_video_s": 74.0,
+        "final_barcode": "P2-01",
+        "error": null,
+        "hit_times_s": [
+          59.8,
+          63.0,
+          73.4,
+          73.8,
+          74.0
+        ]
+      },
+      "upscale2": {
+        "sampled": 438,
+        "hits": 25,
+        "texts": {
+          "P2-01": 25
+        },
+        "first_confirmed_at_video_s": 60.2,
+        "final_barcode": "P2-01",
+        "error": null,
+        "hit_times_s": [
+          59.8,
+          60.0,
+          60.2,
+          60.6,
+          61.0,
+          61.2,
+          61.4,
+          61.6,
+          61.8,
+          62.2,
+          62.8,
+          63.0,
+          63.2,
+          63.4,
+          63.6,
+          64.4,
+          73.4,
+          73.6,
+          73.8,
+          74.0,
+          74.4,
+          74.6,
+          74.8,
+          75.0,
+          75.2
+        ]
+      }
+    }
+  },
+  {
+    "video": "camera_1794386737873186734.mp4",
+    "video_frames": 1466,
+    "sample_stride": 6,
+    "sample_hz": 5,
+    "modes": {
+      "upscale1": {
+        "sampled": 245,
+        "hits": 0,
+        "texts": {},
+        "first_confirmed_at_video_s": null,
+        "final_barcode": null,
+        "error": null,
+        "hit_times_s": []
+      },
+      "upscale2": {
+        "sampled": 245,
+        "hits": 0,
+        "texts": {},
+        "first_confirmed_at_video_s": null,
+        "final_barcode": null,
+        "error": null,
+        "hit_times_s": []
+      }
+    }
+  }
+]

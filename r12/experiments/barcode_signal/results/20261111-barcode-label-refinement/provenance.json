@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-11",
+  "source_sha256": "a7d8880660c1bc56e23c7248e267617cb1ccc506cf5c55868e61f1c3781d1edf",
+  "upscale": 2,
+  "monitor_frames": 559,
+  "wall_sample_stride": 5,
+  "wall_frames": 179,
+  "scope": "automatic offline decode on the existing five recordings used during development; not independent field validation",
+  "wall_video": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/camera_1794376284363530663.mp4",
+  "expected_text_supplied_to_decoder": false
+}

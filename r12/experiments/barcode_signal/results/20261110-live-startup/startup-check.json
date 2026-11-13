@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-10",
+  "device": "RealSense D435",
+  "connected_devices": 1,
+  "rgb_shape": [
+    480,
+    640,
+    3
+  ],
+  "received_frames": 30,
+  "exit_code": 0,
+  "exposure": 150,
+  "white_balance": 4600,
+  "gui": false,
+  "mission_armed": false,
+  "cpu_tests_passed": 87,
+  "scope": "Camera startup and clean shutdown only; no signal or barcode accuracy validation",
+  "source_sha256": {
+    "scripts/live_tower_mission.py": "9cb7f98c10c8fc9f8bb3dc801bfbb264a7eb4446e96a4f5a53fe67c03db5a2bc",
+    "tests/test_mission_live.py": "f3797b07ec32aa08fb6634eb912b770ed7d271de47038a8efc23216251dfc0fe"
+  }
+}

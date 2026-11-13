@@ -133,6 +133,14 @@ def location_plan(mission, counts, barcode):
     return [(f'L{i+1}', g, counts[g]) for i, g in enumerate(groups)]
 
 
+def _repo_r12():
+    """이 파일이 저장소 r12/ 아래에 있으면 그 r12, 아니면 None (상대 경로 우선)."""
+    for parent in Path(__file__).resolve().parents:
+        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
+            return parent
+    return None
+
+
 def main():
     import pyrealsense2 as rs
     ap = argparse.ArgumentParser()
@@ -150,7 +158,7 @@ def main():
     ap.add_argument('--wb', type=float, default=None)
     ap.add_argument('--serial', default=None)
     ap.add_argument('--barcode', default=None, help='P2-01~04 (주면 L1~L3 정렬 표시)')
-    ap.add_argument('--r12-src', default=os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
+    ap.add_argument('--r12-src', default=str(_repo_r12() / 'src') if _repo_r12() else os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
     ap.add_argument('--out', default=str(HERE / 'reports/live'))
     a = ap.parse_args()
     mission = load_mission(a.r12_src)

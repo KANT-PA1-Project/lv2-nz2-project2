@@ -1,0 +1,1 @@
+{"barcode": null, "counts": {"G": 0, "R": 0, "Y": 0}, "direction": null, "error": "Camera/live failure: Device disconnected. Failed to reconnect: No device connected2000", "locations": [], "puck_allocation": "pending_inventory", "scope": "perception_requirements_only_not_puck_assignment_or_motion", "sequence": [], "signal_complete": false, "status": "error"}

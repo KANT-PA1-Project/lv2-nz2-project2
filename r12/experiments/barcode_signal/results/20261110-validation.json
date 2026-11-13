@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "date": "2026-11-10",
+  "updated_at": "2026-11-10T12:02:57.672965+09:00",
+  "sources_sha256": {
+    "src/arm_practice/tower_signal.py": "126d0b36898f29778759591524176ce9f8c43efbbd812065434a0fe755d78414",
+    "scripts/test_tower_signal_isaac.py": "2181ba2e42b978a75e55e9a771fef73b5f6b8c3e81bae5c130aa6e7b921256a6",
+    "tests/test_tower_signal.py": "90bb5301ff298590fdb6b6105f416eabd3071a5b56856e77c012b92a1e38bdce"
+  },
+  "cpu_tests": {
+    "local": 24,
+    "tutor_signal_observation": 8,
+    "passed": true,
+    "initial_import_path_error": "Initial existing-signal-tests.log used missing PYTHONPATH; corrected run passed 8 tests."
+  },
+  "isaac_runs": [
+    {
+      "directory": "20261110-field-pathtracing-full",
+      "renderer": "PathTracing",
+      "conditions": 3,
+      "sequence_passed": 3,
+      "raw_frames": 1710,
+      "raw_errors": 0,
+      "maze_prims": 214,
+      "camera": "start",
+      "seed": 0,
+      "scene_saved": false,
+      "summary": "summary.json"
+    },
+    {
+      "directory": "20261110-field-pathtracing-random-seed33",
+      "renderer": "PathTracing",
+      "conditions": 5,
+      "sequence_passed": 5,
+      "raw_frames": 2850,
+      "raw_errors": 0,
+      "maze_prims": 214,
+      "camera": "random",
+      "seed": 33,
+      "scene_saved": false,
+      "summary": "summary.json"
+    }
+  ],
+  "total_conditions": 8,
+  "total_sequence_passed": 8,
+  "total_raw_frames": 4560,
+  "total_raw_errors": 0,
+  "historical_failures": {
+    "empty_sweep": "Interrupted to switch to requested maze; incomplete, not accepted.",
+    "field_synchronized": "Before PreviewCam separation; two failed conditions then camera-change exception.",
+    "field_transition_and_material_binding": "After PreviewCam separation; RaytracedLighting retained prior lit appearance through OFF intervals.",
+    "field_no_panel_smoke": "Earlier full-cylinder projection mixed cap/upper tiers; front-side projection corrected geometry."
+  },
+  "threshold_status": "Candidate values, unchanged when switching renderer; no real-camera calibration.",
+  "ground_truth": "Original timeline retained; no post-hoc truth shifting.",
+  "limits": [
+    "Simulated, known camera poses; no actual D435 exposure/extrinsic validation.",
+    "Random camera candidates do not establish arm reach or self-collision safety.",
+    "RaytracedLighting residual appearance remains unresolved; final accepted runs use PathTracing.",
+    "Unique-white-saturation priority rule is not implemented or validated.",
+    "Barcode reference dimensions are pending correction and not applied."
+  ],
+  "reference_image_sha256": "f51041bfa315461b98f5a9c2f065d163ee611a15144e4610b408f72a6a95883a"
+}

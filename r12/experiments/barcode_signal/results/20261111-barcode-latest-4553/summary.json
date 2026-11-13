@@ -1,0 +1,14 @@
+{
+  "video": "camera_1794384553167656610.mp4",
+  "frames": 663,
+  "hits": 356,
+  "texts": {
+    "P2-01": 356
+  },
+  "stages": {
+    "label_native": 189,
+    "label_upscale": 167,
+    "none": 307
+  },
+  "median_ms": 21.22834700276144
+}

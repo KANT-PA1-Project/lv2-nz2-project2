@@ -1,0 +1,462 @@
+{
+  "config": {
+    "scope": "simulation_only_assembly_urdf_arm_observation",
+    "assembly_dir": "/home/pa33/Desktop/assembly_puck_slots.",
+    "barcode_base_xyz_yaw": [
+      0.6,
+      0.7,
+      0.182,
+      0.0
+    ],
+    "tower_base_xyz_yaw": [
+      0.6,
+      0.7,
+      0.182,
+      0.0
+    ],
+    "barcode_arm_q_rad": [
+      -0.0392,
+      -0.6412,
+      -1.1046,
+      1.6642,
+      0.0
+    ],
+    "tower_arm_waypoints_rad": [
+      [
+        -0.0392,
+        -0.6412,
+        -1.1046,
+        1.6642,
+        0.0
+      ]
+    ],
+    "signal_camera": "mast",
+    "mast_pitch_down_deg": null,
+    "render": {
+      "spp": 32,
+      "denoiser": false,
+      "note": "B04 막대 경계 흐림 대응: 디노이저 끄고 픽셀당 32 샘플"
+    },
+    "arm_limits_rad": {
+      "lower": [
+        -3.0543,
+        -1.9722,
+        -1.4312,
+        -2.042,
+        -2.9671
+      ],
+      "upper": [
+        3.0543,
+        1.6581,
+        1.9373,
+        1.7279,
+        2.9671
+      ],
+      "note": "main ros2_ws/src/control/nz2_control/config/arm_params.yaml 2026-10-27 실측(끝에서 7° 안쪽)을 조립본 부호로 변환(조립본 = -팀 각: 팔이 base -X, yaw 축 -Z). 실물 영점 일치는 [확인 필요]. joint4 접힘 인터락 미반영"
+    },
+    "camera": {
+      "width": 640,
+      "height": 480,
+      "hfov_deg": 55.5,
+      "note": "실물 D435(이 PC) 640x480 컬러 intrinsics fx=607.9 fy=607.7 → 수평 55.5°/수직 43.1°. 조립본 sensors.json 은 640x360/69°"
+    },
+    "barcode": {
+      "code": "P2-02",
+      "center_m": [
+        0.0035,
+        0.65,
+        0.2
+      ],
+      "note": "실물처럼 미로 경계벽 아크릴판(표면 x=0.003, 프로파일 y0.40~파란 기둥 y0.81 사이)에 직접 부착, 높이 중간쯤 0.20 m [가정: 사용자 '중간쯤']. mission.pdf (80,650,450) 은 벽 높이 0.39 m 보다 높아 실제 설치와 다름 렌더=막대 형상(텍스처 축소 흐림 회피, 2026-11-12 B05 이후).",
+      "render": "geometry"
+    },
+    "sequence": "RGYRGYGRGRGG",
+    "trial_mode": "barcode_then_tower",
+    "renderer": "PathTracing",
+    "dome": 400.0,
+    "emissive": 1.0,
+    "max_seconds": 120.0,
+    "prepare_timeout_s": 30.0,
+    "barcode_timeout_s": 15.0,
+    "motion_timeout_s": 15.0,
+    "barcode_upscale": 2,
+    "record_video": true,
+    "camera_fps": 30,
+    "physics_hz": 960,
+    "arm_command_velocity_rad_s": 0.4,
+    "arm_drive": {
+      "stiffness_per_deg": 40.0,
+      "damping_per_deg": 4.0,
+      "max_force_nm": 20.0,
+      "note": "시뮬 가정. URDF effort 60 은 CAD 내보내기 기본값"
+    },
+    "jaw_open_m": -0.0276,
+    "floor_visual_usd": "/home/pa33/git/p2_perception/lv_module6_usd/scene.usda",
+    "black_gripper": true,
+    "base_motion": {
+      "speed_mps": 0.1,
+      "yaw_rate_rad_s": 0.3,
+      "note": "연속 이동: 물리 스텝마다 차체 자세를 직선 보간(바퀴 구동 아님). 팔은 동시에 이동"
+    },
+    "neutral_floor": false,
+    "note": "Initial mast observation at barcode pose, then automatic B08 wrist fallback before READY. Geometry retains B10/B08 assumptions; newly reported 30 cm forward/30 cm left displacement not yet applied pending frame clarification.",
+    "signal_patch": "oblique",
+    "signal_fallback": {
+      "initial_prepare_timeout_s": 2.0,
+      "fallback_prepare_timeout_s": 30.0,
+      "base_xyz_yaw": [
+        0.734,
+        0.95,
+        0.182,
+        0.0
+      ],
+      "arm_waypoints_rad": [
+        [
+          0.0688,
+          0.6468,
+          -1.3812,
+          0.4557,
+          0.0004
+        ]
+      ],
+      "note": "Try mast at barcode pose. Before READY only: on timeout, keep barcode, move to B08 base/arm pose, restore original wrist finder and acquire fresh OFF reference."
+    }
+  },
+  "prepared": {
+    "source_urdf_sha256": "5d8b2d212030b9929658e78345d22a630e673f7e5cc9fcf00d77c282e82f8477",
+    "sim_urdf_sha256": "e74172e1fb226469a3cea494340f61df715635c6484d3e637b0c717e5859086b",
+    "removed_frame_links": [
+      "lidar_front_scan",
+      "lidar_left_scan",
+      "lidar_rear_scan",
+      "lidar_right_scan",
+      "mast_d435_color_frame",
+      "mast_d435_color_optical_frame",
+      "mast_d435_depth_frame",
+      "mast_d435_depth_optical_frame",
+      "mast_d435_infra1_frame",
+      "mast_d435_infra1_optical_frame",
+      "mast_d435_infra2_frame",
+      "mast_d435_infra2_optical_frame",
+      "puck_slot_0",
+      "puck_slot_1",
+      "puck_slot_2",
+      "puck_slot_3",
+      "puck_slot_4",
+      "puck_slot_5",
+      "puck_slot_6",
+      "puck_slot_7",
+      "wrist_d435_color_frame",
+      "wrist_d435_color_optical_frame",
+      "wrist_d435_depth_frame",
+      "wrist_d435_depth_optical_frame",
+      "wrist_d435_infra1_frame",
+      "wrist_d435_infra1_optical_frame",
+      "wrist_d435_infra2_frame",
+      "wrist_d435_infra2_optical_frame"
+    ],
+    "mesh_sha256": {
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/arm_yaw_0.stl": "e41f47a4b704b514471a096b7e0f9a434a088f116eee596230f7417d124d66bc",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/base_link_0.stl": "141961cc7773fdf4eb71b5836b94039d0f9ba9a006090a4834ba13078890fc25",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/elbow_0.stl": "2ed972a727afe0fe48aeb47aa35d522131f4736815e6aa5c29274ee370b2da45",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_left_steer_0.stl": "de25255e255bbd1518d5d30c4a53d5a0c9991d5c77c8cf072c9d774d5973526d",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_left_steer_1.stl": "6e11f28ca3e03449417e7ad673e78f4660caa1de1d3979d601ff625eafca9c59",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_left_steer_2.stl": "d095760c5241a469d19ae76a9f046ff89923e06c798341af10a164cf3e2a5155",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_left_steer_3.stl": "92dfda845b2e3da725b354bc9fbcb645a9327c6a92e877dba5de9803a2eef96d",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_left_steer_4.stl": "846eba0893303f97b11f184192748c1058a6dc9799a89677372eceb917f2a34d",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_left_wheel_0.stl": "2773ca4c6baba5fd01e6a4cec5672bcebd62786cb5e3d2558f7da44567b34fed",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_right_steer_0.stl": "42a0ff0ec06aa5ebfd826746ad91aabf8ad806844cb2013e108e6d7a0acbe571",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_right_steer_1.stl": "d967ba915fc7e97e481070bd0cad3f3ff3a10bac803bb7eec32caeba803a6ed0",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_right_steer_2.stl": "c14627f11ede714b324ce4b33d0a5067474b668602c931ecc5c08b4dc42cf8d0",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_right_steer_3.stl": "6de1ab2861d5ade38b5fcc59d4f8c657795cb15c7225db39995543f171347d85",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_right_steer_4.stl": "aac630f25cf9ef8f225d0737308880f945f6a1e07f2b86d2434d559ac8f4d600",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/front_right_wheel_0.stl": "e25ef6a3bb6138fc5140ab72dd03e60e24dad58131b883df7535b3ab2c830557",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/jaw_left_0.stl": "ea2d92eb8e74e2450ffe796ea87c45529595dfcc78638343d443ebc9e206daa1",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/jaw_right_0.stl": "098ad3208ffdb6b9d90bcb2c983d3662965eac00a4380353746740d6e3d1df23",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/puck_trays_white.stl": "113da198f72592e5f24d6497fce7a131a522b353818e16fa3f0f52c14a1548a1",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_left_steer_0.stl": "d92c72277d91de3138d68cc5d2d9a2c6fec10df0fc721d671590a7000cc34086",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_left_steer_1.stl": "45b343bf052ddf1812aedfb09dbf519c90bff6483034bc070ce7b73520cdf5cb",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_left_steer_2.stl": "e101b14dc9e58ab17a9d5fa95a0d670255bdb9fca5b210b9ed29a8b5e820d0b1",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_left_steer_3.stl": "f28b1d14afdb32eda7ffa38873dbf0288cc3400243e7cb679fd5c7940744b48b",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_left_steer_4.stl": "fa21f14d60a831dd47fdddb60a4888068ab5872e6e88b43ce531d613084b620e",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_left_wheel_0.stl": "0bd5e14f989b3b327209fc6bb7de3739159255462959147ba28317d8c731d0e4",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_right_steer_0.stl": "282f7f17afeafa4c3d642ec60ef17357caf5f0c55349ed946b12ca91f331a4ab",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_right_steer_1.stl": "6d546055192fd878c00e17b71ed0d637dd9dfcb364b0779a3c3c38ab656fab86",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_right_steer_2.stl": "9cdaef2d4df2d30d251e7c048d7f0d1a657670a737d1dd7abc97daea120c695b",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_right_steer_3.stl": "8af1945dfac49894971f9a48533f7eeb9209246d6a63b3848998fe6eec3ab16d",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_right_steer_4.stl": "d54433c6178a6d944189b0719877b6ae9a905d1f21debf6074e8b2f1712b2a77",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/rear_right_wheel_0.stl": "cd722e708268dd725ee0f53da4479467be471b253077dffb33fa2385511ad6bc",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/shoulder_0.stl": "be3a00a4a8bc6ab899680a2e84b4df455b0efa604e2cb843570db9d00eb16916",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/wrist_pitch_0.stl": "36ff227a576981962bc427000b61258573f79a5dd3943ce1d97ef077639a2a34",
+      "/home/pa33/Desktop/assembly_puck_slots./meshes/wrist_roll_0.stl": "80fb6665001f7ef4c6aeca6fc392e5779fbb7ab958b5e34ca6533d1ed949f121"
+    },
+    "chassis_fixed_joints": "steer/wheel -> fixed",
+    "config": {
+      "scope": "simulation_only_assembly_urdf_arm_observation",
+      "assembly_dir": "/home/pa33/Desktop/assembly_puck_slots.",
+      "barcode_base_xyz_yaw": [
+        0.6,
+        0.7,
+        0.182,
+        0.0
+      ],
+      "tower_base_xyz_yaw": [
+        0.6,
+        0.7,
+        0.182,
+        0.0
+      ],
+      "barcode_arm_q_rad": [
+        -0.0392,
+        -0.6412,
+        -1.1046,
+        1.6642,
+        0.0
+      ],
+      "tower_arm_waypoints_rad": [
+        [
+          -0.0392,
+          -0.6412,
+          -1.1046,
+          1.6642,
+          0.0
+        ]
+      ],
+      "signal_camera": "mast",
+      "mast_pitch_down_deg": null,
+      "render": {
+        "spp": 32,
+        "denoiser": false,
+        "note": "B04 막대 경계 흐림 대응: 디노이저 끄고 픽셀당 32 샘플"
+      },
+      "arm_limits_rad": {
+        "lower": [
+          -3.0543,
+          -1.9722,
+          -1.4312,
+          -2.042,
+          -2.9671
+        ],
+        "upper": [
+          3.0543,
+          1.6581,
+          1.9373,
+          1.7279,
+          2.9671
+        ],
+        "note": "main ros2_ws/src/control/nz2_control/config/arm_params.yaml 2026-10-27 실측(끝에서 7° 안쪽)을 조립본 부호로 변환(조립본 = -팀 각: 팔이 base -X, yaw 축 -Z). 실물 영점 일치는 [확인 필요]. joint4 접힘 인터락 미반영"
+      },
+      "camera": {
+        "width": 640,
+        "height": 480,
+        "hfov_deg": 55.5,
+        "note": "실물 D435(이 PC) 640x480 컬러 intrinsics fx=607.9 fy=607.7 → 수평 55.5°/수직 43.1°. 조립본 sensors.json 은 640x360/69°"
+      },
+      "barcode": {
+        "code": "P2-02",
+        "center_m": [
+          0.0035,
+          0.65,
+          0.2
+        ],
+        "note": "실물처럼 미로 경계벽 아크릴판(표면 x=0.003, 프로파일 y0.40~파란 기둥 y0.81 사이)에 직접 부착, 높이 중간쯤 0.20 m [가정: 사용자 '중간쯤']. mission.pdf (80,650,450) 은 벽 높이 0.39 m 보다 높아 실제 설치와 다름 렌더=막대 형상(텍스처 축소 흐림 회피, 2026-11-12 B05 이후).",
+        "render": "geometry"
+      },
+      "sequence": "RGYRGYGRGRGG",
+      "trial_mode": "barcode_then_tower",
+      "renderer": "PathTracing",
+      "dome": 400.0,
+      "emissive": 1.0,
+      "max_seconds": 120.0,
+      "prepare_timeout_s": 30.0,
+      "barcode_timeout_s": 15.0,
+      "motion_timeout_s": 15.0,
+      "barcode_upscale": 2,
+      "record_video": true,
+      "camera_fps": 30,
+      "physics_hz": 960,
+      "arm_command_velocity_rad_s": 0.4,
+      "arm_drive": {
+        "stiffness_per_deg": 40.0,
+        "damping_per_deg": 4.0,
+        "max_force_nm": 20.0,
+        "note": "시뮬 가정. URDF effort 60 은 CAD 내보내기 기본값"
+      },
+      "jaw_open_m": -0.0276,
+      "floor_visual_usd": "/home/pa33/git/p2_perception/lv_module6_usd/scene.usda",
+      "black_gripper": true,
+      "base_motion": {
+        "speed_mps": 0.1,
+        "yaw_rate_rad_s": 0.3,
+        "note": "연속 이동: 물리 스텝마다 차체 자세를 직선 보간(바퀴 구동 아님). 팔은 동시에 이동"
+      },
+      "neutral_floor": false,
+      "note": "Initial mast observation at barcode pose, then automatic B08 wrist fallback before READY. Geometry retains B10/B08 assumptions; newly reported 30 cm forward/30 cm left displacement not yet applied pending frame clarification.",
+      "signal_patch": "oblique",
+      "signal_fallback": {
+        "initial_prepare_timeout_s": 2.0,
+        "fallback_prepare_timeout_s": 30.0,
+        "base_xyz_yaw": [
+          0.734,
+          0.95,
+          0.182,
+          0.0
+        ],
+        "arm_waypoints_rad": [
+          [
+            0.0688,
+            0.6468,
+            -1.3812,
+            0.4557,
+            0.0004
+          ]
+        ],
+        "note": "Try mast at barcode pose. Before READY only: on timeout, keep barcode, move to B08 base/arm pose, restore original wrist finder and acquire fresh OFF reference."
+      }
+    },
+    "status": "prepared_not_isaac_validated",
+    "sensors_json_sha256": "b6debca3ef877a5c8456a04b7fd7200800fb3a49ae8b6c5505755379cc4ec6b9",
+    "wrist_camera": {
+      "parent": "wrist_roll",
+      "frame": "wrist_d435_color_optical_frame",
+      "parent_to_optical": [
+        [
+          -4.447393451885917e-12,
+          0.49999999999550065,
+          -0.8660254037870363,
+          -0.04265
+        ],
+        [
+          1.0,
+          1.0341155353020007e-13,
+          -5.07570292499436e-12,
+          -0.0325
+        ],
+        [
+          -2.4482944300721067e-12,
+          -0.8660254037870363,
+          -0.49999999999550065,
+          0.05243
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "mast_camera": {
+      "parent": "base_link",
+      "frame": "mast_d435_color_optical_frame",
+      "pitch_down_deg": 60.0,
+      "parent_to_optical": [
+        [
+          -2.241086730411454e-12,
+          0.8660254037836915,
+          -0.5000000000012941,
+          0.0059346118474
+        ],
+        [
+          1.0,
+          -1.7955815408074774e-13,
+          -4.793177306591371e-12,
+          -0.0325
+        ],
+        [
+          -4.240792389388224e-12,
+          -0.5000000000012941,
+          -0.8660254037836915,
+          0.465442556704
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "arm_joints": [
+      "arm_yaw_joint",
+      "shoulder_joint",
+      "elbow_joint",
+      "wrist_pitch_joint",
+      "wrist_roll_joint"
+    ],
+    "arm_lower": [
+      -3.0543,
+      -1.9722,
+      -1.4312,
+      -2.042,
+      -2.9671
+    ],
+    "arm_upper": [
+      3.0543,
+      1.6581,
+      1.9373,
+      1.7279,
+      2.9671
+    ],
+    "gravity_torque_nm": {
+      "barcode": [
+        0.0,
+        -4.918235641807337,
+        -1.2232022711662984,
+        -1.814371162046993,
+        0.003938153302141749
+      ],
+      "tower": [
+        0.0,
+        -4.918235641807337,
+        -1.2232022711662984,
+        -1.814371162046993,
+        0.003938153302141749
+      ]
+    }
+  },
+  "source_hashes": {
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/common.py": "e3753d1be3ec3ee77203d2ff5832e565ae07aa8e8cc95107db4a6b3df2a9c892",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/signal_fallback.py": "1d5a7e6ef4ba7efcffe3ea9ca7019d1993803495cd7c20b176cda1a47996116f",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/appearance.py": "fa39df9df32e219b1790be0f33cc429dbfc49569c99ee8d9999b794151219fc8",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/launch.py": "5c8a630101b30d557a17dc882dbd1138b3a330d5e1dad4bcc11b7e6ff1c1a8ee",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/scene.py": "124931a5511c234991c86aa2c156f15b46d36db0ae5e797ef7659c2a9618ef9c",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/prepare.py": "599e5a22194a1a81e97b28ef25568e4270a4f1e9e0406ac9179febf79f166fb5",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/tower_oblique.py": "79c954f2629aedbf45a9272d2a7dca937b90b8c83bec0451570e3561b5999c0c",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/run.py": "6171f3b459487a35bd9af4d128e804306fd009d14a184f075444b48fe9c4e79c",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/test_signal_fallback.py": "896b32c79f7bd1dcfc7999e52abbb2fd56eff0b6e8f7899b29227890a874bc8a",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/plan_poses.py": "323e8a3aadbcf9ef12d3c3586976679be2e85424688f737b88dff61cfe0bb042",
+    "/home/pa33/git/p2_perception/lv_module6_usd/scene.usda": "29263463945d4c4555fa31567c52f274d6e27e50e436564795038aa331746a49",
+    "/home/pa33/git/p2_perception/lv_module6_usd/textures/class_room_floor/class_room_floor_albedo.png": "6c71714f2edaaa9ea7c80d3bc450deceb9c107debd8779f9ce64b5fb7e86d963",
+    "/home/pa33/git/p2_perception/lv_module6_usd/textures/class_room_floor/class_room_floor_normal.png": "054077e28dfb0aec2879f2b22cd7ba55d333da33827f173d20cffeca61c2c6e0",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/live_signal_guard.py": "7b0880c54d729ed6da60ecd14652e54af6b5d4a4507f772cea39717933fbc664",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/mission_scene_objects.py": "1f373c99e235725a0b1fbd3737bbc4f0bc3c997f12fb95841e9e1a32ac43990c",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/mission_summary.py": "4dab9050c7ce845d59b003c35acd1b971eafe3fb34d4d69d11ecd384caa81fd0",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/prepare_barcode_assets.py": "bdd3287f5778dfb1c05b639fb46434aaaed5c45f01fe0442285178e56687866f",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/replay_mission_summary.py": "2f893c77048fc0d82b35a2b138f2def1f32277016522960a50c65bab262a0fac",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/test_tower_search_photos.py": "2cd9f353d5f67efb2c7a2305c1baca78d64b734d5927a6e7ea8587744f88336f",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/test_tower_signal_photos.py": "69d8f34304880a3f671ccd183cbee19c91a15f01ce0e1ca9349e9eb411766a4b",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/live_tower_check.py": "55d3d867cb654636724a8933433cc14be41bb3b7627fe836289d1101f486e29d",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/tower_live_hsv.py": "f67babd8fdf29981f57eab1363300c5d616421060309118f21c4aa69005a10b3",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/test_mission_1080p_isaac.py": "ff9c8e17b298502a1b4b453e355b742e40ebf6eacb8e98235d003feea859529e",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/tower_yolo_signal.py": "c8427af472d3a4fd635502bb07ce25551d4364b01f796df36712982d173fab07",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/r12_sensor_sim.py": "57688732ab47d469254b0d23bce8899ac96497a1659f7e80e4531b376ec2fe57",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/barcode_support.py": "57e8bd7dce762e43f592bf7aad68bad3c648c2a7fbe12ded09b1d1937aaff926",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/live_tower_mission.py": "958b67a1ef7b7579e6838e75c9e7735042e9e4584aa65c5e80ca4c4712838587",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/check_mission_perception.py": "aeb189d6ab87cc79932f32ffc3d6084403a90f15eac99a2b649614eece51e9f7",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/live_mission_optimized.py": "501d8d9b62f4ee8677cd53b8df452a42635bbf95dbcd187fd60f7b7b3c6d8e7e",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/test_mission_camera_isaac.py": "7036d89c8550943858e06b1838fb29f04c6f1f6d03f3726c488df398093f8419",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/barcode_sweep.py": "5b1c978f1f7240a62872d7517a3b94795ca83405747289fb9cca80c201ed4764",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/mission_live_support.py": "64adb9038779559a60455a7561d351b2dbfdbb6211f867e9f8fdf791916ba1d0",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/test_tower_signal_isaac.py": "5cdbc7b0942ff007d1a61af7305dd6cb08e95b28030498a4bd9b0399c3ac2609",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/r12_sensor_ros.py": "fe4e70ff9bd43cd7b44af76ff07b564067910c4917f75a579db898c48f3becaa",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py": "c937988c072fe765a2424942c9f4d66019b4f09a838f6d79f2e41e3ce4636fc3",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal_search.py": "fc7b2fafa387886b4f59c7447e608b5d19ca3f7424e00276f59f1271e6a74248",
+    "/home/pa33/git/lv2-nz2-project2/r12/models/navigation/mission_scene.usda": "208743b490e430658bca79db94c9db09fb836d02e23fb44479dde0d518b0a36e",
+    "/home/pa33/git/lv2-nz2-project2/r12/src/arm_practice/mission.py": "ba639260427d82c057fb67709aee6f015b7a1227e24efb31d1901b5d17b0a8c3",
+    "/home/pa33/Desktop/assembly_puck_slots./assembly.urdf": "5d8b2d212030b9929658e78345d22a630e673f7e5cc9fcf00d77c282e82f8477",
+    "/home/pa33/Desktop/assembly_puck_slots./sensors.json": "b6debca3ef877a5c8456a04b7fd7200800fb3a49ae8b6c5505755379cc4ec6b9",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/configs/barcodes.json": "b3c5b2578b3eb5ad1e253e3808a2334e514da441405f11a12514adf2f9681d52",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/references/P2-02.png": "d5ee7a814a6ce2044a5259bd5e105014aece8688d8232863d87bb8299f6723f8"
+  }
+}

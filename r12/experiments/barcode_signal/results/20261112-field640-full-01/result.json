@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "scope": "field_camera_view_change_no_robot_no_physical_motion",
+  "robot_tested": false,
+  "real_camera_equivalence": false,
+  "exposure_wb_equivalence": false,
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "histogram_enabled_readback": false,
+  "barcode_saved": "P2-02",
+  "barcode_saved_at_s": 0.4,
+  "ready_at_s": 1.9333333333333333,
+  "ready_evidence": {
+    "prestart_off_guaranteed": true,
+    "recovery_long_off_observed": false,
+    "stable_off_s": 1.0,
+    "baseline_frames": 5,
+    "max_jitter_px": 3
+  },
+  "mission": {
+    "status": "ready",
+    "error": null,
+    "barcode": "P2-02",
+    "direction": "descending",
+    "sequence": [
+      "R",
+      "G",
+      "Y",
+      "R",
+      "G",
+      "Y",
+      "G",
+      "R",
+      "G",
+      "R",
+      "G",
+      "G"
+    ],
+    "counts": {
+      "R": 4,
+      "Y": 2,
+      "G": 6
+    },
+    "signal_complete": true,
+    "locations": [
+      {
+        "location": "L1",
+        "group": "G",
+        "count": 6,
+        "constraint": {
+          "color": "G",
+          "shape": "any"
+        }
+      },
+      {
+        "location": "L2",
+        "group": "R",
+        "count": 4,
+        "constraint": {
+          "color": "R",
+          "shape": "any"
+        }
+      },
+      {
+        "location": "L3",
+        "group": "Y",
+        "count": 2,
+        "constraint": {
+          "color": "any",
+          "shape": "one_common_shape_pending_inventory"
+        }
+      }
+    ],
+    "puck_allocation": "pending_inventory",
+    "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+    "barcodes": [
+      {
+        "barcode": "P2-02",
+        "sortOrder": "DESC",
+        "sortLabel": "내림차순"
+      }
+    ],
+    "sortOrder": "DESC",
+    "sortLabel": "내림차순",
+    "tie_order": [
+      "R",
+      "Y",
+      "G"
+    ]
+  },
+  "observed_sequence": "RGYRGYGRGRGG",
+  "expected_sequence_for_scoring": "RGYRGYGRGRGG",
+  "saved_record_preserved_after_relight": true,
+  "barcode_attempts": 3,
+  "barcode_hit_frames": 3,
+  "classified_frames": 810,
+  "correct_color_frames": 810,
+  "unknown_reasons": {},
+  "rendered_frames": 929,
+  "wall_s": 30.563366095011588,
+  "achieved_wall_fps": 30.39586607264549,
+  "shutdown_mode": "Kit default fast shutdown with cleanup",
+  "shutdown_requested": true,
+  "process_exit_code": 0
+}

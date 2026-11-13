@@ -1,7 +1,7 @@
 {
   "scope": "simulation_only_fixed_chassis_arm_observation",
   "r20d_archive": "~/Desktop/R20D.7z",
-  "perception_root": "~/git/lv2-nz2-project2/r12/experiments/barcode_signal",
+  "perception_root": "../barcode_signal",
   "arm_mount": {
     "xyz_m": [
       0.085,

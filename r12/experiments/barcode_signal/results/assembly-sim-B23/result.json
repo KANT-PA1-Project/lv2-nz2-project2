@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "error": "Child exited without final result; no success inferred from exit code",
+  "process_exit_code": -15
+}

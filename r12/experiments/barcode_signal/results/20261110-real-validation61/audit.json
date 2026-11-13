@@ -1,0 +1,445 @@
+{
+  "date": "2026-11-10",
+  "source": "validation_set_20261110",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "input_images": 61,
+  "unique_hashes": 61,
+  "overlap_previous96": 0,
+  "source_labels_sha256": "8f3c7773ae9b5e63d1626b725cc745adc400f71edd5d3fa3ac1902a505878cd3",
+  "classifier_sha256": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+  "classifier_unchanged": true,
+  "labels_review": "All supplied colors visually consistent; not controller-confirmed ground truth",
+  "evaluated_with_manual_lens_roi": 54,
+  "conditional_correct": 51,
+  "conditional_unknown": 2,
+  "conditional_wrong": 1,
+  "all61_output_counts": {
+    "R": 14,
+    "UNKNOWN": 9,
+    "Y": 14,
+    "G": 10,
+    "OFF": 14
+  },
+  "all61_correct": 51,
+  "all61_unknown": 9,
+  "all61_wrong": 1,
+  "roi_unavailable": [
+    {
+      "id": "photo_006",
+      "truth": "R",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_007",
+      "truth": "R",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_013",
+      "truth": "Y",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_014",
+      "truth": "Y",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_020",
+      "truth": "G",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_050",
+      "truth": "G",
+      "reason": "tower_right_side_clipped_at_original_image_boundary"
+    },
+    {
+      "id": "photo_052",
+      "truth": "G",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    }
+  ],
+  "failures": [
+    {
+      "id": "photo_022",
+      "truth": "OFF",
+      "result": {
+        "color": "Y",
+        "reason": null,
+        "decision": "single",
+        "margin": 0.1298531625436678,
+        "ratios": {
+          "R": 0.021897810218978103,
+          "Y": 0.1517509727626459,
+          "G": 0.0
+        },
+        "white_ratios": {
+          "R": 0.0,
+          "Y": 0.0,
+          "G": 0.0
+        },
+        "scores": {
+          "R": 0.021897810218978103,
+          "Y": 0.1517509727626459,
+          "G": 0.0
+        },
+        "boxes": {
+          "R": [
+            714,
+            507,
+            732,
+            525,
+            0.0
+          ],
+          "Y": [
+            712,
+            533,
+            729,
+            551,
+            0.0
+          ],
+          "G": [
+            710,
+            559,
+            727,
+            577,
+            0.0
+          ]
+        },
+        "roi_polygons": {
+          "R": [
+            [
+              716.1955172376156,
+              507.1724228672165
+            ],
+            [
+              731.0458620727293,
+              508.34481851209387
+            ],
+            [
+              729.8044827623844,
+              524.0689564431284
+            ],
+            [
+              714.9541379272707,
+              522.8965607982509
+            ]
+          ],
+          "Y": [
+            [
+              714.1265517203742,
+              533.3793194189406
+            ],
+            [
+              728.9768965554879,
+              534.551715063818
+            ],
+            [
+              727.735517245143,
+              550.2758529948526
+            ],
+            [
+              712.8851724100293,
+              549.1034573499751
+            ]
+          ],
+          "G": [
+            [
+              712.0575862031328,
+              559.5862159706647
+            ],
+            [
+              726.9079310382465,
+              560.7586116155422
+            ],
+            [
+              725.6665517279016,
+              576.4827495465767
+            ],
+            [
+              710.8162068927879,
+              575.3103539016992
+            ]
+          ]
+        },
+        "raw_ratios": {
+          "R": 0.021897810218978103,
+          "Y": 0.1517509727626459,
+          "G": 0.0
+        },
+        "raw_white_ratios": {
+          "R": 0.0,
+          "Y": 0.0,
+          "G": 0.0
+        },
+        "delta_ratios": {
+          "R": null,
+          "Y": null,
+          "G": null
+        },
+        "off_reference_used": false
+      }
+    },
+    {
+      "id": "photo_048",
+      "truth": "G",
+      "result": {
+        "color": "UNKNOWN",
+        "reason": "multiple_lit:RYG",
+        "decision": "ambiguous",
+        "margin": 0.5151515151515151,
+        "ratios": {
+          "R": 0.2,
+          "Y": 0.6515151515151515,
+          "G": 1.0
+        },
+        "white_ratios": {
+          "R": 0.0,
+          "Y": 0.3333333333333333,
+          "G": 1.0
+        },
+        "scores": {
+          "R": 0.2,
+          "Y": 0.7348484848484849,
+          "G": 1.25
+        },
+        "boxes": {
+          "R": [
+            641,
+            370,
+            652,
+            383,
+            0.0
+          ],
+          "Y": [
+            640,
+            389,
+            651,
+            402,
+            0.0
+          ],
+          "G": [
+            638,
+            408,
+            650,
+            422,
+            0.0
+          ]
+        },
+        "roi_polygons": {
+          "R": [
+            [
+              642.5670814721726,
+              370.1488802036774
+            ],
+            [
+              651.9156771485171,
+              370.81663703770204
+            ],
+            [
+              651.1809577860876,
+              382.40947728028704
+            ],
+            [
+              641.646628420809,
+              381.72845375419575
+            ]
+          ],
+          "Y": [
+            [
+              641.0329930532332,
+              389.4481694545413
+            ],
+            [
+              650.6911448778012,
+              390.13803744201044
+            ],
+            [
+              649.9564255153716,
+              401.73087768459555
+            ],
+            [
+              640.1125400018698,
+              401.0277430050597
+            ]
+          ],
+          "G": [
+            [
+              639.498904634294,
+              408.7474587054053
+            ],
+            [
+              649.4666126070853,
+              409.4594378463189
+            ],
+            [
+              648.7318932446557,
+              421.05227808890396
+            ],
+            [
+              638.5784515829304,
+              420.3270322559236
+            ]
+          ]
+        },
+        "raw_ratios": {
+          "R": 0.2,
+          "Y": 0.6515151515151515,
+          "G": 1.0
+        },
+        "raw_white_ratios": {
+          "R": 0.0,
+          "Y": 0.3333333333333333,
+          "G": 1.0
+        },
+        "delta_ratios": {
+          "R": null,
+          "Y": null,
+          "G": null
+        },
+        "off_reference_used": false
+      }
+    },
+    {
+      "id": "photo_054",
+      "truth": "OFF",
+      "result": {
+        "color": "UNKNOWN",
+        "reason": "multiple_lit:RY",
+        "decision": "ambiguous",
+        "margin": 0.021303258145363407,
+        "ratios": {
+          "R": 0.16040100250626566,
+          "Y": 0.18170426065162906,
+          "G": 0.0
+        },
+        "white_ratios": {
+          "R": 0.0,
+          "Y": 0.0,
+          "G": 0.0
+        },
+        "scores": {
+          "R": 0.16040100250626566,
+          "Y": 0.18170426065162906,
+          "G": 0.0
+        },
+        "boxes": {
+          "R": [
+            822,
+            301,
+            852,
+            329,
+            0.0
+          ],
+          "Y": [
+            822,
+            346,
+            851,
+            374,
+            0.0
+          ],
+          "G": [
+            821,
+            391,
+            850,
+            419,
+            0.0
+          ]
+        },
+        "roi_polygons": {
+          "R": [
+            [
+              822.7396010863234,
+              301.41581443850197
+            ],
+            [
+              851.1234619767396,
+              301.75986123717365
+            ],
+            [
+              850.6983340480175,
+              328.7384018650647
+            ],
+            [
+              822.5106749609914,
+              328.3967332700704
+            ]
+          ],
+          "Y": [
+            [
+              822.3580575441034,
+              346.3840124911161
+            ],
+            [
+              850.4149154288694,
+              346.72409561699203
+            ],
+            [
+              849.9897875001476,
+              373.70263624488297
+            ],
+            [
+              822.1291314187714,
+              373.3649313226845
+            ]
+          ],
+          "G": [
+            [
+              821.9765140018834,
+              391.35221054373017
+            ],
+            [
+              849.7063688809995,
+              391.68832999681035
+            ],
+            [
+              849.2812409522775,
+              418.66687062470135
+            ],
+            [
+              821.7475878765514,
+              418.33312937529865
+            ]
+          ]
+        },
+        "raw_ratios": {
+          "R": 0.16040100250626566,
+          "Y": 0.18170426065162906,
+          "G": 0.0
+        },
+        "raw_white_ratios": {
+          "R": 0.0,
+          "Y": 0.0,
+          "G": 0.0
+        },
+        "delta_ratios": {
+          "R": null,
+          "Y": null,
+          "G": null
+        },
+        "off_reference_used": false
+      }
+    }
+  ],
+  "source_scene1026_ids": [
+    "val_41",
+    "val_43",
+    "val_44",
+    "val_56"
+  ],
+  "pair_correction": "34 and53 are different folders;29 and53 share tower_light_on_2 indices0090/0087.49 and55 share tower_light_on_5 indices0097/0100; poses differ so neither pair is matched OFF calibration.",
+  "real_off_reference_evaluated": 0,
+  "cpu_tests_passed": 56,
+  "limits": [
+    "Manual lens ROIs supplied; not automatic full-frame tower detection validation.",
+    "Six dark frames retain color labels but unlocalizable lens boundaries yield UNKNOWN; val50 clipped right edge also UNKNOWN.",
+    "No threshold, classifier, original image, source labels.json/csv or tutor edits.",
+    "Same capture sessions partly reused; provisional visual truth; no timed sequence test."
+  ],
+  "next_changes": [
+    "Calibrate or align actual lens/body position before accepting ROI; reject uncertain alignment.",
+    "Collect fixed-exposure matched OFF frames and validate existing difference API on real images.",
+    "Compare bloom/reflective-OFF candidate changes on separate data, preserving this frozen result."
+  ]
+}

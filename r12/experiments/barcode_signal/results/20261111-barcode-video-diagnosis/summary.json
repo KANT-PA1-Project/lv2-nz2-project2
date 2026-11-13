@@ -1,0 +1,54 @@
+[
+  {
+    "video": "camera_1794383561869547128.mp4",
+    "frames": 132,
+    "stages": {
+      "none": 28,
+      "full_native": 32,
+      "candidate_native": 25,
+      "candidate_upscale": 26,
+      "full_upscale": 21
+    },
+    "texts": {
+      "P2-02": 105
+    },
+    "time_ms_median": 16.241297009401023,
+    "no_candidate": 0
+  },
+  {
+    "video": "camera_1794383575446229103.mp4",
+    "frames": 139,
+    "stages": {
+      "full_native": 118,
+      "full_upscale": 21
+    },
+    "texts": {
+      "P2-01": 139
+    },
+    "time_ms_median": 2.6716699940152466,
+    "no_candidate": 0
+  },
+  {
+    "video": "camera_1794383592325328861.mp4",
+    "frames": 147,
+    "stages": {
+      "full_native": 146,
+      "full_upscale": 1
+    },
+    "texts": {
+      "P2-03": 147
+    },
+    "time_ms_median": 2.637281984789297,
+    "no_candidate": 0
+  },
+  {
+    "video": "camera_1794383608003564752.mp4",
+    "frames": 141,
+    "stages": {
+      "none": 141
+    },
+    "texts": {},
+    "time_ms_median": 16.70333498623222,
+    "no_candidate": 0
+  }
+]

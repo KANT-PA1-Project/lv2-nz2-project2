@@ -1,0 +1,53 @@
+{
+  "settings": {
+    "out": "reports/20261112-field1080p-smoke-01",
+    "r12_root": "/home/pa33/git/lv2-nz2-project2/r12",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "signal_width": 640,
+    "barcode_upscale": 2,
+    "barcode": "P2-02",
+    "barcode_distance": 0.15,
+    "tower_distance": 0.3,
+    "exposure": 150.0,
+    "wb": 4600.0,
+    "max_seconds": 60.0,
+    "smoke": true,
+    "auto_start": true
+  },
+  "fixture": {
+    "barcode": {
+      "code": "P2-02",
+      "center_m": [
+        0.08,
+        0.65,
+        0.45
+      ]
+    },
+    "dome": 400.0,
+    "emissive": 1.0
+  },
+  "source_sha256": {
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/test_mission_1080p_isaac.py": "08cb1e34f8e02c6e866f90c03728234b921341c70ba8765c21948a03c298b751",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/live_mission_optimized.py": "501d8d9b62f4ee8677cd53b8df452a42635bbf95dbcd187fd60f7b7b3c6d8e7e",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/tower_live_hsv.py": "f67babd8fdf29981f57eab1363300c5d616421060309118f21c4aa69005a10b3",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/mission_summary.py": "4dab9050c7ce845d59b003c35acd1b971eafe3fb34d4d69d11ecd384caa81fd0",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/barcode_support.py": "57e8bd7dce762e43f592bf7aad68bad3c648c2a7fbe12ded09b1d1937aaff926",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py": "c937988c072fe765a2424942c9f4d66019b4f09a838f6d79f2e41e3ce4636fc3",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/configs/barcodes.json": "b3c5b2578b3eb5ad1e253e3808a2334e514da441405f11a12514adf2f9681d52",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/references/P2-02.png": "d5ee7a814a6ce2044a5259bd5e105014aece8688d8232863d87bb8299f6723f8",
+    "/home/pa33/git/lv2-nz2-project2/r12/experiments/r20d_perception/scene.py": "95ca2e3459b4bc8d568f40f968109e7ebe6c43d2306aee7f1316eabd25240885",
+    "/home/pa33/git/lv2-nz2-project2/r12/models/navigation/mission_scene.usda": "208743b490e430658bca79db94c9db09fb836d02e23fb44479dde0d518b0a36e",
+    "/home/pa33/git/lv2-nz2-project2/r12/src/arm_practice/mission.py": "ba639260427d82c057fb67709aee6f015b7a1227e24efb31d1901b5d17b0a8c3"
+  },
+  "truth_sequence_for_scoring": "RGYRGYGRGRGG",
+  "renderer": "PathTracing",
+  "subframes": 2,
+  "samples_per_pixel_per_frame": 8,
+  "camera_model": "nominal horizontal FOV from 640/fx400; NOT measured D435 1080p intrinsics",
+  "real_exposure_wb_applied_to_rtx": false,
+  "scope": "field_camera_view_change_no_robot_no_physical_motion",
+  "wall_budget_s": 900,
+  "source_frozen": true
+}

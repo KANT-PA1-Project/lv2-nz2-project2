@@ -1,0 +1,415 @@
+{
+  "date": "2026-11-10",
+  "inference_sources_frozen": true,
+  "source_sha256": {
+    "src/arm_practice/tower_signal.py": "c937988c072fe765a2424942c9f4d66019b4f09a838f6d79f2e41e3ce4636fc3",
+    "src/arm_practice/tower_signal_search.py": "fc7b2fafa387886b4f59c7447e608b5d19ca3f7424e00276f59f1271e6a74248",
+    "scripts/test_tower_signal_isaac.py": "5cdbc7b0942ff007d1a61af7305dd6cb08e95b28030498a4bd9b0399c3ac2609",
+    "scripts/test_tower_search_photos.py": "2cd9f353d5f67efb2c7a2305c1baca78d64b734d5927a6e7ea8587744f88336f",
+    "tests/test_tower_search.py": "8cd16ee3119f4866b7b590f2c83a9b0fd33bbfd6dd9bb2f0a2eb21659fd4965f",
+    "tests/test_roi_equivalence.py": "04243a661fde595218323f648d1a727c45e243f17796e969e16e84d9b65fd48b",
+    "tests/data/frozen_signal_before_roi.py": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac"
+  },
+  "sim": {
+    "conditions": 12,
+    "frames": 6840,
+    "errors": 0,
+    "sequence_passed": 12,
+    "projection_passed": 6,
+    "all_scales_fixed_1": true,
+    "negative": {
+      "frames": 30,
+      "outputs": {
+        "UNKNOWN": 30
+      },
+      "acquired": false
+    },
+    "cases": [
+      {
+        "name": "seed34-error00cm",
+        "view": 0,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 0,
+        "sequence_match": true,
+        "projection_sequence_match": true,
+        "scale": 1.0,
+        "shift_px": [
+          1.0,
+          1.0
+        ],
+        "boundary_support": [
+          1.0,
+          0.9819878935813904
+        ],
+        "registration_ms": 3.0230160045903176,
+        "read_ms": {
+          "median": 0.5490984985954128,
+          "p95": 0.7351928019488695
+        }
+      },
+      {
+        "name": "seed34-error00cm",
+        "view": 1,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 0,
+        "sequence_match": true,
+        "projection_sequence_match": true,
+        "scale": 1.0,
+        "shift_px": [
+          0.0,
+          2.0
+        ],
+        "boundary_support": [
+          0.9192898273468018,
+          0.9522857666015625
+        ],
+        "registration_ms": 1.9706719904206693,
+        "read_ms": {
+          "median": 0.4657234967453405,
+          "p95": 0.6609749514609571
+        }
+      },
+      {
+        "name": "seed34-error00cm",
+        "view": 2,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 0,
+        "sequence_match": true,
+        "projection_sequence_match": true,
+        "scale": 1.0,
+        "shift_px": [
+          0.0,
+          2.0
+        ],
+        "boundary_support": [
+          1.0,
+          0.9626558423042297
+        ],
+        "registration_ms": 2.388905006228015,
+        "read_ms": {
+          "median": 0.559606502065435,
+          "p95": 0.6865807474241591
+        }
+      },
+      {
+        "name": "seed34-error01cm",
+        "view": 0,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 0,
+        "sequence_match": true,
+        "projection_sequence_match": true,
+        "scale": 1.0,
+        "shift_px": [
+          1.0,
+          4.0
+        ],
+        "boundary_support": [
+          1.0,
+          1.0
+        ],
+        "registration_ms": 3.1048999953782186,
+        "read_ms": {
+          "median": 0.5567695043282583,
+          "p95": 0.7415717002004384
+        }
+      },
+      {
+        "name": "seed34-error01cm",
+        "view": 1,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 160,
+        "sequence_match": true,
+        "projection_sequence_match": false,
+        "scale": 1.0,
+        "shift_px": [
+          -5.0,
+          6.0
+        ],
+        "boundary_support": [
+          0.6998240947723389,
+          0.9274165034294128
+        ],
+        "registration_ms": 1.9319100101711228,
+        "read_ms": {
+          "median": 0.46596250467700884,
+          "p95": 0.6532152969157323
+        }
+      },
+      {
+        "name": "seed34-error02cm",
+        "view": 0,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 0,
+        "sequence_match": true,
+        "projection_sequence_match": true,
+        "scale": 1.0,
+        "shift_px": [
+          4.0,
+          6.0
+        ],
+        "boundary_support": [
+          1.0,
+          1.0
+        ],
+        "registration_ms": 3.173948993207887,
+        "read_ms": {
+          "median": 0.5430789969977923,
+          "p95": 0.726372496865224
+        }
+      },
+      {
+        "name": "seed34-error02cm",
+        "view": 1,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 160,
+        "sequence_match": true,
+        "projection_sequence_match": false,
+        "scale": 1.0,
+        "shift_px": [
+          -9.0,
+          9.0
+        ],
+        "boundary_support": [
+          0.3607555627822876,
+          1.0
+        ],
+        "registration_ms": 1.910539998789318,
+        "read_ms": {
+          "median": 0.45741599751636386,
+          "p95": 0.6072999567550139
+        }
+      },
+      {
+        "name": "seed34-error03cm",
+        "view": 0,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 0,
+        "sequence_match": true,
+        "projection_sequence_match": true,
+        "scale": 1.0,
+        "shift_px": [
+          4.0,
+          9.0
+        ],
+        "boundary_support": [
+          1.0,
+          1.0
+        ],
+        "registration_ms": 3.155704995151609,
+        "read_ms": {
+          "median": 0.5317059985827655,
+          "p95": 0.7164182527048979
+        }
+      },
+      {
+        "name": "seed34-error03cm",
+        "view": 1,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 240,
+        "sequence_match": true,
+        "projection_sequence_match": false,
+        "scale": 1.0,
+        "shift_px": [
+          -12.0,
+          13.0
+        ],
+        "boundary_support": [
+          0.40865418314933777,
+          0.9716628193855286
+        ],
+        "registration_ms": 1.9331270013935864,
+        "read_ms": {
+          "median": 0.4566329953377135,
+          "p95": 0.6270270459935998
+        }
+      },
+      {
+        "name": "seed35-error03cm",
+        "view": 0,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 240,
+        "sequence_match": true,
+        "projection_sequence_match": false,
+        "scale": 1.0,
+        "shift_px": [
+          17.0,
+          -3.0
+        ],
+        "boundary_support": [
+          1.0,
+          1.0
+        ],
+        "registration_ms": 2.7570530073717237,
+        "read_ms": {
+          "median": 0.4690549976658076,
+          "p95": 0.6195113521243909
+        }
+      },
+      {
+        "name": "seed35-error03cm",
+        "view": 1,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 240,
+        "sequence_match": true,
+        "projection_sequence_match": false,
+        "scale": 1.0,
+        "shift_px": [
+          13.0,
+          -19.0
+        ],
+        "boundary_support": [
+          0.8380674123764038,
+          0.9817120432853699
+        ],
+        "registration_ms": 2.4580830067861825,
+        "read_ms": {
+          "median": 0.5778574995929375,
+          "p95": 0.7637921509740407
+        }
+      },
+      {
+        "name": "seed35-error03cm",
+        "view": 2,
+        "frames": 570,
+        "raw_errors": 0,
+        "projection_raw_errors": 240,
+        "sequence_match": true,
+        "projection_sequence_match": false,
+        "scale": 1.0,
+        "shift_px": [
+          -7.0,
+          13.0
+        ],
+        "boundary_support": [
+          0.868094265460968,
+          0.9804444909095764
+        ],
+        "registration_ms": 2.260633002151735,
+        "read_ms": {
+          "median": 0.4728855055873282,
+          "p95": 0.6038247040123675
+        }
+      }
+    ]
+  },
+  "cpu": {
+    "tests": 69,
+    "passed": 69,
+    "exact_colour_equivalence_random_variants": 80
+  },
+  "real_search": {
+    "images": 61,
+    "provisional_off_images": 16,
+    "lit_images_refused": 45,
+    "offsets": [
+      [
+        0,
+        0
+      ],
+      [
+        10,
+        -10
+      ],
+      [
+        -20,
+        20
+      ],
+      [
+        30,
+        -30
+      ],
+      [
+        -40,
+        40
+      ]
+    ],
+    "methods": {
+      "previous": {
+        "cases": 80,
+        "found": 80,
+        "recovered": 65,
+        "found_but_outside_tolerance": 15,
+        "reasons": {
+          "found": 80
+        }
+      },
+      "boundary_fixed_size": {
+        "cases": 80,
+        "found": 80,
+        "recovered": 75,
+        "found_but_outside_tolerance": 5,
+        "reasons": {
+          "found": 80
+        }
+      }
+    },
+    "off_reference_real_evaluated": 0,
+    "source_sha256": "fc7b2fafa387886b4f59c7447e608b5d19ca3f7424e00276f59f1271e6a74248",
+    "scope": "Still-image diagnostic with provisional visual OFF labels and manually supplied body geometry, translation perturbation only; no automatic OFF or full-frame detection accuracy.",
+    "limitations": [
+      "45 lit images are protocol rejection tests, not successful acquisition attempts.",
+      "No three-frame matched OFF baseline or real timed sequence was fabricated.",
+      "Manual geometry is approximate and tolerance is a diagnostic 0.25 tier pitch, minimum2px.",
+      "These images may become development evidence; parameters were frozen before this run."
+    ]
+  },
+  "real_colour_recheck": {
+    "evaluated": 54,
+    "confusion": {
+      "R->R": 14,
+      "Y->Y": 13,
+      "G->G": 10,
+      "OFF->OFF": 14,
+      "OFF->Y": 1,
+      "G->UNKNOWN": 1,
+      "OFF->UNKNOWN": 1
+    },
+    "correct": 51,
+    "unknown": 2,
+    "wrong_color": 1
+  },
+  "real_colour_summary_exactly_matches_previous": true,
+  "timing": {
+    "scope": "Paired CPU microbenchmark, same640x480 simulated OFF median, same registered ROI and restored genuine OFF median,40 calls per method interleaved; GUI active. Not Jetson benchmark.",
+    "methods": {
+      "previous": {
+        "median_ms": 36.65974400064442,
+        "p95_ms": 40.87348595276125
+      },
+      "roi": {
+        "median_ms": 0.39047549216775224,
+        "p95_ms": 0.46404059321503155
+      }
+    }
+  },
+  "initial_acquisition_ms_range": [
+    1.910539998789318,
+    3.173948993207887
+  ],
+  "live_read_median_ms_range": [
+    0.4566329953377135,
+    0.5778574995929375
+  ],
+  "limits": [
+    "No physical camera/arm motion is commanded; only image ROIs are aligned. Camera pose itself is not estimated.",
+    "Initial acquisition still requires externally confirmed OFF and stationary camera/exposure.",
+    "Scale search removed; projection size must be accurate enough; arbitrary size/rotation error not corrected.",
+    "Real search: supplied manual geometry and provisional OFF labels;16 images each5shifts are correlated80 cases, not80 independent images.",
+    "Real53 remains11.18px residual versus8.52px diagnostic tolerance; not tuned away.",
+    "Real matched OFF baseline/timed sequence test remains unavailable.",
+    "Initial real report serialization failed, fixed bool JSON serialization only; valid rerun is real61-02."
+  ],
+  "no_commit_or_push": true,
+  "no_tutor_changes": true
+}

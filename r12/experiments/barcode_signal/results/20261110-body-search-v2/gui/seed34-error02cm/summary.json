@@ -1,0 +1,712 @@
+{
+  "tower_hidden_negative_test": false,
+  "body_search_enabled": true,
+  "body_search_params": {
+    "radius_px": 60,
+    "scales": [
+      1.0
+    ],
+    "boundary_weight": 0.35,
+    "min_boundary": 0.08,
+    "min_fraction": 0.5,
+    "min_mean": 0.65,
+    "ambiguity_gap": 0.08,
+    "saturation_min": 45,
+    "value_min": 25,
+    "presence_fraction": 0.3
+  },
+  "off_reference_enabled": true,
+  "off_reference_scope": "Simulation commanded-OFF calibration only; real matched OFF video not available",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "barcode": null,
+  "sequence": "RRYYGGRGYRGY",
+  "sequence_counts": {
+    "R": 4,
+    "Y": 4,
+    "G": 4
+  },
+  "frames": 570,
+  "full_frames": 570,
+  "smoke_or_truncated": false,
+  "r12_src": "/home/pa33/git/lv2-nz2-project2/r12/src",
+  "tower_signal_source": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py",
+  "field_scene_source": "/home/pa33/git/lv2-nz2-project2/r12/models/navigation/mission_scene.usda",
+  "excluded_field_prims": [
+    "/World/Mission/StartPanel/Board",
+    "/World/Mission/StartPanel/Barcode"
+  ],
+  "maze_prim_count": 214,
+  "renderer": "PathTracing",
+  "scene_saved": false,
+  "fixed_robot_pose": [
+    0.734,
+    0.95,
+    0.008,
+    180.0
+  ],
+  "random_view_ranges": {
+    "forward_m": [
+      0.1,
+      0.35
+    ],
+    "lateral_m": [
+      -0.1,
+      0.1
+    ],
+    "height_m": [
+      0.25,
+      0.7
+    ],
+    "yaw_deg": [
+      -8.0,
+      8.0
+    ],
+    "pitch_deg": [
+      -8.0,
+      8.0
+    ],
+    "roll_deg": [
+      -10.0,
+      10.0
+    ]
+  },
+  "seed": 34,
+  "camera_mode": "random",
+  "field": true,
+  "camera_height_m": null,
+  "pose_error_m": 0.02,
+  "dome": 1800.0,
+  "subframes": 2,
+  "resolution": [
+    640,
+    480
+  ],
+  "K": [
+    [
+      400.0,
+      0.0,
+      319.5
+    ],
+    [
+      0.0,
+      400.0,
+      239.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "tower": {
+    "xy_m": [
+      0.12,
+      0.95
+    ],
+    "base_z_m": 0.0,
+    "lens_diameter_m": 0.0396,
+    "tiers": {
+      "G": [
+        0.08445,
+        0.11935
+      ],
+      "Y": [
+        0.12045,
+        0.15535
+      ],
+      "R": [
+        0.15645,
+        0.19135
+      ]
+    }
+  },
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_unique_enabled": true,
+    "white_unique_min": 0.3,
+    "white_other_max": 0.1,
+    "delta_v": 40.0,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "results": [
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 0,
+      "frame_accuracy": 1.0,
+      "first_wrong_frames": [],
+      "confusion": {
+        "OFF->OFF": 294,
+        "R->R": 68,
+        "Y->Y": 68,
+        "G->G": 68
+      },
+      "recorder_complete": true,
+      "recorder_error": null,
+      "recorded_sequence": "RRYYGGRGYRGY",
+      "sequence_match": true,
+      "body_registration": {
+        "found": true,
+        "reason": null,
+        "boxes": {
+          "R": [
+            292,
+            212,
+            311,
+            229,
+            0.5521140970055582
+          ],
+          "Y": [
+            295,
+            236,
+            313,
+            253,
+            0.5663851613158597
+          ],
+          "G": [
+            297,
+            260,
+            316,
+            275,
+            0.5806562256261614
+          ]
+        },
+        "polygons": {
+          "R": [
+            [
+              294.03039886695274,
+              228.67634880341416
+            ],
+            [
+              310.70183585431687,
+              226.9862787264344
+            ],
+            [
+              309.35040685816904,
+              212.73492805237112
+            ],
+            [
+              292.4234064264287,
+              214.42158959905856
+            ]
+          ],
+          "Y": [
+            [
+              296.6837276255625,
+              252.2125905368484
+            ],
+            [
+              312.93337976010946,
+              250.51878752761556
+            ],
+            [
+              311.64913430461934,
+              236.9759137325946
+            ],
+            [
+              295.15677902115056,
+              238.66785683155393
+            ]
+          ],
+          "G": [
+            [
+              299.2074341795236,
+              274.5990239275625
+            ],
+            [
+              315.056114497741,
+              272.90386082427926
+            ],
+            [
+              313.83416440866546,
+              260.0179161869662
+            ],
+            [
+              297.75469448274805,
+              261.7125572324282
+            ]
+          ]
+        },
+        "key": "45df4d9f174bc7aa1f0ec711e4d73125c30338d8913f07650722ec723b130299",
+        "search_bounds": [
+          228,
+          146,
+          373,
+          330
+        ],
+        "runner": 0.0,
+        "elapsed_ms": 3.173948993207887,
+        "score": 1.0,
+        "fit_score": 1.350000023841858,
+        "boundary_score": 1.0,
+        "boundary_support": [
+          1.0,
+          1.0
+        ],
+        "scale": 1.0,
+        "shift_px": [
+          4.0,
+          6.0
+        ],
+        "fractions": {
+          "R": 1.0,
+          "Y": 1.0,
+          "G": 1.0
+        }
+      },
+      "registration_read_ms": {
+        "median": 0.5430789969977923,
+        "p95": 0.726372496865224
+      },
+      "projection_only": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "Y->Y": 68,
+          "G->G": 68
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RRYYGGRGYRGY",
+        "sequence_match": true
+      },
+      "off_reference_used": true,
+      "off_reference_frames": 3,
+      "without_off_reference": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "Y->Y": 68,
+          "G->G": 68
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RRYYGGRGYRGY",
+        "sequence_match": true
+      },
+      "prior_candidate_same_rois": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "Y->Y": 68,
+          "G->G": 68
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RRYYGGRGYRGY",
+        "sequence_match": true
+      },
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "Y->Y": 68,
+          "G->G": 68
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RRYYGGRGYRGY",
+        "sequence_match": true
+      },
+      "decision_counts": {
+        "off_delta": 330,
+        "single": 240
+      },
+      "frame_trace": "frames_e1_v0_0.5m.jsonl",
+      "view_index": 0,
+      "view_parameters": {
+        "forward_m": 0.10100706087326089,
+        "lateral_m": 0.07443538285410847,
+        "height_m": 0.3592340744219864,
+        "yaw_deg": 2.4169807657869633,
+        "pitch_deg": -0.25452187248056646,
+        "roll_deg": 5.770669883350724
+      },
+      "camera_world": [
+        [
+          0.22040668756291096,
+          0.37235105331140933,
+          -0.9015406730566454,
+          0.632992939126739
+        ],
+        [
+          0.9724569667518719,
+          -0.15572611508921302,
+          0.17342671332574455,
+          0.8755646171458915
+        ],
+        [
+          -0.07581780723084892,
+          -0.9149339157431563,
+          -0.39641845306393175,
+          0.3592340744219864
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          0.22040668756291096,
+          0.37235105331140933,
+          -0.9015406730566454,
+          0.652986533406305
+        ],
+        [
+          0.9724569667518719,
+          -0.15572611508921302,
+          0.17342671332574455,
+          0.8760707671079663
+        ],
+        [
+          -0.07581780723084892,
+          -0.9149339157431563,
+          -0.39641845306393175,
+          0.3592340744219864
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 1.0,
+      "distance_m": 0.5183651047423311,
+      "unknown_reasons": {},
+      "lit_ratio_min": {
+        "R": 1.0,
+        "Y": 1.0,
+        "G": 1.0
+      },
+      "lens_px": [
+        27,
+        28
+      ]
+    },
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 0,
+      "frame_accuracy": 1.0,
+      "first_wrong_frames": [],
+      "confusion": {
+        "OFF->OFF": 294,
+        "R->R": 68,
+        "Y->Y": 68,
+        "G->G": 68
+      },
+      "recorder_complete": true,
+      "recorder_error": null,
+      "recorded_sequence": "RRYYGGRGYRGY",
+      "sequence_match": true,
+      "body_registration": {
+        "found": true,
+        "reason": null,
+        "boxes": {
+          "R": [
+            324,
+            189,
+            341,
+            199,
+            0.6046522222585714
+          ],
+          "Y": [
+            324,
+            201,
+            340,
+            210,
+            0.6376261485121166
+          ],
+          "G": [
+            323,
+            212,
+            338,
+            221,
+            0.6706000747656617
+          ]
+        },
+        "polygons": {
+          "R": [
+            [
+              324.78948549248776,
+              196.891118003205
+            ],
+            [
+              339.91257632172625,
+              198.11180864559782
+            ],
+            [
+              340.7877603020254,
+              190.83324699240558
+            ],
+            [
+              325.17615675634704,
+              189.5855863108588
+            ]
+          ],
+          "Y": [
+            [
+              324.17824721454684,
+              208.43948228169853
+            ],
+            [
+              338.5293010428591,
+              209.6159662024244
+            ],
+            [
+              339.31621971935107,
+              203.0714724367385
+            ],
+            [
+              324.5259814600919,
+              201.8696029325356
+            ]
+          ],
+          "G": [
+            [
+              323.6262276132155,
+              218.8690049001406
+            ],
+            [
+              337.28024091417814,
+              220.00390903478916
+            ],
+            [
+              337.9916044532879,
+              214.0877776912127
+            ],
+            [
+              323.9406235293384,
+              212.92899967126593
+            ]
+          ]
+        },
+        "key": "9ef1022723d4b50babd212dab6bebc18d354c45da27146c956552116c788d571",
+        "search_bounds": [
+          272,
+          120,
+          411,
+          273
+        ],
+        "runner": 0.0,
+        "elapsed_ms": 1.910539998789318,
+        "score": 0.9441121220588684,
+        "fit_score": 1.1822443008422852,
+        "boundary_score": 0.6803777813911438,
+        "boundary_support": [
+          0.3607555627822876,
+          1.0
+        ],
+        "scale": 1.0,
+        "shift_px": [
+          -9.0,
+          9.0
+        ],
+        "fractions": {
+          "R": 1.0,
+          "Y": 0.8813559412956238,
+          "G": 0.9509803652763367
+        }
+      },
+      "registration_read_ms": {
+        "median": 0.45741599751636386,
+        "p95": 0.6072999567550139
+      },
+      "projection_only": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 136,
+        "frame_accuracy": 0.7269076305220883,
+        "first_wrong_frames": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->Y": 68,
+          "Y->G": 68,
+          "G->G": 68
+        },
+        "recorder_complete": false,
+        "recorder_error": "Invalid signal counts",
+        "recorded_sequence": "YYGGGGYGGYGG",
+        "sequence_match": false
+      },
+      "off_reference_used": true,
+      "off_reference_frames": 3,
+      "without_off_reference": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "Y->Y": 68,
+          "G->G": 68
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RRYYGGRGYRGY",
+        "sequence_match": true
+      },
+      "prior_candidate_same_rois": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "Y->Y": 68,
+          "G->G": 68
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RRYYGGRGYRGY",
+        "sequence_match": true
+      },
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "Y->Y": 68,
+          "G->G": 68
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RRYYGGRGYRGY",
+        "sequence_match": true
+      },
+      "decision_counts": {
+        "off_delta": 330,
+        "single": 240
+      },
+      "frame_trace": "frames_e1_v1_0.3m.jsonl",
+      "view_index": 1,
+      "view_parameters": {
+        "forward_m": 0.29470164399090837,
+        "lateral_m": 0.0267585651993964,
+        "height_m": 0.6947900899727835,
+        "yaw_deg": -1.5962586343417247,
+        "pitch_deg": -6.30250896057624,
+        "roll_deg": -2.7030242031813545
+      },
+      "camera_world": [
+        [
+          0.026486912901540923,
+          0.915577989536113,
+          -0.40126722831793216,
+          0.4392983560090916
+        ],
+        [
+          0.9996354946051689,
+          -0.026357904179543975,
+          0.005842842864670459,
+          0.9232414348006035
+        ],
+        [
+          -0.005226984831184836,
+          -0.40127572311849535,
+          -0.9159423959318093,
+          0.6947900899727835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          0.026486912901540923,
+          0.915577989536113,
+          -0.40126722831793216,
+          0.453187427247363
+        ],
+        [
+          0.9996354946051689,
+          -0.026357904179543975,
+          0.005842842864670459,
+          0.9088506842941767
+        ],
+        [
+          -0.005226984831184836,
+          -0.40127572311849535,
+          -0.9159423959318093,
+          0.6947900899727835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 1.0,
+      "distance_m": 0.3204176352225935,
+      "unknown_reasons": {},
+      "lit_ratio_min": {
+        "R": 1.0,
+        "Y": 1.0,
+        "G": 0.9897959183673469
+      },
+      "lens_px": [
+        23,
+        19
+      ]
+    }
+  ],
+  "passed": 2,
+  "conditions": 2,
+  "scope": "단독 렌더 시험의 조건별 성공·실패 기록. 이 해상도·화각·렌더 설정에서만 유효. 로봇·위치추정·ROS·실물 카메라·실물 신호등 판정 근거가 아님"
+}

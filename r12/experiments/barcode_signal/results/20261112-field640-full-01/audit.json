@@ -1,0 +1,9 @@
+{
+  "video_frames": 929,
+  "classified": 810,
+  "correct": 810,
+  "saved_frames": 61,
+  "after_save_red_frames": 54,
+  "saved_sequence_preserved": true,
+  "barcode_preserved": true
+}

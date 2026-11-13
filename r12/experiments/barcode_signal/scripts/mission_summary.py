@@ -7,7 +7,16 @@ import json
 from pathlib import Path
 import sys
 
-R12_SRC = Path(os.environ.get("R12_SRC", "~/git/lv2-nz2-project2/r12/src")).expanduser()
+def _repo_r12():
+    """이 파일이 저장소 r12/ 아래에 있으면 그 r12, 아니면 None (상대 경로 우선)."""
+    for parent in Path(__file__).resolve().parents:
+        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
+            return parent
+    return None
+
+
+_R12 = _repo_r12()
+R12_SRC = Path(os.environ.get("R12_SRC", (_R12 / "src") if _R12 else "~/git/lv2-nz2-project2/r12/src")).expanduser()
 if not (R12_SRC / "arm_practice/mission.py").is_file():
     raise ImportError(f"R12_SRC must contain arm_practice/mission.py: {R12_SRC}")
 sys.path.insert(0, str(R12_SRC))

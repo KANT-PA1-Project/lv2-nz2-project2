@@ -1,0 +1,14 @@
+{
+  "seed": 34,
+  "min_capture_index_gap": 20,
+  "images": [
+    "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164022_0010.jpg",
+    "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164049_0064.jpg",
+    "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164318_0335.jpg",
+    "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164200_0204.jpg",
+    "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164300_0300.jpg",
+    "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164144_0173.jpg",
+    "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164344_0387.jpg",
+    "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164234_0273.jpg"
+  ]
+}

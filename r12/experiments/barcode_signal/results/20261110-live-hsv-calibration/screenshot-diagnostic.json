@@ -1,0 +1,99 @@
+{
+  "input_sha256": "1ed988cddd0f88243ede4bab832ec1a1649cbabfffb1225783e00531c0aa73a8",
+  "shape": [
+    448,
+    643,
+    3
+  ],
+  "box": [
+    144,
+    107,
+    190,
+    206
+  ],
+  "boxes": {
+    "R": [
+      153,
+      113,
+      181,
+      134,
+      0.0
+    ],
+    "Y": [
+      153,
+      146,
+      181,
+      167,
+      0.0
+    ],
+    "G": [
+      153,
+      179,
+      181,
+      200,
+      0.0
+    ]
+  },
+  "body_present": true,
+  "color_without_off_reference": {
+    "color": "OFF",
+    "reason": null,
+    "decision": "off",
+    "ratios": {
+      "R": 0.0,
+      "Y": 0.0,
+      "G": 0.0
+    },
+    "white_ratios": {
+      "R": 0.0,
+      "Y": 0.0,
+      "G": 0.0
+    },
+    "scores": {
+      "R": 0.0,
+      "Y": 0.0,
+      "G": 0.0
+    },
+    "boxes": {
+      "R": [
+        153,
+        113,
+        181,
+        134,
+        0.0
+      ],
+      "Y": [
+        153,
+        146,
+        181,
+        167,
+        0.0
+      ],
+      "G": [
+        153,
+        179,
+        181,
+        200,
+        0.0
+      ]
+    },
+    "roi_polygons": null,
+    "raw_ratios": {
+      "R": 0.0,
+      "Y": 0.0,
+      "G": 0.0
+    },
+    "raw_white_ratios": {
+      "R": 0.0,
+      "Y": 0.0,
+      "G": 0.0
+    },
+    "delta_ratios": {
+      "R": null,
+      "Y": null,
+      "G": null
+    },
+    "off_reference_used": false
+  },
+  "scope": "Single supplied OFF screenshot diagnostic, not an independent validation set or live sequence"
+}

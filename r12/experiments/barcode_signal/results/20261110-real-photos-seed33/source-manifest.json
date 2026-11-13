@@ -1,0 +1,6 @@
+{
+  "scripts/test_tower_signal_photos.py": "5f0199f2818571330608b6954f1363fd405120df19f05bc755a01156bd0f516e",
+  "src/arm_practice/tower_signal.py": "7c4cc3b4d16560b3cde638e1e98d2d140b177e25dbe21d06c32770cffdac45c6",
+  "tests/test_photo_diagnostic.py": "f5a035242ea29e2269c590ca0947302fd1c64a9c799002d18a98eef78b600c8b",
+  "params_identical_to_prior_isaac_run": true
+}

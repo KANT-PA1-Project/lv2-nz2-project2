@@ -252,6 +252,14 @@ def frames_from(source, a):
         yield bgr, (n / fps if not source.isdigit() else time.monotonic()), None
 
 
+def _repo_r12():
+    """이 파일이 저장소 r12/ 아래에 있으면 그 r12, 아니면 None (상대 경로 우선)."""
+    for parent in Path(__file__).resolve().parents:
+        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
+            return parent
+    return None
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', required=True, help='.pt / .onnx / .engine (tower_light 클래스 포함)')
@@ -266,7 +274,7 @@ def main():
     ap.add_argument('--no-show', action='store_true')
     ap.add_argument('--log', default=None, help='프레임별 결과 jsonl 경로')
     ap.add_argument('--sequence', action='store_true', help='tutor SignalRecorder 로 12회 기록')
-    ap.add_argument('--r12-src', default=os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
+    ap.add_argument('--r12-src', default=str(_repo_r12() / 'src') if _repo_r12() else os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
     ap.add_argument('--stop-when-done', action='store_true',
                     help='--sequence 기록이 완료되거나 오류가 나면 종료 (자동 점검용)')
     a = ap.parse_args()

@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-11",
+  "retry_off_s": 2.0,
+  "terminal_off_s": 3.0,
+  "source_sha256": {
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/live_mission_optimized.py": "501d8d9b62f4ee8677cd53b8df452a42635bbf95dbcd187fd60f7b7b3c6d8e7e",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/mission_live_support.py": "64adb9038779559a60455a7561d351b2dbfdbb6211f867e9f8fdf791916ba1d0",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/replay_mission_summary.py": "2f893c77048fc0d82b35a2b138f2def1f32277016522960a50c65bab262a0fac"
+  },
+  "scope": "Preparation-only offline comparison, not a complete live mission. Video-relative clock at 30 Hz, analysis timeout 300 s in both variants; runtime default timeout remains 30 s. No independent frame ON/OFF truth labels."
+}

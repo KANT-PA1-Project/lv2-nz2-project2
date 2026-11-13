@@ -1,0 +1,54 @@
+{
+  "video": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/camera_1794384553167656610.mp4",
+  "video_sha256": "380c5c07ac0b2ddbf8b79d5efbc9067f5b073247571fd54654e6f33d8df512a1",
+  "source_sha256": "a7d8880660c1bc56e23c7248e267617cb1ccc506cf5c55868e61f1c3781d1edf",
+  "recording_matches_current_source": true,
+  "resolution": [
+    1280,
+    720
+  ],
+  "fps": 30,
+  "duration_s": 22.1,
+  "frames": 663,
+  "recording_upscale": 1,
+  "upscale1_hits": 189,
+  "upscale2_hits": 356,
+  "segments": [
+    {
+      "from_s": 0,
+      "to_s": 5,
+      "frames": 150,
+      "upscale1_hits": 122,
+      "upscale2_hits": 147
+    },
+    {
+      "from_s": 5,
+      "to_s": 10,
+      "frames": 150,
+      "upscale1_hits": 16,
+      "upscale2_hits": 123
+    },
+    {
+      "from_s": 10,
+      "to_s": 15,
+      "frames": 150,
+      "upscale1_hits": 10,
+      "upscale2_hits": 26
+    },
+    {
+      "from_s": 15,
+      "to_s": 17,
+      "frames": 60,
+      "upscale1_hits": 37,
+      "upscale2_hits": 56
+    },
+    {
+      "from_s": 17,
+      "to_s": 22.1,
+      "frames": 153,
+      "upscale1_hits": 4,
+      "upscale2_hits": 4
+    }
+  ],
+  "scope": "offline decoding every video frame; not the live asynchronous 5 Hz cadence; last segment includes barcode leaving the field of view"
+}

@@ -1,0 +1,265 @@
+{
+  "date": "2026-11-10",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "gui": true,
+  "renderer": "PathTracing",
+  "source_manifest": "20261110-barcode-field-gui-full-upscale2/source-manifest.json",
+  "cpu_tests_passed": 36,
+  "dimensions_mm": {
+    "bars": [
+      60,
+      15
+    ],
+    "label": [
+      75,
+      25
+    ],
+    "label_approximate": true
+  },
+  "mount_rotation_deg": 0,
+  "baseline": {
+    "output": "reports/20261110-barcode-field-gui-smoke",
+    "sweep_conditions": 48,
+    "sweep_passed": 0,
+    "wrong_frames": 0,
+    "signal_smoke_matches": 30
+  },
+  "upscale2": {
+    "output": "reports/20261110-barcode-field-gui-full-upscale2",
+    "sweep_conditions": 48,
+    "sweep_passed": 3,
+    "wrong_frames": 0,
+    "passed_conditions": [
+      {
+        "code": "P2-02",
+        "placement": {
+          "name": "low_front",
+          "center": [
+            0.15,
+            1.03,
+            0.14
+          ],
+          "camera_offset": [
+            0.0,
+            0.03
+          ]
+        },
+        "distance_x_m": 0.2,
+        "optical_range_m": 0.2022374841615668,
+        "bars_projection": {
+          "corners": [
+            [
+              260.4884544695731,
+              254.08966565349547
+            ],
+            [
+              378.5115455304269,
+              254.08966565349547
+            ],
+            [
+              379.16440835743833,
+              224.74892440073754
+            ],
+            [
+              259.83559164256167,
+              224.74892440073754
+            ]
+          ],
+          "width_px": 118.02309106085374,
+          "height_px": 29.348003801488524
+        },
+        "correct_frames": 8,
+        "raw_read_frames": 0,
+        "stable_correct_frames": 6
+      },
+      {
+        "code": "P2-03",
+        "placement": {
+          "name": "low_front",
+          "center": [
+            0.15,
+            1.03,
+            0.14
+          ],
+          "camera_offset": [
+            0.0,
+            0.03
+          ]
+        },
+        "distance_x_m": 0.2,
+        "optical_range_m": 0.2022374841615668,
+        "bars_projection": {
+          "corners": [
+            [
+              260.4884544695731,
+              254.08966565349547
+            ],
+            [
+              378.5115455304269,
+              254.08966565349547
+            ],
+            [
+              379.16440835743833,
+              224.74892440073754
+            ],
+            [
+              259.83559164256167,
+              224.74892440073754
+            ]
+          ],
+          "width_px": 118.02309106085374,
+          "height_px": 29.348003801488524
+        },
+        "correct_frames": 8,
+        "raw_read_frames": 0,
+        "stable_correct_frames": 6
+      },
+      {
+        "code": "P2-04",
+        "placement": {
+          "name": "low_front",
+          "center": [
+            0.15,
+            1.03,
+            0.14
+          ],
+          "camera_offset": [
+            0.0,
+            0.03
+          ]
+        },
+        "distance_x_m": 0.2,
+        "optical_range_m": 0.2022374841615668,
+        "bars_projection": {
+          "corners": [
+            [
+              260.4884544695731,
+              254.08966565349547
+            ],
+            [
+              378.5115455304269,
+              254.08966565349547
+            ],
+            [
+              379.16440835743833,
+              224.74892440073754
+            ],
+            [
+              259.83559164256167,
+              224.74892440073754
+            ]
+          ],
+          "width_px": 118.02309106085374,
+          "height_px": 29.348003801488524
+        },
+        "correct_frames": 8,
+        "raw_read_frames": 0,
+        "stable_correct_frames": 6
+      }
+    ]
+  },
+  "signal": {
+    "frames": 570,
+    "raw_frame_errors": 0,
+    "scored_frame_errors": 0,
+    "sequence_match": true,
+    "sequence": "RGYRGYGRGRGG",
+    "recorder_error": null
+  },
+  "concurrent_barcode": {
+    "expected": "P2-02",
+    "frames": 570,
+    "correct_frames": 160,
+    "wrong_frames": 0,
+    "raw_read_frames": 0,
+    "stable_correct_frames": 144
+  },
+  "concurrent_by_signal_state": {
+    "OFF": {
+      "frames": 330,
+      "barcode_correct": 0
+    },
+    "R": {
+      "frames": 80,
+      "barcode_correct": 0
+    },
+    "Y": {
+      "frames": 40,
+      "barcode_correct": 40
+    },
+    "G": {
+      "frames": 120,
+      "barcode_correct": 120
+    }
+  },
+  "limitations": [
+    "Signal rule not validated against labeled fixed-exposure real video; two known real red UNKNOWN examples remain.",
+    "Low-resolution photographic pattern and resampling may limit barcode decoding; not a physical-distance limit.",
+    "Barcode mounting positions and camera poses are hypothetical; no arm reach test.",
+    "640x480 fx400 is simulation calibration; D435 real calibration/exposure differs.",
+    "PathTracing success does not resolve RaytracedLighting latency or certify real photometric thresholds.",
+    "Barcode decoding is intermittent in concurrent run; no stable continuous success claim."
+  ],
+  "tutor_modified": false,
+  "commit_created": false,
+  "pushed": false,
+  "audit_correction_20261110": {
+    "condition": "P2-01/low_front/x-distance0.20m",
+    "image_bytes": 972,
+    "image_rgb_range": [
+      0,
+      0
+    ],
+    "invalid_in_both_initial_runs": true,
+    "consequence": "Do not interpret original 48-condition counts as all-valid camera-image performance; rendering invalid, not a barcode decoding failure.",
+    "other_initial_frames": "Only saved PNGs were audited; no per-frame RGB-content checks existed in initial runs.",
+    "rerun": "20261110-barcode-field-gui-valid-rgb",
+    "method": "minimum4 maximum32 warmup renders until nonuniform RGB; fail if a scored RGB is uniform",
+    "first_guard_run": "20261110-barcode-field-gui-valid-rgb",
+    "first_guard_run_status": "invalid: still uniform RGB after 32 warmup renders; error.txt preserved",
+    "successful_rerun": "reports/20261110-barcode-field-gui-valid-rgb-02",
+    "successful_rerun_status": "completed; all 48 barcode conditions scored with nonuniform RGB checks",
+    "bootstrap": "4 unscored initial captures before first scored camera pose, all 4 initially uniform; no truth labels assigned to bootstrap"
+  },
+  "latest_valid_rgb_rerun": {
+    "output": "reports/20261110-barcode-field-gui-valid-rgb-02",
+    "conditions": 48,
+    "passed": 3,
+    "wrong_frames": 0,
+    "rgb_content_checked": true,
+    "passed_conditions": [
+      {
+        "code": "P2-02",
+        "placement": "low_front",
+        "distance_x_m": 0.2,
+        "correct_frames": 8
+      },
+      {
+        "code": "P2-03",
+        "placement": "low_front",
+        "distance_x_m": 0.2,
+        "correct_frames": 8
+      },
+      {
+        "code": "P2-04",
+        "placement": "low_front",
+        "distance_x_m": 0.2,
+        "correct_frames": 8
+      }
+    ],
+    "signal": {
+      "frames": 570,
+      "sequence_match": true,
+      "recorded_sequence": "RGYRGYGRGRGG",
+      "frame_errors": 0
+    },
+    "concurrent_barcode": {
+      "frames": 570,
+      "correct_frames": 160,
+      "wrong_frames": 0,
+      "raw_read_frames": 0,
+      "stable_correct_frames": 144
+    },
+    "cpu_tests_passed": 42
+  }
+}

@@ -1,7 +1,7 @@
 {
   "scope": "simulation_only_fixed_chassis_arm_observation",
   "r20d_archive": "~/Desktop/R20D.7z",
-  "perception_root": "~/git/lv2-nz2-project2/r12/experiments/barcode_signal",
+  "perception_root": "../barcode_signal",
   "arm_mount": {
     "xyz_m": null,
     "rpy_rad": null,
@@ -10,7 +10,14 @@
   "spawn_xyz_yaw_rad": null,
   "barcode_arm_q_rad": null,
   "tower_arm_waypoints_rad": null,
-  "barcode": {"code": "P2-02", "center_m": [0.08, 0.65, 0.45]},
+  "barcode": {
+    "code": "P2-02",
+    "center_m": [
+      0.08,
+      0.65,
+      0.45
+    ]
+  },
   "sequence": "RGYRGYGRGRGG",
   "renderer": "PathTracing",
   "dome": 400.0,

@@ -1,0 +1,10 @@
+{
+  "scripts/test_tower_signal_isaac.py": "9ca4cc3d940e3e84fc23220846523091b2f15abc0a2dabcec9e2a9708ded4994",
+  "scripts/barcode_support.py": "57e8bd7dce762e43f592bf7aad68bad3c648c2a7fbe12ded09b1d1937aaff926",
+  "scripts/barcode_sweep.py": "577b34dbb98e9283b665b8659faedaa05967f8452ffb689796e523bd0304db62",
+  "scripts/prepare_barcode_assets.py": "bdd3287f5778dfb1c05b639fb46434aaaed5c45f01fe0442285178e56687866f",
+  "src/arm_practice/tower_signal.py": "126d0b36898f29778759591524176ce9f8c43efbbd812065434a0fe755d78414",
+  "tests/test_barcode.py": "78799f74dbafaf648a24d81ca0e17fe31a3592307554dfd0fa27ae142f8f0385",
+  "references/barcodes-manifest.json": "0f98f63d76ff5607fdbc7e5598f5f6ce9e34edcd3c0551e091039b5f573faab8",
+  "requirements-barcode.txt": "5f9980f1ee1479aff43f7c0710135e2f73643c5a11f928a1496233e5dc4b0b45"
+}

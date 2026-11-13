@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/home/pa33/pa-course/.venv-isaacsim/bin/python",
+    "-B",
+    "scripts/test_mission_camera_isaac.py",
+    "--auto-start",
+    "--width",
+    "640",
+    "--height",
+    "480",
+    "--fps",
+    "30",
+    "--exposure",
+    "150",
+    "--wb",
+    "4600",
+    "--barcode-upscale",
+    "2",
+    "--out",
+    "reports/20261112-field640-full-01"
+  ],
+  "returncode": 0,
+  "wall_s": 31.580138683319092,
+  "pid": 1117661
+}

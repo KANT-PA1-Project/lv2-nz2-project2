@@ -1,0 +1,9 @@
+{
+  "src/arm_practice/tower_signal.py": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+  "scripts/test_tower_signal_isaac.py": "af2ec3274ce58b38a4ea65b5fcd05fab9b65246974870ac178e576dde64507c9",
+  "scripts/test_tower_signal_photos.py": "945af3e470f04d93666eb95b80beee51f628f951282ea2fd8881ac876de0f9dc",
+  "references/tower-photo-body-axis-seed33.json": "1716a12bd0ad9dac8271131d9e00942fa155227c4b7b102d86b72ac2f1bfda5e",
+  "tests/test_tower_signal.py": "8b4a886163f56b3eed20ecca1f7be73d1175a160e54f5711459ce64dff3625bd",
+  "tests/test_photo_diagnostic.py": "1e2b52a0b6ac45144b2f521552b597cd1fe001659992f587f884faee89af601e",
+  "tests/test_signal_improvements.py": "69d6eff17b1a120ca22ce1b32360ab4c9502ecbc9418ab82efa8b19ad3118259"
+}

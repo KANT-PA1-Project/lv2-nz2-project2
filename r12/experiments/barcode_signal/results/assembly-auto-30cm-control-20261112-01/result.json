@@ -1,0 +1,103 @@
+{
+  "status": "failed",
+  "scope": "simulation_only_assembly_urdf_arm_observation",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "robot_model": "assembly_puck_slots/assembly.urdf",
+  "driving_tested": false,
+  "learned_policy_tested": false,
+  "physical_robot_tested": false,
+  "arm_self_collision": false,
+  "trial_mode": "barcode_then_tower",
+  "barcode_tested": true,
+  "render": {
+    "spp": 32,
+    "denoiser": false
+  },
+  "signal_camera": "wrist",
+  "physics_solver": "PGS",
+  "ground_visual": {
+    "source": "/home/pa33/git/p2_perception/lv_module6_usd/scene.usda",
+    "hidden_visuals": [
+      "/World/defaultGroundPlane/Environment/Geometry"
+    ],
+    "physics": "unchanged_default_ground",
+    "material": "/World/Looks/Module6Carpet",
+    "visual": "/World/Module6CarpetVisual"
+  },
+  "gripper_visual": {
+    "links": [
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll",
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll/jaw_left",
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll/jaw_right"
+    ],
+    "diffuse_linear": [
+      0.01,
+      0.01,
+      0.01
+    ],
+    "roughness": 0.6,
+    "note": "Nominal black wrist/fingers, no geometry change"
+  },
+  "mast_camera": {
+    "pitch_down_deg": 60.0,
+    "frame": "mast_d435_color_optical_frame"
+  },
+  "camera": {
+    "width": 640,
+    "height": 480,
+    "fx_px": 608.2199579824833,
+    "hfov_deg": 55.5,
+    "parent": "wrist_roll",
+    "frame": "wrist_d435_color_optical_frame"
+  },
+  "dof_names": [
+    "arm_yaw_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_pitch_joint",
+    "wrist_roll_joint",
+    "jaw_left_joint",
+    "jaw_right_joint"
+  ],
+  "jaw_dofs": [
+    "jaw_left_joint",
+    "jaw_right_joint"
+  ],
+  "base_moved": true,
+  "signal_route": {
+    "mode": "fallback",
+    "camera": "wrist",
+    "fallback_used": true,
+    "ready_issued": false,
+    "events": [
+      {
+        "event": "prepare_started",
+        "t_s": 0.9354167154524475,
+        "camera": "mast"
+      },
+      {
+        "event": "fallback_requested",
+        "t_s": 2.935416819760576,
+        "reason": "searching; keep tower OFF",
+        "from_camera": "mast",
+        "to_camera": "wrist"
+      }
+    ]
+  },
+  "barcode_saved_before_motion": "P2-02",
+  "barcode_saved_at_s": 0.9354167154524475,
+  "tower_candidate_at_barcode_pose": [
+    570.0,
+    199.0,
+    640.0,
+    275.0
+  ],
+  "base_motion_start_s": 2.935416819760576,
+  "base_motion_duration_s": 4.041116219213972,
+  "fallback_used": true,
+  "fallback_reason": "searching; keep tower OFF",
+  "barcode_preserved_on_fallback": true,
+  "barcode_saved_before_fallback": "P2-02",
+  "error": "ValueError: CAD clearance <3cm (conservative AABB): /World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll/jaw_right/jaw_right_collision_0 / /World/Tower/Cap",
+  "process_exit_code": 1
+}

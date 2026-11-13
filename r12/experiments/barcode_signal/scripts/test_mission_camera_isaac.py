@@ -50,10 +50,18 @@ class VideoSink:
             self.log.close()
 
 
+def _repo_r12():
+    """이 파일이 저장소 r12/ 아래에 있으면 그 r12, 아니면 None (상대 경로 우선)."""
+    for parent in Path(__file__).resolve().parents:
+        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
+            return parent
+    return None
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out', type=Path, required=True)
-    p.add_argument('--r12-root', type=Path, default=Path('~/git/lv2-nz2-project2').expanduser() / 'r12')
+    p.add_argument('--r12-root', type=Path, default=_repo_r12() or Path('~/git/lv2-nz2-project2').expanduser() / 'r12')
     p.add_argument('--width', type=int, default=640)
     p.add_argument('--height', type=int, default=480)
     p.add_argument('--fps', type=int, default=30)

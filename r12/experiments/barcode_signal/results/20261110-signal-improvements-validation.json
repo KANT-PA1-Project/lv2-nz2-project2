@@ -1,0 +1,411 @@
+{
+  "date": "2026-11-10",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "barcode_scope": "excluded; dedicated barcode code/assets unchanged",
+  "source_sha256": {
+    "src/arm_practice/tower_signal.py": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+    "scripts/test_tower_signal_isaac.py": "af2ec3274ce58b38a4ea65b5fcd05fab9b65246974870ac178e576dde64507c9",
+    "scripts/test_tower_signal_photos.py": "945af3e470f04d93666eb95b80beee51f628f951282ea2fd8881ac876de0f9dc",
+    "references/tower-photo-body-axis-seed33.json": "1716a12bd0ad9dac8271131d9e00942fa155227c4b7b102d86b72ac2f1bfda5e",
+    "tests/test_tower_signal.py": "8b4a886163f56b3eed20ecca1f7be73d1175a160e54f5711459ce64dff3625bd",
+    "tests/test_photo_diagnostic.py": "1e2b52a0b6ac45144b2f521552b597cd1fe001659992f587f884faee89af601e",
+    "tests/test_signal_improvements.py": "69d6eff17b1a120ca22ce1b32360ab4c9502ecbc9418ab82efa8b19ad3118259"
+  },
+  "cpu_passed": 56,
+  "real_photos": {
+    "output": "reports/20261110-signal-improved-real-seed33",
+    "images": 48,
+    "visually_reviewed_eligible": 46,
+    "methods": {
+      "old_box_old_rule": {
+        "evaluated": 46,
+        "confusion": {
+          "R->R": 6,
+          "G->UNKNOWN": 1,
+          "OFF->Y": 2,
+          "OFF->OFF": 24,
+          "Y->Y": 4,
+          "OFF->R": 1,
+          "R->UNKNOWN": 7,
+          "G->G": 1
+        },
+        "correct": 35,
+        "unknown": 8,
+        "wrong_color": 3
+      },
+      "lens_roi_old_rule": {
+        "evaluated": 46,
+        "confusion": {
+          "R->R": 11,
+          "G->G": 2,
+          "OFF->Y": 3,
+          "OFF->OFF": 24,
+          "Y->Y": 4,
+          "R->UNKNOWN": 2
+        },
+        "correct": 41,
+        "unknown": 2,
+        "wrong_color": 3
+      },
+      "lens_roi_new_rule": {
+        "evaluated": 46,
+        "confusion": {
+          "R->R": 13,
+          "G->G": 2,
+          "OFF->Y": 3,
+          "OFF->OFF": 24,
+          "Y->Y": 4
+        },
+        "correct": 43,
+        "unknown": 0,
+        "wrong_color": 3
+      }
+    },
+    "off_reference_real_evaluated": 0,
+    "truth_review": {
+      "method": "assistant visual review of source contacts/full images, no candidate predictions exposed",
+      "independently_user_confirmed": false,
+      "diagnostic_only": true
+    },
+    "note": "Assistant provisional color truth; manually fitted lens-body ROIs; development set, not automatic detector or independent accuracy."
+  },
+  "gui_runs": [
+    {
+      "output": "reports/20261110-signal-improved-gui-start",
+      "renderer": "PathTracing",
+      "gui": true,
+      "conditions": 3,
+      "maze_prims": 214,
+      "results": [
+        {
+          "emissive": 0.5,
+          "view_index": 0,
+          "distance_m": 0.5286795060766747,
+          "frames": 570,
+          "raw_errors": 0,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "without_off_reference_errors": 0,
+          "prior_candidate_same_roi_errors": 0,
+          "off_reference_frames": 3,
+          "camera_world": [
+            [
+              2.6316545595557142e-17,
+              0.5000000000000001,
+              -0.8660254037844386,
+              0.6480880799123161
+            ],
+            [
+              1.0,
+              -6.123233995736769e-17,
+              -4.964778590024975e-18,
+              0.9249999999999999
+            ],
+            [
+              -5.551115123125785e-17,
+              -0.8660254037844386,
+              -0.5000000000000001,
+              0.8767
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "emissive": 1.0,
+          "view_index": 0,
+          "distance_m": 0.5286795060766747,
+          "frames": 570,
+          "raw_errors": 0,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "without_off_reference_errors": 0,
+          "prior_candidate_same_roi_errors": 0,
+          "off_reference_frames": 3,
+          "camera_world": [
+            [
+              2.6316545595557142e-17,
+              0.5000000000000001,
+              -0.8660254037844386,
+              0.6480880799123161
+            ],
+            [
+              1.0,
+              -6.123233995736769e-17,
+              -4.964778590024975e-18,
+              0.9249999999999999
+            ],
+            [
+              -5.551115123125785e-17,
+              -0.8660254037844386,
+              -0.5000000000000001,
+              0.8767
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "emissive": 2.0,
+          "view_index": 0,
+          "distance_m": 0.5286795060766747,
+          "frames": 570,
+          "raw_errors": 0,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "without_off_reference_errors": 0,
+          "prior_candidate_same_roi_errors": 0,
+          "off_reference_frames": 3,
+          "camera_world": [
+            [
+              2.6316545595557142e-17,
+              0.5000000000000001,
+              -0.8660254037844386,
+              0.6480880799123161
+            ],
+            [
+              1.0,
+              -6.123233995736769e-17,
+              -4.964778590024975e-18,
+              0.9249999999999999
+            ],
+            [
+              -5.551115123125785e-17,
+              -0.8660254037844386,
+              -0.5000000000000001,
+              0.8767
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "output": "reports/20261110-signal-improved-gui-random",
+      "renderer": "PathTracing",
+      "gui": true,
+      "conditions": 5,
+      "maze_prims": 214,
+      "results": [
+        {
+          "emissive": 1.0,
+          "view_index": 0,
+          "distance_m": 0.4033221280645557,
+          "frames": 570,
+          "raw_errors": 0,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "without_off_reference_errors": 0,
+          "prior_candidate_same_roi_errors": 0,
+          "off_reference_frames": 3,
+          "camera_world": [
+            [
+              -0.04615267448767464,
+              0.7733781142345308,
+              -0.6322627800690755,
+              0.5230894407593332
+            ],
+            [
+              0.9986673395515349,
+              0.021087388569919614,
+              -0.047104850667004323,
+              0.9363017616150887
+            ],
+            [
+              -0.023097089658532757,
+              -0.6335942033086656,
+              -0.7733207031904443,
+              0.6586466987323688
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "emissive": 1.0,
+          "view_index": 1,
+          "distance_m": 0.5112698877353139,
+          "frames": 570,
+          "raw_errors": 0,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "without_off_reference_errors": 0,
+          "prior_candidate_same_roi_errors": 0,
+          "off_reference_frames": 3,
+          "camera_world": [
+            [
+              0.028076893029690422,
+              0.31664306074090615,
+              -0.9481291368597582,
+              0.6312662830132623
+            ],
+            [
+              0.9920025009665409,
+              0.10793861149711037,
+              0.0654239575706307,
+              0.9480801149296783
+            ],
+            [
+              0.12305578472354371,
+              -0.9423833764624174,
+              -0.31108012731990164,
+              0.34445462078145556
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "emissive": 1.0,
+          "view_index": 2,
+          "distance_m": 0.46723528795907937,
+          "frames": 570,
+          "raw_errors": 0,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "without_off_reference_errors": 0,
+          "prior_candidate_same_roi_errors": 0,
+          "off_reference_frames": 3,
+          "camera_world": [
+            [
+              -0.07757123593520784,
+              0.24088255888978355,
+              -0.9674493765454574,
+              0.5787471207890029
+            ],
+            [
+              0.9968726693703702,
+              0.004056686374065737,
+              -0.07892036719412124,
+              1.038656040301853
+            ],
+            [
+              -0.015085901294810914,
+              -0.9705457929012791,
+              -0.2404439216610617,
+              0.3138891034925686
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "emissive": 1.0,
+          "view_index": 3,
+          "distance_m": 0.3291856649403465,
+          "frames": 570,
+          "raw_errors": 0,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "without_off_reference_errors": 0,
+          "prior_candidate_same_roi_errors": 0,
+          "off_reference_frames": 3,
+          "camera_world": [
+            [
+              -0.06612036728217596,
+              0.4453688023028884,
+              -0.8929024173815194,
+              0.44778053549658153
+            ],
+            [
+              0.988011968313402,
+              -0.09588479246319248,
+              -0.12098949146007408,
+              0.9803829319156716
+            ],
+            [
+              -0.1395007078833186,
+              -0.8901981445215337,
+              -0.43368976929421776,
+              0.34467294905683654
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "emissive": 1.0,
+          "view_index": 4,
+          "distance_m": 0.34640340508177064,
+          "frames": 570,
+          "raw_errors": 0,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "without_off_reference_errors": 0,
+          "prior_candidate_same_roi_errors": 0,
+          "off_reference_frames": 3,
+          "camera_world": [
+            [
+              -0.2631075923545605,
+              0.43059186875057726,
+              -0.8633452596796208,
+              0.46054883208529984
+            ],
+            [
+              0.9579882147537107,
+              0.22249608814213262,
+              -0.18098085853052684,
+              1.0134177579041037
+            ],
+            [
+              0.11416205691202591,
+              -0.8746920219867871,
+              -0.4710423456912142,
+              0.30488416146162656
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "gui_conditions": 8,
+  "gui_frames": 4560,
+  "gui_raw_errors": 0,
+  "gui_sequence_passed": 8,
+  "limitations": [
+    "Three real still photos judged OFF are still predicted Y without a matched OFF reference.",
+    "No same-pose/fixed-exposure confirmed OFF real calibration video available; no real OFF-reference benefit claimed.",
+    "Manual photo ROIs are annotations, not automatic detection or actual camera calibration.",
+    "Camera reach, physical mounting and D435 real intrinsics/exposure remain unverified.",
+    "PathTracing/zero pose error/one nominal sequence only; not RaytracedLighting or physical 12-event validation.",
+    "Projected-ROI prior candidate also passes simulator cases; these runs verify integration and regressions, not new-rule superiority."
+  ],
+  "tutor_modified": false,
+  "commit_created": false,
+  "pushed": false
+}

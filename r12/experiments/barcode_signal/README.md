@@ -7,7 +7,7 @@
 
 | 제외 | 이유 | 대체 |
 |---|---|---|
-| `reports/` | 실행 영상·raw 로그 | 원래 PC 보관 |
+| `reports/` 의 영상(mp4)·프레임 로그(jsonl)·화면 PNG·콘솔 로그·`imported/`·`sources/` | 실행 영상·raw 로그(약 780 MB) | 원래 PC 보관. **결과·감사·분석 스크립트는 `results/<실행 이름>/` 에 포함** (`result.json`, `audit.json`, `mission_summary.json`, `inputs.json`, `codex_audit_*.py` 등, B11~B16 은 `results/LINKS_B11-B16.txt` 의 원본 이름 폴더) |
 | `vendor/` (zxing-cpp 바이너리) | 설치 패키지 | `pip install -r requirements-barcode.txt` |
 | `validation_set_20261110/images/` (17 MB) | 사진 원본(LFS 미설정) | `labels.csv`·`labels.json` 의 `source`/`sha256` |
 | `.serena/`, `__pycache__/`, `.pytest_cache/` | 캐시 | - |

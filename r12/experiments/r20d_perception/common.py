@@ -58,7 +58,10 @@ def load_config(path):
         raise ValueError("camera_fps must be 20 or 30 (120 Hz physics divisor)")
     if cfg.get('physics_hz', 120) not in (120, 240, 480, 960, 1920):
         raise ValueError('Unsupported physics_hz')
-    cfg["perception_root"] = str(Path(cfg["perception_root"]).expanduser().resolve())
+    root = Path(cfg["perception_root"]).expanduser()
+    if not root.is_absolute():  # 상대 경로는 설정 파일 위치 기준 (예: "../barcode_signal")
+        root = Path(path).resolve().parent / root
+    cfg["perception_root"] = str(root.resolve())
     cfg["r20d_archive"] = str(Path(cfg["r20d_archive"]).expanduser().resolve())
     if cfg.get('floor_visual_usd'):
         cfg['floor_visual_usd'] = str(Path(cfg['floor_visual_usd']).expanduser().resolve())

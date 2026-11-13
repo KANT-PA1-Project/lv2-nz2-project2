@@ -1,7 +1,7 @@
 """tower_signal CPU 테스트.
 
 실행 (둘 중 하나)
-  - 단독: tutor 를 수정하지 않고 읽기만 함. R12_SRC 기본값 ~/git/lv2-nz2-project2/r12/src
+  - 단독: tutor 를 수정하지 않고 읽기만 함. R12_SRC 기본값 = 이 파일이 속한 저장소 r12/src (없으면 ~/git/lv2-nz2-project2/r12/src)
       cd "$HOME/git/lv2-nz2-project2/r12/experiments/barcode_signal" && python3 -m pytest tests/test_tower_signal.py -q
   - tutor 에 통합한 뒤: cd r12 && python3 -m pytest tests/test_tower_signal.py -q
 """
@@ -12,7 +12,16 @@ import unittest
 from pathlib import Path
 import numpy as np
 
-_R12_SRC = Path(os.environ.get('R12_SRC', Path.home() / 'git/lv2-nz2-project2/r12/src')).expanduser()
+def _repo_r12():
+    """이 파일이 저장소 r12/ 아래에 있으면 그 r12, 아니면 None (상대 경로 우선)."""
+    for parent in Path(__file__).resolve().parents:
+        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
+            return parent
+    return None
+
+
+_R12 = _repo_r12()
+_R12_SRC = Path(os.environ.get('R12_SRC', (_R12 / 'src') if _R12 else Path.home() / 'git/lv2-nz2-project2/r12/src')).expanduser()
 if (_R12_SRC / 'arm_practice/signal_observation.py').is_file():
     sys.path.insert(0, str(_R12_SRC))          # signal_observation 등 tutor 모듈은 읽기만 함
 try:

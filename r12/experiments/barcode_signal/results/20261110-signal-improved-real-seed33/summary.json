@@ -1,0 +1,87 @@
+{
+  "scope": "Development-photo diagnostic with assistant provisional truth and visually fitted lens ROIs; not held-out or user-confirmed accuracy.",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "seed": 33,
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_unique_enabled": true,
+    "white_unique_min": 0.3,
+    "white_other_max": 0.1,
+    "delta_v": 40.0,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "images": 48,
+  "truth_review": {
+    "method": "assistant visual review of source contacts/full images, no candidate predictions exposed",
+    "independently_user_confirmed": false,
+    "diagnostic_only": true
+  },
+  "methods": {
+    "old_box_old_rule": {
+      "evaluated": 46,
+      "confusion": {
+        "R->R": 6,
+        "G->UNKNOWN": 1,
+        "OFF->Y": 2,
+        "OFF->OFF": 24,
+        "Y->Y": 4,
+        "OFF->R": 1,
+        "R->UNKNOWN": 7,
+        "G->G": 1
+      },
+      "correct": 35,
+      "unknown": 8,
+      "wrong_color": 3
+    },
+    "lens_roi_old_rule": {
+      "evaluated": 46,
+      "confusion": {
+        "R->R": 11,
+        "G->G": 2,
+        "OFF->Y": 3,
+        "OFF->OFF": 24,
+        "Y->Y": 4,
+        "R->UNKNOWN": 2
+      },
+      "correct": 41,
+      "unknown": 2,
+      "wrong_color": 3
+    },
+    "lens_roi_new_rule": {
+      "evaluated": 46,
+      "confusion": {
+        "R->R": 13,
+        "G->G": 2,
+        "OFF->Y": 3,
+        "OFF->OFF": 24,
+        "Y->Y": 4
+      },
+      "correct": 43,
+      "unknown": 0,
+      "wrong_color": 3
+    }
+  },
+  "off_reference_real_evaluated": 0,
+  "off_reference_status": "Implemented; no pose/exposure-matched confirmed OFF captures available for these photos",
+  "limitations": [
+    "The tower_light dataset class provides location only, not R/Y/G/OFF truth.",
+    "Folder on/off names are not per-frame electrical-state truth.",
+    "Assistant visual review is provisional; no controller timing/state log or independent human confirmation.",
+    "Label boxes may include cap/base and are not calibrated three-lens boundaries.",
+    "Small Y/G sample counts, sequential captures correlated; not a general accuracy estimate.",
+    "Still images do not prove 12-event timing or transition behavior.",
+    "Manual body ROIs are diagnostic annotations, not an automatic detector or a solved camera calibration."
+  ],
+  "signal_source_sha256": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+  "manifest_sha256": "3973dd41112c644bbff426e19389757b00ebac5d81ed71355b54cd90990ed59a",
+  "roi_source_sha256": "1716a12bd0ad9dac8271131d9e00942fa155227c4b7b102d86b72ac2f1bfda5e"
+}

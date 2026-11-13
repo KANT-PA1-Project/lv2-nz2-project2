@@ -1,0 +1,584 @@
+{
+  "date": "2026-11-10",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "gui": true,
+  "renderer": "PathTracing",
+  "barcode": false,
+  "maze": true,
+  "seed": 34,
+  "sequence": "RRYYGGRGYRGY",
+  "source_hashes_unchanged": true,
+  "source_sha256": {
+    "src/arm_practice/tower_signal.py": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+    "scripts/test_tower_signal_isaac.py": "af2ec3274ce58b38a4ea65b5fcd05fab9b65246974870ac178e576dde64507c9",
+    "scripts/test_tower_signal_photos.py": "69d8f34304880a3f671ccd183cbee19c91a15f01ce0e1ca9349e9eb411766a4b"
+  },
+  "results": [
+    {
+      "pose_error_cm": 0,
+      "conditions": 3,
+      "sequence_passed": 3,
+      "raw_frames": 1710,
+      "raw_errors": 0,
+      "summary": "reports/20261110-signal-gui-seed34-error00cm/summary.json",
+      "cases": [
+        {
+          "view": 0,
+          "raw_frames": 570,
+          "raw_errors": 0,
+          "raw_confusion_errors": {},
+          "scored_frames": 498,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "recorded_sequence": "RRYYGGRGYRGY",
+          "recorder_error": null,
+          "unknown_reasons": {},
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          }
+        },
+        {
+          "view": 1,
+          "raw_frames": 570,
+          "raw_errors": 0,
+          "raw_confusion_errors": {},
+          "scored_frames": 498,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "recorded_sequence": "RRYYGGRGYRGY",
+          "recorder_error": null,
+          "unknown_reasons": {},
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          }
+        },
+        {
+          "view": 2,
+          "raw_frames": 570,
+          "raw_errors": 0,
+          "raw_confusion_errors": {},
+          "scored_frames": 498,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "recorded_sequence": "RRYYGGRGYRGY",
+          "recorder_error": null,
+          "unknown_reasons": {},
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          }
+        }
+      ]
+    },
+    {
+      "pose_error_cm": 1,
+      "conditions": 2,
+      "sequence_passed": 1,
+      "raw_frames": 1140,
+      "raw_errors": 160,
+      "summary": "reports/20261110-signal-gui-seed34-error01cm/summary.json",
+      "cases": [
+        {
+          "view": 0,
+          "raw_frames": 570,
+          "raw_errors": 0,
+          "raw_confusion_errors": {},
+          "scored_frames": 498,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "recorded_sequence": "RRYYGGRGYRGY",
+          "recorder_error": null,
+          "unknown_reasons": {},
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          }
+        },
+        {
+          "view": 1,
+          "raw_frames": 570,
+          "raw_errors": 160,
+          "raw_confusion_errors": {
+            "R->UNKNOWN": 80,
+            "Y->UNKNOWN": 80
+          },
+          "scored_frames": 498,
+          "scored_errors": 136,
+          "sequence_match": false,
+          "recorded_sequence": "",
+          "recorder_error": "Unknown signal color",
+          "unknown_reasons": {
+            "multiple_lit:RY": 80,
+            "multiple_lit:YG": 80
+          },
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 362,
+            "frame_accuracy": 0.2730923694779116,
+            "first_wrong_frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "confusion": {
+              "OFF->R": 294,
+              "R->R": 68,
+              "Y->UNKNOWN": 68,
+              "G->G": 68
+            },
+            "recorder_complete": false,
+            "recorder_error": null,
+            "recorded_sequence": "",
+            "sequence_match": false
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 362,
+            "frame_accuracy": 0.2730923694779116,
+            "first_wrong_frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "confusion": {
+              "OFF->R": 294,
+              "R->R": 68,
+              "Y->UNKNOWN": 68,
+              "G->G": 68
+            },
+            "recorder_complete": false,
+            "recorder_error": null,
+            "recorded_sequence": "",
+            "sequence_match": false
+          }
+        }
+      ]
+    },
+    {
+      "pose_error_cm": 2,
+      "conditions": 2,
+      "sequence_passed": 1,
+      "raw_frames": 1140,
+      "raw_errors": 160,
+      "summary": "reports/20261110-signal-gui-seed34-error02cm/summary.json",
+      "cases": [
+        {
+          "view": 0,
+          "raw_frames": 570,
+          "raw_errors": 0,
+          "raw_confusion_errors": {},
+          "scored_frames": 498,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "recorded_sequence": "RRYYGGRGYRGY",
+          "recorder_error": null,
+          "unknown_reasons": {},
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 0,
+            "frame_accuracy": 1.0,
+            "first_wrong_frames": [],
+            "confusion": {
+              "OFF->OFF": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": true,
+            "recorder_error": null,
+            "recorded_sequence": "RRYYGGRGYRGY",
+            "sequence_match": true
+          }
+        },
+        {
+          "view": 1,
+          "raw_frames": 570,
+          "raw_errors": 160,
+          "raw_confusion_errors": {
+            "R->Y": 80,
+            "Y->G": 80
+          },
+          "scored_frames": 498,
+          "scored_errors": 136,
+          "sequence_match": false,
+          "recorded_sequence": "YYGGGGYGGYGG",
+          "recorder_error": "Invalid signal counts",
+          "unknown_reasons": {},
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 498,
+            "frame_accuracy": 0.0,
+            "first_wrong_frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "confusion": {
+              "OFF->R": 294,
+              "R->UNKNOWN": 68,
+              "Y->UNKNOWN": 68,
+              "G->R": 68
+            },
+            "recorder_complete": false,
+            "recorder_error": null,
+            "recorded_sequence": "",
+            "sequence_match": false
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 498,
+            "frame_accuracy": 0.0,
+            "first_wrong_frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "confusion": {
+              "OFF->R": 294,
+              "R->UNKNOWN": 68,
+              "Y->UNKNOWN": 68,
+              "G->R": 68
+            },
+            "recorder_complete": false,
+            "recorder_error": null,
+            "recorded_sequence": "",
+            "sequence_match": false
+          }
+        }
+      ]
+    },
+    {
+      "pose_error_cm": 3,
+      "conditions": 2,
+      "sequence_passed": 1,
+      "raw_frames": 1140,
+      "raw_errors": 240,
+      "summary": "reports/20261110-signal-gui-seed34-error03cm/summary.json",
+      "cases": [
+        {
+          "view": 0,
+          "raw_frames": 570,
+          "raw_errors": 0,
+          "raw_confusion_errors": {},
+          "scored_frames": 498,
+          "scored_errors": 0,
+          "sequence_match": true,
+          "recorded_sequence": "RRYYGGRGYRGY",
+          "recorder_error": null,
+          "unknown_reasons": {},
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 294,
+            "frame_accuracy": 0.40963855421686746,
+            "first_wrong_frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "confusion": {
+              "OFF->R": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": false,
+            "recorder_error": null,
+            "recorded_sequence": "",
+            "sequence_match": false
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 294,
+            "frame_accuracy": 0.40963855421686746,
+            "first_wrong_frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "confusion": {
+              "OFF->R": 294,
+              "R->R": 68,
+              "Y->Y": 68,
+              "G->G": 68
+            },
+            "recorder_complete": false,
+            "recorder_error": null,
+            "recorded_sequence": "",
+            "sequence_match": false
+          }
+        },
+        {
+          "view": 1,
+          "raw_frames": 570,
+          "raw_errors": 240,
+          "raw_confusion_errors": {
+            "R->Y": 80,
+            "Y->G": 80,
+            "G->OFF": 80
+          },
+          "scored_frames": 498,
+          "scored_errors": 204,
+          "sequence_match": false,
+          "recorded_sequence": "YYGG",
+          "recorder_error": "Fewer than 12 flashes",
+          "unknown_reasons": {},
+          "without_reference": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 498,
+            "frame_accuracy": 0.0,
+            "first_wrong_frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "confusion": {
+              "OFF->R": 294,
+              "R->UNKNOWN": 68,
+              "Y->UNKNOWN": 68,
+              "G->R": 68
+            },
+            "recorder_complete": false,
+            "recorder_error": null,
+            "recorded_sequence": "",
+            "sequence_match": false
+          },
+          "prior_candidate_same_rois": {
+            "frames": 570,
+            "frames_scored": 498,
+            "frame_errors": 498,
+            "frame_accuracy": 0.0,
+            "first_wrong_frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "confusion": {
+              "OFF->R": 294,
+              "R->UNKNOWN": 68,
+              "Y->UNKNOWN": 68,
+              "G->R": 68
+            },
+            "recorder_complete": false,
+            "recorder_error": null,
+            "recorded_sequence": "",
+            "sequence_match": false
+          }
+        }
+      ]
+    }
+  ],
+  "total_conditions": 9,
+  "total_raw_frames": 5130,
+  "sequence_passed": 6,
+  "limits": [
+    "Simulation-only; no real color/timed-video accuracy claim.",
+    "Same first two camera views at each error; zero-error adds third view.",
+    "Horizontal pose error direction is seeded; no general metric tolerance proven.",
+    "Three commanded-OFF reference frames per fixed view; no real OFF reference.",
+    "Known geometry projection; camera reachability/control/ROS not tested."
+  ],
+  "conclusion": "Accurate projection passes; one steep view fails from 1cm and confidently swaps tiers at 2-3cm. Need image-based lens/body alignment and registration rejection before field use, without weakening color ambiguity gates."
+}
