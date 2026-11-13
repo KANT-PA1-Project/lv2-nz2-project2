@@ -1235,6 +1235,9 @@ void rejectDriveCommand(const char* why, int16_t module) {
   Serial.println('}');
 }
 
+void startMelody(const uint16_t* hz, const uint16_t* ms, uint8_t n);
+void abortSelfTest(const char* why);
+
 void handleDriveCommand(char* args) {
   const uint8_t N = 1 + 2 * MODULE_COUNT;
   float v[N];
@@ -1371,7 +1374,7 @@ void handleParam(char* args) {
   }
   
   // ========================================================
-  } else if (!strcmp(key, "temp") && n == 3) {
+  else if (!strcmp(key, "temp") && n == 3) {
     ok = v[0] > 0.0f && v[0] < v[1] && v[1] < v[2] && v[2] <= HARD_TEMP_ABORT_MAX_C;
     if (ok) { prm.temp_warn_c = v[0]; prm.temp_derate_c = v[1]; prm.temp_abort_c = v[2]; }
   } else if (!strcmp(key, "batt") && n == 3) {

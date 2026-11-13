@@ -1235,6 +1235,9 @@ void rejectDriveCommand(const char* why, int16_t module) {
   Serial.println('}');
 }
 
+void startMelody(const uint16_t* hz, const uint16_t* ms, uint8_t n);
+void abortSelfTest(const char* why);
+
 void handleDriveCommand(char* args) {
   const uint8_t N = 1 + 2 * MODULE_COUNT;
   float v[N];
