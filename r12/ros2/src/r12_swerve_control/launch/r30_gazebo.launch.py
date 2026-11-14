@@ -54,7 +54,8 @@ def _gz_control_block():
             f'<gazebo><plugin filename="gz-sim-joint-position-controller-system" '
             f'name="gz::sim::systems::JointPositionController"><joint_name>{j}</joint_name>'
             f'<topic>/swerve/sim/{j}/cmd_pos</topic><p_gain>10.0</p_gain><i_gain>0.0</i_gain>'
-            f'<d_gain>0.0</d_gain><cmd_max>6.0</cmd_max><cmd_min>-6.0</cmd_min>'
+            # cmd_max ≥ 실물 조향속 7.9(STEER_PROFILE_VEL 330). sim 이 real 보다 느리면 안 됨.
+            f'<d_gain>0.0</d_gain><cmd_max>8.0</cmd_max><cmd_min>-8.0</cmd_min>'
             f'<use_velocity_commands>true</use_velocity_commands></plugin></gazebo>')
     for j in WHEEL:
         out.append(
