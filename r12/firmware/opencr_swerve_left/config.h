@@ -159,11 +159,7 @@ constexpr int  LED_HEARTBEAT_PIN = BDPIN_LED_STATUS;  // STATUS LED (부트로�
 constexpr bool LED_ACTIVE_LOW    = true;              // [벤치 확인]
 constexpr int  BUZZER_PIN        = BDPIN_BUZZER;      // tone()/noTone()
 
-// 연결 폴트(짧은 비프 1/2/3회) 전용 패턴. 다른 폴트와 소리 성격을 다르게 한다.
-constexpr uint16_t BEEP_SHORT_HZ    = 2000;
-constexpr uint32_t BEEP_SHORT_ON_MS = 120;
-constexpr uint32_t BEEP_SHORT_GAP_MS = 150;
-constexpr uint32_t BEEP_GROUP_PAUSE_MS = 1000;
+// 모터 연결 폴트는 소리 없이 빨간 LED로만 표시한다.
 // 치명(과열·저전압): 끊김 없이 빠른 연속음
 constexpr uint16_t BEEP_CRIT_HZ     = 3000;
 constexpr uint32_t BEEP_CRIT_ON_MS  = 80;
@@ -172,7 +168,7 @@ constexpr uint32_t BEEP_CRIT_OFF_MS = 80;
 constexpr uint16_t BEEP_LONG_HZ     = 1200;
 constexpr uint32_t BEEP_LONG_ON_MS  = 600;
 constexpr uint32_t BEEP_LONG_PERIOD_MS = 2000;
-// 배터리 경고(≤ batt_warn): TurtleBot3 처럼 주기적 단비프, 낮은 음으로 연결 폴트와 구분
+// 배터리 경고(≤ batt_warn): TurtleBot3 처럼 주기적 단비프, 낮은 음으로 다른 경고와 구분
 constexpr uint16_t BEEP_BATT_HZ     = 600;
 constexpr uint32_t BEEP_BATT_ON_MS  = 60;
 constexpr uint32_t BEEP_BATT_PERIOD_MS = 10000;

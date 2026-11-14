@@ -262,6 +262,7 @@ const uint16_t* mel_hz = nullptr;
 const uint16_t* mel_ms = nullptr;
 uint8_t  mel_n  = 0;
 uint32_t mel_t0 = 0;
+bool     startup_jingle_pending = false;
 
 // 버튼 (0 = 자가진단 SW1, 1 = 중단 SW2)
 const int BTN_PINS[2] = {BTN_SELFTEST_PIN, BTN_STOP_PIN};
@@ -1345,6 +1346,7 @@ void handleDriveCommand(char* args) {
   
   if (!linked) {
     linked = true;  
+    startup_jingle_pending = false;
     startMelody(LINK_TICK_HZ, LINK_TICK_MS, LINK_TICK_N);
     Serial.print("{\"evt\":\"bridge_linked\",\"t\":");
     Serial.print(last_cmd_ms);
@@ -1579,7 +1581,7 @@ uint8_t connectionCode() {
 }
 
 bool selfTestArmed() {
-  if (st_phase != ST_IDLE || faults != 0 || rcv_phase != RCV_IDLE || motionAllowed()) return false;
+  if (!linked || st_phase != ST_IDLE || faults != 0 || rcv_phase != RCV_IDLE || motionAllowed()) return false;
   for (uint8_t k = 0; k < N_ACTIVE; k++) {
     if (!motor_ok[k] || missing[k]) return false;
   }
@@ -1587,8 +1589,8 @@ bool selfTestArmed() {
 }
 
 // 우선순위: 자가진단 > 치명 > 연결 폴트 > 기타 폴트(링크 끊김 포함) > 경고(앰버) > READY(초록).
-// 파랑: ② LINKED(브릿지 프레임 수신 중) 점멸, ① READY 만이면 꺼짐.
-// 징글·틱 멜로디가 재생 중이면 버저는 멜로디가 우선.
+// 파랑: 연결 대기 중 느리게 점멸, 연결 중 빠르게 점멸. 모터 미검출은 빨강으로 표시한다.
+// 연결 대기 중에는 POST 성공 징글 외 멜로디와 버저를 끈다.
 void updateIndicators(uint32_t now) {
   ledWrite(LED_HEARTBEAT_PIN, (now / 500) % 2 == 0);  // 1 Hz 하트비트. 멈추면 MCU 정지
 
@@ -1615,11 +1617,7 @@ void updateIndicators(uint32_t now) {
       red = on;
       hz  = on ? BEEP_CRIT_HZ : 0;
     } else if (conn) {
-      const uint32_t slot = BEEP_SHORT_ON_MS + BEEP_SHORT_GAP_MS;
-      const uint32_t t = now % (conn * slot + BEEP_GROUP_PAUSE_MS);
-      const bool on = (t / slot) < conn && (t % slot) < BEEP_SHORT_ON_MS;
-      red = on;
-      hz  = on ? BEEP_SHORT_HZ : 0;
+      red = true;
     } else if (other) {
       red = (now / 250) % 2;
       hz  = (now % BEEP_LONG_PERIOD_MS) < BEEP_LONG_ON_MS ? BEEP_LONG_HZ : 0;
@@ -1637,8 +1635,34 @@ void updateIndicators(uint32_t now) {
     if (linked) blue = (now / 100) % 2;
   }
 
-  uint16_t mel;
-  if (melodyNow(now, &mel)) hz = mel;
+  if (!linked) {
+    const bool motor_missing = connectionCode() != 0 || (warns & WRN_INIT);
+    if (motor_missing) {
+      red = true;
+      green = false;
+      blue = false;
+    } else {
+      blue = (now / 500) % 2 == 0;
+    }
+    if (!motor_missing && faults == 0 && warns == 0) {
+      red = false;
+      green = false;
+    }
+    if (startup_jingle_pending) {
+      uint16_t mel;
+      if (melodyNow(now, &mel)) hz = mel;
+      else {
+        startup_jingle_pending = false;
+        hz = 0;
+      }
+    } else {
+      mel_n = 0;
+      hz = 0;
+    }
+  } else {
+    uint16_t mel;
+    if (melodyNow(now, &mel)) hz = mel;
+  }
 
   ledWrite(LED_RED_PIN, red);
   ledWrite(LED_GREEN_PIN, green);
@@ -1688,7 +1712,10 @@ void runPost() {
   }
   Serial.print("],\"ok\":"); Serial.print(ok ? 1 : 0);
   Serial.println("}}");
-  if (ok) startMelody(READY_JINGLE_HZ, READY_JINGLE_MS, READY_JINGLE_N);  // ① READY
+  if (ok) {
+    startup_jingle_pending = true;
+    startMelody(READY_JINGLE_HZ, READY_JINGLE_MS, READY_JINGLE_N);  // ① READY
+  }
 }
 
 // ---------------------------------------------------------------
@@ -2044,14 +2071,20 @@ void loop() {
     Serial.println('}');
   }
 
-  // 링크 끊김: 브릿지 프레임이 watchdog_ms 끊기면 파랑 off + 긴 삐. 다시 오면 ② 로 복귀.
+  // 링크 끊김: 브릿지 프레임이 watchdog_ms 끊기면 토크를 끄고 연결 대기 상태로 전환한다.
   // (E 는 wd_tripped 를 세워 두므로 링크 판단은 따로 한다.)
   if (linked && now - last_cmd_ms > prm.watchdog_ms) {
     linked   = false;
     wd_alarm = true;
+    startup_jingle_pending = false;
+    if (st_phase != ST_IDLE) abortSelfTest("host_disconnect");
     Serial.print("{\"evt\":\"link_lost\",\"t\":");
     Serial.print(now);
     Serial.println('}');
+  }
+  if (!linked && torque_on) {
+    disableTorque();
+    is_sleeping = false;
   }
 
   // IMU 무응답: 서 있을 때만 다시 초기화한다(begin 은 자이로 보정으로 최대 5 s 멈춘다).
