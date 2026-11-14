@@ -248,6 +248,7 @@ float    bv_last     = 0.0f;
 uint8_t  bv_low_cnt  = 0;
 
 uint32_t t_ctrl = 0, t_fb = 0, t_imu = 0, t_err = 0, t_batt = 0;
+uint32_t t_imu_retry = 0;  // IMU 재초기화 시도 시각
 
 // 상태 표시
 bool     imu_ok    = false;
@@ -654,6 +655,7 @@ void probeMissing() {
 
     motor_ok[k]  = true;
     missing[k]   = false;
+    if (torque_on) needs_torque[k] = true;  // 재설정이 토크를 껐다 → 다음 복구 판단에서 다시 켠다
     comm_fail[k] = 0;
     rebuildSyncReadLists();
     Serial.print("{\"evt\":\"motor_found\",\"id\":");
@@ -708,6 +710,7 @@ void enableTorque() {
   // configureMotor 가 토크를 끄므로 실패 경로에서도 상태가 맞게 먼저 내린다.
   torque_on = false;
   motion_en = false;
+  is_sleeping = false;
   cancelRecovery();
 
   // 하드웨어 에러는 재부팅으로만 풀린다(e-manual). 전원을 다시 넣지 않아도 된다.
@@ -876,9 +879,12 @@ void recoveryTick(uint32_t now) {
     if (rcv_attempts >= prm.hw_retry_max) {
       if (!rcv_gave_up) {
         rcv_gave_up = true;
-        printRecoverEvent("hw_recover_giveup");  // 이제 E 로만 복구
+        printRecoverEvent("hw_recover_giveup");  // 바로 포기하지 않고 아주 느리게 다시 시도한다
       }
-      return;
+      // E 를 보내면 즉시 복구된다. 그 전에도 이 간격으로 한 번씩 더 시도한다.
+      if (now - last_hwerr_ms < HW_GIVEUP_RETRY_MS) return;
+      rcv_attempts = 0;
+      rcv_gave_up  = false;
     }
     if (now - last_hwerr_ms < prm.hw_retry_delay_ms) return;  // 쿨다운
     if (bv_last <= prm.batt_stop_v) return;  // 전압이 돌아오기 전에 재부팅하면 다시 걸린다
@@ -945,6 +951,77 @@ void recoveryTick(uint32_t now) {
   rcv_phase     = RCV_IDLE;
   // 다른 래치 고장이 남아 있거나 D 상태면 토크는 E 때 켠다.
   if (torque_on && faults == 0) restoreTorque();
+}
+
+// 래치 고장 자동 해제 타이머. 조건이 AUTO_CLEAR_HOLD_MS 동안 이어져야 푼다.
+// (Arduino 가 함수 원형을 파일 맨 위에 만들므로 구조체 대신 배열을 쓴다.)
+enum AutoClearId : uint8_t { AC_TEMP, AC_OC, AC_BATT, AC_COMM, AC_COUNT };
+uint32_t ac_t0[AC_COUNT]    = {0, 0, 0, 0};
+bool     ac_armed[AC_COUNT] = {false, false, false, false};
+
+// ok 가 계속 true 이면 AUTO_CLEAR_HOLD_MS 뒤 true. 한 번이라도 깨지면 처음부터 다시 센다.
+bool autoClearHeld(uint32_t now, uint8_t id, bool ok) {
+  if (!ok) {
+    ac_t0[id]    = 0;
+    ac_armed[id] = false;
+    return false;
+  }
+  if (!ac_armed[id]) {
+    ac_t0[id]    = now;
+    ac_armed[id] = true;
+    return false;
+  }
+  return now - ac_t0[id] >= AUTO_CLEAR_HOLD_MS;
+}
+
+// 원인이 사라진 래치 고장을 스스로 푼다(E 없이 복구). 큰 문제(비상정지·자가진단 불합격)는
+// 사람이 확인해야 하므로 건드리지 않는다. 과열·과전류로 꺼 둔 모터의 토크도 다시 켠다.
+void autoClearFaults(uint32_t now) {
+  // 온도: 이번 주기에 응답이 확인된 모터만 본다(미검출·재부팅 중은 판단 보류).
+  bool temp_known = true;
+  bool any_hot    = false;
+  bool any_lost   = false;
+  bool any_oc     = false;
+  for (uint8_t k = 0; k < N_ACTIVE; k++) {
+    if (!motor_ok[k] || missing[k]) any_lost = true;
+    if (oc_active[k]) any_oc = true;
+    if (!motor_ok[k] || missing[k] || rcv_busy[k] || !fresh[k]) { temp_known = false; continue; }
+    if (fb[k].temperature > prm.temp_derate_c - AUTO_TEMP_CLEAR_HYST_C) any_hot = true;
+  }
+
+  uint16_t clear_bits = 0;
+  if (autoClearHeld(now, AC_TEMP, (faults & FLT_OVERTEMP) && temp_known && !any_hot))
+    clear_bits |= FLT_OVERTEMP;
+  if (autoClearHeld(now, AC_OC, (faults & FLT_OVERCURRENT) && !any_oc && !any_lost))
+    clear_bits |= FLT_OVERCURRENT;
+  if (autoClearHeld(now, AC_BATT, (faults & FLT_UNDERVOLT) && bv_ema > prm.batt_stop_v + AUTO_BATT_CLEAR_HYST_V))
+    clear_bits |= FLT_UNDERVOLT;
+  if (autoClearHeld(now, AC_COMM, (faults & FLT_COMM) && !any_lost))
+    clear_bits |= FLT_COMM;
+  if (clear_bits == 0) return;
+
+  faults &= ~clear_bits;
+  Serial.print("{\"evt\":\"fault_clear\",\"f\":[");
+  bool first = true;
+  for (uint16_t bit = 1; bit <= FLT_SELFTEST; bit <<= 1) {
+    if (!(clear_bits & bit)) continue;
+    if (!first) Serial.print(',');
+    Serial.print('"');
+    Serial.print(faultName(bit));
+    Serial.print('"');
+    first = false;
+  }
+  Serial.print("],\"t\":");
+  Serial.print(now);
+  Serial.println('}');
+
+  if (!torque_on) return;
+  for (uint8_t k = 0; k < N_ACTIVE; k++) {
+    if (!fault_off[k]) continue;
+    fault_off[k]    = false;
+    needs_torque[k] = true;
+  }
+  restoreTorque();  // 구동 0, 조향은 붙잡고 있던 목표각으로 다시 켠다
 }
 
 void updateSafety(uint32_t now) {
@@ -1881,6 +1958,15 @@ void updateButtons(uint32_t now) {
   }
 }
 
+// 바퀴가 거의 멈춰 있는지. IMU 재보정은 정지 상태에서만 의미가 있다.
+bool wheelsStill() {
+  for (uint8_t m = 0; m < MODULE_COUNT; m++) {
+    if (!fresh[m]) continue;
+    if (fabsf(motorRpmToWheelRads(fb[m].velocity * RPM_PER_LSB)) > 0.2f) return false;
+  }
+  return true;
+}
+
 // ---------------------------------------------------------------
 // Arduino
 // ---------------------------------------------------------------
@@ -1921,13 +2007,15 @@ void setup() {
   const uint32_t now = millis();
   last_cmd_ms = now;
   t_ctrl = t_fb = t_imu = t_err = t_batt = t_probe = now;
+  t_imu_retry = now;
   sendConfig(false);
   sendIdentity();  // 부팅 직후 한 번. 호스트가 늦게 열면 'I' 로 다시 받는다.
 }
 
 void loop() {
-  readRemote();  
+  readRemote();  // 비상정지가 가장 먼저
   readHostSerial();
+  // IMU 사용 설정이 켜져 있을 때만 센서 데이터를 새로 읽는다.
   if (IMU_ENABLE) imu.update();
 
   const uint32_t now = millis();
@@ -1940,8 +2028,10 @@ void loop() {
     Serial.println('}');
   }
 
-  // [추가] 자동 휴면 (Auto-Sleep): 토크가 켜져 있고, prm.idle_timeout_ms 동안 C 명령이 없으면 토크 자동 차단
-  if (torque_on && !is_sleeping && (now - last_cmd_ms > prm.idle_timeout_ms)) {
+  // 자동 휴면(전력 절약): 호스트가 idle_timeout_ms 동안 C 를 보내지 않으면 토크를 끈다.
+  // 자가진단 중에는 호스트가 C 를 보내지 않으므로 제외한다(토크가 풀리면 조향을 못 잡는다).
+  if (torque_on && !is_sleeping && st_phase == ST_IDLE &&
+      now - last_cmd_ms > prm.idle_timeout_ms) {
     disableTorque();
     is_sleeping = true;
     Serial.print("{\"evt\":\"auto_sleep\",\"t\":");
@@ -1949,7 +2039,8 @@ void loop() {
     Serial.println('}');
   }
 
-  // 링크 끊김 로직...
+  // 링크 끊김: 브릿지 프레임이 watchdog_ms 끊기면 파랑 off + 긴 삐. 다시 오면 ② 로 복귀.
+  // (E 는 wd_tripped 를 세워 두므로 링크 판단은 따로 한다.)
   if (linked && now - last_cmd_ms > prm.watchdog_ms) {
     linked   = false;
     wd_alarm = true;
@@ -1958,10 +2049,51 @@ void loop() {
     Serial.println('}');
   }
 
-  // ... (이하 기존 제어 주기 루프 동일)
+  // IMU 무응답: 서 있을 때만 다시 초기화한다(begin 은 자이로 보정으로 최대 5 s 멈춘다).
+  imu_ok = IMU_ENABLE && imu.bConnected;
+  if (IMU_ENABLE && !imu_ok && !motionAllowed() && wheelsStill() &&
+      now - t_imu_retry >= IMU_RETRY_MS) {
+    t_imu_retry = now;
+    imu.begin();
+    imu_ok = imu.bConnected;
+    Serial.print("{\"evt\":\"imu_retry\",\"ok\":");
+    Serial.print(imu_ok ? 1 : 0);
+    Serial.print(",\"t\":");
+    Serial.print(now);
+    Serial.println('}');
+  }
+
   if (now - t_batt >= BATT_PERIOD_MS) {
     t_batt = now;
     sampleBattery();
   }
-  // ...
+  if (now - t_err >= HWERR_PERIOD_MS) {
+    t_err = now;
+    readHwErrors();
+  }
+  if (now - t_probe >= MISSING_PROBE_MS) {
+    t_probe = now;
+    probeMissing();
+  }
+  if (now - t_ctrl >= CONTROL_PERIOD_MS) {
+    t_ctrl = now;
+    readFeedback();
+    updateSafety(now);
+    recoveryTick(now);
+    autoClearFaults(now);
+    computeGoals();
+    selfTestTick(now);  // 자가진단 중이면 목표를 덮어쓴다
+    writeGoals();
+  }
+  updateButtons(now);
+  updateIndicators(now);
+  if (now - t_fb >= FEEDBACK_PERIOD_MS) {
+    t_fb = now;
+    sendStatus();
+  }
+  if (now - t_imu >= IMU_PERIOD_MS) {
+    t_imu = now;
+    // 설정된 주기(현재 20 ms, 즉 50 Hz)마다 IMU 데이터를 전송한다.
+    if (IMU_ENABLE) sendImu();
+  }
 }

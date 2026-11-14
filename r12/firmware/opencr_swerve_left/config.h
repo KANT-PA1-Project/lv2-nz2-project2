@@ -110,6 +110,15 @@ constexpr uint32_t DEF_HW_RETRY_DELAY_MS = 1000;   // 마지막 에러 관측 �
 constexpr uint32_t HW_RETRY_RESET_MS     = 30000;  // 이 시간 에러가 없으면 시도 횟수를 0 으로
 constexpr uint32_t HW_REBOOT_WAIT_MS     = 500;    // 재부팅 뒤 첫 응답 확인까지 대기 [벤치 확인]
 constexpr uint32_t HW_REBOOT_TIMEOUT_MS  = 3000;   // 이 안에 응답·설정이 안 되면 그 시도는 실패
+constexpr uint32_t HW_GIVEUP_RETRY_MS    = 60000;  // 시도 상한을 넘겨 포기한 뒤에도 이 간격으로 다시 시도
+
+// ---------------- 래치 고장 자동 해제 ----------------
+// 온도·전압·과전류·통신 두절은 원인이 사라지면 사람이 E 를 보내지 않아도 스스로 푼다.
+// 비상정지(FLT_ESTOP)와 자가진단 불합격(FLT_SELFTEST)은 사람이 확인해야 하므로 래치로 남긴다.
+constexpr uint32_t AUTO_CLEAR_HOLD_MS     = 2000;  // 해제 조건이 이 시간 연속 만족되면 푼다
+constexpr float    AUTO_TEMP_CLEAR_HYST_C = 5.0f;  // temp_derate 아래로 이만큼 내려와야 해제
+constexpr float    AUTO_BATT_CLEAR_HYST_V = 0.5f;  // batt_stop 위로 이만큼 올라와야 해제
+constexpr uint32_t IMU_RETRY_MS           = 2000;  // IMU 무응답 시 재초기화 시도 간격(정지 중에만)
 
 // ---------------- 하드 상한 (P 명령으로도 못 넘음) ----------------
 constexpr float    HARD_MAX_MOTOR_RPM   = 70.0f;    // 무부하 포화 ~70rpm@12V

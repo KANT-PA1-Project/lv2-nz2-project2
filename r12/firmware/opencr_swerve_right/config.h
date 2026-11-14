@@ -70,10 +70,6 @@ constexpr float   DEF_CURRENT_LIMIT_A = 1.5f;     // [지면 튜닝] 구동 4개
 // 10 → 모터 약 36 rpm/s → 바퀴 표면 약 0.5 m/s² (0→65rpm 약 1.8 s). "gentle" 출발값.
 constexpr uint32_t DEF_DRIVE_PROFILE_ACC = 10;    // [지면 튜닝]
 
-// ---------------- 휴면(Auto-Sleep) 기본값 ----------------
-constexpr uint32_t DEF_IDLE_TIMEOUT_MS = 5000; // 5초 동안 C 명령이 없으면 자동 토크 OFF
-constexpr uint32_t HARD_MAX_IDLE_TIMEOUT_MS = 60000;
-
 // ---------------- 조향 기본값 (handoff §4 steer) ----------------
 constexpr float  DEF_STEER_RANGE_RAD = 1.5708f;   // ±90° (URDF revolute)
 constexpr float  DEF_STEER_HOME_RAD[MODULE_COUNT] = {0.0f, 0.0f};  // [확인]
@@ -101,6 +97,10 @@ constexpr float    DEF_DERATE_SCALE  = 0.5f;
 // 않으므로(e-manual) 펌웨어가 직접 감시한다. [지면 튜닝]
 constexpr uint32_t DEF_OVERCURRENT_TRIP_MS = 300;
 
+// ---------------- 휴면(Auto-Sleep) 기본값 ----------------
+constexpr uint32_t DEF_IDLE_TIMEOUT_MS = 5000; // 5초 동안 C 명령이 없으면 자동 토크 OFF
+constexpr uint32_t HARD_MAX_IDLE_TIMEOUT_MS = 60000;
+
 // ---------------- 하드웨어 에러 자동복구 ----------------
 // 모터가 하드웨어 에러(과부하·과열·입력전압·전기충격·엔코더)로 스스로 토크를 끄면
 // REBOOT 명령으로만 풀린다(e-manual). 펌웨어가 조건을 확인한 뒤 그 모터만
@@ -110,6 +110,15 @@ constexpr uint32_t DEF_HW_RETRY_DELAY_MS = 1000;   // 마지막 에러 관측 �
 constexpr uint32_t HW_RETRY_RESET_MS     = 30000;  // 이 시간 에러가 없으면 시도 횟수를 0 으로
 constexpr uint32_t HW_REBOOT_WAIT_MS     = 500;    // 재부팅 뒤 첫 응답 확인까지 대기 [벤치 확인]
 constexpr uint32_t HW_REBOOT_TIMEOUT_MS  = 3000;   // 이 안에 응답·설정이 안 되면 그 시도는 실패
+constexpr uint32_t HW_GIVEUP_RETRY_MS    = 60000;  // 시도 상한을 넘겨 포기한 뒤에도 이 간격으로 다시 시도
+
+// ---------------- 래치 고장 자동 해제 ----------------
+// 온도·전압·과전류·통신 두절은 원인이 사라지면 사람이 E 를 보내지 않아도 스스로 푼다.
+// 비상정지(FLT_ESTOP)와 자가진단 불합격(FLT_SELFTEST)은 사람이 확인해야 하므로 래치로 남긴다.
+constexpr uint32_t AUTO_CLEAR_HOLD_MS     = 2000;  // 해제 조건이 이 시간 연속 만족되면 푼다
+constexpr float    AUTO_TEMP_CLEAR_HYST_C = 5.0f;  // temp_derate 아래로 이만큼 내려와야 해제
+constexpr float    AUTO_BATT_CLEAR_HYST_V = 0.5f;  // batt_stop 위로 이만큼 올라와야 해제
+constexpr uint32_t IMU_RETRY_MS           = 2000;  // IMU 무응답 시 재초기화 시도 간격(정지 중에만)
 
 // ---------------- 하드 상한 (P 명령으로도 못 넘음) ----------------
 constexpr float    HARD_MAX_MOTOR_RPM   = 70.0f;    // 무부하 포화 ~70rpm@12V
