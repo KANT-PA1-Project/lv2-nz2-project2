@@ -1,8 +1,8 @@
 {
   "CMakeLists.txt": "6a7cdbe718ca0fec816e57cb6836e1c437f10498a476e49d9228be39e006d991",
   "PREVIEW.jpg": "ed8f2f3bb7582aacb9b26db020cdf5bd23586a9d4ae493cb292ab2e405cf5a6b",
-  "README_KO.md": "58388be0597923fd4449399c49fd5004785f209c9637ae88ad7c422e902d0968",
-  "checks/VALIDATION.json": "e2c4f5117fefb98b43a1430df1df3bb4afcb4f73a4a494024c378f40d9da543a",
+  "README_KO.md": "7bd0deffbba22cb51663fdf0b74765b25dfafcbe968ab91e8d017708a4f3990e",
+  "checks/VALIDATION.json": "a30a64496fd0bf12a6f0bcd90c398a636801546947bf458cb9ad1d19c222090a",
   "checks/verification.json": "84e591e9119339ac06bb65b99d4862dfad72d3be67b75c3e0cd68ee8910a6222",
   "meshes/arm_yaw_0.stl": "e41f47a4b704b514471a096b7e0f9a434a088f116eee596230f7417d124d66bc",
   "meshes/base_link_0_v26.stl": "527eddb57d458ea6acca3fe6e0fd59b49f08d709ba3494a2d46b1292009caefe",
@@ -41,8 +41,8 @@
   "meshes/wrist_pitch_0.stl": "36ff227a576981962bc427000b61258573f79a5dd3943ce1d97ef077639a2a34",
   "meshes/wrist_roll_0.stl": "80fb6665001f7ef4c6aeca6fc392e5779fbb7ab958b5e34ca6533d1ed949f121",
   "package.xml": "cfbae140310f7360fd4d7e884f7ecfa3c92ab0a1ae816c97d349887aeed40d44",
-  "urdf/r30.urdf": "1ad449e36b561edb0d34b6ec30b2cab6a729bc552c0381aa2307d97179e0b02f",
-  "urdf/r30_ros.urdf": "e8966416b4103af8a1cec5e13b87c252315c54963690dd80f708e3603e60830b",
+  "urdf/r30.urdf": "2db3275e84ff4a7b79957e5808c3a12aecb1caa247dbeea65357b09a7acaa403",
+  "urdf/r30_ros.urdf": "9e2e2ed9ba399e00f643ebf99f3bd658e018aa2adb93e41d0715edb48d69d110",
   "usd/r30.usda": "48e007378caab7f6b7efe392d4ba5bb044fb873d34ea46b75d65c2dab184366b",
   "usd/r30.usdc": "d337dbf6388b19f6479e2bef906b34f11569383344b5fffddb9cb3cb7d1685de"
 }
