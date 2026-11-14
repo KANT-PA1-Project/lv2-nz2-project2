@@ -1,0 +1,32 @@
+{
+  "status": "STRUCTURAL_VALIDATION_PASS_NOT_PHYSICS_QUALIFIED",
+  "source": "robot_hardware_design/r30 real_final_plz_no_more_edit_v99_nz2fix.urdf",
+  "total_mass_kg": 43.1543,
+  "kinematic_links": 16,
+  "urdf_links": 45,
+  "urdf_joints": 44,
+  "control_inputs": 14,
+  "movable_joints": [
+    "rear_left_steer_joint",
+    "rear_left_wheel_joint",
+    "front_right_steer_joint",
+    "front_right_wheel_joint",
+    "front_left_steer_joint",
+    "front_left_wheel_joint",
+    "rear_right_steer_joint",
+    "rear_right_wheel_joint",
+    "arm_yaw_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_pitch_joint",
+    "wrist_roll_joint",
+    "jaw_left_joint",
+    "jaw_right_joint"
+  ],
+  "visual_meshes": 36,
+  "base_footprint": "included (z 0.181, yaw pi, restored from assembly_nz2)",
+  "mast_camera_tilt_deg": 35,
+  "gz_control_plugins": false,
+  "front_back_note": "nz2fix lacks repo fix 54476f0 (wheel axis 0 1 0->0 -1 0, FL<->RR/FR<->RL swap); packaged as-is per user; front/back unverified",
+  "note": "MuJoCo는 배포본에서 검증(verification.json). gz 런타임/실물 미검증."
+}
