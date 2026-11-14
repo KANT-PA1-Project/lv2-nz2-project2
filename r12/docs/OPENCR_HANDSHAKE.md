@@ -155,3 +155,8 @@ PY
 기대: `swerve_left` / `swerve_right` / `arm` 이 각각 한 번씩, 포트는 꽂힌 순서와
 무관하게 나온다. role 이 `None` 이거나 중복이면 `BOARD_ROLE` 과 업로드한 스케치를
 확인한다.
+
+## 관련 문서
+
+- [`OPENCR_FAULT_RECOVERY.md`](OPENCR_FAULT_RECOVERY.md) — 고장 비트, 자동복구·자동 해제 조건,
+  비상정지, LED·부저, 시리얼 이벤트
