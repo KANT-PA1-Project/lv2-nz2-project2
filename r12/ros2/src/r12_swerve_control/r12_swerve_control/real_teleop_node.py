@@ -3,11 +3,13 @@ import math
 import sys
 import select
 import termios
+import time
 import tty
 
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
+from std_msgs.msg import Empty
 
 # 키보드 조작 안내 메시지
 INFO_MSG = """
@@ -28,6 +30,10 @@ Speed Control:
    + / - : 최대 선속도 증가 / 감소
    [ / ] : 최대 회전속도 증가 / 감소
    Space : 정지 (Stop)
+
+Recovery:
+   R : 래치 고장 해제 (E, 토크 ON). 로봇을 세운 뒤 주변을 확인하고 누른다.
+       비상정지가 눌려 있으면 풀고 눌러야 한다.
 
 CTRL-C to quit.
 --------------------------------------------------
@@ -53,6 +59,13 @@ class KeyboardTeleop(Node):
             '/r12/swerve_joint_commands',
             10
         )
+        # 래치 고장(비상정지·자가진단 불합격) 해제 요청. 브리지가 양 보드에 E 를 보낸다.
+        self.clear_pub = self.create_publisher(
+            Empty,
+            '/r12/swerve_clear_faults',
+            10
+        )
+        self.last_clear_s = 0.0
 
         self.rate = self.get_parameter('rate').value
         self.timer = self.create_timer(1.0 / self.rate, self._publish_timer)
@@ -117,6 +130,15 @@ class KeyboardTeleop(Node):
                 self.vx = 0.0
                 self.vy = 0.0
                 self.omega = 0.0
+            elif key in ('r', 'R'):
+                # 복구: 먼저 정지시키고, 1초에 한 번만 E 를 요청한다.
+                self.vx = self.vy = self.omega = 0.0
+                now = time.monotonic()
+                if now - self.last_clear_s >= 1.0:
+                    self.last_clear_s = now
+                    self.clear_pub.publish(Empty())
+                    self.get_logger().warning(
+                        '래치 고장 해제(E) 요청 — 비상정지를 풀었는지 확인할 것')
             elif key == '\x03':
                 # Ctrl+C
                 sys.exit(0)

@@ -12,6 +12,8 @@
 #
 # [입력]  /r12/swerve_joint_commands (sensor_msgs/JointState): 조향 position(rad)·휠 velocity(rad/s).
 #         이름 {front_left,front_right,rear_left,rear_right} ×_steer/_wheel_joint = FL FR RL RR.
+#         /r12/swerve_clear_faults (std_msgs/Empty): 래치 고장 해제 요청. 양 보드에 'E' 를 보낸다.
+#         텔레옵의 R 키가 이 토픽을 낸다. E 는 사람이 확인한 뒤에만 보내야 하므로 자동 전송하지 않는다.
 # [출력]  각 보드로 'C <en> <w...> <s...>' (휠 rad/s, 조향 rad, 보드 cfg order 순) 50 Hz.
 #         보드 상태 JSON({"mod":[{c,sp,wv}]}) → /r12/joint_states (sensor_msgs/JointState) 재발행.
 # [규약]  보드 모듈코드→조인트 prefix : FL→front_left FR→front_right RL→rear_left
@@ -28,6 +30,7 @@ import rclpy
 import serial
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
+from std_msgs.msg import Empty
 
 from r12_swerve_control.opencr_discovery import (DEFAULT_PATTERNS, assign_roles,
                                                  identify_ports)
@@ -83,6 +86,8 @@ class Board:
                 self.have_status = True
                 self.faults = int(obj.get('flt', 0))
                 self.wd = bool(obj.get('wd', 0))
+            if 'err' in obj:                              # E 거절(estop_active 등)을 놓치지 않는다
+                self.log.warning(f'{self.role}: err={obj.get("err")} id={obj.get("id")}')
             yield obj
 
     def send_c(self, en, wheel_by_prefix, steer_by_prefix):
@@ -94,6 +99,16 @@ class Board:
                                   ' '.join('%.5f' % x for x in s))
         try:
             self.ser.write(frame.encode())
+        except (serial.SerialException, OSError) as e:
+            self.ok = False
+            self.log.warning(f'{self.port} write 실패: {e}')
+
+    def send_e(self):
+        """래치 고장을 푸는 E 한 줄. 비상정지가 아직 눌려 있으면 보드가 estop_active 로 거절한다."""
+        if not self.ok:
+            return
+        try:
+            self.ser.write(b'E\n')
         except (serial.SerialException, OSError) as e:
             self.ok = False
             self.log.warning(f'{self.port} write 실패: {e}')
@@ -130,6 +145,8 @@ class OpenCRBridgeNode(Node):
         self.last_scan = -1e9
 
         self.create_subscription(JointState, '/r12/swerve_joint_commands', self._on_cmd, 10)
+        self.create_subscription(Empty, '/r12/swerve_clear_faults',
+                                 self._on_clear_faults, 10)
         self.fb_pub = self.create_publisher(JointState, '/r12/joint_states', 10)
         self._scan()
         self.create_timer(1.0 / self.hz, self._tick)
@@ -187,6 +204,18 @@ class OpenCRBridgeNode(Node):
             if name in WHEEL and i < len(msg.velocity):
                 self.wheel[WHEEL[name]] = msg.velocity[i]
         self.cmd_time = self.get_clock().now().nanoseconds * 1e-9
+
+    def _on_clear_faults(self, _msg):
+        """래치 고장(비상정지·자가진단 불합격) 해제. 사람이 R 키를 눌렀을 때만 온다.
+
+        E 는 토크를 켜고 조향을 현재각에 붙잡으므로, 재개 전에 휠 목표를 0 으로 비운다.
+        비상정지가 아직 눌려 있으면 보드가 estop_active 로 거절하고 상태는 그대로다.
+        """
+        self.wheel = {p: 0.0 for p in PREFIX}
+        self.cmd_time = None                     # 다음 C 가 올 때까지 en=0
+        for role, b in self.boards.items():
+            b.send_e()
+            self.get_logger().warning(f'{role}: 래치 고장 해제(E) 요청')
 
     def _stale(self):
         if self.cmd_time is None:

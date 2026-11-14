@@ -228,6 +228,9 @@ constexpr int      RC100_PORT         = 1;       // 1 = Serial2 (TurtleBot3 기�
 #define            RC100_SERIAL         Serial2
 constexpr uint16_t RC100_ESTOP_MASK   = 0x03FF;  // 모든 버튼(U D L R 1~6). 급할 때 아무거나 눌러도 선다
 
-// ---------------- 비상정지 입력 핀 (배선 확정 전 비활성) ----------------
-constexpr int  ESTOP_PIN          = -1;     // -1 = 사용 안 함
-constexpr bool ESTOP_ACTIVE_LOW   = true;   // [확인] 배선 확정 후
+// ---------------- 비상정지 입력 핀 (NC 비상정지 + 래치, 배선 전 비활성) ----------------
+// 배선: GPIO 핀 ── NC 비상정지 스위치 ── GND. 평소 LOW, 누르거나 선이 끊기면 HIGH = 정지.
+// 두 보드의 같은 핀을 스위치 한 개에 병렬로 연결한다. 켤 때 ESTOP_PIN 만 바꾼다.
+// 래치라서 스위치를 풀어도 E(텔레옵 R 키)를 보내야 다시 움직인다.
+constexpr int  ESTOP_PIN          = -1;     // -1 = 사용 안 함. 켤 때 BDPIN_GPIO_1(50) 등
+constexpr bool ESTOP_ACTIVE_LOW   = false;  // NC(평소 닫힘): HIGH = 눌림/단선

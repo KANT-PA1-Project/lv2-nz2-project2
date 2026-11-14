@@ -1986,7 +1986,9 @@ void setup() {
   for (uint8_t i = 0; i < 4; i++) { ledWrite(sweep[i], true); delay(80); ledWrite(sweep[i], false); }
   pinMode(BTN_SELFTEST_PIN, INPUT);
   pinMode(BTN_STOP_PIN, INPUT);
-  if (ESTOP_PIN >= 0) pinMode(ESTOP_PIN, ESTOP_ACTIVE_LOW ? INPUT_PULLUP : INPUT);
+  // 비상정지는 어느 배선이든 스위치로 GND 에 붙이므로 내부 풀업을 항상 켠다.
+  // NC(평소 닫힘)는 평소 LOW, 누르거나 단선되면 풀업으로 HIGH 가 되어 정지한다.
+  if (ESTOP_PIN >= 0) pinMode(ESTOP_PIN, INPUT_PULLUP);
   if (RC100_ESTOP_ENABLE) remote.begin(RC100_PORT);
 
   // IMU 사용 설정이 켜져 있으면 센서를 시작하고 자이로를 보정한다.

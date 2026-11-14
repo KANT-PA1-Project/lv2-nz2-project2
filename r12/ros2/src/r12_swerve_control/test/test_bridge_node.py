@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 import rclpy  # noqa: E402
 from rclpy.parameter import Parameter  # noqa: E402
 from sensor_msgs.msg import JointState  # noqa: E402
+from std_msgs.msg import Empty  # noqa: E402
 
 from r12_swerve_control.opencr_bridge_node import OpenCRBridgeNode  # noqa: E402
 
@@ -73,6 +74,10 @@ class FakeBoard:
         with self.lock:
             frames = [line for line in self.lines if line.startswith('C ')]
         return frames[-1].split()[1:] if frames else None
+
+    def has_e(self):
+        with self.lock:
+            return any(line == 'E' for line in self.lines)
 
     def close(self):
         self.running = False
@@ -171,6 +176,26 @@ def test_handshake_frames_and_safety_gating():
             spin_for(node, 0.5)
             assert left.last_c()[0] == '0'
             assert left.last_c()[3:] == ['0.10000', '0.30000']
+    finally:
+        left.close()
+        right.close()
+
+
+def test_clear_faults_sends_e_to_every_board():
+    """텔레옵 R 키 → /r12/swerve_clear_faults → 양 보드에 E."""
+    left = FakeBoard('swerve_left', ['FL', 'RL'])
+    right = FakeBoard('swerve_right', ['FR', 'RR'])
+    try:
+        with running_node(left, right) as node:
+            assert wait_boards(node)
+            pub = node.create_publisher(Empty, '/r12/swerve_clear_faults', 10)
+
+            end = time.monotonic() + 1.5
+            while time.monotonic() < end and not (left.has_e() and right.has_e()):
+                spin_for(node, 0.05, pub, Empty())
+
+            assert left.has_e(), '왼쪽 보드에 E 가 가지 않았다'
+            assert right.has_e(), '오른쪽 보드에 E 가 가지 않았다'
     finally:
         left.close()
         right.close()
