@@ -1,5 +1,15 @@
-# real_teleop_node.py
-import math
+# =============================================================
+# 패키지 : r12_swerve_control
+# 파일   : real_teleop_node.py
+# 역할   : 키보드 텔레옵. 차체 속도(Twist)만 발행한다. 역기구학은 하지 않는다.
+#          IK·±90° fold·단위변환은 swerve_controller_node 담당(실물·시뮬 공통).
+#
+# [출력]  /cmd_vel (geometry_msgs/Twist): linear.x(전후), linear.y(좌+), angular.z(yaw, CCW+)
+#         /r12/swerve_clear_faults (std_msgs/Empty): R 키 — 래치 고장 해제
+# [파이프라인] teleop(/cmd_vel) → swerve_controller(IK) → /r12/swerve_joint_commands
+#              → 실물: opencr_bridge / 시뮬: gz_command_relay → ros_gz_bridge → gz
+# [UI]   키 입력마다 화면을 고정 패널로 다시 그린다(안내가 스크롤로 사라지지 않게).
+# =============================================================
 import sys
 import select
 import termios
@@ -8,190 +18,108 @@ import tty
 
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import JointState
+from geometry_msgs.msg import Twist
 from std_msgs.msg import Empty
 
-# 키보드 조작 안내 메시지
-INFO_MSG = """
---------------------------------------------------
-R12 Swerve Keyboard Teleop
---------------------------------------------------
-Moving:
-   W : 전진 (Forward)
-   S : 후진 (Backward)
-   A : 좌측 횡이동 (Strafe Left)
-   D : 우측 횡이동 (Strafe Right)
+CLEAR_HOME = '\033[2J\033[H'   # 화면 지우고 커서 좌상단
+RULE = '━' * 40
 
-Turning (Yaw):
-   Q : 제자리 반시계 회전 (Turn Left)
-   E : 제자리 시계 회전 (Turn Right)
-
-Speed Control:
-   + / - : 최대 선속도 증가 / 감소
-   [ / ] : 최대 회전속도 증가 / 감소
-   Space : 정지 (Stop)
-
-Recovery:
-   R : 래치 고장 해제 (E, 토크 ON). 로봇을 세운 뒤 주변을 확인하고 누른다.
-       비상정지가 눌려 있으면 풀고 눌러야 한다.
-
-CTRL-C to quit.
---------------------------------------------------
-"""
 
 class KeyboardTeleop(Node):
     def __init__(self):
         super().__init__('real_teleop')
+        self.declare_parameter('rate', 50.0)
+        self.declare_parameter('max_linear_vel', 0.6)    # m/s, 펌웨어 주행 상한(controller 와 동일)
+        self.declare_parameter('max_angular_vel', 0.4)   # rad/s, controller yaw 상한과 동일
 
-        # ----- parameters -------------------------------------------------
-        self.declare_parameter('rate', 50.0)          # publishing frequency [Hz]
-        self.declare_parameter('max_linear_vel', 1.0) # m/s, max linear speed
-        self.declare_parameter('max_angular_vel', 1.5)# rad/s, max turning speed
-        self.declare_parameter('max_wheel_vel', 5.0)  # rad/s, max wheel speed limit
-
-        # 로봇 기하학적 파라미터 (차량 앞뒤 축 거리, 좌우 축 거리 [m])
-        self.declare_parameter('wheelbase', 0.3)      # L (Front to Rear distance)
-        self.declare_parameter('track_width', 0.3)    # W (Left to Right distance)
-
-        # ----- internal state ---------------------------------------------
-        self.pub = self.create_publisher(
-            JointState,
-            '/r12/swerve_joint_commands',
-            10
-        )
-        # 래치 고장(비상정지·자가진단 불합격) 해제 요청. 브리지가 양 보드에 E 를 보낸다.
-        self.clear_pub = self.create_publisher(
-            Empty,
-            '/r12/swerve_clear_faults',
-            10
-        )
+        self.pub = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.clear_pub = self.create_publisher(Empty, '/r12/swerve_clear_faults', 10)
         self.last_clear_s = 0.0
 
-        self.rate = self.get_parameter('rate').value
-        self.timer = self.create_timer(1.0 / self.rate, self._publish_timer)
-
-        # 현재 입력 상태 변수
         self.vx = 0.0
         self.vy = 0.0
         self.omega = 0.0
+        self.max_v = self.get_parameter('max_linear_vel').value
+        self.max_w = self.get_parameter('max_angular_vel').value
 
-        # 터미널 설정 저장 (키보드 논블로킹 입력을 위해)
+        # cbreak 한 번만(매 틱 토글하면 틱 사이 눌린 키가 Enter 전까지 안 읽힘). 복원은 main.
         self.settings = termios.tcgetattr(sys.stdin)
+        tty.setcbreak(sys.stdin.fileno())
 
-        self.get_logger().info('Swerve Keyboard Teleop node started.')
-        print(INFO_MSG)
+        rate = self.get_parameter('rate').value
+        self.create_timer(1.0 / rate, self._tick)
+        self._draw()
 
-    # -----------------------------------------------------------------
     def _get_key(self):
-        """터미널에서 입력된 키를 논블로킹으로 읽어옴"""
-        tty.setraw(sys.stdin.fileno())
-        rlist, _, _ = select.select([sys.stdin], [], [], 0.001)
-        if rlist:
-            key = sys.stdin.read(1)
-        else:
-            key = ''
-        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.settings)
-        return key
+        rlist, _, _ = select.select([sys.stdin], [], [], 0.0)
+        return sys.stdin.read(1) if rlist else ''
 
-    # -----------------------------------------------------------------
-    def _publish_timer(self):
-        """키 입력을 처리하고 JointState 퍼블리시"""
+    def _state_label(self):
+        if self.vx > 0:    return '전진 ▲'
+        if self.vx < 0:    return '후진 ▼'
+        if self.vy > 0:    return '좌 횡이동 ◀'
+        if self.vy < 0:    return '우 횡이동 ▶'
+        if self.omega > 0: return '좌회전 ↺'
+        if self.omega < 0: return '우회전 ↻'
+        return '정지 ■'
+
+    def _draw(self):
+        print(CLEAR_HOME, end='')
+        print(RULE)
+        print('  R30 SWERVE TELEOP   (/cmd_vel → swerve_controller)')
+        print(RULE)
+        print('  이동    W / S  전·후        A / D  좌·우 횡이동')
+        print('  회전    Q / E  좌·우         Space  정지')
+        print('  속도    + / -  선속 상한     [ / ]  회전 상한')
+        print('  기타    R  고장 해제         Ctrl-C  종료')
+        print('─' * 40)
+        print(f'  선속 상한 : {self.max_v:5.2f} m/s')
+        print(f'  회전 상한 : {self.max_w:5.2f} rad/s')
+        print(f'  명령      : vx={self.vx:+.2f}  vy={self.vy:+.2f}  w={self.omega:+.2f}')
+        print(f'  상태      : {self._state_label()}')
+        print(RULE, flush=True)
+
+    def _tick(self):
         key = self._get_key()
-        max_v = self.get_parameter('max_linear_vel').value
-        max_w = self.get_parameter('max_angular_vel').value
-
         if key:
-            if key == 'w':
-                self.vx = max_v
-                self.vy = 0.0
-                self.omega = 0.0
-            elif key == 's':
-                self.vx = -max_v
-                self.vy = 0.0
-                self.omega = 0.0
-            elif key == 'a':
-                self.vx = 0.0
-                self.vy = max_v
-                self.omega = 0.0
-            elif key == 'd':
-                self.vx = 0.0
-                self.vy = -max_v
-                self.omega = 0.0
-            elif key == 'q':
-                self.vx = 0.0
-                self.vy = 0.0
-                self.omega = max_w
-            elif key == 'e':
-                self.vx = 0.0
-                self.vy = 0.0
-                self.omega = -max_w
+            k = key.lower()
+            if k == 'w':
+                self.vx, self.vy, self.omega = self.max_v, 0.0, 0.0
+            elif k == 's':
+                self.vx, self.vy, self.omega = -self.max_v, 0.0, 0.0
+            elif k == 'a':
+                self.vx, self.vy, self.omega = 0.0, self.max_v, 0.0
+            elif k == 'd':
+                self.vx, self.vy, self.omega = 0.0, -self.max_v, 0.0
+            elif k == 'q':
+                self.vx, self.vy, self.omega = 0.0, 0.0, self.max_w
+            elif k == 'e':
+                self.vx, self.vy, self.omega = 0.0, 0.0, -self.max_w
+            elif key in ('+', '='):
+                self.max_v = min(round(self.max_v + 0.05, 2), 2.0)
+            elif key == '-':
+                self.max_v = max(round(self.max_v - 0.05, 2), 0.0)
+            elif key == ']':
+                self.max_w = min(round(self.max_w + 0.05, 2), 3.0)
+            elif key == '[':
+                self.max_w = max(round(self.max_w - 0.05, 2), 0.0)
             elif key == ' ':
-                # 스페이스바: 정지
-                self.vx = 0.0
-                self.vy = 0.0
-                self.omega = 0.0
-            elif key in ('r', 'R'):
-                # 복구: 먼저 정지시키고, 1초에 한 번만 E 를 요청한다.
-                self.vx = self.vy = self.omega = 0.0
+                self.vx, self.vy, self.omega = 0.0, 0.0, 0.0
+            elif k == 'r':
+                self.vx, self.vy, self.omega = 0.0, 0.0, 0.0
                 now = time.monotonic()
                 if now - self.last_clear_s >= 1.0:
                     self.last_clear_s = now
                     self.clear_pub.publish(Empty())
-                    self.get_logger().warning(
-                        '래치 고장 해제(E) 요청 — 비상정지를 풀었는지 확인할 것')
             elif key == '\x03':
-                # Ctrl+C
-                sys.exit(0)
+                raise KeyboardInterrupt
+            self._draw()
 
-        # 스월브 기하학 계산 수행
-        joint_state = self._make_swerve_message(self.vx, self.vy, self.omega)
-        self.pub.publish(joint_state)
-
-    # -----------------------------------------------------------------
-    def _make_swerve_message(self, vx, vy, omega) -> JointState:
-        """속도 벡터를 4개 바퀴의 조향각과 휠 속도로 변환"""
-        max_wheel_v = self.get_parameter('max_wheel_vel').value
-        L = self.get_parameter('wheelbase').value
-        W = self.get_parameter('track_width').value
-        A = W / 2.0
-        B = L / 2.0
-
-        # FL, FR, RL, RR 순서
-        corners = [
-            (+B, -A),  # Front Left  (x = +B, y = -A)
-            (+B, +A),  # Front Right (x = +B, y = +A)
-            (-B, -A),  # Rear Left   (x = -B, y = -A)
-            (-B, +A)   # Rear Right  (x = -B, y = +A)
-        ]
-
-        steer_angles = []
-        wheel_velocities = []
-
-        for x, y in corners:
-            v_x = vx - omega * y
-            v_y = vy + omega * x
-
-            speed = math.hypot(v_x, v_y)
-            angle = math.atan2(v_y, v_x)
-
-            # 정지 상태일 때 조향각이 꺾인 채로 유지되는 것 방지
-            if speed < 0.001:
-                angle = 0.0
-
-            steer_angles.append(angle)
-            wheel_velocities.append(min(speed, max_wheel_v))
-
-        msg = JointState()
-        msg.name = [
-            'front_left_steer_joint', 'front_right_steer_joint', 
-            'rear_left_steer_joint', 'rear_right_steer_joint',
-            'front_left_wheel_joint', 'front_right_wheel_joint', 
-            'rear_left_wheel_joint', 'rear_right_wheel_joint'
-        ]
-        msg.position = steer_angles
-        msg.velocity = wheel_velocities
-
-        return msg
+        msg = Twist()
+        msg.linear.x = self.vx
+        msg.linear.y = self.vy
+        msg.angular.z = self.omega
+        self.pub.publish(msg)
 
 
 def main(args=None):
@@ -202,9 +130,19 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
+        # 터미널 모드부터 되돌리고, 정리 중 신호가 또 와도 조용히 끝낸다.
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, node.settings)
-        node.destroy_node()
-        rclpy.shutdown()
+        print()
+        # KeyboardInterrupt 는 Exception 이 아니라 BaseException — 정리 중 또 와도 잡아 조용히 끝낸다.
+        try:
+            node.destroy_node()
+        except BaseException:
+            pass
+        try:
+            if rclpy.ok():
+                rclpy.shutdown()
+        except BaseException:
+            pass
 
 
 if __name__ == '__main__':
