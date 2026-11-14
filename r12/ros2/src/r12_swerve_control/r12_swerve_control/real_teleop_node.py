@@ -29,8 +29,8 @@ class KeyboardTeleop(Node):
     def __init__(self):
         super().__init__('real_teleop')
         self.declare_parameter('rate', 50.0)
-        self.declare_parameter('max_linear_vel', 0.6)    # m/s, 펌웨어 주행 상한(controller 와 동일)
-        self.declare_parameter('max_angular_vel', 0.4)   # rad/s, controller yaw 상한과 동일
+        self.declare_parameter('max_linear_vel', 0.898)  # m/s, 하드웨어 최대(65rpm×4×0.033) = controller 와 동일
+        self.declare_parameter('max_angular_vel', 5.1)   # rad/s, 하드웨어 최대(controller yaw 상한과 동일)
 
         self.pub = self.create_publisher(Twist, '/cmd_vel', 10)
         self.clear_pub = self.create_publisher(Empty, '/r12/swerve_clear_faults', 10)

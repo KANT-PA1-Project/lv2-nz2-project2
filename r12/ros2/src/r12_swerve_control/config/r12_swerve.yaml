@@ -6,12 +6,13 @@
     half_wheelbase_m: 0.124       # [확인] R21 실측
     half_track_m: 0.124           # [확인] R21 실측
     wheel_radius_m: 0.033         # URDF r20d/r21
-    linear_speed_m_s: 0.6         # 펌웨어 SELFTEST_MAX_SPEED_MPS = AGENTS.md 주행 상한 0.6
-    yaw_rate_rad_s: 0.4           # r12_navigation_contract (펌웨어엔 직접값 없음)
+    linear_speed_m_s: 0.898       # 하드웨어 최대 = 27.23 rad/s × 0.033 m (65rpm×4). 휠 캡과 일치
+    yaw_rate_rad_s: 5.1           # 하드웨어 최대 = 선속0.898 / 모듈반경0.175 (펌웨어 yaw 레지스터 없음, 유도값)
     steering_angle_rad: 1.5707963267948966   # ±90° (펌웨어 HARD_STEER_RANGE_RAD)
-    steering_rate_rad_s: 1.0
+    steering_rate_rad_s: 7.9      # 펌웨어 DEF_STEER_PROFILE_VEL 330 = 75.6rpm = 7.91 rad/s (조향 1:1). sim=real
     wheel_speed_rad_s: 27.23      # 펌웨어 DEF_MAX_MOTOR_RPM 65 × GEAR_G 4 = 27.23 rad/s
     command_acceleration_m_s2: 0.5   # 펌웨어 DEF_DRIVE_PROFILE_ACC 10 ≈ 0.5 m/s²
+    command_angular_acceleration_rad_s2: 2.85   # 구동램프 0.5 ÷ 모듈반경 0.175 (회전도 실물처럼 램프)
     timeout_s: 0.25
     control_hz: 50.0
 

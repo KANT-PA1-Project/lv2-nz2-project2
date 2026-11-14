@@ -44,12 +44,15 @@ class SwerveControllerNode(Node):
         self.steer_rate = d('steering_rate_rad_s', 1.0).value
         self.wheel_limit = d('wheel_speed_rad_s', 10.0).value
         self.max_accel = d('command_acceleration_m_s2', 0.2).value
+        # yaw 가속 램프: 실물은 구동 모터 프로파일로 회전도 서서히 오름. 기본 = 구동가속/모듈반경.
+        self.max_ang_accel = d('command_angular_acceleration_rad_s2', 2.85).value
         self.timeout_s = d('timeout_s', 0.25).value
         self.hz = d('control_hz', 50.0).value
 
         self.angles = [0.0] * 4                   # 직전 조향각(optimize_angle nearest + slew 기준)
         self.cvx = 0.0                            # 램프된 본체 속도
         self.cvy = 0.0
+        self.cwz = 0.0                            # 램프된 yaw
         self.cmd = (0.0, 0.0, 0.0)
         self.cmd_time = None
         self.pub = self.create_publisher(JointState, '/r12/swerve_joint_commands', 10)
@@ -102,9 +105,14 @@ class SwerveControllerNode(Node):
             self.cvy += max(-dv, min(dv, vy - self.cvy))
         else:
             self.cvx, self.cvy = vx, vy
+        if self.max_ang_accel > 0.0:
+            dw = self.max_ang_accel * dt
+            self.cwz += max(-dw, min(dw, wz - self.cwz))
+        else:
+            self.cwz = wz
 
         cap = self.max_linear if self.max_linear > 0.0 else 0.0
-        raw = inverse_kinematics(self.cvx, self.cvy, wz, self.positions, cap)
+        raw = inverse_kinematics(self.cvx, self.cvy, self.cwz, self.positions, cap)
 
         steers, wheels = [], []
         max_step = self.steer_rate * dt           # 조향 슬루 제한(계약 steering_rate_rad_s)
