@@ -27,6 +27,6 @@
   "base_footprint": "included (z 0.181, yaw pi, restored from assembly_nz2)",
   "mast_camera_tilt_deg": 35,
   "gz_control_plugins": false,
-  "front_back_note": "nz2fix lacks repo fix 54476f0 (wheel axis 0 1 0->0 -1 0, FL<->RR/FR<->RL swap); packaged as-is per user; front/back unverified",
+  "front_back_note": "FIXED: 54476f0 front/back correction applied (uniform R_z(pi) on base_link + direct children, wheel axis 0 1 0->0 -1 0, FL<->RR/FR<->RL + lidar front<->rear/left<->right name swap). Verified: all 44 joints match proven r25_rev1 oracle (mast pitch 35deg kept). gz runtime re-check recommended.",
   "note": "MuJoCo는 배포본에서 검증(verification.json). gz 런타임/실물 미검증."
 }

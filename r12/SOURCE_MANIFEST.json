@@ -2613,7 +2613,7 @@
     },
     {
       "path": "configs/r30_robot.json",
-      "sha256": "13fd5696b27925fd909dc7171365aa81f4f60fcd834afafaa83253a99f809994"
+      "sha256": "2b7d995dd73db9a3ca96f3f20e6d1c775dadee7e9eaf83570216a481ed91f433"
     },
     {
       "path": "configs/r12_tcp_calibration.json",

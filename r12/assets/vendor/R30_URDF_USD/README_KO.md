@@ -14,5 +14,5 @@ robot_hardware_design/r30 배포본의 `real_final_plz_no_more_edit_v99_nz2fix.u
 - `.bak` 원본(base_footprint 없음)은 TF 끊김으로 사용 금지(배포본에서 제외함).
 - gz 제어 플러그인은 포함 안 됨(센서 gazebo 태그만). Gazebo 구동용이 아니라 ROS/Isaac 기술서.
 
-## 주의 — 앞뒤(전진·조향) 미검증
-이 nz2fix는 저장소 54476f0(바퀴 축 0 1 0→0 -1 0, FL↔RR·FR↔RL 이름 스왑)의 앞뒤 수정이 **빠진** 계보입니다. 바퀴 축은 `0 1 0`, 이름 스왑 없음. 사용자 지시로 nz2fix 원본 그대로 패키징했으며, 앞뒤 방향은 실환경에서 재확인 필요.
+## 앞뒤 수정 적용
+54476f0 변환(base_link+직속 자식 R_z(π), 바퀴 축 0 1 0→0 -1 0, FL↔RR·FR↔RL + lidar front↔rear·left↔right 이름 스왑)을 적용해 검증된 r25_rev1과 44개 관절 전부 일치시켰습니다(mast 35°는 유지). MuJoCo scene.xml·USD는 이번에 손대지 않았으니 그쪽을 쓰면 별도 확인 필요. gz 런타임 재확인 권장.

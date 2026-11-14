@@ -5,13 +5,13 @@
   </mujoco>
   <link name="base_link">
     <inertial>
-      <!-- v26: old top camera mount removed, adjustable mount + cradle added (solid PLA 1240 kg/m3), D435 (0.072 kg) re-tilted 60 -> 35 deg. v25 values: see ../assembly_puck_slots_v25/assembly_v25_backup.urdf -->
-      <origin xyz="0.005544632740646 -2.79372059544e-05 0.027098892998227" />
+      
+      <origin xyz="-0.005544632740646 2.79372059544e-05 0.027098892998227" />
       <mass value="21.40461097503856" />
-      <inertia ixx="0.6065456455979639" ixy="-0.0008696475996322566" ixz="-0.04176586278641545" iyy="0.6021534519764908" iyz="0.0001965551123657978" izz="0.5318770360186272" />
+      <inertia ixx="0.6065456455979639" ixy="-0.0008696475996322566" ixz="0.04176586278641545" iyy="0.6021534519764908" iyz="-0.0001965551123657978" izz="0.5318770360186272" />
     </inertial>
     <collision name="base_link_collision_0">
-      <origin xyz="0 0 0" />
+      <origin xyz="-0.0 -0.0 0.0" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.34 0.34 0.019" />
       </geometry>
@@ -23,9 +23,9 @@
       <material name="base_link_color">
         <color rgba="0.64 0.68 0.72 1" />
       </material>
-    </visual>
+    <origin xyz="-0.0 -0.0 0.0" rpy="0.0 0.0 -3.141592653589793" /></visual>
     <visual name="tag0_000">
-      <origin xyz="-0.035 0.145 0.05005" />
+      <origin xyz="0.035 -0.145 0.05005" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.027000000 0.027000000 0.000100000" />
       </geometry>
@@ -34,7 +34,7 @@
       </material>
     </visual>
     <visual name="tag0_001">
-      <origin xyz="-0.035 0.15445 0.05011" />
+      <origin xyz="0.035 -0.15445 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -43,7 +43,7 @@
       </material>
     </visual>
     <visual name="tag0_002">
-      <origin xyz="-0.04175 0.15175 0.05011" />
+      <origin xyz="0.04175 -0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -52,7 +52,7 @@
       </material>
     </visual>
     <visual name="tag0_003">
-      <origin xyz="-0.0296 0.15175 0.05011" />
+      <origin xyz="0.0296 -0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -61,7 +61,7 @@
       </material>
     </visual>
     <visual name="tag0_004">
-      <origin xyz="-0.0431 0.14905 0.05011" />
+      <origin xyz="0.0431 -0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -70,7 +70,7 @@
       </material>
     </visual>
     <visual name="tag0_005">
-      <origin xyz="-0.03365 0.14905 0.05011" />
+      <origin xyz="0.03365 -0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -79,7 +79,7 @@
       </material>
     </visual>
     <visual name="tag0_006">
-      <origin xyz="-0.0269 0.14905 0.05011" />
+      <origin xyz="0.0269 -0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -88,7 +88,7 @@
       </material>
     </visual>
     <visual name="tag0_007">
-      <origin xyz="-0.0404 0.14635 0.05011" />
+      <origin xyz="0.0404 -0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -97,7 +97,7 @@
       </material>
     </visual>
     <visual name="tag0_008">
-      <origin xyz="-0.03095 0.14635 0.05011" />
+      <origin xyz="0.03095 -0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -106,7 +106,7 @@
       </material>
     </visual>
     <visual name="tag0_009">
-      <origin xyz="-0.02555 0.14635 0.05011" />
+      <origin xyz="0.02555 -0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -115,7 +115,7 @@
       </material>
     </visual>
     <visual name="tag0_010">
-      <origin xyz="-0.0404 0.14365 0.05011" />
+      <origin xyz="0.0404 -0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -124,7 +124,7 @@
       </material>
     </visual>
     <visual name="tag0_011">
-      <origin xyz="-0.0269 0.14365 0.05011" />
+      <origin xyz="0.0269 -0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -133,7 +133,7 @@
       </material>
     </visual>
     <visual name="tag0_012">
-      <origin xyz="-0.04445 0.14095 0.05011" />
+      <origin xyz="0.04445 -0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -142,7 +142,7 @@
       </material>
     </visual>
     <visual name="tag0_013">
-      <origin xyz="-0.03905 0.14095 0.05011" />
+      <origin xyz="0.03905 -0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -151,7 +151,7 @@
       </material>
     </visual>
     <visual name="tag0_014">
-      <origin xyz="-0.0269 0.14095 0.05011" />
+      <origin xyz="0.0269 -0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -160,7 +160,7 @@
       </material>
     </visual>
     <visual name="tag0_015">
-      <origin xyz="-0.04445 0.13825 0.05011" />
+      <origin xyz="0.04445 -0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -169,7 +169,7 @@
       </material>
     </visual>
     <visual name="tag0_016">
-      <origin xyz="-0.03905 0.13825 0.05011" />
+      <origin xyz="0.03905 -0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -178,7 +178,7 @@
       </material>
     </visual>
     <visual name="tag0_017">
-      <origin xyz="-0.03365 0.13825 0.05011" />
+      <origin xyz="0.03365 -0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -187,7 +187,7 @@
       </material>
     </visual>
     <visual name="tag0_018">
-      <origin xyz="-0.02555 0.13825 0.05011" />
+      <origin xyz="0.02555 -0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -196,7 +196,7 @@
       </material>
     </visual>
     <visual name="tag0_019">
-      <origin xyz="-0.035 0.13555 0.05011" />
+      <origin xyz="0.035 -0.13555 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -205,7 +205,7 @@
       </material>
     </visual>
     <visual name="tag1_020">
-      <origin xyz="0.035 0.145 0.05005" />
+      <origin xyz="-0.035 -0.145 0.05005" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.027000000 0.027000000 0.000100000" />
       </geometry>
@@ -214,7 +214,7 @@
       </material>
     </visual>
     <visual name="tag1_021">
-      <origin xyz="0.035 0.15445 0.05011" />
+      <origin xyz="-0.035 -0.15445 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -223,7 +223,7 @@
       </material>
     </visual>
     <visual name="tag1_022">
-      <origin xyz="0.02555 0.15175 0.05011" />
+      <origin xyz="-0.02555 -0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -232,7 +232,7 @@
       </material>
     </visual>
     <visual name="tag1_023">
-      <origin xyz="0.0323 0.15175 0.05011" />
+      <origin xyz="-0.0323 -0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -241,7 +241,7 @@
       </material>
     </visual>
     <visual name="tag1_024">
-      <origin xyz="0.04175 0.15175 0.05011" />
+      <origin xyz="-0.04175 -0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -250,7 +250,7 @@
       </material>
     </visual>
     <visual name="tag1_025">
-      <origin xyz="0.02555 0.14905 0.05011" />
+      <origin xyz="-0.02555 -0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -259,7 +259,7 @@
       </material>
     </visual>
     <visual name="tag1_026">
-      <origin xyz="0.03095 0.14905 0.05011" />
+      <origin xyz="-0.03095 -0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -268,7 +268,7 @@
       </material>
     </visual>
     <visual name="tag1_027">
-      <origin xyz="0.03905 0.14905 0.05011" />
+      <origin xyz="-0.03905 -0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -277,7 +277,7 @@
       </material>
     </visual>
     <visual name="tag1_028">
-      <origin xyz="0.04445 0.14905 0.05011" />
+      <origin xyz="-0.04445 -0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -286,7 +286,7 @@
       </material>
     </visual>
     <visual name="tag1_029">
-      <origin xyz="0.0296 0.14635 0.05011" />
+      <origin xyz="-0.0296 -0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -295,7 +295,7 @@
       </material>
     </visual>
     <visual name="tag1_030">
-      <origin xyz="0.0431 0.14635 0.05011" />
+      <origin xyz="-0.0431 -0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -304,7 +304,7 @@
       </material>
     </visual>
     <visual name="tag1_031">
-      <origin xyz="0.02825 0.14365 0.05011" />
+      <origin xyz="-0.02825 -0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -313,7 +313,7 @@
       </material>
     </visual>
     <visual name="tag1_032">
-      <origin xyz="0.04445 0.14365 0.05011" />
+      <origin xyz="-0.04445 -0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -322,7 +322,7 @@
       </material>
     </visual>
     <visual name="tag1_033">
-      <origin xyz="0.02555 0.14095 0.05011" />
+      <origin xyz="-0.02555 -0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -331,7 +331,7 @@
       </material>
     </visual>
     <visual name="tag1_034">
-      <origin xyz="0.03635 0.14095 0.05011" />
+      <origin xyz="-0.03635 -0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -340,7 +340,7 @@
       </material>
     </visual>
     <visual name="tag1_035">
-      <origin xyz="0.0431 0.14095 0.05011" />
+      <origin xyz="-0.0431 -0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -349,7 +349,7 @@
       </material>
     </visual>
     <visual name="tag1_036">
-      <origin xyz="0.0269 0.13825 0.05011" />
+      <origin xyz="-0.0269 -0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -358,7 +358,7 @@
       </material>
     </visual>
     <visual name="tag1_037">
-      <origin xyz="0.03635 0.13825 0.05011" />
+      <origin xyz="-0.03635 -0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -367,7 +367,7 @@
       </material>
     </visual>
     <visual name="tag1_038">
-      <origin xyz="0.04445 0.13825 0.05011" />
+      <origin xyz="-0.04445 -0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -376,7 +376,7 @@
       </material>
     </visual>
     <visual name="tag1_039">
-      <origin xyz="0.035 0.13555 0.05011" />
+      <origin xyz="-0.035 -0.13555 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -385,7 +385,7 @@
       </material>
     </visual>
     <visual name="tag2_040">
-      <origin xyz="-0.035 0.095 0.05005" />
+      <origin xyz="0.035 -0.095 0.05005" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.027000000 0.027000000 0.000100000" />
       </geometry>
@@ -394,7 +394,7 @@
       </material>
     </visual>
     <visual name="tag2_041">
-      <origin xyz="-0.035 0.10445 0.05011" />
+      <origin xyz="0.035 -0.10445 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -403,7 +403,7 @@
       </material>
     </visual>
     <visual name="tag2_042">
-      <origin xyz="-0.0431 0.10175 0.05011" />
+      <origin xyz="0.0431 -0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -412,7 +412,7 @@
       </material>
     </visual>
     <visual name="tag2_043">
-      <origin xyz="-0.02825 0.10175 0.05011" />
+      <origin xyz="0.02825 -0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -421,7 +421,7 @@
       </material>
     </visual>
     <visual name="tag2_044">
-      <origin xyz="-0.04175 0.09905 0.05011" />
+      <origin xyz="0.04175 -0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -430,7 +430,7 @@
       </material>
     </visual>
     <visual name="tag2_045">
-      <origin xyz="-0.0296 0.09905 0.05011" />
+      <origin xyz="0.0296 -0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -439,7 +439,7 @@
       </material>
     </visual>
     <visual name="tag2_046">
-      <origin xyz="-0.04445 0.09635 0.05011" />
+      <origin xyz="0.04445 -0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -448,7 +448,7 @@
       </material>
     </visual>
     <visual name="tag2_047">
-      <origin xyz="-0.0377 0.09635 0.05011" />
+      <origin xyz="0.0377 -0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -457,7 +457,7 @@
       </material>
     </visual>
     <visual name="tag2_048">
-      <origin xyz="-0.02825 0.09635 0.05011" />
+      <origin xyz="0.02825 -0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -466,7 +466,7 @@
       </material>
     </visual>
     <visual name="tag2_049">
-      <origin xyz="-0.0377 0.09365 0.05011" />
+      <origin xyz="0.0377 -0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.016200000 0.002700000 0.000020000" />
       </geometry>
@@ -475,7 +475,7 @@
       </material>
     </visual>
     <visual name="tag2_050">
-      <origin xyz="-0.02555 0.09365 0.05011" />
+      <origin xyz="0.02555 -0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -484,7 +484,7 @@
       </material>
     </visual>
     <visual name="tag2_051">
-      <origin xyz="-0.0431 0.09095 0.05011" />
+      <origin xyz="0.0431 -0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -493,7 +493,7 @@
       </material>
     </visual>
     <visual name="tag2_052">
-      <origin xyz="-0.035 0.09095 0.05011" />
+      <origin xyz="0.035 -0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -502,7 +502,7 @@
       </material>
     </visual>
     <visual name="tag2_053">
-      <origin xyz="-0.0269 0.09095 0.05011" />
+      <origin xyz="0.0269 -0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -511,7 +511,7 @@
       </material>
     </visual>
     <visual name="tag2_054">
-      <origin xyz="-0.04445 0.08825 0.05011" />
+      <origin xyz="0.04445 -0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -520,7 +520,7 @@
       </material>
     </visual>
     <visual name="tag2_055">
-      <origin xyz="-0.03365 0.08825 0.05011" />
+      <origin xyz="0.03365 -0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -529,7 +529,7 @@
       </material>
     </visual>
     <visual name="tag2_056">
-      <origin xyz="-0.02555 0.08825 0.05011" />
+      <origin xyz="0.02555 -0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -538,7 +538,7 @@
       </material>
     </visual>
     <visual name="tag2_057">
-      <origin xyz="-0.035 0.08555 0.05011" />
+      <origin xyz="0.035 -0.08555 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -547,7 +547,7 @@
       </material>
     </visual>
     <visual name="tag3_058">
-      <origin xyz="0.035 0.095 0.05005" />
+      <origin xyz="-0.035 -0.095 0.05005" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.027000000 0.027000000 0.000100000" />
       </geometry>
@@ -556,7 +556,7 @@
       </material>
     </visual>
     <visual name="tag3_059">
-      <origin xyz="0.035 0.10445 0.05011" />
+      <origin xyz="-0.035 -0.10445 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -565,7 +565,7 @@
       </material>
     </visual>
     <visual name="tag3_060">
-      <origin xyz="0.0296 0.10175 0.05011" />
+      <origin xyz="-0.0296 -0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -574,7 +574,7 @@
       </material>
     </visual>
     <visual name="tag3_061">
-      <origin xyz="0.0431 0.10175 0.05011" />
+      <origin xyz="-0.0431 -0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -583,7 +583,7 @@
       </material>
     </visual>
     <visual name="tag3_062">
-      <origin xyz="0.0269 0.09905 0.05011" />
+      <origin xyz="-0.0269 -0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -592,7 +592,7 @@
       </material>
     </visual>
     <visual name="tag3_063">
-      <origin xyz="0.035 0.09905 0.05011" />
+      <origin xyz="-0.035 -0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -601,7 +601,7 @@
       </material>
     </visual>
     <visual name="tag3_064">
-      <origin xyz="0.04445 0.09905 0.05011" />
+      <origin xyz="-0.04445 -0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -610,7 +610,7 @@
       </material>
     </visual>
     <visual name="tag3_065">
-      <origin xyz="0.02555 0.09635 0.05011" />
+      <origin xyz="-0.02555 -0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -619,7 +619,7 @@
       </material>
     </visual>
     <visual name="tag3_066">
-      <origin xyz="0.0323 0.09635 0.05011" />
+      <origin xyz="-0.0323 -0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -628,7 +628,7 @@
       </material>
     </visual>
     <visual name="tag3_067">
-      <origin xyz="0.03905 0.09635 0.05011" />
+      <origin xyz="-0.03905 -0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -637,7 +637,7 @@
       </material>
     </visual>
     <visual name="tag3_068">
-      <origin xyz="0.04445 0.09635 0.05011" />
+      <origin xyz="-0.04445 -0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -646,7 +646,7 @@
       </material>
     </visual>
     <visual name="tag3_069">
-      <origin xyz="0.02555 0.09365 0.05011" />
+      <origin xyz="-0.02555 -0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -655,7 +655,7 @@
       </material>
     </visual>
     <visual name="tag3_070">
-      <origin xyz="0.0377 0.09365 0.05011" />
+      <origin xyz="-0.0377 -0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -664,7 +664,7 @@
       </material>
     </visual>
     <visual name="tag3_071">
-      <origin xyz="0.04445 0.09365 0.05011" />
+      <origin xyz="-0.04445 -0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -673,7 +673,7 @@
       </material>
     </visual>
     <visual name="tag3_072">
-      <origin xyz="0.02555 0.09095 0.05011" />
+      <origin xyz="-0.02555 -0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -682,7 +682,7 @@
       </material>
     </visual>
     <visual name="tag3_073">
-      <origin xyz="0.0404 0.09095 0.05011" />
+      <origin xyz="-0.0404 -0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -691,7 +691,7 @@
       </material>
     </visual>
     <visual name="tag3_074">
-      <origin xyz="0.02555 0.08825 0.05011" />
+      <origin xyz="-0.02555 -0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -700,7 +700,7 @@
       </material>
     </visual>
     <visual name="tag3_075">
-      <origin xyz="0.0323 0.08825 0.05011" />
+      <origin xyz="-0.0323 -0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -709,7 +709,7 @@
       </material>
     </visual>
     <visual name="tag3_076">
-      <origin xyz="0.04445 0.08825 0.05011" />
+      <origin xyz="-0.04445 -0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -718,7 +718,7 @@
       </material>
     </visual>
     <visual name="tag3_077">
-      <origin xyz="0.035 0.08555 0.05011" />
+      <origin xyz="-0.035 -0.08555 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -727,7 +727,7 @@
       </material>
     </visual>
     <visual name="tag4_078">
-      <origin xyz="-0.035 -0.095 0.05005" />
+      <origin xyz="0.035 0.095 0.05005" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.027000000 0.027000000 0.000100000" />
       </geometry>
@@ -736,7 +736,7 @@
       </material>
     </visual>
     <visual name="tag4_079">
-      <origin xyz="-0.035 -0.08555 0.05011" />
+      <origin xyz="0.035 0.08555 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -745,7 +745,7 @@
       </material>
     </visual>
     <visual name="tag4_080">
-      <origin xyz="-0.0431 -0.08825 0.05011" />
+      <origin xyz="0.0431 0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -754,7 +754,7 @@
       </material>
     </visual>
     <visual name="tag4_081">
-      <origin xyz="-0.03365 -0.08825 0.05011" />
+      <origin xyz="0.03365 0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -763,7 +763,7 @@
       </material>
     </visual>
     <visual name="tag4_082">
-      <origin xyz="-0.02555 -0.08825 0.05011" />
+      <origin xyz="0.02555 0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -772,7 +772,7 @@
       </material>
     </visual>
     <visual name="tag4_083">
-      <origin xyz="-0.0377 -0.09095 0.05011" />
+      <origin xyz="0.0377 0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.016200000 0.002700000 0.000020000" />
       </geometry>
@@ -781,7 +781,7 @@
       </material>
     </visual>
     <visual name="tag4_084">
-      <origin xyz="-0.02555 -0.09095 0.05011" />
+      <origin xyz="0.02555 0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -790,7 +790,7 @@
       </material>
     </visual>
     <visual name="tag4_085">
-      <origin xyz="-0.0431 -0.09365 0.05011" />
+      <origin xyz="0.0431 0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -799,7 +799,7 @@
       </material>
     </visual>
     <visual name="tag4_086">
-      <origin xyz="-0.03635 -0.09365 0.05011" />
+      <origin xyz="0.03635 0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -808,7 +808,7 @@
       </material>
     </visual>
     <visual name="tag4_087">
-      <origin xyz="-0.02825 -0.09365 0.05011" />
+      <origin xyz="0.02825 0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -817,7 +817,7 @@
       </material>
     </visual>
     <visual name="tag4_088">
-      <origin xyz="-0.04445 -0.09635 0.05011" />
+      <origin xyz="0.04445 0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -826,7 +826,7 @@
       </material>
     </visual>
     <visual name="tag4_089">
-      <origin xyz="-0.03095 -0.09635 0.05011" />
+      <origin xyz="0.03095 0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -835,7 +835,7 @@
       </material>
     </visual>
     <visual name="tag4_090">
-      <origin xyz="-0.02555 -0.09635 0.05011" />
+      <origin xyz="0.02555 0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -844,7 +844,7 @@
       </material>
     </visual>
     <visual name="tag4_091">
-      <origin xyz="-0.04175 -0.09905 0.05011" />
+      <origin xyz="0.04175 0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -853,7 +853,7 @@
       </material>
     </visual>
     <visual name="tag4_092">
-      <origin xyz="-0.02555 -0.09905 0.05011" />
+      <origin xyz="0.02555 0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -862,7 +862,7 @@
       </material>
     </visual>
     <visual name="tag4_093">
-      <origin xyz="-0.0431 -0.10175 0.05011" />
+      <origin xyz="0.0431 0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -871,7 +871,7 @@
       </material>
     </visual>
     <visual name="tag4_094">
-      <origin xyz="-0.03635 -0.10175 0.05011" />
+      <origin xyz="0.03635 0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -880,7 +880,7 @@
       </material>
     </visual>
     <visual name="tag4_095">
-      <origin xyz="-0.02555 -0.10175 0.05011" />
+      <origin xyz="0.02555 0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -889,7 +889,7 @@
       </material>
     </visual>
     <visual name="tag4_096">
-      <origin xyz="-0.035 -0.10445 0.05011" />
+      <origin xyz="0.035 0.10445 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -898,7 +898,7 @@
       </material>
     </visual>
     <visual name="tag5_097">
-      <origin xyz="0.035 -0.095 0.05005" />
+      <origin xyz="-0.035 0.095 0.05005" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.027000000 0.027000000 0.000100000" />
       </geometry>
@@ -907,7 +907,7 @@
       </material>
     </visual>
     <visual name="tag5_098">
-      <origin xyz="0.035 -0.08555 0.05011" />
+      <origin xyz="-0.035 0.08555 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -916,7 +916,7 @@
       </material>
     </visual>
     <visual name="tag5_099">
-      <origin xyz="0.02825 -0.08825 0.05011" />
+      <origin xyz="-0.02825 0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -925,7 +925,7 @@
       </material>
     </visual>
     <visual name="tag5_100">
-      <origin xyz="0.03905 -0.08825 0.05011" />
+      <origin xyz="-0.03905 0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -934,7 +934,7 @@
       </material>
     </visual>
     <visual name="tag5_101">
-      <origin xyz="0.04445 -0.08825 0.05011" />
+      <origin xyz="-0.04445 0.08825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -943,7 +943,7 @@
       </material>
     </visual>
     <visual name="tag5_102">
-      <origin xyz="0.0269 -0.09095 0.05011" />
+      <origin xyz="-0.0269 0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -952,7 +952,7 @@
       </material>
     </visual>
     <visual name="tag5_103">
-      <origin xyz="0.04175 -0.09095 0.05011" />
+      <origin xyz="-0.04175 0.09095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -961,7 +961,7 @@
       </material>
     </visual>
     <visual name="tag5_104">
-      <origin xyz="0.02555 -0.09365 0.05011" />
+      <origin xyz="-0.02555 0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -970,7 +970,7 @@
       </material>
     </visual>
     <visual name="tag5_105">
-      <origin xyz="0.03365 -0.09365 0.05011" />
+      <origin xyz="-0.03365 0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -979,7 +979,7 @@
       </material>
     </visual>
     <visual name="tag5_106">
-      <origin xyz="0.03905 -0.09365 0.05011" />
+      <origin xyz="-0.03905 0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -988,7 +988,7 @@
       </material>
     </visual>
     <visual name="tag5_107">
-      <origin xyz="0.04445 -0.09365 0.05011" />
+      <origin xyz="-0.04445 0.09365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -997,7 +997,7 @@
       </material>
     </visual>
     <visual name="tag5_108">
-      <origin xyz="0.0269 -0.09635 0.05011" />
+      <origin xyz="-0.0269 0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1006,7 +1006,7 @@
       </material>
     </visual>
     <visual name="tag5_109">
-      <origin xyz="0.03635 -0.09635 0.05011" />
+      <origin xyz="-0.03635 0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1015,7 +1015,7 @@
       </material>
     </visual>
     <visual name="tag5_110">
-      <origin xyz="0.04445 -0.09635 0.05011" />
+      <origin xyz="-0.04445 0.09635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1024,7 +1024,7 @@
       </material>
     </visual>
     <visual name="tag5_111">
-      <origin xyz="0.02555 -0.09905 0.05011" />
+      <origin xyz="-0.02555 0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1033,7 +1033,7 @@
       </material>
     </visual>
     <visual name="tag5_112">
-      <origin xyz="0.03365 -0.09905 0.05011" />
+      <origin xyz="-0.03365 0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -1042,7 +1042,7 @@
       </material>
     </visual>
     <visual name="tag5_113">
-      <origin xyz="0.04445 -0.09905 0.05011" />
+      <origin xyz="-0.04445 0.09905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1051,7 +1051,7 @@
       </material>
     </visual>
     <visual name="tag5_114">
-      <origin xyz="0.02825 -0.10175 0.05011" />
+      <origin xyz="-0.02825 0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -1060,7 +1060,7 @@
       </material>
     </visual>
     <visual name="tag5_115">
-      <origin xyz="0.04445 -0.10175 0.05011" />
+      <origin xyz="-0.04445 0.10175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1069,7 +1069,7 @@
       </material>
     </visual>
     <visual name="tag5_116">
-      <origin xyz="0.035 -0.10445 0.05011" />
+      <origin xyz="-0.035 0.10445 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -1078,7 +1078,7 @@
       </material>
     </visual>
     <visual name="tag6_117">
-      <origin xyz="-0.035 -0.145 0.05005" />
+      <origin xyz="0.035 0.145 0.05005" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.027000000 0.027000000 0.000100000" />
       </geometry>
@@ -1087,7 +1087,7 @@
       </material>
     </visual>
     <visual name="tag6_118">
-      <origin xyz="-0.035 -0.13555 0.05011" />
+      <origin xyz="0.035 0.13555 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -1096,7 +1096,7 @@
       </material>
     </visual>
     <visual name="tag6_119">
-      <origin xyz="-0.04445 -0.13825 0.05011" />
+      <origin xyz="0.04445 0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1105,7 +1105,7 @@
       </material>
     </visual>
     <visual name="tag6_120">
-      <origin xyz="-0.03905 -0.13825 0.05011" />
+      <origin xyz="0.03905 0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1114,7 +1114,7 @@
       </material>
     </visual>
     <visual name="tag6_121">
-      <origin xyz="-0.0296 -0.13825 0.05011" />
+      <origin xyz="0.0296 0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -1123,7 +1123,7 @@
       </material>
     </visual>
     <visual name="tag6_122">
-      <origin xyz="-0.0431 -0.14095 0.05011" />
+      <origin xyz="0.0431 0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1132,7 +1132,7 @@
       </material>
     </visual>
     <visual name="tag6_123">
-      <origin xyz="-0.03095 -0.14095 0.05011" />
+      <origin xyz="0.03095 0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.013500000 0.002700000 0.000020000" />
       </geometry>
@@ -1141,7 +1141,7 @@
       </material>
     </visual>
     <visual name="tag6_124">
-      <origin xyz="-0.04445 -0.14365 0.05011" />
+      <origin xyz="0.04445 0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1150,7 +1150,7 @@
       </material>
     </visual>
     <visual name="tag6_125">
-      <origin xyz="-0.03905 -0.14365 0.05011" />
+      <origin xyz="0.03905 0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1159,7 +1159,7 @@
       </material>
     </visual>
     <visual name="tag6_126">
-      <origin xyz="-0.0269 -0.14365 0.05011" />
+      <origin xyz="0.0269 0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1168,7 +1168,7 @@
       </material>
     </visual>
     <visual name="tag6_127">
-      <origin xyz="-0.04445 -0.14635 0.05011" />
+      <origin xyz="0.04445 0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1177,7 +1177,7 @@
       </material>
     </visual>
     <visual name="tag6_128">
-      <origin xyz="-0.0377 -0.14635 0.05011" />
+      <origin xyz="0.0377 0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1186,7 +1186,7 @@
       </material>
     </visual>
     <visual name="tag6_129">
-      <origin xyz="-0.03095 -0.14635 0.05011" />
+      <origin xyz="0.03095 0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1195,7 +1195,7 @@
       </material>
     </visual>
     <visual name="tag6_130">
-      <origin xyz="-0.02555 -0.14635 0.05011" />
+      <origin xyz="0.02555 0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1204,7 +1204,7 @@
       </material>
     </visual>
     <visual name="tag6_131">
-      <origin xyz="-0.0431 -0.14905 0.05011" />
+      <origin xyz="0.0431 0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1213,7 +1213,7 @@
       </material>
     </visual>
     <visual name="tag6_132">
-      <origin xyz="-0.03365 -0.14905 0.05011" />
+      <origin xyz="0.03365 0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1222,7 +1222,7 @@
       </material>
     </visual>
     <visual name="tag6_133">
-      <origin xyz="-0.0269 -0.14905 0.05011" />
+      <origin xyz="0.0269 0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1231,7 +1231,7 @@
       </material>
     </visual>
     <visual name="tag6_134">
-      <origin xyz="-0.04445 -0.15175 0.05011" />
+      <origin xyz="0.04445 0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1240,7 +1240,7 @@
       </material>
     </visual>
     <visual name="tag6_135">
-      <origin xyz="-0.0323 -0.15175 0.05011" />
+      <origin xyz="0.0323 0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.016200000 0.002700000 0.000020000" />
       </geometry>
@@ -1249,7 +1249,7 @@
       </material>
     </visual>
     <visual name="tag6_136">
-      <origin xyz="-0.035 -0.15445 0.05011" />
+      <origin xyz="0.035 0.15445 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -1258,7 +1258,7 @@
       </material>
     </visual>
     <visual name="tag7_137">
-      <origin xyz="0.035 -0.145 0.05005" />
+      <origin xyz="-0.035 0.145 0.05005" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.027000000 0.027000000 0.000100000" />
       </geometry>
@@ -1267,7 +1267,7 @@
       </material>
     </visual>
     <visual name="tag7_138">
-      <origin xyz="0.035 -0.13555 0.05011" />
+      <origin xyz="-0.035 0.13555 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -1276,7 +1276,7 @@
       </material>
     </visual>
     <visual name="tag7_139">
-      <origin xyz="0.02825 -0.13825 0.05011" />
+      <origin xyz="-0.02825 0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -1285,7 +1285,7 @@
       </material>
     </visual>
     <visual name="tag7_140">
-      <origin xyz="0.03635 -0.13825 0.05011" />
+      <origin xyz="-0.03635 0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1294,7 +1294,7 @@
       </material>
     </visual>
     <visual name="tag7_141">
-      <origin xyz="0.0431 -0.13825 0.05011" />
+      <origin xyz="-0.0431 0.13825 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1303,7 +1303,7 @@
       </material>
     </visual>
     <visual name="tag7_142">
-      <origin xyz="0.02555 -0.14095 0.05011" />
+      <origin xyz="-0.02555 0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1312,7 +1312,7 @@
       </material>
     </visual>
     <visual name="tag7_143">
-      <origin xyz="0.0404 -0.14095 0.05011" />
+      <origin xyz="-0.0404 0.14095 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -1321,7 +1321,7 @@
       </material>
     </visual>
     <visual name="tag7_144">
-      <origin xyz="0.0269 -0.14365 0.05011" />
+      <origin xyz="-0.0269 0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1330,7 +1330,7 @@
       </material>
     </visual>
     <visual name="tag7_145">
-      <origin xyz="0.03905 -0.14365 0.05011" />
+      <origin xyz="-0.03905 0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1339,7 +1339,7 @@
       </material>
     </visual>
     <visual name="tag7_146">
-      <origin xyz="0.04445 -0.14365 0.05011" />
+      <origin xyz="-0.04445 0.14365 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1348,7 +1348,7 @@
       </material>
     </visual>
     <visual name="tag7_147">
-      <origin xyz="0.02825 -0.14635 0.05011" />
+      <origin xyz="-0.02825 0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -1357,7 +1357,7 @@
       </material>
     </visual>
     <visual name="tag7_148">
-      <origin xyz="0.03635 -0.14635 0.05011" />
+      <origin xyz="-0.03635 0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.002700000 0.002700000 0.000020000" />
       </geometry>
@@ -1366,7 +1366,7 @@
       </material>
     </visual>
     <visual name="tag7_149">
-      <origin xyz="0.0431 -0.14635 0.05011" />
+      <origin xyz="-0.0431 0.14635 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1375,7 +1375,7 @@
       </material>
     </visual>
     <visual name="tag7_150">
-      <origin xyz="0.0269 -0.14905 0.05011" />
+      <origin xyz="-0.0269 0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.005400000 0.002700000 0.000020000" />
       </geometry>
@@ -1384,7 +1384,7 @@
       </material>
     </visual>
     <visual name="tag7_151">
-      <origin xyz="0.0404 -0.14905 0.05011" />
+      <origin xyz="-0.0404 0.14905 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -1393,7 +1393,7 @@
       </material>
     </visual>
     <visual name="tag7_152">
-      <origin xyz="0.02825 -0.15175 0.05011" />
+      <origin xyz="-0.02825 0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.008100000 0.002700000 0.000020000" />
       </geometry>
@@ -1402,7 +1402,7 @@
       </material>
     </visual>
     <visual name="tag7_153">
-      <origin xyz="0.0404 -0.15175 0.05011" />
+      <origin xyz="-0.0404 0.15175 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.010800000 0.002700000 0.000020000" />
       </geometry>
@@ -1411,7 +1411,7 @@
       </material>
     </visual>
     <visual name="tag7_154">
-      <origin xyz="0.035 -0.15445 0.05011" />
+      <origin xyz="-0.035 0.15445 0.05011" rpy="0.0 0.0 -3.141592653589793" />
       <geometry>
         <box size="0.021600000 0.002700000 0.000020000" />
       </geometry>
@@ -1426,8 +1426,8 @@
       <material name="white_FDM">
         <color rgba=".91 .91 .91 1" />
       </material>
-    </visual>
-    <!-- v26 adjustable top camera mount (assembled at 35 deg down) -->
+    <origin xyz="-0.0 -0.0 0.0" rpy="0.0 0.0 -3.141592653589793" /></visual>
+    
     <visual name="camera_mount_base_v26">
       <geometry>
         <mesh filename="package://r30_description/meshes/camera_mount_base_v26.stl" />
@@ -1435,7 +1435,7 @@
       <material name="base_link_color">
         <color rgba="0.64 0.68 0.72 1" />
       </material>
-    </visual>
+    <origin xyz="-0.0 -0.0 0.0" rpy="0.0 0.0 -3.141592653589793" /></visual>
     <visual name="camera_cradle_v26">
       <geometry>
         <mesh filename="package://r30_description/meshes/camera_cradle_v26.stl" />
@@ -1443,7 +1443,7 @@
       <material name="base_link_color">
         <color rgba="0.64 0.68 0.72 1" />
       </material>
-    </visual>
+    <origin xyz="-0.0 -0.0 0.0" rpy="0.0 0.0 -3.141592653589793" /></visual>
     <visual name="mast_d435_v26">
       <geometry>
         <mesh filename="package://r30_description/meshes/mast_d435_v26.stl" />
@@ -1451,104 +1451,16 @@
       <material name="d435_gray">
         <color rgba="0.25 0.25 0.27 1" />
       </material>
-    </visual>
+    <origin xyz="-0.0 -0.0 0.0" rpy="0.0 0.0 -3.141592653589793" /></visual>
   </link>
-  <link name="rear_left_steer">
+  <link name="front_right_steer">
     <inertial>
       <origin xyz="-0.013376487305 -0.0053454288354 -0.074659209959" />
       <mass value="4.160795304770906" />
       <inertia ixx="0.009001004242640373" ixy="0.0008795189046714012" ixz="-0.0007030840318140303" iyy="0.00890352840106614" iyz="-6.82912032009137e-05" izz="0.007623734380187782" />
     </inertial>
-    <collision name="rear_left_steer_collision_0">
-      <origin xyz="-0.019248050861 0.0012516219635 -0.074932815582" />
-      <geometry>
-        <box size="0.14937444466 0.11450323993 0.18826559574" />
-      </geometry>
-    </collision>
-    <visual name="rear_left_steer_visual_0">
-      <geometry>
-        <mesh filename="package://r30_description/meshes/rear_left_steer_0.stl" />
-      </geometry>
-      <material name="rear_left_steer_color">
-        <color rgba="0.23 0.46 0.51 1" />
-      </material>
-    </visual>
-    <visual name="rear_left_steer_visual_1">
-      <geometry>
-        <mesh filename="package://r30_description/meshes/rear_left_steer_1.stl" />
-      </geometry>
-      <material name="rear_left_steer_color">
-        <color rgba="0.23 0.46 0.51 1" />
-      </material>
-    </visual>
-    <visual name="rear_left_steer_visual_2">
-      <geometry>
-        <mesh filename="package://r30_description/meshes/rear_left_steer_2.stl" />
-      </geometry>
-      <material name="rear_left_steer_color">
-        <color rgba="0.23 0.46 0.51 1" />
-      </material>
-    </visual>
-    <visual name="rear_left_steer_visual_3">
-      <geometry>
-        <mesh filename="package://r30_description/meshes/rear_left_steer_3.stl" />
-      </geometry>
-      <material name="rear_left_steer_color">
-        <color rgba="0.23 0.46 0.51 1" />
-      </material>
-    </visual>
-    <visual name="rear_left_steer_visual_4">
-      <geometry>
-        <mesh filename="package://r30_description/meshes/rear_left_steer_4.stl" />
-      </geometry>
-      <material name="rear_left_steer_color">
-        <color rgba="0.23 0.46 0.51 1" />
-      </material>
-    </visual>
-  </link>
-  <joint name="rear_left_steer_joint" type="revolute">
-    <parent link="base_link" />
-    <child link="rear_left_steer" />
-    <origin xyz="-0.124 0.124 -0.0029999969006" />
-    <axis xyz="0 0 1" />
-    <limit effort="60" velocity="10" lower="-1.57" upper="1.57" />
-  </joint>
-  <link name="rear_left_wheel">
-    <inertial>
-      <origin xyz="2.3218322346e-06 -0.0055340442223 1.6924813713e-06" />
-      <mass value="0.41836543171150103" />
-      <inertia ixx="0.00014736532137432748" ixy="6.055705353576877e-08" ixz="-1.8249763895242243e-08" iyy="0.00018410746925098852" iyz="-1.0529870164514763e-08" izz="0.00014736721844589806" />
-    </inertial>
-    <collision name="rear_left_wheel_collision_0">
-      <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
-      <geometry>
-        <cylinder radius="0.033" length="0.0182" />
-      </geometry>
-    </collision>
-    <visual name="rear_left_wheel_visual_0">
-      <geometry>
-        <mesh filename="package://r30_description/meshes/rear_left_wheel_0.stl" />
-      </geometry>
-      <material name="rear_left_wheel_color">
-        <color rgba="0.15 0.19 0.22 1" />
-      </material>
-    </visual>
-  </link>
-  <joint name="rear_left_wheel_joint" type="continuous">
-    <parent link="rear_left_steer" />
-    <child link="rear_left_wheel" />
-    <origin xyz="0 0 -0.14500000468" />
-    <axis xyz="0 1 0" />
-    <limit effort="60" velocity="10" />
-  </joint>
-  <link name="front_right_steer">
-    <inertial>
-      <origin xyz="0.013376487305 0.0053454288354 -0.074659209959" />
-      <mass value="4.160795304770906" />
-      <inertia ixx="0.009001004242640338" ixy="0.0008795189046714014" ixz="0.0007030840318140762" iyy="0.008903528401066152" iyz="6.829120320094274e-05" izz="0.007623734380187841" />
-    </inertial>
     <collision name="front_right_steer_collision_0">
-      <origin xyz="0.019248050861 -0.0012516219635 -0.074932815582" />
+      <origin xyz="-0.019248050861 0.0012516219635 -0.074932815582" />
       <geometry>
         <box size="0.14937444466 0.11450323993 0.18826559574" />
       </geometry>
@@ -1597,15 +1509,15 @@
   <joint name="front_right_steer_joint" type="revolute">
     <parent link="base_link" />
     <child link="front_right_steer" />
-    <origin xyz="0.12399999976 -0.124 -0.0029999969006" />
+    <origin xyz="0.124 -0.124 -0.0029999969006" rpy="0.0 0.0 -3.141592653589793" />
     <axis xyz="0 0 1" />
     <limit effort="60" velocity="10" lower="-1.57" upper="1.57" />
   </joint>
   <link name="front_right_wheel">
     <inertial>
-      <origin xyz="-2.3218322347e-06 0.0055340442223 1.6924813713e-06" />
+      <origin xyz="2.3218322346e-06 -0.0055340442223 1.6924813713e-06" />
       <mass value="0.41836543171150103" />
-      <inertia ixx="0.0001473653213743278" ixy="6.055705353574695e-08" ixz="1.8249763895239017e-08" iyy="0.0001841074692509889" iyz="1.0529870164509317e-08" izz="0.00014736721844589812" />
+      <inertia ixx="0.00014736532137432748" ixy="6.055705353576877e-08" ixz="-1.8249763895242243e-08" iyy="0.00018410746925098852" iyz="-1.0529870164514763e-08" izz="0.00014736721844589806" />
     </inertial>
     <collision name="front_right_wheel_collision_0">
       <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
@@ -1625,106 +1537,106 @@
   <joint name="front_right_wheel_joint" type="continuous">
     <parent link="front_right_steer" />
     <child link="front_right_wheel" />
-    <origin xyz="4.690692279e-15 -2.7755575616e-17 -0.14500000468" />
-    <axis xyz="0 1 0" />
+    <origin xyz="0 0 -0.14500000468" />
+    <axis xyz="0 -1 0" />
     <limit effort="60" velocity="10" />
   </joint>
-  <link name="front_left_steer">
+  <link name="rear_left_steer">
     <inertial>
-      <origin xyz="0.013376265499 -0.0053454288242 -0.074659209941" />
-      <mass value="4.160795304810552" />
-      <inertia ixx="0.00900100424129842" ixy="-0.0008795278665343361" ixz="0.0007031316340385499" iyy="0.008903553005183501" iyz="-6.829120782640917e-05" izz="0.007623758987647054" />
+      <origin xyz="0.013376487305 0.0053454288354 -0.074659209959" />
+      <mass value="4.160795304770906" />
+      <inertia ixx="0.009001004242640338" ixy="0.0008795189046714014" ixz="0.0007030840318140762" iyy="0.008903528401066152" iyz="6.829120320094274e-05" izz="0.007623734380187841" />
     </inertial>
-    <collision name="front_left_steer_collision_0">
-      <origin xyz="0.019182596328 0.0012186155343 -0.074758653575" />
+    <collision name="rear_left_steer_collision_0">
+      <origin xyz="0.019248050861 -0.0012516219635 -0.074932815582" />
       <geometry>
-        <box size="0.14950174761 0.11443722708 0.18791727172" />
+        <box size="0.14937444466 0.11450323993 0.18826559574" />
       </geometry>
     </collision>
-    <visual name="front_left_steer_visual_0">
+    <visual name="rear_left_steer_visual_0">
       <geometry>
-        <mesh filename="package://r30_description/meshes/front_left_steer_0.stl" />
+        <mesh filename="package://r30_description/meshes/rear_left_steer_0.stl" />
       </geometry>
-      <material name="front_left_steer_color">
+      <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
       </material>
     </visual>
-    <visual name="front_left_steer_visual_1">
+    <visual name="rear_left_steer_visual_1">
       <geometry>
-        <mesh filename="package://r30_description/meshes/front_left_steer_1.stl" />
+        <mesh filename="package://r30_description/meshes/rear_left_steer_1.stl" />
       </geometry>
-      <material name="front_left_steer_color">
+      <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
       </material>
     </visual>
-    <visual name="front_left_steer_visual_2">
+    <visual name="rear_left_steer_visual_2">
       <geometry>
-        <mesh filename="package://r30_description/meshes/front_left_steer_2.stl" />
+        <mesh filename="package://r30_description/meshes/rear_left_steer_2.stl" />
       </geometry>
-      <material name="front_left_steer_color">
+      <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
       </material>
     </visual>
-    <visual name="front_left_steer_visual_3">
+    <visual name="rear_left_steer_visual_3">
       <geometry>
-        <mesh filename="package://r30_description/meshes/front_left_steer_3.stl" />
+        <mesh filename="package://r30_description/meshes/rear_left_steer_3.stl" />
       </geometry>
-      <material name="front_left_steer_color">
+      <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
       </material>
     </visual>
-    <visual name="front_left_steer_visual_4">
+    <visual name="rear_left_steer_visual_4">
       <geometry>
-        <mesh filename="package://r30_description/meshes/front_left_steer_4.stl" />
+        <mesh filename="package://r30_description/meshes/rear_left_steer_4.stl" />
       </geometry>
-      <material name="front_left_steer_color">
+      <material name="rear_left_steer_color">
         <color rgba="0.23 0.46 0.51 1" />
       </material>
     </visual>
   </link>
-  <joint name="front_left_steer_joint" type="revolute">
+  <joint name="rear_left_steer_joint" type="revolute">
     <parent link="base_link" />
-    <child link="front_left_steer" />
-    <origin xyz="0.124 0.124 -0.0029999969006" />
+    <child link="rear_left_steer" />
+    <origin xyz="-0.12399999976 0.124 -0.0029999969006" rpy="0.0 0.0 -3.141592653589793" />
     <axis xyz="0 0 1" />
     <limit effort="60" velocity="10" lower="-1.57" upper="1.57" />
   </joint>
-  <link name="front_left_wheel">
+  <link name="rear_left_wheel">
     <inertial>
-      <origin xyz="-1.0341949924e-06 -0.0055340442223 1.6924813713e-06" />
+      <origin xyz="-2.3218322347e-06 0.0055340442223 1.6924813713e-06" />
       <mass value="0.41836543171150103" />
-      <inertia ixx="0.00014736532137435155" ixy="2.9715844909799752e-08" ixz="-1.273691087329993e-10" iyy="0.00018410747105890697" iyz="-1.0529870164039528e-08" izz="0.00014736722025379255" />
+      <inertia ixx="0.0001473653213743278" ixy="6.055705353574695e-08" ixz="1.8249763895239017e-08" iyy="0.0001841074692509889" iyz="1.0529870164509317e-08" izz="0.00014736721844589812" />
     </inertial>
-    <collision name="front_left_wheel_collision_0">
+    <collision name="rear_left_wheel_collision_0">
       <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
       <geometry>
         <cylinder radius="0.033" length="0.0182" />
       </geometry>
     </collision>
-    <visual name="front_left_wheel_visual_0">
+    <visual name="rear_left_wheel_visual_0">
       <geometry>
-        <mesh filename="package://r30_description/meshes/front_left_wheel_0.stl" />
+        <mesh filename="package://r30_description/meshes/rear_left_wheel_0.stl" />
       </geometry>
-      <material name="front_left_wheel_color">
+      <material name="rear_left_wheel_color">
         <color rgba="0.15 0.19 0.22 1" />
       </material>
     </visual>
   </link>
-  <joint name="front_left_wheel_joint" type="continuous">
-    <parent link="front_left_steer" />
-    <child link="front_left_wheel" />
-    <origin xyz="0 0 -0.14500000468" />
-    <axis xyz="0 1 0" />
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="rear_left_steer" />
+    <child link="rear_left_wheel" />
+    <origin xyz="4.690692279e-15 -2.7755575616e-17 -0.14500000468" />
+    <axis xyz="0 -1 0" />
     <limit effort="60" velocity="10" />
   </joint>
   <link name="rear_right_steer">
     <inertial>
-      <origin xyz="-0.013376265499 0.0053454288242 -0.074659209941" />
+      <origin xyz="0.013376265499 -0.0053454288242 -0.074659209941" />
       <mass value="4.160795304810552" />
-      <inertia ixx="0.009001004241298424" ixy="-0.0008795278665343382" ixz="-0.0007031316340385509" iyy="0.008903553005183524" iyz="6.829120782641382e-05" izz="0.007623758987647066" />
+      <inertia ixx="0.00900100424129842" ixy="-0.0008795278665343361" ixz="0.0007031316340385499" iyy="0.008903553005183501" iyz="-6.829120782640917e-05" izz="0.007623758987647054" />
     </inertial>
     <collision name="rear_right_steer_collision_0">
-      <origin xyz="-0.019182596328 -0.0012186155343 -0.074758653575" />
+      <origin xyz="0.019182596328 0.0012186155343 -0.074758653575" />
       <geometry>
         <box size="0.14950174761 0.11443722708 0.18791727172" />
       </geometry>
@@ -1773,15 +1685,15 @@
   <joint name="rear_right_steer_joint" type="revolute">
     <parent link="base_link" />
     <child link="rear_right_steer" />
-    <origin xyz="-0.124 -0.124 -0.0029999969006" />
+    <origin xyz="-0.124 -0.124 -0.0029999969006" rpy="0.0 0.0 -3.141592653589793" />
     <axis xyz="0 0 1" />
     <limit effort="60" velocity="10" lower="-1.57" upper="1.57" />
   </joint>
   <link name="rear_right_wheel">
     <inertial>
-      <origin xyz="1.0341949924e-06 0.0055340442223 1.6924813714e-06" />
+      <origin xyz="-1.0341949924e-06 -0.0055340442223 1.6924813713e-06" />
       <mass value="0.41836543171150103" />
-      <inertia ixx="0.0001473653213743519" ixy="2.9715844910009195e-08" ixz="1.273691087292075e-10" iyy="0.00018410747105890738" iyz="1.0529870164022041e-08" izz="0.00014736722025379266" />
+      <inertia ixx="0.00014736532137435155" ixy="2.9715844909799752e-08" ixz="-1.273691087329993e-10" iyy="0.00018410747105890697" iyz="-1.0529870164039528e-08" izz="0.00014736722025379255" />
     </inertial>
     <collision name="rear_right_wheel_collision_0">
       <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
@@ -1801,8 +1713,96 @@
   <joint name="rear_right_wheel_joint" type="continuous">
     <parent link="rear_right_steer" />
     <child link="rear_right_wheel" />
+    <origin xyz="0 0 -0.14500000468" />
+    <axis xyz="0 -1 0" />
+    <limit effort="60" velocity="10" />
+  </joint>
+  <link name="front_left_steer">
+    <inertial>
+      <origin xyz="-0.013376265499 0.0053454288242 -0.074659209941" />
+      <mass value="4.160795304810552" />
+      <inertia ixx="0.009001004241298424" ixy="-0.0008795278665343382" ixz="-0.0007031316340385509" iyy="0.008903553005183524" iyz="6.829120782641382e-05" izz="0.007623758987647066" />
+    </inertial>
+    <collision name="front_left_steer_collision_0">
+      <origin xyz="-0.019182596328 -0.0012186155343 -0.074758653575" />
+      <geometry>
+        <box size="0.14950174761 0.11443722708 0.18791727172" />
+      </geometry>
+    </collision>
+    <visual name="front_left_steer_visual_0">
+      <geometry>
+        <mesh filename="package://r30_description/meshes/front_left_steer_0.stl" />
+      </geometry>
+      <material name="front_left_steer_color">
+        <color rgba="0.23 0.46 0.51 1" />
+      </material>
+    </visual>
+    <visual name="front_left_steer_visual_1">
+      <geometry>
+        <mesh filename="package://r30_description/meshes/front_left_steer_1.stl" />
+      </geometry>
+      <material name="front_left_steer_color">
+        <color rgba="0.23 0.46 0.51 1" />
+      </material>
+    </visual>
+    <visual name="front_left_steer_visual_2">
+      <geometry>
+        <mesh filename="package://r30_description/meshes/front_left_steer_2.stl" />
+      </geometry>
+      <material name="front_left_steer_color">
+        <color rgba="0.23 0.46 0.51 1" />
+      </material>
+    </visual>
+    <visual name="front_left_steer_visual_3">
+      <geometry>
+        <mesh filename="package://r30_description/meshes/front_left_steer_3.stl" />
+      </geometry>
+      <material name="front_left_steer_color">
+        <color rgba="0.23 0.46 0.51 1" />
+      </material>
+    </visual>
+    <visual name="front_left_steer_visual_4">
+      <geometry>
+        <mesh filename="package://r30_description/meshes/front_left_steer_4.stl" />
+      </geometry>
+      <material name="front_left_steer_color">
+        <color rgba="0.23 0.46 0.51 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="front_left_steer_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="front_left_steer" />
+    <origin xyz="0.124 0.124 -0.0029999969006" rpy="0.0 0.0 -3.141592653589793" />
+    <axis xyz="0 0 1" />
+    <limit effort="60" velocity="10" lower="-1.57" upper="1.57" />
+  </joint>
+  <link name="front_left_wheel">
+    <inertial>
+      <origin xyz="1.0341949924e-06 0.0055340442223 1.6924813714e-06" />
+      <mass value="0.41836543171150103" />
+      <inertia ixx="0.0001473653213743519" ixy="2.9715844910009195e-08" ixz="1.273691087292075e-10" iyy="0.00018410747105890738" iyz="1.0529870164022041e-08" izz="0.00014736722025379266" />
+    </inertial>
+    <collision name="front_left_wheel_collision_0">
+      <origin xyz="0 0 0" rpy="1.57079632679 0 0" />
+      <geometry>
+        <cylinder radius="0.033" length="0.0182" />
+      </geometry>
+    </collision>
+    <visual name="front_left_wheel_visual_0">
+      <geometry>
+        <mesh filename="package://r30_description/meshes/front_left_wheel_0.stl" />
+      </geometry>
+      <material name="front_left_wheel_color">
+        <color rgba="0.15 0.19 0.22 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="front_left_steer" />
+    <child link="front_left_wheel" />
     <origin xyz="0 5.5511151231e-17 -0.14500000468" />
-    <axis xyz="0 1 0" />
+    <axis xyz="0 -1 0" />
     <limit effort="60" velocity="10" />
   </joint>
   <link name="arm_yaw">
@@ -1829,7 +1829,7 @@
   <joint name="arm_yaw_joint" type="revolute">
     <parent link="base_link" />
     <child link="arm_yaw" />
-    <origin xyz="-0.15384 -0.000125 0.05335" />
+    <origin xyz="0.15384 0.000125 0.05335" rpy="0.0 0.0 -3.141592653589793" />
     <axis xyz="0 0 -1" />
     <limit effort="60" velocity="10" lower="-1.57" upper="1.57" />
   </joint>
@@ -2142,7 +2142,7 @@
   <joint name="mast_d435_depth_frame_fixed" type="fixed">
     <parent link="base_link" />
     <child link="mast_d435_depth_frame" />
-    <origin xyz="0.0059346118474 -0.0175 0.500442556704" rpy="4.4408920985e-16 0.610865238198 -3.14159265359" />
+    <origin xyz="-0.0059346118474 0.0175 0.500442556704" rpy="4.4408920985e-16 0.610865238198 -2.0694557179012918e-13" />
   </joint>
   <link name="mast_d435_depth_optical_frame" />
   <joint name="mast_d435_depth_optical_frame_fixed" type="fixed">
@@ -2176,7 +2176,7 @@
   <joint name="mast_d435_color_frame_fixed" type="fixed">
     <parent link="base_link" />
     <child link="mast_d435_color_frame" />
-    <origin xyz="0.0059346118474 -0.0325 0.500442556704" rpy="4.4408920985e-16 0.610865238198 -3.14159265359" />
+    <origin xyz="-0.0059346118474 0.0325 0.500442556704" rpy="4.4408920985e-16 0.610865238198 -2.0694557179012918e-13" />
   </joint>
   <link name="mast_d435_color_optical_frame" />
   <joint name="mast_d435_color_optical_frame_fixed" type="fixed">
@@ -2210,7 +2210,7 @@
   <joint name="mast_d435_infra1_frame_fixed" type="fixed">
     <parent link="base_link" />
     <child link="mast_d435_infra1_frame" />
-    <origin xyz="0.0059346118474 -0.0175 0.500442556704" rpy="4.4408920985e-16 0.610865238198 -3.14159265359" />
+    <origin xyz="-0.0059346118474 0.0175 0.500442556704" rpy="4.4408920985e-16 0.610865238198 -2.0694557179012918e-13" />
   </joint>
   <link name="mast_d435_infra1_optical_frame" />
   <joint name="mast_d435_infra1_optical_frame_fixed" type="fixed">
@@ -2244,7 +2244,7 @@
   <joint name="mast_d435_infra2_frame_fixed" type="fixed">
     <parent link="base_link" />
     <child link="mast_d435_infra2_frame" />
-    <origin xyz="0.0059346118474 0.0325 0.500442556704" rpy="4.4408920985e-16 0.610865238198 -3.14159265359" />
+    <origin xyz="-0.0059346118474 -0.0325 0.500442556704" rpy="4.4408920985e-16 0.610865238198 -2.0694557179012918e-13" />
   </joint>
   <link name="mast_d435_infra2_optical_frame" />
   <joint name="mast_d435_infra2_optical_frame_fixed" type="fixed">
@@ -2274,69 +2274,11 @@
       </camera>
     </sensor>
   </gazebo>
-  <link name="lidar_left_scan" />
-  <joint name="lidar_left_scan_fixed" type="fixed">
-    <parent link="base_link" />
-    <child link="lidar_left_scan" />
-    <origin xyz="1.02140518266e-16 0.189 -0.1335" rpy="0 0 -1.57079632679" />
-  </joint>
-  <gazebo reference="lidar_left_scan">
-    <sensor name="lidar_left" type="gpu_lidar">
-      <always_on>true</always_on>
-      <update_rate>10</update_rate>
-      <topic>/lidar_left/scan</topic>
-      <gz_frame_id>lidar_left_scan</gz_frame_id>
-      <lidar>
-        <scan>
-          <horizontal>
-            <samples>400</samples>
-            <resolution>1</resolution>
-            <min_angle>-3.141592653589793</min_angle>
-            <max_angle>3.1258846903218442</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.05</min>
-          <max>12</max>
-          <resolution>0.001</resolution>
-        </range>
-      </lidar>
-    </sensor>
-  </gazebo>
-  <link name="lidar_rear_scan" />
-  <joint name="lidar_rear_scan_fixed" type="fixed">
-    <parent link="base_link" />
-    <child link="lidar_rear_scan" />
-    <origin xyz="-0.189 9.2855016605e-18 -0.1335" rpy="2.01927464562e-17 0 -1.39534848322e-15" />
-  </joint>
-  <gazebo reference="lidar_rear_scan">
-    <sensor name="lidar_rear" type="gpu_lidar">
-      <always_on>true</always_on>
-      <update_rate>10</update_rate>
-      <topic>/lidar_rear/scan</topic>
-      <gz_frame_id>lidar_rear_scan</gz_frame_id>
-      <lidar>
-        <scan>
-          <horizontal>
-            <samples>400</samples>
-            <resolution>1</resolution>
-            <min_angle>-3.141592653589793</min_angle>
-            <max_angle>3.1258846903218442</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.05</min>
-          <max>12</max>
-          <resolution>0.001</resolution>
-        </range>
-      </lidar>
-    </sensor>
-  </gazebo>
   <link name="lidar_right_scan" />
   <joint name="lidar_right_scan_fixed" type="fixed">
     <parent link="base_link" />
     <child link="lidar_right_scan" />
-    <origin xyz="2.62955061765e-15 -0.189 -0.1335" rpy="-2.6645352591e-15 0 1.57079632679" />
+    <origin xyz="-1.02140518266e-16 -0.189 -0.1335" rpy="0.0 0.0 1.570796326799793" />
   </joint>
   <gazebo reference="lidar_right_scan">
     <sensor name="lidar_right" type="gpu_lidar">
@@ -2365,7 +2307,7 @@
   <joint name="lidar_front_scan_fixed" type="fixed">
     <parent link="base_link" />
     <child link="lidar_front_scan" />
-    <origin xyz="0.189 -4.72349432295e-17 -0.1335" rpy="0 3.33066907388e-14 3.14159265359" />
+    <origin xyz="0.189 -9.2855016605e-18 -0.1335" rpy="2.01927464562e-17 0.0 -3.1415926535897944" />
   </joint>
   <gazebo reference="lidar_front_scan">
     <sensor name="lidar_front" type="gpu_lidar">
@@ -2390,59 +2332,117 @@
       </lidar>
     </sensor>
   </gazebo>
+  <link name="lidar_left_scan" />
+  <joint name="lidar_left_scan_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_left_scan" />
+    <origin xyz="-2.62955061765e-15 0.189 -0.1335" rpy="-2.6645352591e-15 0.0 -1.570796326799793" />
+  </joint>
+  <gazebo reference="lidar_left_scan">
+    <sensor name="lidar_left" type="gpu_lidar">
+      <always_on>true</always_on>
+      <update_rate>10</update_rate>
+      <topic>/lidar_left/scan</topic>
+      <gz_frame_id>lidar_left_scan</gz_frame_id>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>400</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.141592653589793</min_angle>
+            <max_angle>3.1258846903218442</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.05</min>
+          <max>12</max>
+          <resolution>0.001</resolution>
+        </range>
+      </lidar>
+    </sensor>
+  </gazebo>
+  <link name="lidar_rear_scan" />
+  <joint name="lidar_rear_scan_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_rear_scan" />
+    <origin xyz="-0.189 4.72349432295e-17 -0.1335" rpy="0.0 3.33066907388e-14 2.0694557179012918e-13" />
+  </joint>
+  <gazebo reference="lidar_rear_scan">
+    <sensor name="lidar_rear" type="gpu_lidar">
+      <always_on>true</always_on>
+      <update_rate>10</update_rate>
+      <topic>/lidar_rear/scan</topic>
+      <gz_frame_id>lidar_rear_scan</gz_frame_id>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>400</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.141592653589793</min_angle>
+            <max_angle>3.1258846903218442</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.05</min>
+          <max>12</max>
+          <resolution>0.001</resolution>
+        </range>
+      </lidar>
+    </sensor>
+  </gazebo>
   <link name="puck_slot_0" />
   <joint name="puck_slot_0_fixed" type="fixed">
     <parent link="base_link" />
     <child link="puck_slot_0" />
-    <origin xyz="-0.035 0.145 0.05" />
+    <origin xyz="0.035 -0.145 0.05" rpy="0.0 0.0 -3.141592653589793" />
   </joint>
   <link name="puck_slot_1" />
   <joint name="puck_slot_1_fixed" type="fixed">
     <parent link="base_link" />
     <child link="puck_slot_1" />
-    <origin xyz="0.035 0.145 0.05" />
+    <origin xyz="-0.035 -0.145 0.05" rpy="0.0 0.0 -3.141592653589793" />
   </joint>
   <link name="puck_slot_2" />
   <joint name="puck_slot_2_fixed" type="fixed">
     <parent link="base_link" />
     <child link="puck_slot_2" />
-    <origin xyz="-0.035 0.095 0.05" />
+    <origin xyz="0.035 -0.095 0.05" rpy="0.0 0.0 -3.141592653589793" />
   </joint>
   <link name="puck_slot_3" />
   <joint name="puck_slot_3_fixed" type="fixed">
     <parent link="base_link" />
     <child link="puck_slot_3" />
-    <origin xyz="0.035 0.095 0.05" />
+    <origin xyz="-0.035 -0.095 0.05" rpy="0.0 0.0 -3.141592653589793" />
   </joint>
   <link name="puck_slot_4" />
   <joint name="puck_slot_4_fixed" type="fixed">
     <parent link="base_link" />
     <child link="puck_slot_4" />
-    <origin xyz="-0.035 -0.095 0.05" />
+    <origin xyz="0.035 0.095 0.05" rpy="0.0 0.0 -3.141592653589793" />
   </joint>
   <link name="puck_slot_5" />
   <joint name="puck_slot_5_fixed" type="fixed">
     <parent link="base_link" />
     <child link="puck_slot_5" />
-    <origin xyz="0.035 -0.095 0.05" />
+    <origin xyz="-0.035 0.095 0.05" rpy="0.0 0.0 -3.141592653589793" />
   </joint>
   <link name="puck_slot_6" />
   <joint name="puck_slot_6_fixed" type="fixed">
     <parent link="base_link" />
     <child link="puck_slot_6" />
-    <origin xyz="-0.035 -0.145 0.05" />
+    <origin xyz="0.035 0.145 0.05" rpy="0.0 0.0 -3.141592653589793" />
   </joint>
   <link name="puck_slot_7" />
   <joint name="puck_slot_7_fixed" type="fixed">
     <parent link="base_link" />
     <child link="puck_slot_7" />
-    <origin xyz="0.035 -0.145 0.05" />
+    <origin xyz="-0.035 0.145 0.05" rpy="0.0 0.0 -3.141592653589793" />
   </joint>
 
-  <!-- NZ2: 옛 URDF 에서 복원 (odom→base_footprint TF 연결용) -->
+  
   <link name="base_footprint" />
   <joint name="base_footprint_joint" type="fixed">
-    <origin xyz="0 0 0.181" rpy="0 0 3.14159265359" />
+    <origin xyz="0 0 0.181" rpy="0.0 0.0 2.0694557179012918e-13" />
     <parent link="base_footprint" />
     <child link="base_link" />
   </joint>

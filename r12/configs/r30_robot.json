@@ -96,10 +96,10 @@
   },
   "notes": [
     "robot_hardware_design/r30 nz2fix(v99) 모델. real_final_plz_no_more_edit_v99_nz2fix.urdf 원본 그대로 패키징.",
-    "base_footprint 루트 포함(z 0.181, yaw π, assembly_nz2에서 복원). 상단 카메라 mast_d435 하향 35°(pitch 0.6109rad), 높이 +35mm. 질량 43.1543kg.",
+    "base_footprint 루트 포함(z 0.181, 앞뒤 수정 후 yaw 0; nz2fix 원본은 assembly_nz2에서 yaw π로 복원됐으나 54476f0 적용 시 0이 됨). 상단 카메라 mast_d435 하향 35°(pitch 0.6109rad), 높이 +35mm. 질량 43.1543kg.",
     "조인트 구조는 r25/r28과 동일. lower/upper/effort/velocity는 URDF 선언값(측정치 아님).",
     "stiffness/damping/action_scale은 r25에서 이어받은 시뮬 시작 게인, 미튜닝. tcp_link=wrist_roll 추정.",
-    "주의: nz2fix는 저장소 54476f0(바퀴 축 0 1 0→0 -1 0, FL↔RR/FR↔RL 스왑) 앞뒤 수정이 빠진 계보. 사용자 지시로 원본 그대로이며 앞뒤 방향 실환경 재확인 필요.",
+    "앞뒤 수정 적용: 54476f0 변환(선택적 R_z(π)+바퀴 축 반전+FL↔RR/FR↔RL·lidar front↔rear/left↔right 이름 스왑)으로 정답지 r25_rev1과 44관절 일치. gz 런타임 재확인 권장.",
     "지오메트리는 assets/vendor/R30_URDF_USD/ 단일 소스. gz 제어 플러그인 미포함(센서만)."
   ]
 }
