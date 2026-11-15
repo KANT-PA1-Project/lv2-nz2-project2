@@ -23,7 +23,11 @@ import time
 import serial
 
 PROTO_VERSION = 1
-DEFAULT_PATTERNS = ('/dev/ttyACM*', '/dev/serial/by-id/*')
+# OpenCR 은 USB CDC-ACM 이라 항상 ttyACM* 로 잡힌다. by-id 전체(/dev/serial/by-id/*)를 훑으면
+# CP210x(ttyUSB*) LiDAR 4대까지 열고 I/? 를 써 넣으므로 ROBOTIS 링크만 본다.
+DEFAULT_PATTERNS = ('/dev/ttyACM*', '/dev/serial/by-id/usb-ROBOTIS*')
+# 어떤 패턴이 들어와도 realpath 이름이 이 접두사가 아니면 열지 않는다(LiDAR 등 ttyUSB* 보호).
+ALLOWED_TTY_PREFIXES = ('ttyACM',)
 ROLE_ALIASES = {'left': 'swerve_left', 'right': 'swerve_right'}
 
 
@@ -42,14 +46,20 @@ def role_from_info(info):
     return None
 
 
-def candidate_ports(patterns):
-    """glob 패턴들을 실제 tty 경로로. by-id 심볼릭 링크는 realpath 로 중복 제거."""
+def candidate_ports(patterns, allowed_prefixes=ALLOWED_TTY_PREFIXES):
+    """glob 패턴들을 실제 tty 경로로. by-id 심볼릭 링크는 realpath 로 중복 제거.
+
+    realpath 의 파일명이 allowed_prefixes 로 시작하지 않으면 버린다. 설정에 by-id 전체나
+    /dev/ttyUSB* 가 잘못 들어와도 LiDAR(CP210x) 포트는 열지 않는다.
+    """
     seen = set()
     ports = []
     for pattern in patterns:
         for path in sorted(glob.glob(pattern)):
             real = os.path.realpath(path)
             if real in seen or not os.path.exists(real):
+                continue
+            if allowed_prefixes and not os.path.basename(real).startswith(tuple(allowed_prefixes)):
                 continue
             seen.add(real)
             ports.append(real)
@@ -110,11 +120,11 @@ def identify(port, baud=115200, timeout_s=0.6):
 
 
 def identify_ports(patterns, baud=115200, timeout_s=0.6, skip_ports=(),
-                   identify_fn=identify):
+                   identify_fn=identify, allowed_prefixes=ALLOWED_TTY_PREFIXES):
     """아직 쓰지 않는 후보 포트들을 훑어 {port: info} 를 돌려준다."""
     skip = {os.path.realpath(p) for p in skip_ports}
     found = {}
-    for port in candidate_ports(patterns):
+    for port in candidate_ports(patterns, allowed_prefixes):
         if port in skip:
             continue
         info = identify_fn(port, baud, timeout_s)

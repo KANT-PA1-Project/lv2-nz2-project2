@@ -32,8 +32,8 @@ from rclpy.node import Node
 from sensor_msgs.msg import JointState
 from std_msgs.msg import Empty
 
-from r12_swerve_control.opencr_discovery import (DEFAULT_PATTERNS, assign_roles,
-                                                 identify_ports)
+from r12_swerve_control.opencr_discovery import (ALLOWED_TTY_PREFIXES, DEFAULT_PATTERNS,
+                                                 assign_roles, identify_ports)
 
 CODE_TO_PREFIX = {'FL': 'front_left', 'FR': 'front_right',
                   'RL': 'rear_left', 'RR': 'rear_right'}   # r21_description 조인트명
@@ -162,8 +162,11 @@ class OpenCRBridgeNode(Node):
         self.last_scan = time.monotonic()
         if not any(r not in self.boards for r in self.roles):
             return
+        # 명시 지정 포트는 사용자가 고른 것이라 ttyACM 가드를 건너뛴다(가드는 glob 탐색의 LiDAR 방지용).
+        allowed = None if self.explicit_ports else ALLOWED_TTY_PREFIXES
         infos = identify_ports(self._patterns(), self.baud, self.discovery_timeout,
-                               skip_ports=[b.port for b in self.boards.values()])
+                               skip_ports=[b.port for b in self.boards.values()],
+                               allowed_prefixes=allowed)
         existing = {role: (b.port, None) for role, b in self.boards.items()}
         assigned, dups = assign_roles(infos, self.roles, existing)
         for role, port in dups:
