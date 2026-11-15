@@ -9,7 +9,7 @@ import sys
 import threading
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'r12_swerve_control'))
-from opencr_discovery import (assign_roles, identify, identify_ports,
+from opencr_discovery import (assign_roles, candidate_ports, identify, identify_ports,
                               role_from_info)
 
 ORDERS = {'swerve_left': ['FL', 'RL'], 'swerve_right': ['FR', 'RR'], 'arm': ['J1']}
@@ -112,7 +112,8 @@ def test_identify_ports_ignores_unrelated_board():
     with pty_board('swerve_left') as left, \
             pty_board('swerve_right') as right, \
             pty_board('arm') as arm:
-        infos = identify_ports([left, right, arm], timeout_s=0.5)
+        # pty 는 /dev/pts/N 이라 ttyACM 접두사 필터를 끄고 시험한다.
+        infos = identify_ports([left, right, arm], timeout_s=0.5, allowed_prefixes=None)
         boards, dups = assign_roles(infos, ['swerve_left', 'swerve_right'])
     assert set(boards) == {'swerve_left', 'swerve_right'}
     assert role_from_info(boards['swerve_left'][1]) == 'swerve_left'
@@ -126,3 +127,26 @@ def test_duplicate_role_is_reported():
     boards, dups = assign_roles(infos, ['swerve_left', 'swerve_right'])
     assert len(boards) == 1
     assert len(dups) == 1 and dups[0][0] == 'swerve_left'
+
+
+def test_candidate_ports_excludes_ttyusb_lidar(tmp_path):
+    """by-id 전체를 줘도 CP210x LiDAR(ttyUSB*)는 후보에서 빠지고 OpenCR(ttyACM*)만 남는다."""
+    acm = tmp_path / 'ttyACM0'
+    usb = tmp_path / 'ttyUSB0'
+    acm.write_text('')
+    usb.write_text('')
+    byid = tmp_path / 'by-id'
+    byid.mkdir()
+    (byid / 'usb-ROBOTIS_OpenCR_Virtual_ComPort_in_FS_Mode-if00').symlink_to(acm)
+    (byid / 'usb-Silicon_Labs_CP2102_USB_to_UART-if00-port0').symlink_to(usb)
+    lidar = tmp_path / 'lidar_front'
+    lidar.symlink_to(usb)
+
+    ports = candidate_ports([str(byid / '*'), str(tmp_path / 'tty*'), str(lidar)])
+
+    assert ports == [str(acm)]
+
+
+def test_default_patterns_do_not_glob_all_by_id():
+    from opencr_discovery import DEFAULT_PATTERNS
+    assert '/dev/serial/by-id/*' not in DEFAULT_PATTERNS

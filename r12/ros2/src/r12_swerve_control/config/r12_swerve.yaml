@@ -22,7 +22,8 @@
     # 스월브 L/R + arm 이 USB 허브에 꽂혀 ttyACM 번호가 바뀌어도 그대로 동작한다.
     # arm 보드는 이 브리지가 아니라 arm 쪽 브리지가 board_roles: ['arm'] 으로 찾는다.
     board_roles: ['swerve_left', 'swerve_right']
-    port_globs: ['/dev/ttyACM*', '/dev/serial/by-id/*']
+    # by-id 전체 금지: CP210x LiDAR(/dev/lidar_* → ttyUSB*)까지 열어 I/? 를 써 넣는다. ROBOTIS 만.
+    port_globs: ['/dev/ttyACM*', '/dev/serial/by-id/usb-ROBOTIS*']
     # ports: ['/dev/serial/by-id/usb-ROBOTIS_OpenCR_...']   # 탐색을 끄려면 지정
     discovery_interval_s: 2.0     # 보드가 빠졌을 때 재탐색 주기
     discovery_timeout_s: 1.2      # 포트 하나당 핸드셰이크 대기(포트를 열 때 보드가 리셋되면 부팅을 기다림)
