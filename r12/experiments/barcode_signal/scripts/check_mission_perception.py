@@ -15,7 +15,7 @@
   - 실제 놓은 바코드 라벨을 --barcode 로 알려줌 (정답 비교용. 로봇 인식에는 쓰지 않음)
 
 실행 (개발 PC)
-  cd "$HOME/git/lv2-nz2-project2/r12/experiments/barcode_signal"
+  cd "$HOME/git/p2_perception/Claude outputs/tower_signal"
   python scripts/check_mission_perception.py --barcode P2-01 --model ~/git/p2_perception/models/current.pt \
          --exposure 150 --wb 4600 --rounds 3
   # 특정 패턴: --seq RGRRGRGGYGYG   /  화면 끄기: --no-show   /  신호등 포트: --tower-port /dev/ttyACM0
@@ -179,14 +179,6 @@ def run_round(a, tower, barcodes, k):
                 tower_events=events[-24:], detector_tail=dlines[-10:])
 
 
-def _repo_r12():
-    """이 파일이 저장소 r12/ 아래에 있으면 그 r12, 아니면 None (상대 경로 우선)."""
-    for parent in Path(__file__).resolve().parents:
-        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
-            return parent
-    return None
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--barcode', required=True, help='실제 놓은 바코드 (P2-01~04), 정답 비교용')
@@ -198,7 +190,7 @@ def main():
     ap.add_argument('--wb', type=float, default=None)
     ap.add_argument('--detect-every', type=int, default=5)
     ap.add_argument('--no-show', action='store_true')
-    ap.add_argument('--r12-src', default=str(_repo_r12() / 'src') if _repo_r12() else os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
+    ap.add_argument('--r12-src', default=os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
     ap.add_argument('--detector-cmd', default=None, help=argparse.SUPPRESS)   # 시험용 대체 명령
     a = ap.parse_args()
     sys.path.insert(0, a.r12_src)

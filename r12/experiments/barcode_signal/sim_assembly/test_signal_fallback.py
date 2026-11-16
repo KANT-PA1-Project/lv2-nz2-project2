@@ -15,7 +15,6 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-HERE_DATA = Path(__file__).resolve().parent / 'test_data'  # reports/ 대신 저장소에 넣은 시험용 렌더 화면 4장
 sys.path[:0] = [str(HERE), str(ROOT / 'scripts')]
 from common import load_config
 from signal_fallback import SignalFallback, validate_fallback, wall_budget
@@ -102,7 +101,7 @@ class RoutingTests(unittest.TestCase):
 
     def test_initial_success_with_raw_B09_png(self):
         env = self.environment()
-        raw = cv2.imread(str(HERE_DATA / 'B09_arrival_view.png'))[:, 640:]
+        raw = cv2.imread(str(ROOT / 'reports/assembly-sim-B09/arrival_view.png'))[:, 640:]
         env['sig'] = raw
         for i in range(40):
             env['t'] = i / 30.
@@ -152,7 +151,7 @@ class RoutingTests(unittest.TestCase):
         self.execute(env, 'move')
         self.assertEqual(env['phase'], 'prepare')
         self.assertEqual(self.route.started, 12.5)
-        raw = cv2.imread(str(HERE_DATA / 'B08_ready.png'))[:, :640]
+        raw = cv2.imread(str(ROOT / 'reports/assembly-sim-B08/ready.png'))[:, :640]
         env['sig'] = raw
         for i in range(1, 45):
             env['t'] = 12.5 + i / 30.
@@ -187,7 +186,7 @@ class RoutingTests(unittest.TestCase):
 
     def test_partial_B07_tower_never_issues_READY(self):
         env = self.environment()
-        env['sig'] = cv2.imread(str(HERE_DATA / 'B07_ready.png'))[:, 640:]
+        env['sig'] = cv2.imread(str(ROOT / 'reports/assembly-sim-B07/ready.png'))[:, 640:]
         for i in range(45):
             env['t'] = i / 30.
             self.execute(env)
@@ -198,7 +197,7 @@ class RoutingTests(unittest.TestCase):
 
     def test_partial_side_raw_measured_scene_can_prepare(self):
         env = self.environment()
-        env['sig'] = cv2.imread(str(HERE_DATA / 'auto30cm01_fallback_started.png'))[:, 640:]
+        env['sig'] = cv2.imread(str(ROOT / 'reports/assembly-auto-30cm-20261112-01/fallback_started.png'))[:, 640:]
         for i in range(45):
             env['t'] = i / 30.
             self.execute(env)
@@ -260,7 +259,7 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(env['phase'], 'prepare')
         self.assertEqual(self.route.started, 5.5)
         np.testing.assert_array_equal(env['target'], initial_target)
-        raw = cv2.imread(str(HERE_DATA / 'B09_arrival_view.png'))[:, 640:]
+        raw = cv2.imread(str(ROOT / 'reports/assembly-sim-B09/arrival_view.png'))[:, 640:]
         env['sig'] = raw
         for i in range(40):
             env['t'] = 5.5 + i / 30.

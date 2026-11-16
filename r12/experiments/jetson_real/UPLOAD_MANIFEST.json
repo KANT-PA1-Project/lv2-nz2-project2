@@ -1,0 +1,637 @@
+{
+  "date": "2026-11-16",
+  "branch": "feat/barcode-signal",
+  "base_commit": "3bfc80426b76bcfa0e3e63ae46e82d9d2bf56939",
+  "files": [
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/scripts/check_mission_perception.py",
+      "path": "r12/experiments/barcode_signal/scripts/check_mission_perception.py",
+      "sha256": "aeb189d6ab87cc79932f32ffc3d6084403a90f15eac99a2b649614eece51e9f7"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/scripts/live_tower_check.py",
+      "path": "r12/experiments/barcode_signal/scripts/live_tower_check.py",
+      "sha256": "55d3d867cb654636724a8933433cc14be41bb3b7627fe836289d1101f486e29d"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/scripts/mission_summary.py",
+      "path": "r12/experiments/barcode_signal/scripts/mission_summary.py",
+      "sha256": "4dab9050c7ce845d59b003c35acd1b971eafe3fb34d4d69d11ecd384caa81fd0"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/scripts/test_mission_camera_isaac.py",
+      "path": "r12/experiments/barcode_signal/scripts/test_mission_camera_isaac.py",
+      "sha256": "7036d89c8550943858e06b1838fb29f04c6f1f6d03f3726c488df398093f8419"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/scripts/test_tower_signal_isaac.py",
+      "path": "r12/experiments/barcode_signal/scripts/test_tower_signal_isaac.py",
+      "sha256": "5cdbc7b0942ff007d1a61af7305dd6cb08e95b28030498a4bd9b0399c3ac2609"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/scripts/tower_yolo_signal.py",
+      "path": "r12/experiments/barcode_signal/scripts/tower_yolo_signal.py",
+      "sha256": "c8427af472d3a4fd635502bb07ce25551d4364b01f796df36712982d173fab07"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/README.md",
+      "path": "r12/experiments/barcode_signal/sim_assembly/README.md",
+      "sha256": "41b95366332f6d2f564ab9f60a974c20cfd6bdf3d2a77a456107afaf3e4b7d80"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/common.py",
+      "path": "r12/experiments/barcode_signal/sim_assembly/common.py",
+      "sha256": "ee372029aea7fafb237cd204c54c8810e5fcc5bbd31fb24973f18871222802c7"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config.json",
+      "sha256": "1500db3752fcb18d3180dcef60dddef0166f44271930e351a7e672b0156f7027"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B26.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B26.json",
+      "sha256": "810de8257ca460b396348e2bb9dc6b1c84c6c993248253036144473b1378c71f"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B27.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B27.json",
+      "sha256": "e8d86636201b4a2b8bf1dd4d50805ee0405a7f35805153857c13a32593bea693"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B28.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B28.json",
+      "sha256": "32716e30f6e04b1d2f20668d77d357ec2fe209342eb28fc83c8c57780392e241"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B29.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B29.json",
+      "sha256": "4b89923c144ad812eeaf0c363b4692153183664387bee2f54e1afaa99cb97e23"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B30.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B30.json",
+      "sha256": "7ffbd78b7866d7349892f25eb7d01a200fd78437bb96dcf92122adf59684f992"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B31.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B31.json",
+      "sha256": "71f2eb25a9cc0f159034305cafa0e44ae87604365ff08bb294927c0950fbab2e"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B32.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B32.json",
+      "sha256": "09fa0661709c929edfc4de17f78696bc270a56db084d7d0fd976018dbfec59dc"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B33.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B33.json",
+      "sha256": "de2f988e1580646a5b101023f9eb8718b5857953b8c02d0a279868362945ff10"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_B34_tower80.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_B34_tower80.json",
+      "sha256": "b7bf1ca3fc0f05a63429905b9855dc37a744125941bb3a582bbb975afc06a93a"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_auto_mast_relocate_30cm.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_auto_mast_relocate_30cm.json",
+      "sha256": "64ddf04afaf49314ad86c8f103910bca6ebec88ac0f442306d91c1ce6ce852a0"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_auto_mast_relocate_30cm_initial.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_auto_mast_relocate_30cm_initial.json",
+      "sha256": "2c4b9974312c4a7394bf5c9ea40704b2a76f583b953719c3ae797fc810720b41"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_auto_signal_fallback.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_auto_signal_fallback.json",
+      "sha256": "6e99cfda937494aa8b9988a8c071079c9602d4c17e9ba2b6c2aef8aaa97d2d9f"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_auto_signal_fallback_30cm.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_auto_signal_fallback_30cm.json",
+      "sha256": "c6abbab22e48eeeb2621b397435a18080e5fbfcb6cdb20d6e9057ce87014e01e"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_auto_signal_fallback_30cm_control.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_auto_signal_fallback_30cm_control.json",
+      "sha256": "00f90415bcffbd6b88bc82de09124c2d48ae90a158f836d29516976ab1b47f42"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_full_approach.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_full_approach.json",
+      "sha256": "b728499fa3fec4ecb769005716c8e61332fb3b19a242ab0109e4a6bf96ad198d"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_gripper_signal.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_gripper_signal.json",
+      "sha256": "0f50ccb1ba90b4084e2226b94835ab388ac20f5005dced8c41e6a6c03f81931d"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_same_pose.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_same_pose.json",
+      "sha256": "bd4edd2916965f805e8f5d8be3af0ba62c8ee438b5cc800079f33ca1aa0ebc5b"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_same_pose_oblique.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_same_pose_oblique.json",
+      "sha256": "0d57849c24b2902881afa50b40c9f599c755f527e45bf741e2bb9de42c50a669"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_seek_B22.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_seek_B22.json",
+      "sha256": "1511a960fe8d848e920891096390fb527d33cccf52177a61a018a572c5d1a297"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_seek_B23.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_seek_B23.json",
+      "sha256": "3780728332558f25fe9ef3cfb5aaf49fa7babeaebc9d4e72c10f6073b0f2344b"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_seek_B24.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_seek_B24.json",
+      "sha256": "b7478eb470e1b618f0091d893314e963a400847980b0d41e3c47462b7248068b"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_seek_B25.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_seek_B25.json",
+      "sha256": "c7c1b0dc6539c6fb183698dc3e36186fa513428295d987c8c8b49b9111d2ff89"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_seek_B25c.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_seek_B25c.json",
+      "sha256": "f695eeb5fb91b6ef79d81538627e4a1f257b9479c82cb781f303b864a9532f29"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/config_tower_first.json",
+      "path": "r12/experiments/barcode_signal/sim_assembly/config_tower_first.json",
+      "sha256": "d10cb1166356bf90f396f61ef277a1825eac5090a51d55808625d4b4a70c1708"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/prepare.py",
+      "path": "r12/experiments/barcode_signal/sim_assembly/prepare.py",
+      "sha256": "a55f3eff837654c88b216a6650cbb0163e867ca0f0ac0d8b24d57de143c1303b"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/run.py",
+      "path": "r12/experiments/barcode_signal/sim_assembly/run.py",
+      "sha256": "11140352d26617dcd1909f2d1db37c42812c50613ce98536b539b2126c1e3176"
+    },
+    {
+      "category": "1_barcode_signal",
+      "source": "Claude outputs/tower_signal/sim_assembly/test_signal_fallback.py",
+      "path": "r12/experiments/barcode_signal/sim_assembly/test_signal_fallback.py",
+      "sha256": "437710a99c4d27535b1b3cce3be8fa5f68d0a1915e5d1ef5f168018d1da0e72d"
+    },
+    {
+      "category": "2_firmware",
+      "source": "firmware/nz2_arm_v2_j2diag/nz2_arm_v2_j2diag.ino",
+      "path": "r12/experiments/jetson_real/firmware/nz2_arm_v2_j2diag/nz2_arm_v2_j2diag.ino",
+      "sha256": "0656f36f00d60e7404c27e441539c2b4615e37111e3995ae4fa9b54cc5d30e5e"
+    },
+    {
+      "category": "2_firmware",
+      "source": "firmware/nz2_arm_v2_j2diag/arm_config.h",
+      "path": "r12/experiments/jetson_real/firmware/nz2_arm_v2_j2diag/arm_config.h",
+      "sha256": "691819ca52ffbc3841e07fce2d51a11041f4ba36dca27bfa690f5ebdaabe7647"
+    },
+    {
+      "category": "2_firmware",
+      "source": "firmware/tools/arm_j2_diagnostics.py",
+      "path": "r12/experiments/jetson_real/firmware/tools/arm_j2_diagnostics.py",
+      "sha256": "1acf6e78f7e0ce38abab3e62549dc4709634fd094831059a77b5e496feacde0b"
+    },
+    {
+      "category": "2_firmware",
+      "source": "firmware/tools/arm_j2_tune_test.py",
+      "path": "r12/experiments/jetson_real/firmware/tools/arm_j2_tune_test.py",
+      "sha256": "5a15d0b348bfabc5c8668e620d1427133cfea73a98a2ffaadfad7405a0972147"
+    },
+    {
+      "category": "2_firmware",
+      "source": "firmware/tools/test_arm_j2_tune_test.py",
+      "path": "r12/experiments/jetson_real/firmware/tools/test_arm_j2_tune_test.py",
+      "sha256": "1fbe508b19a71542dc7116108e04c7cb5eb93f912aa8e05323440f1f7cf732bc"
+    },
+    {
+      "category": "3_arm",
+      "source": "jetson/arm_puck_calibrate.py",
+      "path": "r12/experiments/jetson_real/jetson/arm_puck_calibrate.py",
+      "sha256": "561e151c0b19b0fae448ae12fd211931958f1516ee928fc95acc4b0528d79bde"
+    },
+    {
+      "category": "3_arm",
+      "source": "jetson/fit_arm_camera_calibration.py",
+      "path": "r12/experiments/jetson_real/jetson/fit_arm_camera_calibration.py",
+      "sha256": "1e74260bbae64fe845cd935fc423974c9ad78dea49888913922a3a62bfc0f066"
+    },
+    {
+      "category": "3_arm",
+      "source": "jetson/arm_policy_audit_20261115.md",
+      "path": "r12/experiments/jetson_real/jetson/arm_policy_audit_20261115.md",
+      "sha256": "382de673266b72cfa705e090f944240c8e75adf25f4901bf0e56fba7f42bfd07"
+    },
+    {
+      "category": "5_jetson",
+      "source": "jetson/cameras.launch.py",
+      "path": "r12/experiments/jetson_real/jetson/cameras.launch.py",
+      "sha256": "89d7ad6a22eb92e0f58f9bf6f9481e2f027b9298f52f3b5e5bfb6349ecce9918"
+    },
+    {
+      "category": "5_jetson",
+      "source": "jetson/single_puck_preview.launch.py",
+      "path": "r12/experiments/jetson_real/jetson/single_puck_preview.launch.py",
+      "sha256": "88fe12faac54318b109e3295a492c70d31399d7c208c363e41a7af691336c2bb"
+    },
+    {
+      "category": "5_jetson",
+      "source": "jetson/single_puck_probe.py",
+      "path": "r12/experiments/jetson_real/jetson/single_puck_probe.py",
+      "sha256": "00d6054de238ebb31c99a42e518b70e12fa69fe5b505f86e1a3aeb39fce5728e"
+    },
+    {
+      "category": "5_jetson",
+      "source": "jetson/runtime_env.sh",
+      "path": "r12/experiments/jetson_real/jetson/runtime_env.sh",
+      "sha256": "73c55381f531e33334afbc7702f0d0f792e73eee7286de25e8427902f1ca4c48"
+    },
+    {
+      "category": "5_jetson",
+      "source": "jetson/runtime_nodes.yaml",
+      "path": "r12/experiments/jetson_real/jetson/runtime_nodes.yaml",
+      "sha256": "2bb9eaa939b0af0f909ace78742d295de72b036807397be8005e02698521b895"
+    },
+    {
+      "category": "5_jetson",
+      "source": "jetson/dual_camera.rviz",
+      "path": "r12/experiments/jetson_real/jetson/dual_camera.rviz",
+      "sha256": "af3e197419c8a58598fe24d30cdc58503c0cb92b88fb37eab8db36cf8be16d67"
+    },
+    {
+      "category": "5_jetson",
+      "source": "jetson/view_cameras_pc.sh",
+      "path": "r12/experiments/jetson_real/jetson/view_cameras_pc.sh",
+      "sha256": "5668f231a2567f6aa26cb065c30c2ee93c9e4a68424e0dcf9b2781677448fd0d"
+    },
+    {
+      "category": "5_jetson",
+      "source": "optimize/yolo_export.py",
+      "path": "r12/experiments/jetson_real/optimize/yolo_export.py",
+      "sha256": "c5502e4e6c847bf8b505f9ddbfb4c71a889192d932161865868f0ffd1358eb33"
+    },
+    {
+      "category": "5_jetson",
+      "source": "optimize/centerpose_export.py",
+      "path": "r12/experiments/jetson_real/optimize/centerpose_export.py",
+      "sha256": "5d04fc5aa546c1ce3baec031dd58d70a509cf800f29380377738190afdd6a8ae"
+    },
+    {
+      "category": "5_jetson",
+      "source": "optimize/jetson_pipeline.py",
+      "path": "r12/experiments/jetson_real/optimize/jetson_pipeline.py",
+      "sha256": "294b67b708513ac56cf64e0ff0340fb26605a00b9c865ac45174e6b40e9f73ca"
+    },
+    {
+      "category": "3_arm",
+      "source": "ros_ws/src/nz2_arm_bridge/CMakeLists.txt",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_arm_bridge/CMakeLists.txt",
+      "sha256": "546f55cebcbb04d99a1fcaa93facfbbc82991e15a257d775f03752a0fa18b201"
+    },
+    {
+      "category": "3_arm",
+      "source": "ros_ws/src/nz2_arm_bridge/README.md",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_arm_bridge/README.md",
+      "sha256": "1adfb439142de78216c9717b2493fc18272b857db8da39a88b99bdc0a21c83d3"
+    },
+    {
+      "category": "3_arm",
+      "source": "ros_ws/src/nz2_arm_bridge/config/arm_bridge.yaml",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_arm_bridge/config/arm_bridge.yaml",
+      "sha256": "88c2338bc9755665d587d6dd3ea0752aa90409c3d4df1076837180656eb18ddd"
+    },
+    {
+      "category": "3_arm",
+      "source": "ros_ws/src/nz2_arm_bridge/launch/arm_bridge.launch.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_arm_bridge/launch/arm_bridge.launch.py",
+      "sha256": "acd9ac33f9f4577bfd7fdd669bdca88861000957e9c344ca6fdb5b4aad261f99"
+    },
+    {
+      "category": "3_arm",
+      "source": "ros_ws/src/nz2_arm_bridge/package.xml",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_arm_bridge/package.xml",
+      "sha256": "cf8850330ecbed464568715b4ec02ecb58fb37c619a675672de6e961b63cb2f0"
+    },
+    {
+      "category": "3_arm",
+      "source": "ros_ws/src/nz2_arm_bridge/scripts/arm_bridge_node.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_arm_bridge/scripts/arm_bridge_node.py",
+      "sha256": "e021ed7ab1ea781af3e132c2a10d73097237c4c9079fbfcc8794ad3d2b0ea97a"
+    },
+    {
+      "category": "3_arm",
+      "source": "ros_ws/src/nz2_arm_bridge/scripts/arm_v2_protocol.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_arm_bridge/scripts/arm_v2_protocol.py",
+      "sha256": "aea3507f32993c271675149c40ccedf52107d9425214938d41d5d12e471899e0"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/CMakeLists.txt",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/CMakeLists.txt",
+      "sha256": "a4f280e190780573bc5872009811d31955cbe4b8b06155a4bc4d51fee5b0f7e9"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/config/barcode_signal.yaml",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/config/barcode_signal.yaml",
+      "sha256": "661cdcfb1c06f1e4364ccd2e73244534d93701e88baa23ed1e99eabeac5a45a1"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/config/perception.yaml",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/config/perception.yaml",
+      "sha256": "176fae3800b8f1f6f07113769a7b5fcb70cf5d83dda70f8b6cff80e95f5c0229"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/config/scan_filter.yaml",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/config/scan_filter.yaml",
+      "sha256": "fbdc34a11fec3dfc773a83f2e9f0bbf72e91cbf1b2181b5f40a936a65c30423f"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/include/nz2_perception/tag_detector.hpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/include/nz2_perception/tag_detector.hpp",
+      "sha256": "813c82c322bbe0899f2fd9cc087eb7ef35adeeff85b2a709300ecd122b611e8c"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/include/nz2_perception/yolo_engine.hpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/include/nz2_perception/yolo_engine.hpp",
+      "sha256": "cd2b9c3d125f1d609053c7c20baff24598d14296ef76d11cd23cf25b9999a25f"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/launch/barcode_signal.launch.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/launch/barcode_signal.launch.py",
+      "sha256": "e03004f4f994f0b3d2a5c8d77eeb2bb1166fbf95571ed0d9fca49d3de4eeaa56"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/launch/perception.launch.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/launch/perception.launch.py",
+      "sha256": "ef0fd2fb309d20248e88d793aba1aeaf3a609295d51d1ac1583a84271a7039c8"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/launch/scan_filter.launch.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/launch/scan_filter.launch.py",
+      "sha256": "26301b88c2c53c74e3a94f2b78e2abfe609cb0f42ed08a1eeb00fdcfddf5f600"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/package.xml",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/package.xml",
+      "sha256": "2eeec9743e99eba14b535e8456a6344af6815f555b1def8a665695287f226316"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/barcode_reader_node.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/barcode_reader_node.cpp",
+      "sha256": "64ee30045cec2ff40d7b8861ad04153e4a88312b40108c61e761d464c486c8e3"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/barcode_signal_core.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/barcode_signal_core.py",
+      "sha256": "a452aedc7f56248c58f0ca1b6362e649a5ab21765b58ab1855f2cd0c47c538d9"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/barcode_signal_node.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/barcode_signal_node.py",
+      "sha256": "0338c28db9f1b7c484dbe47d9b4179037f5551a27ef7b950e0c54c11451d9cae"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/dice_judge.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/dice_judge.py",
+      "sha256": "3af91cf632d43a842eb9ed5a1d1cf8a753444670e3cf9a177ed04d1f40d97c39"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/obstacle_detector_node.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/obstacle_detector_node.cpp",
+      "sha256": "d64b22340addfa76c9d4a0612710e0c7457de4b12d90dba91af2a727796c4b66"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/perception_master.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/perception_master.cpp",
+      "sha256": "8e6e0fb06c76b3e9fcee8424b58aba4f499b5a0b63dd80c454efc6f2f9633d9f"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/puck_localizer_node.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/puck_localizer_node.cpp",
+      "sha256": "9abaa684243bab31016455ec5276cd4a99e8e016bcf4c9f234d05840d7b26249"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/puck_registry.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/puck_registry.py",
+      "sha256": "42b693f789ec3feb926fcba15fcc5b2088271ba645094354ce67cf28ba52ed7d"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/scan_body_filter.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/scan_body_filter.py",
+      "sha256": "6028c0ff120f8d10b4d80bbaa51a9fbe31ac9adeeb2e584fb71123d09e875313"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/shelf_detector_node.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/shelf_detector_node.cpp",
+      "sha256": "9da27bb3a65337558ec8ed146177d259d1f034c2315a49772f624db23bb68e6d"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/signal_recorder.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/signal_recorder.py",
+      "sha256": "38305cc70d7017cfc900301bc6374eca0afd0a0ece7427450b90574e7f93cd2b"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/tag_detector.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/tag_detector.cpp",
+      "sha256": "68c3fa73c352488e551753890b28cc2e4463b39875ca47b7d6132396f12e3469"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/tag_reader_node.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/tag_reader_node.cpp",
+      "sha256": "2159632d0ad194cd3a2fb2a65bd7715702cae5d37cd7aa3bf4362ac9939f6fb5"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/traffic_light_filter_node.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/traffic_light_filter_node.cpp",
+      "sha256": "376165d5d29d5844e2425bcc59357148d17d79f972be3e9de37151fdbf9c1b65"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/yolo_detector.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/yolo_detector.py",
+      "sha256": "ee6a3022cd23db4048ecdcf78a350cd4d7c175cb7a413813e45cd6b59fdc974b"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/yolo_detector_node.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/yolo_detector_node.cpp",
+      "sha256": "b4f5ddaa394457f13b43d3f4f023831d7b269d78509de2d5545e4914c5f8c216"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/yolo_engine.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/yolo_engine.cpp",
+      "sha256": "f54973ebb4cb10c5248d78d650e6a6ef3d326974f91dbaeb9318d22a422317c1"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/yolo_engine_opencv.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/yolo_engine_opencv.cpp",
+      "sha256": "6417463030898fb2fccc0711176cd66c9c0d21ed85df622cbe56c55fbba9641d"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/src/yolo_engine_tensorrt.cpp",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/src/yolo_engine_tensorrt.cpp",
+      "sha256": "65efa0d3758353b2bdaad53e7bfcc52d17565bfb09cd2ee1731d36a806973c27"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/perception/test/sim_dice.py",
+      "path": "r12/experiments/jetson_real/ros_ws/src/perception/test/sim_dice.py",
+      "sha256": "83dcf6eb85d037636fe1b2b1ad08c9fbf6f3569e8d2db4114ab1a9b8fe7b6e4e"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/CMakeLists.txt",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/CMakeLists.txt",
+      "sha256": "116375f95ee0eacdd57533ed737c515a046d90af35210525f2283096d571b104"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/msg/Barcode.msg",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/msg/Barcode.msg",
+      "sha256": "4059ae8b3916cd62ac1d95a5084d4e6899a3c03b78964ce21b6a658565929e68"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/msg/BarcodeArray.msg",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/msg/BarcodeArray.msg",
+      "sha256": "ecd84e5cab8edeb5cbd6e0d0c177cc2a678edad102abfef50b2ff2dc4548ea0a"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/msg/PerceptionState.msg",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/msg/PerceptionState.msg",
+      "sha256": "b1bf5e6f1075519b17e10ce71b9d73ed29e5dcbbedecb0fc7607641c9c34a977"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/msg/Puck.msg",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/msg/Puck.msg",
+      "sha256": "63860cf03109910d2d08b537b2fc1bd9bb96a8cf9d6c3df2a144a2294ae82a2e"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/msg/PuckArray.msg",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/msg/PuckArray.msg",
+      "sha256": "a340868e4f3f6616964b7dfdea370d7db30ac33b8ba36e94ec8107b81bc7a4e2"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/msg/ShelfPose.msg",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/msg/ShelfPose.msg",
+      "sha256": "ef5125121b862468235f82ecfe0c47e7705752ee6eb4eee6f90c585c298124dc"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/msg/TrafficLight.msg",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/msg/TrafficLight.msg",
+      "sha256": "058259cb2226d7158d5ff414454bcca5a44b93df2acff9b2678e0efc82e3ee31"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/package.xml",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/package.xml",
+      "sha256": "d7c550339ab0e9f04159dfed9b0914f2bc6d5b54fc4b28c8525d2264eab70ad8"
+    },
+    {
+      "category": "4_perception",
+      "source": "ros_ws/src/nz2_interfaces/srv/SetPerceptionMode.srv",
+      "path": "r12/experiments/jetson_real/ros_ws/src/nz2_interfaces/srv/SetPerceptionMode.srv",
+      "sha256": "576137c20b1bde6bbe5bcd7976b9574a05218d5178713c93f8821ed1f116d31f"
+    },
+    {
+      "category": "5_jetson",
+      "source": "nz2jetson:/home/nz2/models/perception_6class_20261115/build_engines.py",
+      "path": "r12/experiments/jetson_real/jetson/engine_build/build_engines.py",
+      "sha256": "ee5b25249b4e190ce790db73b0690593bede594e169b73239537ca4215607c39"
+    },
+    {
+      "category": "5_jetson",
+      "source": "nz2jetson:/home/nz2/models/perception_6class_20261115/validate_engine.py",
+      "path": "r12/experiments/jetson_real/jetson/engine_build/validate_engine.py",
+      "sha256": "11078977ca58a627211d05a6668cc417a44e2afc9df1ab5ae4c57745197a80fe"
+    },
+    {
+      "category": "5_jetson",
+      "source": "nz2jetson:/home/nz2/models/perception_6class_20261115/manifest.json",
+      "path": "r12/experiments/jetson_real/jetson/engine_build/manifest.json",
+      "sha256": "b66ab976843d1feb471bd889ddee9761292e358cc6664fb32b5473d2fd0b51fe"
+    },
+    {
+      "category": "5_jetson",
+      "source": "nz2jetson:/home/nz2/models/perception_6class_20261115/selected_models.json",
+      "path": "r12/experiments/jetson_real/jetson/engine_build/selected_models.json",
+      "sha256": "e1ae276be790e66ca8a1dc77651c585f4925d4069d81dec07e31fd80c3a8923e"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+arm_bridge:
+  ros__parameters:
+    port: ""  # I-only discovery. Never infer role from ACM numbering.
+    allow_motion: false  # Launch override; never enables torque automatically.
+    joint_names: [j1, j2, j3, j4, roll, grip]  # motor IDs 11,12,13,14,16,15
+    command_rate_hz: 20.0
+    poll_rate_hz: 5.0
+    command_timeout_sec: 0.25  # live upstream publisher required
+    telemetry_timeout_sec: 0.5
+    max_speed_deg_s: 10.0  # host target slew limit, not measured motor velocity
+    serial_timeout_sec: 0.08
+    serial_settle_sec: 2.0

@@ -18,7 +18,7 @@ tutor 와 다른 점은 카메라 자세 입력 하나뿐:
 
 실행 (개발 PC, D435 연결):
   source ~/yolo_env/bin/activate
-  cd "$HOME/git/lv2-nz2-project2/r12/experiments/barcode_signal"
+  cd "$HOME/git/p2_perception/Claude outputs/tower_signal"
   python scripts/live_tower_check.py --cam-z 0.30 --pitch 10 --exposure 150 --wb 4600 --barcode P2-01
   # --cam-x/--cam-y 기본 = 규정 관측 위치(0.734, 0.950), --yaw 기본 180(-X 방향)
   # 자세를 대충 넣었으면 --radius 를 키움(최대 256 px). 이동량(shift_px)이 크게 나오면 실측값을 다시 확인
@@ -43,7 +43,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-HERE = Path(__file__).resolve().parents[1]                         # r12/experiments/barcode_signal
+HERE = Path(__file__).resolve().parents[1]                         # Claude outputs/tower_signal
 
 # ---------------- 설정값 ----------------
 WIDTH, HEIGHT, FPS = 640, 480, 30          # 판정 기준 해상도 (tutor uniform640)
@@ -133,14 +133,6 @@ def location_plan(mission, counts, barcode):
     return [(f'L{i+1}', g, counts[g]) for i, g in enumerate(groups)]
 
 
-def _repo_r12():
-    """이 파일이 저장소 r12/ 아래에 있으면 그 r12, 아니면 None (상대 경로 우선)."""
-    for parent in Path(__file__).resolve().parents:
-        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
-            return parent
-    return None
-
-
 def main():
     import pyrealsense2 as rs
     ap = argparse.ArgumentParser()
@@ -158,7 +150,7 @@ def main():
     ap.add_argument('--wb', type=float, default=None)
     ap.add_argument('--serial', default=None)
     ap.add_argument('--barcode', default=None, help='P2-01~04 (주면 L1~L3 정렬 표시)')
-    ap.add_argument('--r12-src', default=str(_repo_r12() / 'src') if _repo_r12() else os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
+    ap.add_argument('--r12-src', default=os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
     ap.add_argument('--out', default=str(HERE / 'reports/live'))
     a = ap.parse_args()
     mission = load_mission(a.r12_src)

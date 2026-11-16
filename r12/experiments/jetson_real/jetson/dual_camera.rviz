@@ -1,0 +1,44 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Enabled: true
+  Global Options:
+    Background Color: 32; 34; 38
+    Fixed Frame: gripper_color_optical_frame
+    Frame Rate: 20
+  Displays:
+    - Class: rviz_default_plugins/Image
+      Name: Gripper camera
+      Enabled: true
+      Topic:
+        Value: /gripper/color/image_raw
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 1
+      Transport Hint: compressed
+      Normalize Range: true
+    - Class: rviz_default_plugins/Image
+      Name: Top camera
+      Enabled: true
+      Topic:
+        Value: /top/color/image_raw
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 1
+      Transport Hint: compressed
+      Normalize Range: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 3
+Window Geometry:
+  Width: 1500
+  Height: 900
+  X: 40
+  Y: 40
+  Hide Left Dock: false
+  Hide Right Dock: false

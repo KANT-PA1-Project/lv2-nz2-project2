@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+project(nz2_arm_bridge)
+find_package(ament_cmake REQUIRED)
+install(PROGRAMS scripts/arm_bridge_node.py DESTINATION lib/${PROJECT_NAME})
+install(FILES scripts/arm_v2_protocol.py DESTINATION lib/${PROJECT_NAME})
+install(DIRECTORY launch config DESTINATION share/${PROJECT_NAME})
+install(FILES README.md DESTINATION share/${PROJECT_NAME})
+ament_package()
