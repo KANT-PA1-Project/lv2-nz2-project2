@@ -1,0 +1,62 @@
+<!--
+  nz2_swerve_nav/behavior_trees/nz2_nav_to_pose.xml
+  Nav2 1.5.0 기본 navigate_to_pose_w_replanning_and_recovery.xml 에서 복구 동작만 바꾼 판.
+  - 제자리 회전(Spin 1.57 rad), 후진(BackUp 0.30 m) 제거: 통로 한쪽 60 mm 에서 눈 감고 움직이면 벽 접촉 = 실격
+  - 복구 = 코스트맵 비우기 → 2 s 대기 (반복). 재시도 6회 넘으면 실패 반환 → 상위(미션 FSM)가 판단
+  - (v11) 오류 종류로 복구를 거르지 않음 (WouldA…RecoveryHelp 제거). 추종 실패 시 경로 재계획 후 재시도 2회
+  - (11/14 v8) 재계획은 경로가 막혔을 때(ValidatePath 실패)나 목표가 바뀔 때만.
+    기본(IsGoalNearby 4.0 m)은 목표가 4 m 넘게 남으면 1 Hz 로 매번 새 경로 → 출발점 주머니에서
+    남쪽 좁은 틈 경로 ↔ 북쪽 우회 경로가 번갈아 나와 남북으로 150 s 왕복 (facing 2차 bag, y 0.5 ↔ 1.26 m)
+    → proximity_threshold 100 m (사실상 항상 '가까움' = 기존 경로 유지)
+-->
+<root BTCPP_format="4" main_tree_to_execute="NZ2NavigateToPose">
+  <BehaviorTree ID="NZ2NavigateToPose">
+    <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+      <PipelineSequence name="NavigateWithReplanning">
+        <ProgressCheckerSelector selected_progress_checker="{selected_progress_checker}" default_progress_checker="progress_checker" topic_name="progress_checker_selector"/>
+        <GoalCheckerSelector selected_goal_checker="{selected_goal_checker}" default_goal_checker="general_goal_checker" topic_name="goal_checker_selector"/>
+        <PathHandlerSelector selected_path_handler="{selected_path_handler}" default_path_handler="PathHandler" topic_name="path_handler_selector"/>
+        <ControllerSelector selected_controller="{selected_controller}" default_controller="FollowPath" topic_name="controller_selector"/>
+        <PlannerSelector selected_planner="{selected_planner}" default_planner="GridBased" topic_name="planner_selector"/>
+        <RateController hz="1.0">
+          <RecoveryNode number_of_retries="1" name="ComputePathToPose">
+            <Fallback name="FallbackComputePathToPose">
+              <ReactiveSequence name="CheckIfNewPathNeeded">
+                <Inverter>
+                  <GlobalUpdatedGoal/>
+                </Inverter>
+                <IsGoalNearby path="{path}" proximity_threshold="100.0" max_robot_pose_search_dist="1.5"/>
+                <TruncatePathLocal input_path="{path}" output_path="{remaining_path}" distance_forward="-1" distance_backward="0.0" />
+                <ValidatePath path="{remaining_path}"/>
+              </ReactiveSequence>
+              <ComputePathToPose goal="{goal}" path="{path}" planner_id="{selected_planner}" error_code_id="{compute_path_error_code}" error_msg="{compute_path_error_msg}"/>
+            </Fallback>
+            <Sequence>
+              <WouldAPlannerRecoveryHelp error_code="{compute_path_error_code}"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context" service_name="global_costmap/clear_entirely_global_costmap"/>
+            </Sequence>
+          </RecoveryNode>
+        </RateController>
+        <RecoveryNode number_of_retries="2" name="FollowPath">
+          <FollowPath path="{path}" controller_id="{selected_controller}" error_code_id="{follow_path_error_code}" error_msg="{follow_path_error_msg}" tracking_feedback="{tracking_feedback}"/>
+          <!-- (v11) 추종 실패면 오류 종류와 상관없이 지역 코스트맵 비우고 현재 위치에서 경로 다시 계획 후 재시도
+               기본은 WouldAControllerRecoveryHelp 로 거르는데 'Resulting plan has 0 poses'(103) 는 통과 못 해 바로 중단됨 -->
+          <Sequence>
+            <ClearEntireCostmap name="ClearLocalCostmap-Context" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ComputePathToPose goal="{goal}" path="{path}" planner_id="{selected_planner}" error_code_id="{compute_path_error_code}" error_msg="{compute_path_error_msg}"/>
+          </Sequence>
+        </RecoveryNode>
+      </PipelineSequence>
+      <Sequence>
+        <ReactiveFallback name="RecoveryFallback">
+          <GoalUpdated/>
+          <Sequence name="ClearThenWait">
+            <ClearEntireCostmap name="ClearLocalCostmap-Subtree" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ClearEntireCostmap name="ClearGlobalCostmap-Subtree" service_name="global_costmap/clear_entirely_global_costmap"/>
+            <Wait wait_duration="2.0" error_code_id="{wait_error_code}" error_msg="{wait_error_msg}"/>
+          </Sequence>
+        </ReactiveFallback>
+      </Sequence>
+    </RecoveryNode>
+  </BehaviorTree>
+</root>
