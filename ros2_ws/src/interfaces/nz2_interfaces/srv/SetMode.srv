@@ -1,0 +1,5 @@
+# 운영 모드 변경 (IDLE에서만 허용)
+string mode      # competition | rehearsal | dry_signal | dry_run
+---
+bool success
+string message

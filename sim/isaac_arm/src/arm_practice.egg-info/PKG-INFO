@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: arm-practice
+Version: 0.1.0
+Summary: Own-URDF manipulator practice for Isaac Lab 3.0 EA and ROS 2 Lyrical
+Requires-Python: >=3.12
+License-File: LICENSE
+Requires-Dist: numpy>=1.26
+Dynamic: license-file

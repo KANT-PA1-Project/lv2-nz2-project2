@@ -1,0 +1,11 @@
+{
+  "arm_acceptance_by_stable_off_s": {
+    "1.5": false,
+    "2.0": true,
+    "2.5": true
+  },
+  "terminal_off_2s_is_incomplete": true,
+  "terminal_off_3s_is_complete": true,
+  "replay_accepts_2s_recovery": true,
+  "AST_OK": true
+}

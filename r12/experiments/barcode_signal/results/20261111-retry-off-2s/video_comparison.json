@@ -1,0 +1,28 @@
+[
+  {
+    "video": "camera_1794386649848806430.mp4",
+    "replay_frame_hz": 30,
+    "prepare_timeout_for_analysis_s": 300,
+    "threshold_comparison": {
+      "2.0": null,
+      "2.5": null
+    }
+  },
+  {
+    "video": "camera_1794386737873186734.mp4",
+    "replay_frame_hz": 30,
+    "prepare_timeout_for_analysis_s": 300,
+    "threshold_comparison": {
+      "2.0": {
+        "first_ready_video_s": 45.833333333333336,
+        "observed_stable_off_s": 2.0,
+        "baseline_frames": 5
+      },
+      "2.5": {
+        "first_ready_video_s": 46.333333333333336,
+        "observed_stable_off_s": 2.5,
+        "baseline_frames": 5
+      }
+    }
+  }
+]

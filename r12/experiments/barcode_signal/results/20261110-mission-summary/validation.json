@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-10",
+  "scope": "CPU synthetic timing and mock camera integration; not real-camera or Isaac validation",
+  "tests_passed": 87,
+  "barcode_asset_decode": [
+    {
+      "code": "P2-01",
+      "locations": [
+        {
+          "location": "L1",
+          "group": "Y",
+          "count": 2,
+          "constraint": {
+            "color": "any",
+            "shape": "one_common_shape_pending_inventory"
+          }
+        },
+        {
+          "location": "L2",
+          "group": "R",
+          "count": 4,
+          "constraint": {
+            "color": "R",
+            "shape": "any"
+          }
+        },
+        {
+          "location": "L3",
+          "group": "G",
+          "count": 6,
+          "constraint": {
+            "color": "G",
+            "shape": "any"
+          }
+        }
+      ],
+      "decode_asset_ms_median": 3.337186499265954
+    },
+    {
+      "code": "P2-02",
+      "locations": [
+        {
+          "location": "L1",
+          "group": "G",
+          "count": 6,
+          "constraint": {
+            "color": "G",
+            "shape": "any"
+          }
+        },
+        {
+          "location": "L2",
+          "group": "R",
+          "count": 4,
+          "constraint": {
+            "color": "R",
+            "shape": "any"
+          }
+        },
+        {
+          "location": "L3",
+          "group": "Y",
+          "count": 2,
+          "constraint": {
+            "color": "any",
+            "shape": "one_common_shape_pending_inventory"
+          }
+        }
+      ],
+      "decode_asset_ms_median": 2.7372314943931997
+    },
+    {
+      "code": "P2-03",
+      "locations": [
+        {
+          "location": "L1",
+          "group": "Y",
+          "count": 2,
+          "constraint": {
+            "color": "any",
+            "shape": "one_common_shape_pending_inventory"
+          }
+        },
+        {
+          "location": "L2",
+          "group": "R",
+          "count": 4,
+          "constraint": {
+            "color": "R",
+            "shape": "any"
+          }
+        },
+        {
+          "location": "L3",
+          "group": "G",
+          "count": 6,
+          "constraint": {
+            "color": "G",
+            "shape": "any"
+          }
+        }
+      ],
+      "decode_asset_ms_median": 4.231482504110318
+    },
+    {
+      "code": "P2-04",
+      "locations": [
+        {
+          "location": "L1",
+          "group": "G",
+          "count": 6,
+          "constraint": {
+            "color": "G",
+            "shape": "any"
+          }
+        },
+        {
+          "location": "L2",
+          "group": "R",
+          "count": 4,
+          "constraint": {
+            "color": "R",
+            "shape": "any"
+          }
+        },
+        {
+          "location": "L3",
+          "group": "Y",
+          "count": 2,
+          "constraint": {
+            "color": "any",
+            "shape": "one_common_shape_pending_inventory"
+          }
+        }
+      ],
+      "decode_asset_ms_median": 2.4372929910896346
+    }
+  ],
+  "requirements_ms_median": 0.002029,
+  "requirements_ms_p95": 0.002209,
+  "fixed_roi_guard_ms_median": 0.0365485,
+  "quantization": "No neural network in this signal/barcode/summary path; deferred",
+  "source_sha256": {
+    "scripts/mission_summary.py": "96e332a85c25468996bf6092c72b2b61efbed6fe8a55cefe3a43f3ba4417e8e9",
+    "scripts/mission_live_support.py": "c88d4067ddf86ad3e6e5cc502dc424bd415c0328ad6e596c099caaf654cb70b7",
+    "scripts/replay_mission_summary.py": "4ad08929ec4e4be0c159bca52908dcf5b0fafae0ca37f39539ead092b31274a8",
+    "scripts/live_signal_guard.py": "9485687dfd060fe428501ac855068ecdffb062c176bb15a6b55d21b2045cb6f3",
+    "scripts/live_tower_check.py": "0b80e44b69666254b2d451b57fc895426b3db01ff69f7ee344f8549ae8cb82f4",
+    "tests/test_mission_summary.py": "6ae90d3807e1fefc71068433f4ed2ddf0ed89d3834e4fdb345446f9dbaa0d1a3",
+    "tests/test_mission_live.py": "26aec1ffa57e2d638284f9252387a8618bc06ec981695e80759591caff4afa2c"
+  },
+  "limitations": [
+    "No physical RealSense run",
+    "No Jetson measurement",
+    "Manual confirmed OFF and fixed exposure/WB required for mission arm",
+    "Existing signal colour rules and known real-photo failures remain",
+    "No puck inventory allocation or robot commands"
+  ]
+}

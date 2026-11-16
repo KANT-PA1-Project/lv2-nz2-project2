@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-10",
+  "scope": "New image SHA256-disjoint diagnostic; same original capture sessions plus one previously unused dark capture group; manual lens ROIs and assistant provisional truth, not end-to-end detector or independent-environment validation.",
+  "images": 48,
+  "unique_image_hashes": 48,
+  "previous_sha256_overlap": 0,
+  "minimum_capture_index_gap": 10,
+  "extra_raw_group_minimum_capture_index_gap": 20,
+  "eligible": 42,
+  "less_uncertain_roi_subset": {
+    "evaluated": 38,
+    "correct": 38
+  },
+  "methods": {
+    "old_box_old_rule": {
+      "evaluated": 42,
+      "confusion": {
+        "R->R": 3,
+        "G->G": 6,
+        "OFF->OFF": 16,
+        "Y->Y": 6,
+        "R->UNKNOWN": 7,
+        "G->UNKNOWN": 1,
+        "R->OFF": 1,
+        "G->Y": 2
+      },
+      "correct": 31,
+      "unknown": 8,
+      "wrong_color": 3
+    },
+    "lens_roi_old_rule": {
+      "evaluated": 42,
+      "confusion": {
+        "R->R": 6,
+        "G->G": 9,
+        "OFF->OFF": 16,
+        "Y->Y": 5,
+        "R->UNKNOWN": 5,
+        "Y->UNKNOWN": 1
+      },
+      "correct": 36,
+      "unknown": 6,
+      "wrong_color": 0
+    },
+    "lens_roi_new_rule": {
+      "evaluated": 42,
+      "confusion": {
+        "R->R": 11,
+        "G->G": 9,
+        "OFF->OFF": 16,
+        "Y->Y": 6
+      },
+      "correct": 42,
+      "unknown": 0,
+      "wrong_color": 0
+    }
+  },
+  "excluded": [
+    {
+      "id": "photo_004",
+      "truth": null,
+      "reason": "three_tiers_not_visible"
+    },
+    {
+      "id": "photo_013",
+      "truth": null,
+      "reason": "three_tiers_not_visible"
+    },
+    {
+      "id": "photo_014",
+      "truth": null,
+      "reason": "three_tiers_not_visible"
+    },
+    {
+      "id": "photo_036",
+      "truth": "G",
+      "reason": "three_tiers_not_visible"
+    },
+    {
+      "id": "photo_043",
+      "truth": null,
+      "reason": "lens_not_localizable_in_dark_frame"
+    },
+    {
+      "id": "photo_047",
+      "truth": null,
+      "reason": "lens_not_localizable_in_dark_frame"
+    }
+  ],
+  "low_confidence_roi": [
+    "photo_041",
+    "photo_042",
+    "photo_045",
+    "photo_046"
+  ],
+  "classifier_unchanged_since_previous_validation": true,
+  "source_sha256": {
+    "src/arm_practice/tower_signal.py": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+    "scripts/test_tower_signal_photos.py": "69d8f34304880a3f671ccd183cbee19c91a15f01ce0e1ca9349e9eb411766a4b",
+    "references/tower-photo-body-axis-seed34.json": "4d16d8617e3913c14fe52e4f88a9a4c26c647a504493131d6885b58783f192ab"
+  },
+  "off_reference_real_evaluated": 0,
+  "previous_off_to_y_errors_unresolved": 3,
+  "cpu_tests": {
+    "passed": 56,
+    "failed": 0,
+    "log": "cpu-tests.log"
+  },
+  "limits": [
+    "Camera/exposure-matched confirmed OFF frames unavailable; no real OFF-reference comparison.",
+    "Some images are cropped, blurred or too dark to localize. Retained, separately reported.",
+    "Within-session capture-index separation is not a guarantee of environmental independence.",
+    "Color truth and lens geometry are assistant visual annotations, not controller state or user-confirmed ground truth.",
+    "Manual body ROIs are diagnostic annotations, not an automatic detector or a solved camera calibration."
+  ],
+  "roi_overlay_visual_audit": "audit-roi-overlays.jpg: 021/041/042/045/046 reviewed; low-confidence body boundaries retained as such"
+}

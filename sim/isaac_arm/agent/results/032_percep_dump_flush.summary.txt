@@ -1,0 +1,49 @@
+[NZ2] 차체 R20D: 팔 베이스 z 0.209 m, 차체 중심→팔 0.12 m, 팔→차체 앞끝(박스 기준) 0.100 m, 차체 충돌 근사 0.0,0.105,0.197
+[NZ2] 팔 높이 z 0.209 관측 자세 자동 탐색: (0.0, -1.548, 0.393, 1.622, 0.0) {'mean_depth_m': 0.412, 'occl_mm': 22.0}
+[NZ2-KIN] 차체 충돌 근사 (NZ2_CHASSIS_KEEPOUT): ((0.0, 0.105, 0.197),)
+[NZ2-KIN] 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf: 어깨 0.0595, L2 (0.0240, 0.1854), L3 0.1490, j4→j5 0.06635, TCP 0.1050 m / URDF FK 대조 최대 0.0 mm
+[NZ2-RES] α=0.1 (팔 5축, 최대 속도 비율), 인식 오차 편향 σ xy 6.0 / z 2.0 mm + 잡음 σ xy 0.0 / z 0.0 mm, 오프셋 한계 ±0.08 rad, 잔차 단계 ['APPROACH', 'CLOSE', 'LIFT'], 닫기 전 손끝 게이트 끔, 옆 퍽 장애물 켬 (여유 3 mm), via 들어올림 +60 mm, 누운 퍽 잡기 높이 +5 mm, 누운 퍽 롤 맞춤 켬 (기울기 한계 25°, yaw 편향 σ 5°)
+[NZ2-RES] 정지 확인 게이트: 켬 (via·pre, 추종 오차 < 0.02 rad + 관절속도 < 0.05 rad/s, 0.2 s 유지, 최대 1.0 s)
+[NZ2-RES] 처짐 보상: ki 3.0 /s, 최대 0.15 rad, 모드 static (명령 관절속도 < 0.05 rad/s 일 때만 적분)
+[NZ2-RES] FK 자기검사(시뮬 vs 해석 FK): TCP 오차 최대 335.6 mm (J1_Z=0.209, ARM_Z=0.209, 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf, URDF FK 대조 0.0 mm)
+--- 꼬리 ---
+2026-11-11T07:53:22Z [42,983ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,983ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,983ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,983ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,985ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,985ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,985ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,990ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,991ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,991ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,992ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,992ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,993ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,993ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,993ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,997ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,998ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,998ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,998ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [42,998ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [43,000ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [43,000ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [43,000ms] [Warning] [omni.replicator.core.scripts.annotators] omni.hydra.engine.stats is not installed, assuming single GPU
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] Out of GPU memory allocating resource 'MemoryManager chunk' [size: unknown]
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] Failure injector rule to repro:
+{
+    debugName="MemoryManager chunk",
+}
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] VkResult: ERROR_OUT_OF_DEVICE_MEMORY
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] vkAllocateMemory failed for flags: 0.
+2026-11-11T07:53:22Z [43,013ms] [Warning] [omni.rtx] Reaping thread purging all memory, this should only occur when the system cannot allocate more memory.
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] Out of GPU memory allocating resource 'MemoryManager chunk' [size: unknown]
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] Failure injector rule to repro:
+{
+    debugName="MemoryManager chunk",
+}
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] VkResult: ERROR_OUT_OF_DEVICE_MEMORY
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] vkAllocateMemory failed for flags: 0.
+2026-11-11T07:53:22Z [43,013ms] [Error] [omni.rtx] Texture creation failed for the device: 0.
+2026-11-11T07:53:22Z [43,014ms] [Error] [omni.usd] HydraEngine::render failed to end the compute graph: error code 6

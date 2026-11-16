@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-11",
+  "comparison_upscale": 2,
+  "runtime_config_upscale": 1,
+  "videos": [
+    {
+      "path": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/camera_1794383561869547128.mp4",
+      "sha256": "a2eb766bc82b87b2f2e821288c975e548685534ea3353ca982923745fb35b6ad"
+    },
+    {
+      "path": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/camera_1794383575446229103.mp4",
+      "sha256": "30ae8bea647043bccabd3daa184c1d4137a5aec8336c9448d2c0ee3f8c503893"
+    },
+    {
+      "path": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/camera_1794383592325328861.mp4",
+      "sha256": "9d3dce9edcc5dfa1bac32facaba969fe5491aa87953214eb6270988c1b7a94ed"
+    },
+    {
+      "path": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/camera_1794383608003564752.mp4",
+      "sha256": "751bd6fab18a88b5b797675f47fcaae275214c20aee6061d11655c2d628a99e6"
+    }
+  ],
+  "source_sha256": "902dff893d900524df61d68839ff0d0459950e80f97483bb19957be88102a29b",
+  "diagnostic_only": true,
+  "scope": "All frames in four new recordings. Fixed fractions 0.12/0.14/0.16 were tried on each automatic crop only as diagnostics. No crop trimming was added to production. Manual quadrilateral used only for one-frame control. Decoder did not receive expected text.",
+  "limitations": "Different codes were recorded at different apparent sizes/angles; these are not matched optical-resolution trials. Runtime upscale was 1; offline comparison allowed 2."
+}

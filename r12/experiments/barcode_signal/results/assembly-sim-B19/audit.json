@@ -1,0 +1,103 @@
+{
+  "source_matches_current": {
+    "common.py": true,
+    "signal_fallback.py": true,
+    "scene.py": true,
+    "tower_oblique.py": true,
+    "run.py": true
+  },
+  "checks": {
+    "result_passed": true,
+    "process_exit_zero": true,
+    "exact_sequence": true,
+    "all_classified_frames_correct": true,
+    "barcode_preserved": true,
+    "no_camera_switch_after_READY": true,
+    "fallback_only_before_READY": true,
+    "no_partial_record_during_motion": true,
+    "fresh_settle_before_READY": true,
+    "record_preserved_after_extra_lamp": true
+  },
+  "all_checks_passed": true,
+  "frame_count": 929,
+  "classified_frames": 810,
+  "correct_frames": 810,
+  "phase_counts": {
+    "settle_barcode": 14,
+    "barcode": 13,
+    "prepare": 31,
+    "record": 810,
+    "saved": 61
+  },
+  "phase_changes": [
+    {
+      "t_s": 0.03541666851378977,
+      "phase": "settle_barcode",
+      "camera": "mast",
+      "barcode": null
+    },
+    {
+      "t_s": 0.5020833595190197,
+      "phase": "barcode",
+      "camera": "mast",
+      "barcode": null
+    },
+    {
+      "t_s": 0.9354167154524475,
+      "phase": "prepare",
+      "camera": "mast",
+      "barcode": "P2-02"
+    },
+    {
+      "t_s": 1.9687501026783139,
+      "phase": "record",
+      "camera": "mast",
+      "barcode": "P2-02"
+    },
+    {
+      "t_s": 28.968751510838047,
+      "phase": "saved",
+      "camera": "mast",
+      "barcode": "P2-02"
+    }
+  ],
+  "barcode_at_s": 0.9354167154524475,
+  "READY_at_s": 1.9687501026783139,
+  "route": {
+    "mode": "initial",
+    "camera": "mast",
+    "fallback_used": false,
+    "ready_issued": true,
+    "events": [
+      {
+        "event": "prepare_started",
+        "t_s": 0.9354167154524475,
+        "camera": "mast"
+      },
+      {
+        "event": "ready",
+        "t_s": 1.9687501026783139,
+        "camera": "mast"
+      }
+    ]
+  },
+  "boundary_rejection_frames": 0,
+  "measured_native_peak_rad_s": 1.863768250842668e-09,
+  "measured_fd_peak_rad_s": 4.962158193677624e-05,
+  "physics_samples": 29728,
+  "settle_samples_before_READY": 479,
+  "geometry_assumptions": {
+    "xy_m": [
+      0.3035,
+      0.95
+    ],
+    "base_z_m": 0.0,
+    "note": "User measured about 30 cm forward and 30 cm left from barcode. Assumption: barcode-facing normal = world +X; local left = world +Y. Tower base height remains assumed 0 m; confirm orientation/height against real field."
+  },
+  "limitations": [
+    "Kinematic chassis path; no wheel driving validation",
+    "Arm self collision disabled; 20 Nm simulation drive assumption retained",
+    "Rendered lighting/exposure not a real-camera calibration",
+    "Barcode forward=world +X and left=+Y are stated scene assumptions"
+  ]
+}

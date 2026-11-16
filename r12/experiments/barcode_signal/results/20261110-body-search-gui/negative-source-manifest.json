@@ -1,0 +1,10 @@
+{
+  "source_sha256": {
+    "src/arm_practice/tower_signal.py": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+    "src/arm_practice/tower_signal_search.py": "bd202d66025c32ef6d23a0159e1a16034ecea18a0c647cc9b14380dfdc5b171a",
+    "scripts/test_tower_signal_isaac.py": "5cdbc7b0942ff007d1a61af7305dd6cb08e95b28030498a4bd9b0399c3ac2609",
+    "tests/test_tower_search.py": "d4372344da76951fd96c6978294fed7ef929666ba0ee1d84db1a46f9da0baecf"
+  },
+  "change": "Harness negative branch only: make implicit /World/Tower a typed Xform, then author inherited invisible; preserves lamp handles and hides descendants.",
+  "usd_cpu_check": "Typed Xform MakeInvisible preserves child prim and descendant ComputeVisibility is invisible; checked with pxr without SimulationApp."
+}

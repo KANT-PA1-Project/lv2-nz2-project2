@@ -1,0 +1,11 @@
+{
+  "status": "failed",
+  "scope": "field_camera_view_change_no_robot_no_physical_motion",
+  "robot_tested": false,
+  "real_camera_equivalence": false,
+  "exposure_wb_equivalence": false,
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "histogram_enabled_readback": false,
+  "error": "RuntimeError: Cannot create video",
+  "phase": "startup"
+}

@@ -1,0 +1,26 @@
+{
+  "sequence": [
+    "Y",
+    "R",
+    "G",
+    "R",
+    "Y",
+    "Y",
+    "R",
+    "R",
+    "Y",
+    "R",
+    "Y",
+    "R"
+  ],
+  "counts": {
+    "R": 6,
+    "Y": 5,
+    "G": 1
+  },
+  "signal_complete": true,
+  "completed_at_camera_s": 1794366642.718553,
+  "run_id": 1794366177331018809,
+  "round_index": 13,
+  "scope": "completed_signal_observation_not_puck_allocation"
+}
