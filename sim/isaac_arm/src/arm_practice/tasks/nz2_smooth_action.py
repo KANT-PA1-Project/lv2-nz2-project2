@@ -82,6 +82,23 @@ class NZ2SmoothJointPositionAction(JointPositionAction):
         self._processed_actions = target
         self._prev_target[:] = target
 
+    def apply_actions(self):
+        super().apply_actions()
+        # (11/12) 전체 로봇: 오른쪽 집게(jaw_right)는 행동에 없음 → 왼쪽 집게 목표를 그대로 따라 줌 (PhysX mimic 대신, 양쪽 모두 위치 구동)
+        if getattr(self, "_mirror_ids", None) is None:
+            self._mirror_ids = False
+            try:
+                from arm_practice.tasks import nz2_common as C
+                name = C.ROBOT_CFG.get("finger_mirror_joint") if C.FULL_ROBOT else None
+                if name:
+                    ids, _ = self._asset.find_joints(name)
+                    self._mirror_ids = torch.tensor(list(ids), dtype=torch.int32, device=self.device)
+                    print(f"[NZ2] 집게 대칭 구동: {name} ← {self._joint_names[-1]}")
+            except Exception as e:                     # 못 찾으면 한 번만 경고하고 끔
+                print(f"[NZ2] 경고: 집게 대칭 구동 설정 실패 ({e})")
+        if self._mirror_ids is not False:
+            self._asset.set_joint_position_target_index(target=self.processed_actions[:, -1:].clone(), joint_ids=self._mirror_ids)
+
     def reset(self, env_ids: Sequence[int] | None = None) -> None:
         super().reset(env_ids)
         q = self._asset.data.joint_pos.torch[:, self._joint_ids]

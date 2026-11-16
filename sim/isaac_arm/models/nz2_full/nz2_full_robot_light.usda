@@ -1,0 +1,336 @@
+#usda 1.0
+(
+    customLayerData = {
+        bool nz2_light = 1
+        string nz2_note = "assembly.usd over: mass x0.1, R12 joint signs, firmware limits, jaw mirror drive, root_joint"
+    }
+    defaultPrim = "Robot"
+    metersPerUnit = 1
+    subLayers = [
+        @/home/pa24/Downloads/assembly_URDF/assembly.usd@
+    ]
+    upAxis = "Z"
+)
+
+over "Robot"
+{
+    over "base_link"
+    {
+        float3 physics:diagonalInertia = (0.050000243, 0.053099137, 0.056603603)
+        float physics:mass = 2.120561
+    }
+
+    over "rear_left_steer"
+    {
+        float3 physics:diagonalInertia = (0.00072683615, 0.00082884793, 0.0009971426)
+        float physics:mass = 0.41607952
+
+        over "visual_0" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_1" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_2" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_3" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_4" (
+            active = false
+        )
+        {
+        }
+    }
+
+    over "rear_left_wheel"
+    {
+        float3 physics:diagonalInertia = (0.000014734796, 0.000014738447, 0.000018410758)
+        float physics:mass = 0.04183654
+    }
+
+    over "front_right_steer"
+    {
+        float3 physics:diagonalInertia = (0.00072683615, 0.00082884793, 0.0009971426)
+        float physics:mass = 0.41607952
+
+        over "visual_0" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_1" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_2" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_3" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_4" (
+            active = false
+        )
+        {
+        }
+    }
+
+    over "front_right_wheel"
+    {
+        float3 physics:diagonalInertia = (0.000014734796, 0.000014738447, 0.000018410758)
+        float physics:mass = 0.04183654
+    }
+
+    over "front_left_steer"
+    {
+        float3 physics:diagonalInertia = (0.0007268342, 0.0008288512, 0.0009971464)
+        float physics:mass = 0.41607952
+
+        over "visual_0" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_1" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_2" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_3" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_4" (
+            active = false
+        )
+        {
+        }
+    }
+
+    over "front_left_wheel"
+    {
+        float3 physics:diagonalInertia = (0.00001473653, 0.000014736723, 0.00001841075)
+        float physics:mass = 0.04183654
+    }
+
+    over "rear_right_steer"
+    {
+        float3 physics:diagonalInertia = (0.0007268342, 0.0008288512, 0.0009971464)
+        float physics:mass = 0.41607952
+
+        over "visual_0" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_1" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_2" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_3" (
+            active = false
+        )
+        {
+        }
+
+        over "visual_4" (
+            active = false
+        )
+        {
+        }
+    }
+
+    over "rear_right_wheel"
+    {
+        float3 physics:diagonalInertia = (0.00001473653, 0.000014736723, 0.00001841075)
+        float physics:mass = 0.04183654
+    }
+
+    over "arm_yaw"
+    {
+        float3 physics:diagonalInertia = (0.0000058306437, 0.00000939639, 0.000010819332)
+        float physics:mass = 0.035277218
+    }
+
+    over "shoulder"
+    {
+        float3 physics:diagonalInertia = (0.000014628927, 0.0002111945, 0.00021298483)
+        float physics:mass = 0.06245797
+    }
+
+    over "elbow"
+    {
+        float3 physics:diagonalInertia = (0.000008427974, 0.00009416092, 0.00009680504)
+        float physics:mass = 0.052125048
+    }
+
+    over "wrist_pitch"
+    {
+        float3 physics:diagonalInertia = (0.000008024539, 0.000009629613, 0.0000117981845)
+        float physics:mass = 0.036711488
+    }
+
+    over "wrist_roll"
+    {
+        float3 physics:diagonalInertia = (0.00006604777, 0.00009822035, 0.00013018896)
+        float physics:mass = 0.113682404
+    }
+
+    over "jaw_left"
+    {
+        float3 physics:diagonalInertia = (0.00000599967, 0.000012205926, 0.000015769358)
+        float physics:mass = 0.021526137
+
+        over "collision"
+        {
+            float3 xformOp:scale = (0.056, 0.0185, 0.0335)
+            double3 xformOp:translate = (-0.01181, 0.00012, -0.00015)
+        }
+
+        def Cube "collision_carriage" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            uniform token purpose = "guide"
+            double size = 1
+            float3 xformOp:scale = (0.032, 0.0367, 0.058)
+            double3 xformOp:translate = (0.03219, -0.00148, 0.0001)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    over "jaw_right"
+    {
+        float3 physics:diagonalInertia = (0.0000059996682, 0.000012205925, 0.000015769354)
+        float physics:mass = 0.021526137
+
+        over "collision"
+        {
+            float3 xformOp:scale = (0.056, 0.0185, 0.0335)
+            double3 xformOp:translate = (-0.01181, -0.00012, -0.00015)
+        }
+
+        def Cube "collision_carriage" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            uniform token purpose = "guide"
+            double size = 1
+            float3 xformOp:scale = (0.032, 0.0367, 0.058)
+            double3 xformOp:translate = (0.03219, 0.00148, 0.0001)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    over "joints"
+    {
+        over "arm_yaw_joint"
+        {
+            quatf physics:localRot0 = (0, 0.70710677, 0, 0.70710677)
+            quatf physics:localRot1 = (0, 0.70710677, 0, 0.70710677)
+            float physics:lowerLimit = -174.9985
+            float physics:upperLimit = 174.9985
+        }
+
+        over "shoulder_joint"
+        {
+            quatf physics:localRot0 = (-0.70710677, 0, 0, 0.70710677)
+            quatf physics:localRot1 = (-0.70710677, 0, 0, 0.70710677)
+            float physics:lowerLimit = -95.00213
+            float physics:upperLimit = 112.99873
+        }
+
+        over "elbow_joint"
+        {
+            quatf physics:localRot0 = (-0.70710677, 0, 0, 0.70710677)
+            quatf physics:localRot1 = (-0.70710677, 0, 0, 0.70710677)
+            float physics:lowerLimit = -110.999115
+            float physics:upperLimit = 82.00172
+        }
+
+        over "wrist_pitch_joint"
+        {
+            quatf physics:localRot0 = (-0.70710677, 0, 0, 0.70710677)
+            quatf physics:localRot1 = (-0.70710677, 0, 0, 0.70710677)
+            float physics:lowerLimit = -99.00138
+            float physics:upperLimit = 116.99798
+        }
+
+        over "wrist_roll_joint"
+        {
+            quatf physics:localRot0 = (0, 0, 0, 1)
+            quatf physics:localRot1 = (0, 0, 0, 1)
+            float physics:lowerLimit = -170.0023
+            float physics:upperLimit = 170.0023
+        }
+
+        over "jaw_left_joint"
+        {
+            quatf physics:localRot0 = (-0.70710677, 0, 0, 0.70710677)
+            quatf physics:localRot1 = (-0.70710677, 0, 0, 0.70710677)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0.02768613
+        }
+
+        over "jaw_right_joint"
+        {
+            quatf physics:localRot0 = (0.70710677, 0, 0, 0.70710677)
+            quatf physics:localRot1 = (0.70710677, 0, 0, 0.70710677)
+            float physics:lowerLimit = 0
+            float physics:upperLimit = 0.02768613
+        }
+
+        def PhysicsFixedJoint "root_joint"
+        {
+            rel physics:body0 = </Robot>
+            rel physics:body1 = </Robot/base_link>
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+    }
+}
+

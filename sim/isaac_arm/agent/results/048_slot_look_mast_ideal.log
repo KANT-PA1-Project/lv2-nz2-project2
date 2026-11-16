@@ -1,0 +1,323 @@
+[NZ2] 차체 R20D: 팔 베이스 z 0.213 m, 차체 중심→팔 0.154 m, 팔→차체 앞끝(박스 기준) 0.066 m, 차체 충돌 근사 0.0,0.071,0.197
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1794458994.149998  321883 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1794458994.150021  321883 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[ISAACLAB] Kit version: 110.3.0+feature.371399.00c488ae.gl
+[ISAACLAB] Kit kernel:  210.3.2+release.14366.2926fc80.gl
+[ISAACLAB] Kit hash:    00c488ae
+[INFO]: Parsing configuration from: arm_practice.tasks.nz2_vispick_cfg:NZ2VisPickResidualStateCfg
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : None
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.03333333333333333
+	Environment step-size : 0.03333333333333333
+[INFO]: Loading local copy of remote asset 'https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.1/Isaac/IsaacLab/Environments/Grid/default_ground_plane_checker_v1/default_ground_plane.usda' from '/tmp/https/omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.1/Isaac/IsaacLab/Environments/Grid/default_ground_plane_checker_v1/default_ground_plane.usda'.
+[INFO]: Loading local copy of remote asset 'https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.1/Isaac/IsaacLab/Environments/Grid/default_ground_plane_checker_v1/Materials/Textures/default_ground_plane_roughness.png' from '/tmp/https/omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.1/Isaac/IsaacLab/Environments/Grid/default_ground_plane_checker_v1/Materials/Textures/default_ground_plane_roughness.png'.
+[INFO]: Loading local copy of remote asset 'https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.1/Isaac/IsaacLab/Environments/Grid/default_ground_plane_checker_v1/Materials/Textures/default_ground_plane_albedo.png' from '/tmp/https/omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.1/Isaac/IsaacLab/Environments/Grid/default_ground_plane_checker_v1/Materials/Textures/default_ground_plane_albedo.png'.
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO]: Registered backend 'physx' for factory RigidObject.
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Physics scene prim path: /physicsScene
+Loading user config located at: '/home/pa24/pa-course/IsaacLab-6.1/.venv/lib/python3.12/site-packages/isaacsim/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-11-12T04:49:54Z [0ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-11-12T04:49:54Z [494ms] [Warning] [isaaclab.envs.manager_based_env] Seed not set for the environment. The environment creation may not be deterministic.
+2026-11-12T04:49:55Z [1,315ms] [Warning] [isaaclab.utils.assets] Serving remote assets from the local cache under '/tmp'. Each copy is checked against the server before use; delete the directory to force a full re-download.
+2026-11-12T04:49:57Z [2,708ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_1/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,709ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_2/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,710ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_3/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,711ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_4/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,712ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_5/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,712ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_6/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,713ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_7/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,714ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_8/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,715ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_9/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,716ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_10/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,716ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_11/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,717ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_12/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,718ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_13/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,719ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_14/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,719ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_15/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,720ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_16/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,721ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_17/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,722ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_18/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,723ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_19/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,724ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_20/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,725ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_21/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,725ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_22/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,726ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_23/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,727ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_24/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,728ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_25/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,728ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_26/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,729ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_27/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,730ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_28/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,731ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_29/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,731ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_30/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,732ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_31/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,733ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_32/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,734ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_33/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,735ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_34/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,736ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_35/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,736ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_36/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,737ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_37/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,738ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_38/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,739ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_39/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,740ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_40/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,741ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_41/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,742ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_42/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,743ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_43/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,744ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_44/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,746ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_45/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,747ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_46/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,748ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_47/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,749ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_48/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,750ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_49/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,751ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_50/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,752ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_51/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,753ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_52/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,754ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_53/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,754ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_54/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,756ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_55/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,757ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_56/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,758ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_57/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,759ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_58/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,760ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_59/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,761ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_60/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,762ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_61/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+2026-11-12T04:49:57Z [2,763ms] [Warning] [omni.physx.plugin] Cloning joints /World/envs/env_62/Robot/Physics/root_joint without a body rel may cause issues, since the localPose wont be updated.
+[INFO]: Time taken for scene creation Last: 1.894885 s, Mean: 1.894885 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 64
+	Environment spacing   : 3.0
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Simulation parameters for joints in /World/envs/env_[^/]+/Robot:
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                    Simulation Joint Information (Prim path: /World/envs/env_[^/]+/Robot)                                                     |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name                | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | lh1_steer_joint     |   40.000  |  4.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-1.571, 1.571]   |      1.000      |     1.000     |
+|   1   | rh1_steer_joint     |   40.000  |  4.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-1.571, 1.571]   |      1.000      |     1.000     |
+|   2   | lh2_steer_joint     |   40.000  |  4.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-1.571, 1.571]   |      1.000      |     1.000     |
+|   3   | rh2_steer_joint     |   40.000  |  4.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-1.571, 1.571]   |      1.000      |     1.000     |
+|   4   | arm_joint1          |   60.000  |  6.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-3.054, 3.054]   |      1.000      |     4.100     |
+|   5   | lh1_wheel_joint     |   0.000   |  4.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |      10.000     |     1.000     |
+|   6   | rh1_wheel_joint     |   0.000   |  4.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |      10.000     |     1.000     |
+|   7   | lh2_wheel_joint     |   0.000   |  4.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |      10.000     |     1.000     |
+|   8   | rh2_wheel_joint     |   0.000   |  4.000  |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |      10.000     |     1.000     |
+|   9   | arm_joint2          |   60.000  |  6.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-1.658, 1.972]   |      1.000      |     4.100     |
+|   10  | arm_joint3          |   60.000  |  6.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-1.937, 1.431]   |      1.000      |     4.100     |
+|   11  | arm_joint4          |   60.000  |  6.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-1.728, 2.042]   |      1.000      |     4.100     |
+|   12  | arm_joint5          |   30.000  |  3.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.967, 2.967]   |      1.000      |     4.100     |
+|   13  | gripper_joint       |   2.000   |  0.100  |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.219, -0.457]  |      3.000      |     0.300     |
+|   14  | gripper_left_joint  |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       |    [0.000, 0.025]   |      0.043      |     20.000    |
+|   15  | gripper_right_joint |   0.000   |  0.000  |  0.000   |      0.000      |      0.000       |      0.000       |   [-0.025, 0.000]   |      0.043      |     20.000    |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+/home/pa24/pa-course/IsaacLab-6.1/source/isaaclab_newton/isaaclab_newton/cloner/newton_clone_utils.py:158: FutureWarning: Newton shape color replacement is enabled; this workaround will be deprecated in a future release.
+  replace_newton_builder_shape_colors(builder, stage)
+[INFO]: [NewtonVisualizer] Object dragging is disabled because the active physics solver does not support rigid-body force input.
+[INFO]: Time taken for simulation start Last: 7.279628 s, Mean: 7.279628 s, Std: 0.000000 s, N: 1
+[INFO] Command Manager:  <CommandManager> contains 1 active terms.
++--------------------------------------+
+|         Active Command Terms         |
++-------+---------+--------------------+
+| Index | Name    |        Type        |
++-------+---------+--------------------+
+|   0   | ee_pose | UniformPoseCommand |
++-------+---------+--------------------+
+
+[INFO] Event Manager:  <EventManager> contains 2 active terms.
++-------------------------------------+
+| Active Event Terms in Mode: 'reset' |
++--------+----------------------------+
+| Index  | Name                       |
++--------+----------------------------+
+|   0    | reset_robot_joints         |
+|   1    | look_noise                 |
+|   2    | reset_vispick              |
++--------+----------------------------+
++---------------------------------------+
+| Active Event Terms in Mode: 'startup' |
++----------+----------------------------+
+|  Index   | Name                       |
++----------+----------------------------+
+|    0     | finger_friction            |
+|    1     | puck_r_box_mat             |
+|    2     | puck_r_cyl_mat             |
+|    3     | puck_g_box_mat             |
+|    4     | puck_g_cyl_mat             |
++----------+----------------------------+
+
+[INFO] Recorder Manager:  <RecorderManager> contains 0 active terms.
++-----------------------+
+| Active Recorder Terms |
++------------+----------+
+|   Index    | Name     |
++------------+----------+
++------------+----------+
+
+[NZ2-KIN] 차체 충돌 근사 (NZ2_CHASSIS_KEEPOUT): ((0.0, 0.071, 0.197),)
+[NZ2-KIN] 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf: 어깨 0.0595, L2 (0.0240, 0.1854), L3 0.1490, j4→j5 0.06635, TCP 0.1050 m / URDF FK 대조 최대 0.0 mm
+[INFO]: Resolved joint names for the action term NZ2VisPickResidualAction: ['arm_joint1', 'arm_joint2', 'arm_joint3', 'arm_joint4', 'arm_joint5', 'gripper_joint'] [tensor([ 4,  9, 10, 11, 12, 13], device='cuda:0', dtype=torch.int32)]
+[NZ2-BIN] 적재통 놓기 켬: 컵 바닥 221 mm, 칸 ((-0.11884, -0.145), (-0.18884, -0.145), (-0.11884, -0.095), (-0.18884, -0.095), (-0.11884, 0.095), (-0.18884, 0.095), (-0.11884, 0.145), (-0.18884, 0.145)), 쥐는 점 이동 12 mm, 나르는 자세 r 0.15 z 0.32, 목표 누운 퍽 고정 False
+[NZ2-RES] α=0.1 (팔 5축, 최대 속도 비율), 인식 오차 편향 σ xy 0.0 / z 0.0 mm + 잡음 σ xy 0.0 / z 0.0 mm, 오프셋 한계 ±0.08 rad, 잔차 단계 ['APPROACH', 'CLOSE', 'LIFT'], 닫기 전 손끝 게이트 끔, 옆 퍽 장애물 켬 (여유 3 mm), via 들어올림 +60 mm, 누운 퍽 잡기 높이 +5 mm, 누운 퍽 롤 맞춤 켬 (기울기 한계 25°, yaw 편향 σ 5°)
+[NZ2-RES] 정지 확인 게이트: 켬 (via·pre, 추종 오차 < 0.02 rad + 관절속도 < 0.05 rad/s, 0.2 s 유지, 최대 1.0 s)
+[NZ2-RES] 처짐 보상: ki 3.0 /s, 최대 0.15 rad, 모드 static (명령 관절속도 < 0.05 rad/s 일 때만 적분)
+[INFO] Action Manager:  <ActionManager> contains 1 active terms.
++--------------------------------+
+| Active Action Terms (shape: 6) |
++-------+------------+-----------+
+| Index | Name       | Dimension |
++-------+------------+-----------+
+|   0   | arm_action |         6 |
++-------+------------+-----------+
+
+[INFO] Observation Manager: <ObservationManager> contains 2 groups.
++------------------------------------------------------------+
+| Active Observation Terms in Group: 'policy' (shape: (68,)) |
++------------+--------------------------------+--------------+
+|   Index    | Name                           |    Shape     |
++------------+--------------------------------+--------------+
+|     0      | joint_pos                      |    (16,)     |
+|     1      | joint_vel                      |    (16,)     |
+|     2      | actions                        |     (6,)     |
+|     3      | applied_target                 |     (6,)     |
+|     4      | target_color                   |     (2,)     |
+|     5      | res_phase                      |    (17,)     |
+|     6      | res_offset                     |     (5,)     |
++------------+--------------------------------+--------------+
++------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic' (shape: (87,)) |
++------------+--------------------------------+--------------+
+|   Index    | Name                           |    Shape     |
++------------+--------------------------------+--------------+
+|     0      | joint_pos                      |    (16,)     |
+|     1      | joint_vel                      |    (16,)     |
+|     2      | applied_target                 |     (6,)     |
+|     3      | target_color                   |     (2,)     |
+|     4      | target_pose                    |     (7,)     |
+|     5      | target_kind                    |     (3,)     |
+|     6      | other                          |     (4,)     |
+|     7      | tcp_to_grasp                   |     (3,)     |
+|     8      | shelf                          |     (3,)     |
+|     9      | grasp_lift                     |     (2,)     |
+|     10     | res_phase                      |    (17,)     |
+|     11     | res_offset                     |     (5,)     |
+|     12     | res_pose_err                   |     (3,)     |
++------------+--------------------------------+--------------+
+
+[INFO] Termination Manager:  <TerminationManager> contains 13 active terms.
++-------------------------------------------+
+|          Active Termination Terms         |
++-------+------------------------+----------+
+| Index | Name                   | Time Out |
++-------+------------------------+----------+
+|   0   | success                |  False   |
+|   1   | time_out               |   True   |
+|   2   | contact_arm_link2_stop |  False   |
+|   3   | contact_arm_link3_stop |  False   |
+|   4   | contact_arm_link4_stop |  False   |
+|   5   | contact_arm_link5_stop |  False   |
+|   6   | contact_fbad_l_stop    |  False   |
+|   7   | contact_fbad_r_stop    |  False   |
+|   8   | target_disturbed       |  False   |
+|   9   | other_disturbed        |  False   |
+|   10  | target_dropped         |  False   |
+|   11  | bin_fail               |  False   |
+|   12  | bin_skip               |  False   |
++-------+------------------------+----------+
+
+[INFO] Reward Manager:  <RewardManager> contains 15 active terms.
++----------------------------------------+
+|          Active Reward Terms           |
++-------+-----------------------+--------+
+| Index | Name                  | Weight |
++-------+-----------------------+--------+
+|   0   | success               |    5.0 |
+|   1   | action_magnitude      | -0.005 |
+|   2   | contact_arm_link2_pen |   -2.0 |
+|   3   | contact_arm_link3_pen |   -2.0 |
+|   4   | contact_arm_link4_pen |   -2.0 |
+|   5   | contact_arm_link5_pen |   -2.0 |
+|   6   | contact_termination   |  -10.0 |
+|   7   | contact_fbad_l_pen    |   -2.0 |
+|   8   | contact_fbad_r_pen    |   -2.0 |
+|   9   | grasp                 |    2.0 |
+|   10  | lift                  |    5.0 |
+|   11  | success_bonus         |   20.0 |
+|   12  | wrong_touch           |   -1.0 |
+|   13  | puck_fail             |  -10.0 |
+|   14  | res_l2                |  -0.01 |
++-------+-----------------------+--------+
+
+[INFO] Curriculum Manager:  <CurriculumManager> contains 2 active terms.
++-------------------------+
+| Active Curriculum Terms |
++-------+-----------------+
+| Index | Name            |
++-------+-----------------+
+|   0   | vispick_stage   |
+|   1   | success_rate    |
++-------+-----------------+
+
+[INFO]: Completed setting up the environment...
+[INFO]: Gym observation space: Dict('critic': Box(-inf, inf, (64, 87), float32), 'policy': Box(-inf, inf, (64, 68), float32))
+[INFO]: Gym action space: Box(-inf, inf, (64, 6), float32)
+[INFO] Zero agent is running, press Ctrl+C to exit...
+[NZ2-RES] FK 자기검사(시뮬 vs 해석 FK): TCP 오차 최대 0.1 mm (J1_Z=0.213, ARM_Z=0.213, 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf, URDF FK 대조 0.0 mm)
+[NZ2-RES] 에피소드 64: 성공 39 (61 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 39, target_disturbed 2, bin_fail 23, 끝난 단계:DONE 62, 끝난 단계:ROTATE 1, 끝난 단계:VERIFY 1
+[NZ2-RES] 에피소드 128: 성공 77 (60 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 77, target_disturbed 4, bin_fail 47, 끝난 단계:DONE 124, 끝난 단계:ROTATE 2, 끝난 단계:RETREAT 1, 끝난 단계:VERIFY 1
+[NZ2-RES] 에피소드 192: 성공 116 (60 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 116, target_disturbed 4, bin_fail 72, 끝난 단계:DONE 188, 끝난 단계:ROTATE 2, 끝난 단계:RETREAT 1, 끝난 단계:VERIFY 1
+[NZ2-RES] 에피소드 256: 성공 146 (57 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: success 146, target_disturbed 7, bin_fail 103, 끝난 단계:DONE 249, 끝난 단계:ROTATE 3, 끝난 단계:RETREAT 3, 끝난 단계:VERIFY 1
+[NZ2-RES] ===== 조건별 분해 (집게 닫힘 = 반경에 수직인 수평 방향) =====
+[NZ2-RES]  세움·사각 대각 / 옆퍽 뒤(먼 쪽): 3/20 (15 %) | CLOSE 진입 손끝 z오차 평균 +3.0 mm(최저 +1.5), 수평 0.7 mm (n=20)
+[NZ2-RES]      실패 단계: DONE 17
+[NZ2-RES]      실패 이유: bin_fail 17
+[NZ2-RES]  세움·사각 대각 / 옆퍽 앞(베이스 쪽): 0/15 (0 %) | CLOSE 진입 손끝 z오차 평균 +4.4 mm(최저 +3.6), 수평 0.5 mm (n=15)
+[NZ2-RES]      실패 단계: DONE 14, ROTATE 1
+[NZ2-RES]      실패 이유: bin_fail 14, target_disturbed 1
+[NZ2-RES]  세움·사각 대각 / 옆퍽 좌우(집게 방향): 3/27 (11 %) | CLOSE 진입 손끝 z오차 평균 +3.8 mm(최저 +3.6), 수평 0.8 mm (n=27)
+[NZ2-RES]      실패 단계: DONE 24
+[NZ2-RES]      실패 이유: bin_fail 24
+[NZ2-RES]  세움·사각 면정렬 / 옆퍽 뒤(먼 쪽): 10/18 (56 %) | CLOSE 진입 손끝 z오차 평균 +3.0 mm(최저 +1.5), 수평 0.4 mm (n=18)
+[NZ2-RES]      실패 단계: DONE 8
+[NZ2-RES]      실패 이유: bin_fail 8
+[NZ2-RES]  세움·사각 면정렬 / 옆퍽 앞(베이스 쪽): 8/17 (47 %) | CLOSE 진입 손끝 z오차 평균 +4.5 mm(최저 +3.5), 수평 0.6 mm (n=17)
+[NZ2-RES]      실패 단계: DONE 9
+[NZ2-RES]      실패 이유: bin_fail 9
+[NZ2-RES]  세움·사각 면정렬 / 옆퍽 좌우(집게 방향): 18/27 (67 %) | CLOSE 진입 손끝 z오차 평균 +3.9 mm(최저 +3.6), 수평 0.7 mm (n=27)
+[NZ2-RES]      실패 단계: DONE 9
+[NZ2-RES]      실패 이유: bin_fail 9
+[NZ2-RES]  세움·원기둥 / 옆퍽 뒤(먼 쪽): 33/39 (85 %) | CLOSE 진입 손끝 z오차 평균 +3.0 mm(최저 +1.6), 수평 0.6 mm (n=39)
+[NZ2-RES]      실패 단계: DONE 5, VERIFY 1
+[NZ2-RES]      실패 이유: bin_fail 5, target_disturbed 1
+[NZ2-RES]  세움·원기둥 / 옆퍽 앞(베이스 쪽): 30/36 (83 %) | CLOSE 진입 손끝 z오차 평균 +4.6 mm(최저 +3.6), 수평 0.5 mm (n=36)
+[NZ2-RES]      실패 단계: DONE 3, RETREAT 2, ROTATE 1
+[NZ2-RES]      실패 이유: target_disturbed 3, bin_fail 3
+[NZ2-RES]  세움·원기둥 / 옆퍽 좌우(집게 방향): 41/57 (72 %) | CLOSE 진입 손끝 z오차 평균 +3.9 mm(최저 +3.4), 수평 0.7 mm (n=57)
+[NZ2-RES]      실패 단계: DONE 14, RETREAT 1, ROTATE 1
+[NZ2-RES]      실패 이유: bin_fail 14, target_disturbed 2
+[NZ2-RES]  하향각별: 하향 ≥45° 146/256 (57 %)
+[NZ2-RES]  롤 모드 세움(롤 0): 146/256 (57 %), |롤| 평균 0°, CLOSE 시 |cos(집게축, 퍽축)| 0.00 (n=256)
+[NZ2-RES] ===== 퍽이 처음 흔들린 순간 [밀림 4 mm 또는 기울기 6°] (단계/어느 퍽: 횟수, 스텝 평균·최소, 손끝 반경·TCP z·손가락 끝 z 평균) =====
+[NZ2-RES] 정지 게이트 via: 319회, 시간 초과 0회, 평균 대기 0.58 s
+[NZ2-RES] 정지 게이트 pre: 311회, 시간 초과 194회, 평균 대기 0.87 s
+[NZ2-RES] ===== 내려감 진단 (DESCEND~CLOSE, 손끝 z − 명령 경로 z, 음수 = 경로 아래 / 처짐 보상 ki 3.0, 모드 static) =====
+[NZ2-RES]  세운 퍽 (n=256): 경로 아래 최대 평균 -4.8 mm (최저 -12.3), 3 mm 넘게 아래 168회 (그중 실패 73) 단계 {'DESCEND': 168} | 최대 하강속도 평균 -177 mm/s (최저 -236) 단계 {'DESCEND': 256} | CLOSE 때 |q_int| 평균 1.3° (최대 1.9°)
+[NZ2-BIN] ===== 적재통 결과 (계획 단계 컵 도달 불가 0) =====
+[NZ2-BIN]  끝난 단계(실패) / 성공: {'ROTATE': 3, '성공': 146, 'DONE': 103, 'VERIFY': 1, 'RETREAT': 3}
+[NZ2-BIN]  칸별 성공: 0: 17/33, 1: 19/31, 2: 20/32, 3: 18/31, 4: 13/26, 5: 22/37, 6: 20/35, 7: 17/31
+[NZ2-BIN]  VERIFY 실패 원인(중복 가능): xy ≥ 12 mm 11, z ≥ 10 mm 44, 기울기 ≥ 10° 66
+[NZ2-BIN]  VERIFY 249회: xy 오차 평균 7.6 (최대 408.0) mm, z 평균 6.9 mm, 기울기 평균 12.6° (최대 90.0°)
+[NZ2-BIN]  TILT 끝 256회: |퍽축·z| 평균 1.000 (1 = 섬), TCP − 퍽 중심 z 평균 +32.7 mm (기대 +12, 양수 비율 1.00 → 쥐는 점이 위쪽 끝인지)
+[NZ2-BIN]  정렬 검사(세운 사각, BIN_DESC 끝) 121회: |집게 축 − 칸 축| 평균 20.2° (0 에 가까우면 롤 부호 맞음, 큰 값이면 NZ2_SLOT_ROLL_SIGN=-1)
+[NZ2-BIN]  VERIFY 세운 사각 118회: |퍽 면 − 칸 축| 평균 14.0° (최대 43.7°)
+[NZ2-BIN]  트레이 모드: 누운 퍽 계획 제외 0 (재세우기 단계 미구현)
+[NZ2-RES] 완료: 성공 146/256 (57.0 %) → /home/pa24/pa-course/IsaacLab-6.1/logs/nz2_vispick/expert_check_20261112_135135.json

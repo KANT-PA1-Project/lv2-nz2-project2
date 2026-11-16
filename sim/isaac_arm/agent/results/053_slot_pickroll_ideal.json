@@ -1,0 +1,339 @@
+{
+  "episodes": 256,
+  "success": 110,
+  "rate_pct": 43.0,
+  "unreachable": 0,
+  "ik_fail_midway": 0,
+  "alpha": 0.1,
+  "pose_bias_mm": 0.0,
+  "pose_noise_mm": 0.0,
+  "pose_bias_z_mm": 0.0,
+  "pose_noise_z_mm": 0.0,
+  "close_gate_mm": 0.0,
+  "refine_bias_mm": -1.0,
+  "other_keepout": true,
+  "other_keep_mm": 3.0,
+  "lie_grasp_up_mm": 5.0,
+  "stage": 3,
+  "kin_j1_z": 0.213,
+  "arm_z": 0.213,
+  "kin_source": "/home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf",
+  "kin_fk_vs_urdf_mm": 0.0,
+  "end_reasons": {
+    "success": 110,
+    "target_disturbed": 8,
+    "bin_fail": 138,
+    "끝난 단계:DONE": 248,
+    "끝난 단계:ROTATE": 2,
+    "끝난 단계:RETREAT": 2,
+    "끝난 단계:VERIFY": 4
+  },
+  "by_cond": {
+    "세움·사각 대각 / 옆퍽 뒤(먼 쪽)": {
+      "n": 21,
+      "ok": 3,
+      "rate_pct": 14.3,
+      "fail_phase": {
+        "DONE": 18
+      },
+      "fail_reason": {
+        "bin_fail": 18
+      },
+      "close_n": 21,
+      "close_ez_mean_mm": 2.87,
+      "close_ez_min_mm": 1.62,
+      "close_exy_mean_mm": 0.62
+    },
+    "세움·사각 대각 / 옆퍽 앞(베이스 쪽)": {
+      "n": 18,
+      "ok": 2,
+      "rate_pct": 11.1,
+      "fail_phase": {
+        "DONE": 16
+      },
+      "fail_reason": {
+        "bin_fail": 16
+      },
+      "close_n": 18,
+      "close_ez_mean_mm": 4.55,
+      "close_ez_min_mm": 3.49,
+      "close_exy_mean_mm": 0.51
+    },
+    "세움·사각 대각 / 옆퍽 좌우(집게 방향)": {
+      "n": 33,
+      "ok": 7,
+      "rate_pct": 21.2,
+      "fail_phase": {
+        "DONE": 26
+      },
+      "fail_reason": {
+        "bin_fail": 26
+      },
+      "close_n": 33,
+      "close_ez_mean_mm": 3.76,
+      "close_ez_min_mm": 2.86,
+      "close_exy_mean_mm": 0.73
+    },
+    "세움·사각 면정렬 / 옆퍽 뒤(먼 쪽)": {
+      "n": 24,
+      "ok": 3,
+      "rate_pct": 12.5,
+      "fail_phase": {
+        "DONE": 21
+      },
+      "fail_reason": {
+        "bin_fail": 21
+      },
+      "close_n": 24,
+      "close_ez_mean_mm": 2.78,
+      "close_ez_min_mm": 1.58,
+      "close_exy_mean_mm": 0.66
+    },
+    "세움·사각 면정렬 / 옆퍽 앞(베이스 쪽)": {
+      "n": 13,
+      "ok": 0,
+      "rate_pct": 0.0,
+      "fail_phase": {
+        "DONE": 13
+      },
+      "fail_reason": {
+        "bin_fail": 13
+      },
+      "close_n": 13,
+      "close_ez_mean_mm": 4.36,
+      "close_ez_min_mm": 3.61,
+      "close_exy_mean_mm": 0.48
+    },
+    "세움·사각 면정렬 / 옆퍽 좌우(집게 방향)": {
+      "n": 32,
+      "ok": 4,
+      "rate_pct": 12.5,
+      "fail_phase": {
+        "DONE": 28
+      },
+      "fail_reason": {
+        "bin_fail": 28
+      },
+      "close_n": 32,
+      "close_ez_mean_mm": 3.88,
+      "close_ez_min_mm": 2.93,
+      "close_exy_mean_mm": 0.67
+    },
+    "세움·원기둥 / 옆퍽 뒤(먼 쪽)": {
+      "n": 32,
+      "ok": 25,
+      "rate_pct": 78.1,
+      "fail_phase": {
+        "VERIFY": 1,
+        "DONE": 5,
+        "RETREAT": 1
+      },
+      "fail_reason": {
+        "target_disturbed": 2,
+        "bin_fail": 5
+      },
+      "close_n": 32,
+      "close_ez_mean_mm": 3.03,
+      "close_ez_min_mm": 1.51,
+      "close_exy_mean_mm": 0.63
+    },
+    "세움·원기둥 / 옆퍽 앞(베이스 쪽)": {
+      "n": 31,
+      "ok": 27,
+      "rate_pct": 87.1,
+      "fail_phase": {
+        "ROTATE": 1,
+        "DONE": 3
+      },
+      "fail_reason": {
+        "target_disturbed": 1,
+        "bin_fail": 3
+      },
+      "close_n": 31,
+      "close_ez_mean_mm": 5.08,
+      "close_ez_min_mm": 3.58,
+      "close_exy_mean_mm": 0.5
+    },
+    "세움·원기둥 / 옆퍽 좌우(집게 방향)": {
+      "n": 52,
+      "ok": 39,
+      "rate_pct": 75.0,
+      "fail_phase": {
+        "DONE": 8,
+        "RETREAT": 1,
+        "ROTATE": 1,
+        "VERIFY": 3
+      },
+      "fail_reason": {
+        "bin_fail": 8,
+        "target_disturbed": 5
+      },
+      "close_n": 52,
+      "close_ez_mean_mm": 4.0,
+      "close_ez_min_mm": 3.46,
+      "close_exy_mean_mm": 0.69
+    }
+  },
+  "by_pitch": {
+    "하향 ≥45°": {
+      "n": 256,
+      "ok": 110,
+      "rate_pct": 43.0
+    }
+  },
+  "by_roll_mode": {
+    "세움(롤 0)": {
+      "n": 256,
+      "ok": 110,
+      "rate_pct": 43.0,
+      "roll_abs_mean_deg": 12.7,
+      "jaw_cos_mean": 0.001
+    }
+  },
+  "disturb_first": {},
+  "sag_ki": 3.0,
+  "sag_mode": "static",
+  "settle": {
+    "on": true,
+    "err_rad": 0.02,
+    "qd_rad_s": 0.05,
+    "hold_s": 0.2,
+    "max_s": 1.0,
+    "via": {
+      "n": 317,
+      "timeout": 0,
+      "wait_mean_s": 0.569
+    },
+    "pre": {
+      "n": 315,
+      "timeout": 156,
+      "wait_mean_s": 0.853
+    }
+  },
+  "dip": {
+    "세운 퍽": {
+      "n": 256,
+      "dip_mean_mm": -4.3,
+      "dip_min_mm": -12.03,
+      "dip_over_3mm": 149,
+      "dip_over_3mm_fail": 82,
+      "dip_phase": {
+        "DESCEND": 149
+      },
+      "vz_mean_mms": -174.5,
+      "vz_min_mms": -240.0,
+      "vz_phase": {
+        "DESCEND": 256
+      },
+      "qint_close_mean_deg": 1.25,
+      "qint_close_max_deg": 1.89
+    }
+  },
+  "bin": {
+    "end_phase": {
+      "ROTATE": 2,
+      "성공": 110,
+      "DONE": 138,
+      "VERIFY": 4,
+      "RETREAT": 2
+    },
+    "unreachable_bin": 0,
+    "slot": {
+      "0": {
+        "n": 32,
+        "ok": 12
+      },
+      "1": {
+        "n": 34,
+        "ok": 18
+      },
+      "2": {
+        "n": 35,
+        "ok": 10
+      },
+      "3": {
+        "n": 33,
+        "ok": 16
+      },
+      "4": {
+        "n": 34,
+        "ok": 12
+      },
+      "5": {
+        "n": 26,
+        "ok": 15
+      },
+      "6": {
+        "n": 31,
+        "ok": 15
+      },
+      "7": {
+        "n": 31,
+        "ok": 12
+      }
+    },
+    "floor_z": 0.221,
+    "grasp_off_mm": 12.0,
+    "carry": [
+      0.15,
+      0.32
+    ],
+    "verify_fail": {
+      "xy": 10,
+      "z": 89,
+      "tilt": 53
+    },
+    "verify": {
+      "n": 248,
+      "xy_mean_mm": 2.9,
+      "xy_max_mm": 23.9,
+      "z_mean_mm": 7.9,
+      "tilt_mean_deg": 9.4,
+      "tilt_max_deg": 90.0
+    },
+    "tilt": {
+      "n": 256,
+      "axis_z_mean": 1.0,
+      "tcp_minus_center_z_mm": 30.4,
+      "tcp_above_frac": 1.0
+    },
+    "slot_mode": {
+      "lie_not_planned": 0,
+      "via_up_mm": 25.0,
+      "retreat_up_mm": 30.0,
+      "roll_sign": -1.0,
+      "wall_h_mm": 20.0,
+      "slot_w_mm": [
+        35.0,
+        35.0,
+        35.0,
+        31.0,
+        35.0,
+        35.0,
+        35.0,
+        31.0
+      ],
+      "jaw_vs_slot_deg_box": 28.3,
+      "box_yaw_err_deg": {
+        "n": 136,
+        "mean": 19.43,
+        "max": 44.56
+      }
+    },
+    "settle_tilt": {
+      "n": 262,
+      "timeout": 0,
+      "wait_mean_s": 0.464
+    },
+    "settle_bin": {
+      "n": 254,
+      "timeout": 0,
+      "wait_mean_s": 0.277
+    },
+    "settle_place": {
+      "n": 254,
+      "timeout": 0,
+      "wait_mean_s": 0.532
+    }
+  }
+}

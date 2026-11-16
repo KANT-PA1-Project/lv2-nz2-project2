@@ -135,7 +135,7 @@ LEN_PSI = math.radians(60.0)
 LEN_WHEN_ROW = os.environ.get("NZ2_LEN_WHEN_ROW", "1") != "0"                # 옆 퍽이 반경 방향이면 긴 쪽 쥠                                                 # 이보다 반경에서 더 틀어지면 긴 쪽 쥠
 YAW_BIAS = math.radians(float(os.environ.get("NZ2_YAW_BIAS_DEG", "5")))
 MODE_NAMES = ["세움(롤 0)", "누움 diam(지름 쥠)", "누움 length(긴 쪽 쥠)", "누움 partial(일부만 돌림)", "누움 롤 끔"]
-FINGER_BODIES = ["gripper_left_finger", "gripper_right_finger"]
+FINGER_BODIES = list(C.FINGER_BODIES)          # (11/12) 전체 로봇이면 jaw_left/right
 # ===== 인식 오차 흉내 [가정: 실기 인식 오차 ±6 mm] =====
 POSE_BIAS_M = float(os.environ.get("NZ2_POSE_BIAS_MM", "6")) / 1000.0     # 에피소드마다 고정, 축마다 σ
 POSE_NOISE_M = float(os.environ.get("NZ2_POSE_NOISE_MM", "2")) / 1000.0   # 매 스텝 잡음 (정상상태 σ)
@@ -158,6 +158,50 @@ CARRY_R = float(os.environ.get("NZ2_CARRY_R_MM", "150")) / 1000.0            # �
 CARRY_Z = float(os.environ.get("NZ2_CARRY_Z_MM", "320")) / 1000.0            # 나르는 자세: TCP 높이 [m, 바닥 기준] (11/11 IK: 0.33 까지 가능)
 BIN_VIA_UP = 0.06            # 컵 위 경유점: 놓는 점 + 60 mm
 BIN_RETREAT_UP = 0.08        # 놓은 뒤 수직 위로 80 mm
+# (11/12) 최종 URDF 트레이: 칸 r 0.15~0.24 m 에서 하향 90° 로 닿는 TCP 높이 상한 0.315~0.345 m (CPU IK, 관절 한계 −3°)
+#   → 놓는 점(퍽 윗면 0.284) 위 경유점 +25 mm, 물러나기 +30 mm (손끝은 퍽 윗면 위 10 mm, 퍽 바닥은 벽 위 8 mm 로 지나감)
+SLOT_MODE = VC.SLOT_MODE
+if SLOT_MODE:
+    BIN_VIA_UP = float(os.environ.get("NZ2_BIN_VIA_UP_MM", "25")) / 1000.0
+    BIN_RETREAT_UP = float(os.environ.get("NZ2_BIN_RETREAT_UP_MM", "30")) / 1000.0
+# (11/12) 정렬: 세운 직육면체는 칸(31·35 mm 정사각) 축에 면을 맞춰 넣어야 함 (35 칸: 9.6° / 31 칸: 1.9° 이내)
+#   롤 0 으로 쥐면 손가락이 면을 맞춤 → 면 방향 yaw ≡ j1 − δ (mod 90°), 칸 축 yaw ≡ 0 → δ = 부호 × wrap45(j1_칸)
+#   부호는 손목 롤 축 방향 [가정 +1]. 실행 결과 BIN_DESC 끝 '집게 축 − 칸 축' 오차로 확인 (틀리면 NZ2_SLOT_ROLL_SIGN=-1)
+SLOT_ROLL_SIGN = float(os.environ.get("NZ2_SLOT_ROLL_SIGN", "1"))
+SLOT_ALIGN_MIN_PITCH = math.radians(85.0)    # 하향 85° 미만이면 롤이 퍽을 기울임 → 정렬 안 함 (기록만)
+# (11/12 오후) 세운 직육면체 집을 때 롤 맞춤: 048 결과 '사각 대각'(손가락이 모서리를 쥠) 0~15 % → 놓을 때 면이 칸과 45° 어긋남
+#   → 트레이 모드에서 세운 직육면체는 하향 90° 로 집고, 집기 전에 j5 를 돌려 손가락이 면을 쥐게 함
+#   δ_pick = 부호 × wrap45(β), β = 퍽 면 법선(x 축)의 반경 기준 각 (인식값, yaw 편향 σ NZ2_YAW_BIAS_DEG)
+#   실기: β = 퍽 윗면 AprilTag yaw (또는 CenterPose 회전). 부호는 SLOT_ROLL_SIGN 과 같음 (j5 → 집게 수평 회전 방향)
+SQUARE_PICK_ROLL = os.environ.get("NZ2_SQUARE_PICK_ROLL", "1") != "0"
+# (11/12 저녁) 롤 모델: 부호 하나(SLOT_ROLL_SIGN)로 집기·놓기를 같이 쓰면 둘 중 하나는 반드시 틀림
+#   하향 90° 에서 집게 닫힘 축 수평 yaw = a + s1·q1 + s5·q5 (mod 90°)   ← FK 로 유도: a = 0, s1 = +1, s5 = −1
+#     (Rz(q1)·Ry(90°)·Rx(q5)·ŷ 의 수평 성분 = (sin(q5−q1), cos(q5−q1)) → yaw = 90° + q1 − q5)
+#   집기: 집게 축 ≡ 면 법선 (q1 + β)  → q5 = wrap45((a + (s1 − 1)·q1 − β) / (−s5))  … s1 = 1 이면 q5 = wrap45((β − a)/s5)
+#   놓기: 집게 축 ≡ 칸 축 (0)         → q5 = wrap45(−(a + s1·q1) / s5)
+#   NZ2_ROLL_MODEL=sign 이면 옛 식(SLOT_ROLL_SIGN × wrap45) 그대로. BIN_DESC 끝 (q1, q5, 실측 yaw) 를 모아 report 에서 (a, s1, s5) 적합
+ROLL_MODEL = os.environ.get("NZ2_ROLL_MODEL", "fk")
+ROLL_A = math.radians(float(os.environ.get("NZ2_ROLL_A_DEG", "0")))
+ROLL_S1 = float(os.environ.get("NZ2_ROLL_S1", "1"))
+ROLL_S5 = float(os.environ.get("NZ2_ROLL_S5", "-1"))
+
+
+def _wrap45(x):
+    return torch.remainder(x + math.pi / 4, math.pi / 2) - math.pi / 4
+
+
+def roll_pick_face(q1, beta):
+    """세운 직육면체 면 쥐기 롤. q1 = 집기 j1, beta = 면 법선의 반경 기준 각"""
+    if ROLL_MODEL == "sign":
+        return SLOT_ROLL_SIGN * _wrap45(beta)
+    return _wrap45((q1 + beta - ROLL_A - ROLL_S1 * q1) / ROLL_S5)
+
+
+def roll_place_slot(q1):
+    """칸 축(팔 좌표 x/y)에 집게 축을 맞추는 놓기 롤. q1 = 놓기 j1"""
+    if ROLL_MODEL == "sign":
+        return SLOT_ROLL_SIGN * _wrap45(q1)
+    return _wrap45(-(ROLL_A + ROLL_S1 * q1) / ROLL_S5)
 V_BIN = 0.03                 # 컵 안으로 내리는 속도 [m/s]
 V_RETREAT = 0.05
 PUCK_GAP_M = 0.003           # 놓을 때 퍽 바닥 − 컵 바닥
@@ -241,6 +285,8 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         # 누운 퍽 롤
         self.lie = torch.zeros(n, dtype=torch.bool, device=dev)
         self.psi = torch.zeros(n, device=dev)                                    # 퍽 긴 축의 반경 기준 각 (인식값)
+        self.face_beta = torch.zeros(n, device=dev)                              # (11/12) 세운 직육면체 면 법선의 반경 기준 각 (인식값)
+        self.sq_stand = torch.zeros(n, dtype=torch.bool, device=dev)             # (11/12) 세운 직육면체 여부
         self.roll = torch.zeros(n, device=dev)
         self.roll_mode = torch.zeros(n, dtype=torch.long, device=dev)
         self.jaw_cos = torch.zeros(n, device=dev)
@@ -263,10 +309,15 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         self.q_carry = torch.zeros(n, 5, device=dev)
         self.q_rot = torch.zeros(n, 5, device=dev)                             # (v2) TILT 끝 = 집은 방향의 컵 위 경유점 자세
         self.q_bv = torch.zeros(n, 5, device=dev)
+        self.place_roll = torch.zeros(n, device=dev)                           # (11/12) 놓을 때 j5 롤 (정렬)
+        self.jaw_fit = torch.zeros(n, 8, device=dev)                           # (+ q1 명령, q5 명령, 놓기 하향각, 놓기 롤 계획)                           # (11/12 저녁) BIN_DESC 끝 (q1, q5 실측, 집게 yaw, 기록함)
+        self.grip_rec = torch.zeros(n, 2, device=dev)                          # (11/12 저녁) CARRY 진입: (|퍽 면 − 집게 축| mod 90 [°], 기록함)
+        self.jaw_rec = torch.zeros(n, 2, device=dev)                           # (11/12) BIN_DESC 끝: (집게 축 − 칸 축 mod 90 [°], 기록함)
+        self.n_lie_slot = 0                                                    # (11/12) 트레이 모드에서 누운 퍽(재세우기 미구현) 수
         self.jT = torch.ones(n, device=dev)                                    # 관절 보간 시간 [s]
         self.bin_center = torch.zeros(n, 3, device=dev)                        # 놓은 뒤 퍽 중심 기대값
         self.tilt_rec = torch.zeros(n, 3, device=dev)                          # TILT 끝: (|퍽축·z|, TCP z − 퍽 중심 z, 기록함)
-        self.verify_err = torch.zeros(n, 3, device=dev)                        # VERIFY: (xy 오차, z 오차, 기울기°)
+        self.verify_err = torch.zeros(n, 4, device=dev)                        # VERIFY: (xy 오차, z 오차, 기울기°, 사각 yaw−칸축°)
         self.n_bin_unreach = 0
         for k_ in ("tilt", "bin", "place"):
             self.n_settle[k_], self.n_settle_to[k_], self.settle_wait_sum[k_] = 0, 0, 0.0
@@ -356,6 +407,10 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         lie_par = cos_rad(ez) > COS45                                            # 누운 퍽 긴 축이 반경과 나란함
         ang = torch.rad2deg(torch.acos(cos_rad(ex).clamp(0.0, 1.0)))             # 세운 사각 면 각 0~90°
         aligned = torch.minimum(ang, 90.0 - ang) < 22.5
+        ex_n = ex / ex.norm(dim=1, keepdim=True).clamp(min=1e-6)
+        beta = torch.atan2((ex_n * s_hat).sum(dim=1), (ex_n * rad).sum(dim=1))
+        self.face_beta[ids] = beta + torch.randn_like(beta) * YAW_BIAS
+        self.sq_stand[ids] = (~lie) & (shp == 0)
         kind = torch.where(lie, torch.where(lie_par, 0, 1),
                            torch.where(shp == 1, 2, torch.where(aligned, 3, 4)))
         self.kind[ids] = kind.long()
@@ -451,6 +506,14 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         place[:, :2] = torch.where(lie.unsqueeze(1), c - half_up * rc, c)
         place[:, 2] = torch.where(lie, z_c + BIN_GRASP_OFF_M, z_c + G.PUCK_BOX[2] / 2)
         pp = torch.where(lie, torch.zeros_like(P), P)
+        # (11/12) 정렬 롤: 세운 직육면체 + 하향 85° 이상만. 원기둥·누운 퍽은 0
+        st_ = VC.vp(env)
+        shp = st_.shape[ids].gather(1, st_.color[ids].unsqueeze(1)).squeeze(1)
+        j1s = torch.atan2(c[:, 1], c[:, 0])
+        w45 = torch.remainder(j1s + math.pi / 4, math.pi / 2) - math.pi / 4
+        use_al = SLOT_MODE & (~lie) & (shp == 0) & (P >= SLOT_ALIGN_MIN_PITCH)
+        proll = torch.where(use_al, roll_place_slot(j1s), torch.zeros_like(w45))
+        self.place_roll[ids] = proll
         via = place.clone()
         via[:, 2] += BIN_VIA_UP
         ret = place.clone()
@@ -465,12 +528,16 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         zero = torch.zeros(k, device=dev)
         qc, ok1 = K.ik(carry, P, self.roll[ids])
         via_p = torch.cat([via[:, :2].norm(dim=1, keepdim=True) * rg, via[:, 2:3]], dim=1)   # 컵 위 경유점을 집은 방향으로
-        qr, ok2 = K.ik(via_p, pp, zero)
-        qv, ok3 = K.ik(via, pp, zero)
-        _, ok4 = K.ik(place, pp, zero)
-        _, ok5 = K.ik(ret, pp, zero)
+        qr, ok2 = K.ik(via_p, pp, proll)
+        qv, ok3 = K.ik(via, pp, proll)
+        _, ok4 = K.ik(place, pp, proll)
+        _, ok5 = K.ik(ret, pp, proll)
         self.q_carry[ids], self.q_rot[ids], self.q_bv[ids] = qc, qr, qv
-        return ok1 & ok2 & ok3 & ok4 & ok5
+        ok = ok1 & ok2 & ok3 & ok4 & ok5
+        if SLOT_MODE:      # 누운 퍽: 트레이 칸(벽 위로 세워 하향 넣기)은 재세우기 단계가 필요 → 아직 계획 안 함
+            self.n_lie_slot += int(lie.sum())
+            ok = ok & ~lie
+        return ok
 
     def _plan(self, ids: torch.Tensor):
         env = self._env_ref
@@ -492,6 +559,8 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
             # 누운 퍽: 하향 90°(수직)로만 쥠 → 퍽 축 ⟂ 공구축 → 공구를 수평으로 세우면 퍽이 정확히 섬
             lie_i = self.lie[ids]
             pitch_req = torch.where(lie_i, torch.full((k,), math.pi / 2, device=dev), torch.full((k,), float("nan"), device=dev))
+            if SLOT_MODE and SQUARE_PICK_ROLL:                                   # 세운 직육면체도 하향 90° (롤로 면 맞춤)
+                pitch_req = torch.where(self.sq_stand[ids], torch.full((k,), math.pi / 2, device=dev), pitch_req)
             r90, _ = self._roll_for(self.psi[ids], torch.full((k,), math.pi / 2, device=dev), lie_i, None)
             # 위로 갈 끝 = link5 +z 쪽 = cosφ·r̂ − sinφ·ŝ (하향 90°, 롤 φ) → 그쪽으로 쥐는 점을 옮김
             rad = gp_hat[:, :2] / gp_hat[:, :2].norm(dim=1, keepdim=True).clamp(min=1e-6)
@@ -517,12 +586,21 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         self.wps[ids] = wps
         self.roll[ids], self.roll_mode[ids] = self._roll_for(self.psi[ids], self.pitch[ids], self.lie[ids],
                                                              None if TO_BIN else self.row[ids])   # 적재통: 항상 지름(30 mm 면) 쥠
+        if TO_BIN and SLOT_MODE and SQUARE_PICK_ROLL:
+            fb = self.face_beta[ids]
+            wb = torch.remainder(fb + math.pi / 4, math.pi / 2) - math.pi / 4  # 가장 가까운 면까지 회전 (±45°)
+            use_pr = self.sq_stand[ids] & (self.pitch[ids] >= SLOT_ALIGN_MIN_PITCH)
+            q1p = torch.atan2(gp_hat[:, 1], gp_hat[:, 0])
+            self.roll[ids] = torch.where(use_pr, roll_pick_face(q1p, fb), self.roll[ids])
         self.jaw_cos[ids] = 0.0
         q_via, okv = K.ik(wps[:, 0], self.pitch[ids], self.roll[ids])
         ok = ok & okv
         self.bin_ok[ids] = False
         self.bin_fail[ids] = False
         self.tilt_rec[ids] = 0.0
+        self.jaw_rec[ids] = 0.0
+        self.jaw_fit[ids] = 0.0
+        self.grip_rec[ids] = 0.0
         self.verify_err[ids] = 0.0
         if TO_BIN:
             okb = self._plan_bin(ids, wps)
@@ -645,7 +723,7 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         length = torch.clamp((b - a).norm(dim=1), min=1e-4)
         self.s = torch.where(m & track_ok, torch.clamp(self.s + speed * self._dt / length, max=1.0), self.s)
         p = a + (b - a) * self.s.unsqueeze(1)
-        q, ok = K.ik(p, self.place_pitch, torch.zeros_like(self.place_pitch))
+        q, ok = K.ik(p, self.place_pitch, self.place_roll)
         good = m & ok
         self.q_cmd[good, :5] = q[good]
         self._last_p = torch.where(m.unsqueeze(1), p, self._last_p)
@@ -658,6 +736,14 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         # LIFT 에서 막 넘어온 환경: CARRY 보간 시작 (to() 가 t_ph = 0 으로 만든 직후)
         m = (self.phase == P_CARRY) & (self.t_ph == 0.0)           # to() 직후 (같은 스텝)
         self._enter_jmove(m, self.q_carry)
+        if SLOT_MODE and bool(m.any()):                              # 쥔 직후 퍽 면과 집게 축 차이 (집기 롤 검증)
+            ja = self._jaw_axis()
+            if ja is not None:
+                _, quat_t, _, _ = VC._color_pose(env, "target")
+                ex_ = math_utils.quat_apply(quat_t, torch.tensor([1.0, 0.0, 0.0], device=self.device).expand(quat_t.shape[0], 3))
+                d = _wrap45(torch.atan2(ex_[:, 1], ex_[:, 0]) - torch.atan2(ja[:, 1], ja[:, 0]))
+                self.grip_rec[m, 0] = torch.rad2deg(d.abs())[m]
+                self.grip_rec[m, 1] = 1.0
         # CARRY → ALIGN
         m = self.phase == P_CARRY
         if m.any():
@@ -665,12 +751,12 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
             to(P_ALIGN, nx)
             if bool(nx.any()):
                 self.q_start[nx] = self.q_cmd[nx, :5]
-                self.jT[nx] = torch.clamp((self.q_cmd[:, 4] - 0.0).abs() / ALIGN_RAD_S, min=0.3)[nx]
-        # ALIGN (j5 만) → TILT
+                self.jT[nx] = torch.clamp((self.q_cmd[:, 4] - self.place_roll).abs() / ALIGN_RAD_S, min=0.3)[nx]
+        # ALIGN (j5 만 → 놓기 롤: 누운 퍽·원기둥 0, 세운 직육면체는 칸 축 정렬 롤) → TILT
         m = self.phase == P_ALIGN
         if m.any():
             q_al = self.q_start.clone()
-            q_al[:, 4] = 0.0
+            q_al[:, 4] = self.place_roll
             go = self._jmove(m, q_al)
             to(P_TILT, go)
             self._enter_jmove(go, self.q_rot)
@@ -703,6 +789,21 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
             self.phase[bad] = P_SKIP
             self.n_ikfail += int(bad.sum())
             go = settled(end, "place") if SETTLE else end
+            if SLOT_MODE and bool(go.any()):
+                ja = self._jaw_axis()
+                if ja is not None:          # 집게 축 수평 yaw 와 칸 축(팔 좌표 x/y) 차이, mod 90 → [0, 45]°
+                    yaw = torch.atan2(ja[:, 1], ja[:, 0])
+                    d = torch.remainder(yaw + math.pi / 4, math.pi / 2) - math.pi / 4
+                    self.jaw_rec[go, 0] = torch.rad2deg(d.abs())[go]
+                    self.jaw_rec[go, 1] = 1.0
+                    self.jaw_fit[go, 0] = q_meas[go, 0]
+                    self.jaw_fit[go, 1] = q_meas[go, 4]
+                    self.jaw_fit[go, 2] = yaw[go]
+                    self.jaw_fit[go, 3] = 1.0
+                    self.jaw_fit[go, 4] = self.q_cmd[go, 0]
+                    self.jaw_fit[go, 5] = self.q_cmd[go, 4]
+                    self.jaw_fit[go, 6] = self.place_pitch[go]
+                    self.jaw_fit[go, 7] = self.place_roll[go]
             to(P_RELEASE, go)
         # RELEASE: 그리퍼를 RELEASE_FRAC 까지 엶 (손가락이 옆 컵 퍽을 치지 않게 끝까지 열지 않음)
         m = self.phase == P_RELEASE
@@ -730,7 +831,10 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
             exy = (pos_t[:, :2] - self.bin_center[:, :2]).norm(dim=1)
             ez = (pos_t[:, 2] - self.bin_center[:, 2]).abs()
             ok = (exy < BIN_XY_TOL) & (ez < BIN_Z_TOL) & (tilt < BIN_TILT_DEG)
-            self.verify_err[m] = torch.stack([exy, ez, tilt], dim=1)[m]
+            ex_ = math_utils.quat_apply(quat_t, torch.tensor([1.0, 0.0, 0.0], device=self.device).expand_as(pos_t))
+            yw = torch.atan2(ex_[:, 1], ex_[:, 0])
+            yerr = torch.rad2deg((torch.remainder(yw + math.pi / 4, math.pi / 2) - math.pi / 4).abs())
+            self.verify_err[m] = torch.stack([exy, ez, tilt, yerr], dim=1)[m]
             self.bin_ok |= m & ok
             self.bin_fail |= m & ~ok
             to(P_DONE, m)
@@ -1051,6 +1155,12 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
         ve = self.verify_err[done].tolist()
         tr = self.tilt_rec[done].tolist()
         vf = self.bin_fail[done].tolist()
+        jr = self.jaw_rec[done].tolist()
+        jf = self.jaw_fit[done].tolist()
+        gr = self.grip_rec[done].tolist()
+        shp = st.shape[done].gather(1, st.color[done].unsqueeze(1)).squeeze(1).tolist()
+        b.setdefault("jaw", [])
+        b.setdefault("yaw_box", [])
         for j in range(len(ph)):
             key = "성공" if ok[j] else PHASE_NAMES[ph[j]]
             b["end_phase"][key] = b["end_phase"].get(key, 0) + 1
@@ -1059,6 +1169,15 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
             sl[1] += int(ok[j])
             if ok[j] or vf[j]:
                 b["verify"].append((ve[j][0], ve[j][1], ve[j][2], int(ok[j])))
+                if shp[j] == 0:
+                    b["yaw_box"].append((ve[j][3], int(ok[j]), str(slot[j])))
+            if jr[j][1] > 0:
+                b["jaw"].append((jr[j][0], shp[j]))
+            if jf[j][3] > 0:
+                b.setdefault("jfit", []).append((jf[j][0], jf[j][1], jf[j][2]))
+                b.setdefault("jdiag", []).append(tuple(jf[j][:3]) + tuple(jf[j][4:8]) + (shp[j],))
+            if gr[j][1] > 0:
+                b.setdefault("grip", []).append((gr[j][0], shp[j]))
             if tr[j][2] > 0:
                 b["tilt"].append((tr[j][0], tr[j][1]))
 
@@ -1094,6 +1213,69 @@ class NZ2VisPickResidualAction(NZ2SmoothJointPositionAction):
             print(f"[NZ2-BIN]  TILT 끝 {n}회: |퍽축·z| 평균 {c:.3f} (1 = 섬), TCP − 퍽 중심 z 평균 {dz * 1000:+.1f} mm "
                   f"(기대 +{BIN_GRASP_OFF_M * 1000:.0f}, 양수 비율 {up:.2f} → 쥐는 점이 위쪽 끝인지)")
             out["tilt"] = {"n": n, "axis_z_mean": round(c, 3), "tcp_minus_center_z_mm": round(dz * 1000, 1), "tcp_above_frac": round(up, 2)}
+        if SLOT_MODE:
+            out["slot_mode"] = {"lie_not_planned": self.n_lie_slot, "via_up_mm": BIN_VIA_UP * 1000,
+                                "retreat_up_mm": BIN_RETREAT_UP * 1000, "roll_sign": SLOT_ROLL_SIGN,
+                                "wall_h_mm": VC.BIN_WALL_H * 1000, "slot_w_mm": [w * 1000 for w in VC.BIN_SLOT_W]}
+            ja = [x for x in b.get("jaw", []) if x[1] == 0]
+            if ja:
+                mj = sum(x[0] for x in ja) / len(ja)
+                print(f"[NZ2-BIN]  정렬 검사(세운 사각, BIN_DESC 끝) {len(ja)}회: |집게 축 − 칸 축| 평균 {mj:.1f}° "
+                      f"(0 에 가까우면 롤 부호 맞음, 큰 값이면 NZ2_SLOT_ROLL_SIGN=-1)")
+                out["slot_mode"]["jaw_vs_slot_deg_box"] = round(mj, 2)
+            out["slot_mode"]["roll_model"] = {"mode": ROLL_MODEL, "a_deg": round(math.degrees(ROLL_A), 2),
+                                              "s1": ROLL_S1, "s5": ROLL_S5}
+            gl = [x[0] for x in b.get("grip", []) if x[1] == 0]
+            if gl:
+                print(f"[NZ2-BIN]  집기 검사(세운 사각, CARRY 진입) {len(gl)}회: |퍽 면 − 집게 축| 평균 {sum(gl) / len(gl):.1f}° "
+                      f"(0 = 면을 쥠, 45 = 모서리)")
+                out["slot_mode"]["grip_face_err_deg_box"] = round(sum(gl) / len(gl), 2)
+            jd = [x for x in b.get("jdiag", []) if x[7] == 0]          # 세운 사각만
+            if jd:
+                D = math.degrees
+                n_ = len(jd)
+                e5 = sum(abs(math.remainder(x[1] - x[4], 2 * math.pi)) for x in jd) / n_
+                e1 = sum(abs(math.remainder(x[0] - x[3], 2 * math.pi)) for x in jd) / n_
+                ec = sum(abs(math.remainder(x[3] - x[4], math.pi / 2)) for x in jd) / n_          # 명령만으로 본 정렬 오차
+                em = sum(abs(math.remainder(x[0] - x[1], math.pi / 2)) for x in jd) / n_          # 실측 관절로 본 정렬 오차
+                ep = sum(abs(math.remainder(x[4] - x[6], 2 * math.pi)) for x in jd) / n_          # q5 명령 − 계획 놓기 롤
+                lowp = sum(1 for x in jd if x[5] < math.radians(85.0))
+                print(f"[NZ2-BIN]  정렬 진단(세운 사각 {n_}회): |q5 실측−명령| {D(e5):.2f}°, |q1 실측−명령| {D(e1):.2f}°, "
+                      f"명령 정렬오차 {D(ec):.2f}°, 실측 정렬오차 {D(em):.2f}°, |q5 명령−계획| {D(ep):.2f}°, 놓기 하향 < 85° {lowp}회")
+                out["slot_mode"]["align_diag"] = {"n": n_, "q5_track_deg": round(D(e5), 3), "q1_track_deg": round(D(e1), 3),
+                                                  "cmd_align_deg": round(D(ec), 3), "meas_align_deg": round(D(em), 3),
+                                                  "q5cmd_vs_plan_deg": round(D(ep), 3), "place_pitch_lt85": lowp,
+                                                  "samples_deg": [[round(D(v), 2) for v in x[:7]] for x in jd[:40]]}
+            jf = b.get("jfit", [])
+            if len(jf) >= 8:
+                fits = []
+                for s1 in (1.0, -1.0):
+                    for s5 in (1.0, -1.0):
+                        # 주기 90° → 4 배 하면 주기 360°: 원형 평균으로 a 추정
+                        cs = sn = 0.0
+                        for q1, q5, yw in jf:
+                            e = 4.0 * (yw - s1 * q1 - s5 * q5)
+                            cs += math.cos(e)
+                            sn += math.sin(e)
+                        a = math.atan2(sn, cs) / 4.0
+                        res = [abs(math.remainder(yw - a - s1 * q1 - s5 * q5, math.pi / 2)) for q1, q5, yw in jf]
+                        fits.append((sum(res) / len(res), max(res), a, s1, s5))
+                fits.sort()
+                for r_, mx_, a, s1, s5 in fits:
+                    print(f"[NZ2-BIN]  롤 모델 적합 yaw = a + s1·q1 + s5·q5: s1 {s1:+.0f} s5 {s5:+.0f} a {math.degrees(a):+.2f}° "
+                          f"→ 잔차 평균 {math.degrees(r_):.2f}° (최대 {math.degrees(mx_):.2f}°)")
+                r_, mx_, a, s1, s5 = fits[0]
+                print(f"[NZ2-BIN]  ⇒ 다음 실행: NZ2_ROLL_MODEL=fk NZ2_ROLL_A_DEG={math.degrees(a):.2f} NZ2_ROLL_S1={s1:.0f} NZ2_ROLL_S5={s5:.0f}")
+                out["slot_mode"]["roll_fit"] = {"n": len(jf), "best": {"a_deg": round(math.degrees(a), 3), "s1": s1, "s5": s5,
+                                                "resid_mean_deg": round(math.degrees(r_), 3), "resid_max_deg": round(math.degrees(mx_), 3)},
+                                                "all": [{"s1": f[3], "s5": f[4], "a_deg": round(math.degrees(f[2]), 3),
+                                                         "resid_mean_deg": round(math.degrees(f[0]), 3)} for f in fits]}
+            yb = b.get("yaw_box", [])
+            if yb:
+                my = sum(x[0] for x in yb) / len(yb)
+                print(f"[NZ2-BIN]  VERIFY 세운 사각 {len(yb)}회: |퍽 면 − 칸 축| 평균 {my:.1f}° (최대 {max(x[0] for x in yb):.1f}°)")
+                out["slot_mode"]["box_yaw_err_deg"] = {"n": len(yb), "mean": round(my, 2), "max": round(max(x[0] for x in yb), 2)}
+            print(f"[NZ2-BIN]  트레이 모드: 누운 퍽 계획 제외 {self.n_lie_slot} (재세우기 단계 미구현)")
         if TO_BIN:
             for k_ in ("tilt", "bin", "place"):
                 n_s = max(self.n_settle[k_], 1)

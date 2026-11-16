@@ -68,6 +68,30 @@ BIN_FLOOR_Z = float(os.environ.get("NZ2_BIN_FLOOR_MM", "300")) / 1000.0
 BIN_IN, BIN_WALL_T, BIN_WALL_H, BIN_FLOOR_T = 0.047, 0.003, 0.022, 0.003       # 컵 안쪽 47 mm 정사각 [가정: 실물 안지름 47]
 BIN_SLOT_FIX = int(os.environ.get("NZ2_BIN_SLOT", "-1"))                        # 0~7 이면 그 칸만, −1 = 무작위
 BIN_PARTS = ("bin_floor", "bin_w0", "bin_w1", "bin_w2", "bin_w3")
+BIN_SLOT_W = (BIN_IN,) * 8                                                       # 칸별 안쪽 폭 [m]
+# ===== (11/12) 최종 URDF(assembly.urdf, swerve_manipulator) 퍽 트레이. NZ2_SLOT_MODE=1 일 때만 =====
+#   URDF base_link 좌표: puck_slot_0~7 = (X ±0.035, Y ±0.095/±0.145, Z +0.040), 바닥 폭 35 mm (ID 3·7 은 31 mm)
+#   팔(arm_yaw_joint) = base_link (−0.15384, 0, +0.05335), 팔 영점 자세가 −X 를 향함 → 로봇 정면(12시) = −X
+#   팔 좌표(시뮬, 팔 베이스 원점, +x = 정면) 변환: x_a = −(X − ARM_BX), y_a = −Y (z 축 180° 회전)
+#   높이: base_link = 바닥 위 0.181 m (바퀴 중심 −0.148 + 타이어 반경 0.033) → 칸 바닥 0.221 m
+#   칸 벽 높이는 URDF 에 없음 → [가정] 20 mm (NZ2_BIN_WALL_MM)
+SLOT_MODE = os.environ.get("NZ2_SLOT_MODE", "0") == "1"
+TARGET_STAND = os.environ.get("NZ2_TARGET_STAND", "0") == "1"   # 1 = 목표 퍽을 항상 세운 퍽으로 (세운 퍽 적치 단계 학습용)
+URDF_SLOTS = ((-0.035, 0.145, 0.035), (0.035, 0.145, 0.035), (-0.035, 0.095, 0.035), (0.035, 0.095, 0.031),
+              (-0.035, -0.095, 0.035), (0.035, -0.095, 0.035), (-0.035, -0.145, 0.035), (0.035, -0.145, 0.031))
+URDF_ARM_BX = float(os.environ.get("NZ2_URDF_ARM_X", "-0.15384"))
+URDF_BASE_Z = float(os.environ.get("NZ2_URDF_BASE_Z", "0.181"))
+# 상단 카메라 기둥 (URDF mast_d435 x 0.0059 → 팔 좌표 x −0.160). 굵기 20 mm (2020 프로파일, 11/12 사용자), 높이는 [가정]
+MAST_XY = (-(0.0059 - URDF_ARM_BX), 0.0)
+_MAST_W = float(os.environ.get("NZ2_MAST_W_MM", "20")) / 1000.0     # (11/12) 실물 = 2020 알루미늄 프로파일 20 mm (사용자 확인)
+MAST_SIZE = (_MAST_W, _MAST_W, 0.46)
+MAST_Z0 = URDF_BASE_Z + 0.01
+if SLOT_MODE:
+    BIN_SLOTS = tuple((-(X - URDF_ARM_BX), -Y) for X, Y, _w in URDF_SLOTS)
+    BIN_SLOT_W = tuple(w for _X, _Y, w in URDF_SLOTS)
+    BIN_IN = max(BIN_SLOT_W)
+    BIN_WALL_H = float(os.environ.get("NZ2_BIN_WALL_MM", "20")) / 1000.0
+    BIN_FLOOR_Z = float(os.environ.get("NZ2_BIN_FLOOR_MM", str(round((URDF_BASE_Z + 0.040) * 1000, 1)))) / 1000.0
 ENV_SPACING = 3.0
 TOP_PITCH_DEG = float(os.environ.get("NZ2_TOPCAM_PITCH_DEG", G.TOP_CAM_PITCH_DEG_DEFAULT))
 TOP_CROP = G.top_crop(TOP_PITCH_DEG)
@@ -232,9 +256,10 @@ def _other_disturbed(env):
 # ---------------------------------------------------------------------------
 # 리셋: 박스·벽·퍽 배치
 # ---------------------------------------------------------------------------
-def _bin_part_geom():
-    """컵 부품 (이름, 크기, 컵 중심 기준 위치). 안쪽 BIN_IN 정사각, 벽 두께 BIN_WALL_T, 높이 BIN_WALL_H"""
-    a = BIN_IN / 2 + BIN_WALL_T / 2
+def _bin_part_geom(w_in: float = None):
+    """컵 부품 (이름, 크기, 컵 중심 기준 위치). 안쪽 w_in(기본 BIN_IN) 정사각, 벽 두께 BIN_WALL_T, 높이 BIN_WALL_H.
+    크기는 항상 BIN_IN 기준(장면 생성 때 고정), 위치만 w_in 으로 (칸 폭이 31 mm 면 벽을 안쪽으로 옮김)"""
+    a = (BIN_IN if w_in is None else w_in) / 2 + BIN_WALL_T / 2
     full = BIN_IN + 2 * BIN_WALL_T
     return (("bin_floor", (full, full, BIN_FLOOR_T), (0.0, 0.0, -BIN_FLOOR_T / 2)),
             ("bin_w0", (BIN_WALL_T, full, BIN_WALL_H), (a, 0.0, BIN_WALL_H / 2)),
@@ -254,8 +279,13 @@ def _place_bin(env, env_ids, origin):
     c = slots[k]
     st.bin_slot[env_ids], st.bin_xy[env_ids] = k, c
     ident = torch.tensor([0.0, 0.0, 0.0, 1.0], device=dev).expand(n, 4)
-    for name, _size, off in _bin_part_geom():
-        p = torch.stack([c[:, 0] + off[0], c[:, 1] + off[1], torch.full((n,), BIN_FLOOR_Z + off[2], device=dev)], 1)
+    wk = torch.tensor(BIN_SLOT_W, device=dev)[k]                     # (11/12) 칸별 폭 → 벽 위치
+    geoms = {w: _bin_part_geom(w) for w in sorted(set(BIN_SLOT_W))}
+    for i, name in enumerate(BIN_PARTS):
+        off = torch.zeros(n, 3, device=dev)
+        for w, g in geoms.items():
+            off = torch.where((wk - w).abs().unsqueeze(1) < 1e-6, torch.tensor(g[i][2], device=dev).expand(n, 3), off)
+        p = torch.stack([c[:, 0] + off[:, 0], c[:, 1] + off[:, 1], BIN_FLOOR_Z + off[:, 2]], 1)
         env.scene[name].write_root_pose_to_sim_index(root_pose=torch.cat([p + origin, ident], -1), env_ids=env_ids)
 
 
@@ -290,6 +320,8 @@ def reset_vispick_scene(env, env_ids):
     lying = torch.rand(n, 2, device=dev) < S["p_lying"]
     if not CYL_CAN_LIE:                      # (11/11) 운영진 공지: 원통은 항상 서 있음 → 누움은 직육면체만
         lying &= shape == 0
+    if TARGET_STAND:                         # (11/12) 목표 퍽 = 세운 퍽 고정 (모양은 무작위)
+        lying[torch.arange(n, device=dev), color] = False
     if TARGET_LIE:                           # (11/11) 목표 퍽 = 누운 직육면체 고정
         ar_ = torch.arange(n, device=dev)
         shape[ar_, color] = 0
@@ -406,7 +438,7 @@ def obs_grasp_lift(env):
 # ---------------------------------------------------------------------------
 def _openness(env, lo, hi):
     j = env.scene["robot"].data.joint_pos.torch
-    jid = env.scene["robot"].find_joints("gripper_joint")[0][0]
+    jid = env.scene["robot"].find_joints(C.GRIP_JOINT)[0][0]
     return torch.clamp((j[:, jid] - lo) / (hi - lo), 0.0, 1.0)
 
 
@@ -514,6 +546,29 @@ def _qy(deg):
     return (0.0, math.sin(math.radians(deg) / 2), 0.0, math.cos(math.radians(deg) / 2))   # (x,y,z,w), +Y 회전 = 아래로
 
 
+def _q_rpy(r_deg, p_deg, y_deg):
+    """URDF rpy [deg] → 쿼터니언 (x,y,z,w). R = Rz(y)·Ry(p)·Rx(r)"""
+    r, p, y = (math.radians(v) / 2 for v in (r_deg, p_deg, y_deg))
+    cr, sr, cp, sp, cy, sy = math.cos(r), math.sin(r), math.cos(p), math.sin(p), math.cos(y), math.sin(y)
+    return (sr * cp * cy - cr * sp * sy, cr * sp * cy + sr * cp * sy, cr * cp * sy - sr * sp * cy, cr * cp * cy + sr * sp * sy)
+
+
+def _wrist_offset():
+    """손목 D435: R12 = arm_link5 기준 (42.63, 0, 52.44) mm·30° 하향 / 전체 로봇 = URDF wrist_d435_color_frame (wrist_roll 기준)"""
+    if C.FULL_ROBOT:
+        w = C.ROBOT_CFG["wrist_cam"]
+        return CameraCfg.OffsetCfg(pos=tuple(w["pos"]), rot=_q_rpy(*w["rpy_deg"]), convention="world")
+    return CameraCfg.OffsetCfg(pos=G.WRIST_CAM_POS, rot=_qy(G.WRIST_CAM_TILT_DEG), convention="world")
+
+
+def _top_offset():
+    """상단 D435: R12 = 환경 고정 / 전체 로봇 = URDF mast_d435_color_frame (base_link 기준, 하향 60°)"""
+    if C.FULL_ROBOT:
+        t = C.ROBOT_CFG["top_cam"]
+        return CameraCfg.OffsetCfg(pos=tuple(t["pos"]), rot=_q_rpy(*t["rpy_deg"]), convention="world")
+    return CameraCfg.OffsetCfg(pos=G.TOP_CAM_POS, rot=_qy(TOP_PITCH_DEG), convention="world")
+
+
 def _group(terms: dict, corrupt: bool = False):
     g = ObservationGroupCfg()
     for k, v in terms.items():
@@ -533,7 +588,7 @@ class NZ2VisPickCfg(NZ2ArmReachCfg):
     def __post_init__(self):
         super().__post_init__()
         c = load_robot_config(os.environ["ARM_CONFIG"])
-        if "armonly" not in os.path.basename(c["usd_path"]):
+        if "armonly" not in os.path.basename(c["usd_path"]) and not C.FULL_ROBOT:
             print(f"[NZ2][경고] 차체가 남은 USD: {c['usd_path']} → nz2_make_armonly_usd.py 로 _armonly 를 만들고 nz2_arm_armonly.json 사용")
         names = [re.escape(n) for n in c["joint_names"]]
         g_lo, g_hi = c["lower"][-1], c["upper"][-1]
@@ -542,17 +597,23 @@ class NZ2VisPickCfg(NZ2ArmReachCfg):
         self.episode_length_s = EPISODE_S
 
         # ---- 시작 자세 = 관측 자세 (손목 카메라가 박스 전체를 봄) ----
-        look = dict(zip(names, [*G.look_pose(), G.GRIPPER_OPEN], strict=True))
+        look = dict(zip(names, [*G.look_pose(), g_hi if C.FULL_ROBOT else G.GRIPPER_OPEN], strict=True))
         self.scene.robot.init_state.joint_pos = look
         # 팔 베이스를 바닥 원점에: 숨긴 차체(base_link) 뿌리를 arm_joint1 위치만큼 반대로 옮긴다 (뿌리는 USD root_joint 로 고정)
         j1 = c.get("arm_j1_xyz")
         if j1 is None:
             raise ValueError(f"{os.environ['ARM_CONFIG']} 에 arm_j1_xyz 없음 → bash nz2_vispick_run.sh usd 로 다시 만드세요")
         self.scene.robot.init_state.pos = (G.ARM_X - j1[0], -j1[1], G.ARM_Z - j1[2])
+        if C.FULL_ROBOT:
+            # (11/12) 전체 로봇: base_link 를 z 180° 돌려 팔(URDF −X)이 환경 +x 를 보게 함.
+            #   json arm_j1_xyz = 돌린 좌표에서 뿌리 → 팔 베이스 (0.15384, 0.000125) + 높이 0.032 (= 0.213 − 0.181 → base_link 가 바닥 위 0.181)
+            self.scene.robot.init_state.rot = tuple(c.get("root_rot_xyzw", (0.0, 0.0, 1.0, 0.0)))
+            mimic = list(c.get("finger_mimic_joints", [])) + ([c["finger_mirror_joint"]] if c.get("finger_mirror_joint") else [])
+            self.scene.robot.init_state.joint_pos = {**look, **{re.escape(m): g_hi for m in mimic}}
         self.events.look_noise = EventTermCfg(
             func=mdp.reset_joints_by_offset, mode="reset",
             params={"position_range": (-LOOK_NOISE_RAD, LOOK_NOISE_RAD), "velocity_range": (0.0, 0.0),
-                    "asset_cfg": SceneEntityCfg("robot", joint_names=["arm_joint[1-5]"])})
+                    "asset_cfg": SceneEntityCfg("robot", joint_names=list(C.ARM_JOINT_REGEX))})
 
         # ---- Reach 전용 항목 제거 ----
         for k in ("end_effector_position_tracking", "tcp_tanh", "tcp_tanh_fine", "success", "near20"):
@@ -573,6 +634,9 @@ class NZ2VisPickCfg(NZ2ArmReachCfg):
             for name, size, off in _bin_part_geom():
                 setattr(self.scene, name, _kinematic_box("{ENV_REGEX_NS}/" + name.capitalize(), size, (0.35, 0.35, 0.40),
                                                          (BIN_SLOTS[0][0] + off[0], BIN_SLOTS[0][1] + off[1], BIN_FLOOR_Z + off[2])))
+        if SLOT_MODE:                                 # (11/12) 상단 카메라 기둥 (팔 링크·손가락·퍽이 닿으면 실격과 같음)
+            self.scene.mast = _kinematic_box("{ENV_REGEX_NS}/Mast", MAST_SIZE, (0.6, 0.6, 0.65),
+                                             (MAST_XY[0], MAST_XY[1], MAST_Z0 + MAST_SIZE[2] / 2))
 
         # ---- 카메라 ----
         if self.nz2_cameras:
@@ -581,12 +645,12 @@ class NZ2VisPickCfg(NZ2ArmReachCfg):
             _WR = (G.REAL_W, G.REAL_H) if os.environ.get("NZ2_WRIST_FULLRES") == "1" else G.WRIST_RENDER
             self.scene.wrist_cam = CameraCfg(
                 prim_path="{ENV_REGEX_NS}/Robot/" + C.LINK_PATHS["arm_link5"] + "/nz2_wrist_cam",
-                offset=CameraCfg.OffsetCfg(pos=G.WRIST_CAM_POS, rot=_qy(G.WRIST_CAM_TILT_DEG), convention="world"),
+                offset=_wrist_offset(),
                 spawn=_pinhole(), width=_WR[0], height=_WR[1],
                 data_types=["rgb", "distance_to_image_plane"], update_latest_camera_pose=chk or _WR != G.WRIST_RENDER)
             self.scene.top_cam = CameraCfg(
-                prim_path="{ENV_REGEX_NS}/nz2_top_cam",
-                offset=CameraCfg.OffsetCfg(pos=G.TOP_CAM_POS, rot=_qy(TOP_PITCH_DEG), convention="world"),
+                prim_path=("{ENV_REGEX_NS}/Robot/" + C.BASE_LINK_PATH + "/nz2_top_cam") if C.FULL_ROBOT else "{ENV_REGEX_NS}/nz2_top_cam",
+                offset=_top_offset(),
                 spawn=_pinhole(), width=G.TOP_RENDER[0], height=G.TOP_RENDER[1],
                 data_types=["rgb", "distance_to_image_plane"], update_latest_camera_pose=chk)
             # (11/11) 인식 실험: 손목 D435 자리에 실기 해상도 640×480 카메라 추가 (NZ2_PERCEP_DUMP 일 때만)
@@ -598,7 +662,7 @@ class NZ2VisPickCfg(NZ2ArmReachCfg):
             if os.environ.get("NZ2_PERCEP_DUMP") and _WR == G.WRIST_RENDER:
                 self.scene.percep_cam = CameraCfg(
                     prim_path="{ENV_REGEX_NS}/Robot/" + C.LINK_PATHS["arm_link5"] + "/nz2_percep_cam",
-                    offset=CameraCfg.OffsetCfg(pos=G.WRIST_CAM_POS, rot=_qy(G.WRIST_CAM_TILT_DEG), convention="world"),
+                    offset=_wrist_offset(),
                     spawn=_pinhole(), width=G.REAL_W, height=G.REAL_H,
                     data_types=["rgb", "distance_to_image_plane"], update_latest_camera_pose=True)
             if chk:
@@ -616,6 +680,8 @@ class NZ2VisPickCfg(NZ2ArmReachCfg):
         bad = ["{ENV_REGEX_NS}/Shelf"] + ["{ENV_REGEX_NS}/Wall%d" % k for k in range(len(WALLS))]
         if TO_BIN:                                    # 손가락이 컵을 치면 실격과 같음
             bad += ["{ENV_REGEX_NS}/" + nm.capitalize() for nm in BIN_PARTS]
+        if TO_BIN and SLOT_MODE:
+            bad += ["{ENV_REGEX_NS}/Mast"]
         pucks = ["{ENV_REGEX_NS}/" + p for p in PUCKS]
         for side, key in (("l", "finger_l"), ("r", "finger_r")):
             path = "{ENV_REGEX_NS}/Robot/" + C.LINK_PATHS[key]
@@ -774,7 +840,9 @@ def _grip_closed_fully(env):
     """그리퍼가 끝까지 닫힘 = 퍽을 물지 못함 (헛잡기)"""
     t = _res_term(env)
     g = t._asset.data.joint_pos.torch[:, t._joint_ids][:, 5]
-    return g <= float(t._lo[5]) + 0.01
+    # R12 gripper_joint: 0.01 rad (범위 1.76 rad 의 0.57 %). (11/12) 전체 로봇 jaw 는 m 단위(범위 16 mm) → 범위의 3 % (0.48 mm)
+    thr = 0.03 * float(t._hi[5] - t._lo[5]) if C.FULL_ROBOT else 0.01
+    return g <= float(t._lo[5]) + thr
 
 
 def term_bin_success(env):

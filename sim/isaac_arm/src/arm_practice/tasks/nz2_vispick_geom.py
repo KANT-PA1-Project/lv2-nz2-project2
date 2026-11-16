@@ -18,7 +18,7 @@ import os
 
 # ===== 카메라 공통 =====
 REAL_W, REAL_H = 640, 480                 # 실기 해상도 (사용자 결정: 모든 카메라 640×480)
-FX_REAL = 615.0                           # [가정] D435 컬러 640×480 초점거리 [px]
+FX_REAL = 606.8                           # (11/12 실측) 상단 D435 컬러 640×480 fx 606.8 / fy 606.2 (이전 [가정] 615)
 HFOV_DEG = math.degrees(2 * math.atan(REAL_W / 2 / FX_REAL))   # ≈ 54.9°
 VFOV_DEG = math.degrees(2 * math.atan(REAL_H / 2 / FX_REAL))   # ≈ 42.6°
 H_APERTURE_MM = 20.955                    # Isaac PinholeCameraCfg 기본 가로 조리개
@@ -64,6 +64,23 @@ ARM_Z = float(os.environ.get("NZ2_ARM_Z", "0.0"))             # 0 = 바닥 (사�
 # v3 의 (0, −1.188, 0.093, 1.202, 0) 은 팔을 뒤로 68° 눕혀 바닥 가까이 깔리는 자세라 폐기
 LOOK_POSE = (0.0, -0.008, -1.447, 1.962, 0.0)
 GRIPPER_OPEN = -0.4569                    # gripper_joint 상한 = 최대 벌림 (약 70 mm)
+
+# ===== (11/12) 최종 URDF 전체 로봇: 상단 카메라 = 기둥 D435 (URDF mast_d435, 하향 60°), 집게 열림 = json upper =====
+#   팔 좌표 = base_link 를 z 180° 돌리고 팔 베이스로 옮긴 좌표: (x, y) → (−(x + 0.15384), −y), z → 바닥 기준 + 0.181
+FULL_ROBOT = False
+try:
+    import json as _json
+    _p = os.environ.get("ARM_CONFIG")
+    if _p and os.path.isfile(os.path.expanduser(_p)):
+        _c = _json.load(open(os.path.expanduser(_p), encoding="utf-8"))
+        if _c.get("robot") == "nz2_full":
+            FULL_ROBOT = True
+            TOP_CAM_POS = tuple(_c["top_cam"]["pos_arm"])
+            TOP_CAM_PITCH_REAL_DEG = float(_c["top_cam"]["rpy_deg"][1])
+            TOP_CAM_PITCH_DEG_DEFAULT = TOP_CAM_PITCH_REAL_DEG
+            GRIPPER_OPEN = float(_c["upper"][5])
+except Exception as _e:
+    print(f"[NZ2-GEOM] ARM_CONFIG 읽기 실패: {_e}")
 
 
 def _rot_y(v, th):
