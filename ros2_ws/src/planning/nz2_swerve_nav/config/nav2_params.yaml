@@ -1,0 +1,386 @@
+# nz2_swerve_nav/config/nav2_params.yaml
+# Nav2 1.5.0 (ROS 2 Lyrical) — NZ2 스월브: map_server + AMCL(Omni) + MPPI(Omni) + velocity_smoother
+# 5단계(시뮬) 시작값. 지도 기본 = nz2_maze_sim_v3 (v2 에서 중앙 받침대 삭제, 11/14). 실물(6단계)도 같은 파일 + use_sim_time false.
+#
+# 명령 흐름: controller_server(MPPI) → /cmd_vel_nav → velocity_smoother → /cmd_vel (TwistStamped, base_footprint)
+#            → cmd_frame_adapter → /r12/cmd_vel → r12_swerve_controller
+# 정면 = 팔 쪽 = base_footprint +x
+#
+# 기하 근거 (nz2_nav2_plan_2026-11-12.md, URDF 메시 실측)
+#   바퀴 정렬(조향 0°) 외곽: x ±0.2177 (모듈), y ±0.2151 (라이다 하우징) → 진행 수직 폭 0.430 m
+#   통로 최소 550 mm → 중앙에서 한쪽 약 60 mm
+#   footprint 꼭짓점 반지름 √(0.2177² + 0.1824²) = 0.284 m (+ 패딩 0.01) → inflation_radius 0.32 (> 외접원)
+# ⚠ 속도는 설계 v2 시작값(0.2 m/s, 0.4 rad/s). 시뮬 통과 후 단계적으로 올린다.
+
+# ───────────────────────── 위치 추정 ─────────────────────────
+map_server:
+  ros__parameters:
+    yaml_filename: ""            # launch 가 map:= 인자로 덮어씀
+    topic_name: map
+    frame_id: map
+
+amcl:
+  ros__parameters:
+    robot_model_type: "nav2_amcl::OmniMotionModel"   # 스월브 = 전방향 (게걸음 포함)
+    # 오도메트리 잡음 모델 (Omni): alpha1 회전→회전, alpha2 병진→회전, alpha3 병진→병진, alpha4 회전→병진, alpha5 게걸음
+    # 시뮬 odom 보정 후 회전 비 1.008, 직진 1.000 → 작게 시작. 실물은 0.2 부터
+    alpha1: 0.1
+    alpha2: 0.1
+    alpha3: 0.1
+    alpha4: 0.1
+    alpha5: 0.1
+    base_frame_id: "base_footprint"
+    odom_frame_id: "odom"
+    global_frame_id: "map"
+    scan_topic: scan              # scan_merger_node 4개 병합 (base_footprint, 720빔, 10 Hz)
+    laser_model_type: "likelihood_field"
+    laser_min_range: 0.05
+    laser_max_range: 12.0
+    max_beams: 180                # 720 중 4개마다 1개 (2°)
+    # 지도 오차(벽 거리 중앙값 15 mm, 90 % 46 mm) 를 감안한 측정 모델
+    sigma_hit: 0.08
+    z_hit: 0.8
+    z_short: 0.05
+    z_max: 0.05
+    z_rand: 0.1
+    lambda_short: 0.1
+    laser_likelihood_max_dist: 0.5
+    do_beamskip: false
+    beam_skip_distance: 0.5
+    beam_skip_error_threshold: 0.9
+    beam_skip_threshold: 0.3
+    min_particles: 300
+    max_particles: 2000
+    pf_err: 0.05
+    pf_z: 0.99
+    recovery_alpha_fast: 0.0
+    recovery_alpha_slow: 0.0
+    resample_interval: 1
+    update_min_d: 0.05            # 5 cm 마다 갱신 (좁은 경기장, 느린 속도)
+    update_min_a: 0.05            # 약 3°
+    transform_tolerance: 0.5
+    tf_broadcast: true
+    save_pose_rate: 0.5
+    random_seed: -1
+    introspection_mode: "disabled"
+    # 초기 자세: launch 가 x·y·yaw 로 덮어씀 (시뮬 (0.734, 0.950, 0) / 실전 yaw π)
+    set_initial_pose: true
+    initial_pose:
+      x: 0.734
+      y: 0.950
+      z: 0.0
+      yaw: 0.0
+
+# ───────────────────────── BT 내비게이터 ─────────────────────────
+bt_navigator:
+  ros__parameters:
+    global_frame: map
+    robot_base_frame: base_footprint
+    odom_topic: odom
+    bt_loop_duration: 10
+    filter_duration: 0.3
+    default_server_timeout: 20
+    default_cancel_timeout: 50
+    wait_for_service_timeout: 1000
+    introspection_mode: "disabled"
+    # navigate_through_poses 는 안 씀: 기본 BT 에 Spin·BackUp 이 있어 behavior_server(wait 만) 와 안 맞음
+    navigators: ["navigate_to_pose"]
+    navigate_to_pose:
+      plugin: "nav2_bt_navigator::NavigateToPoseNavigator"
+      enable_groot_monitoring: false
+      groot_server_port: 1667
+      search_window: 2.0
+      transform_staleness_threshold: 0.0
+    # default_nav_to_pose_bt_xml / bt_search_directories:
+    #   launch 가 절대경로로 넣음 (behavior_trees/nz2_nav_to_pose.xml = 제자리 회전·후진 복구 제거판)
+    error_code_name_prefixes:
+      - assisted_teleop
+      - backup
+      - compute_path
+      - dock_robot
+      - drive_on_heading
+      - follow_object
+      - follow_path
+      - nav_thru_poses
+      - nav_to_pose
+      - route
+      - spin
+      - smoother
+      - undock_robot
+      - wait
+
+# ───────────────────────── 경로 추종 (MPPI Omni) ─────────────────────────
+controller_server:
+  ros__parameters:
+    controller_frequency: 20.0          # = 1 / model_dt (제어열 이동 ON)
+    costmap_update_timeout: 0.30
+    transform_staleness_threshold: 0.0
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.001     # 전방향 → vy 도 유효 (기본 0.5 는 차동용)
+    min_theta_velocity_threshold: 0.001
+    failure_tolerance: 0.3
+    progress_checker_plugins: ["progress_checker"]
+    goal_checker_plugins: ["general_goal_checker"]
+    controller_plugins: ["FollowPath"]
+    path_handler_plugins: ["PathHandler"]
+    use_realtime_priority: false
+    speed_limit_topic: "speed_limit"
+
+    # (11/14 v9) SimpleProgressChecker 는 제자리 회전을 '진전 없음'으로 봄 → 목표에서 마지막 회전 중
+    #   'Failed to make progress' → 복구 → 'Resulting plan has 0 poses' 로 중단 (facing 4차 L1_S·B5371_S)
+    #   → PoseProgressChecker: 5 cm 이동 또는 0.2 rad(11°) 회전이면 진전
+    progress_checker:
+      plugin: "nav2_controller::PoseProgressChecker"
+      required_movement_radius: 0.05
+      required_movement_angle: 0.2
+      movement_time_allowance: 15.0
+    general_goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      stateful: true
+      xy_goal_tolerance: 0.05           # [가정] 팔 집기 여유. 인식으로 최종 보정
+      yaw_goal_tolerance: 0.05          # 약 2.9°
+      path_length_tolerance: 1.0
+    PathHandler:
+      plugin: "nav2_controller::FeasiblePathHandler"
+      prune_distance: 1.0
+      enforce_path_inversion: false
+      enforce_path_rotation: false
+      inversion_xy_tolerance: 0.2
+      inversion_yaw_tolerance: 0.4
+      minimum_rotation_angle: 0.785
+      reject_unit_path: false
+
+    FollowPath:
+      plugin: "nav2_mppi_controller::MPPIController"
+      time_steps: 56                    # 56 × 0.05 = 2.8 s 앞 (0.2 m/s 면 0.56 m)
+      model_dt: 0.05
+      batch_size: 1000                  # Jetson 기준. 개발 PC 는 2000 까지 가능
+      iteration_count: 1
+      temperature: 0.3
+      gamma: 0.015
+      open_loop: false
+      regenerate_noises: true
+      model_delay_vx: 0.0
+      model_delay_vy: 0.0
+      model_delay_wz: 0.0
+      # 속도·가속 (r12 컨트롤러·velocity_smoother 이하로)
+      vx_max: 0.2
+      vx_min: -0.2                      # 뒤(팔 반대쪽)로도 감 — 전방향
+      vy_max: 0.2
+      wz_max: 0.4
+      ax_max: 0.5
+      ax_min: -0.5
+      ay_max: 0.5
+      ay_min: -0.5
+      az_max: 1.0
+      # 샘플링 잡음: 작게 → vy 부호가 자주 바뀌지 않게 (r12 조향 전환 1.57 s 동안 미끄러짐 방지)
+      vx_std: 0.1
+      vy_std: 0.1
+      wz_std: 0.2
+      motion_model: "omni"
+      omni:
+        plugin: "mppi::OmniMotionModel"
+      visualize: true                   # /controller_server/optimal_path·candidate_trajectories (RViz). Jetson 에선 false
+      publish_optimal_trajectory: true
+      TrajectoryVisualizer:
+        trajectory_step: 5
+        time_step: 3
+      critics:
+        [
+          "ConstraintCritic",
+          "CostCritic",
+          "GoalCritic",
+          "GoalAngleCritic",
+          "PathAlignCritic",
+          "PathFollowCritic",
+          "TwirlingCritic",
+        ]
+      # PathAngleCritic·PreferForwardCritic 는 안 씀 (전방향: 진행 방향과 몸 방향을 맞출 필요 없음)
+      ConstraintCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 4.0
+      CostCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 3.81
+        consider_footprint: true        # ⚠ 필수: 사각형 + 통로 한쪽 60 mm → 원 근사로는 회전 시 모서리 충돌
+        near_collision_cost: 253
+        critical_cost: 300.0
+        collision_cost: 1000000.0
+        near_goal_distance: 0.5
+        trajectory_point_step: 2
+        inflation_layer_name: "inflation_layer"
+      # (11/14 v8) 목표 근처 임계값 조정 — facing 2차 bag 분석:
+      #   L3_S 목표 0.53 m 앞 (3.24, 4.69), B5371_S 0.69 m 앞에서 MPPI 명령 ≈ 0 으로 정지 (국소 최소)
+      #   원인: 목표 1.0 m 안에서 PathFollow 가 꺼지고 GoalCritic 이 '목표로 직선' 만 당김 → 벽 모서리 뒤 목표면 막힘
+      #   → 경로 따라가기를 목표 0.3 m 까지 유지, 직선 당김은 0.4 m 안에서만
+      #   회전은 목표 1.5 m 전부터 고려 (좁은 목표 앞에서 돌 자리가 없음 → 넓은 곳에서 미리 돌게)
+      GoalCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        threshold_to_consider: 0.4
+      GoalAngleCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 8.0                # (v9) 3 → 8: TwirlingCritic 을 올린 만큼 최종 회전이 밀리지 않게
+        threshold_to_consider: 1.5      # 목표 1.5 m 안에서 최종 방향(팔 → 박스) 맞춤
+      PathAlignCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 14.0
+        max_path_occupancy_ratio: 0.05
+        trajectory_point_step: 4
+        threshold_to_consider: 0.3
+        offset_from_furthest: 20
+        use_path_orientations: false
+      PathFollowCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        offset_from_furthest: 5
+        threshold_to_consider: 0.3
+      # 불필요한 회전 억제 → 몸 방향 유지, 회전 원(지름 0.504 m) 쓸 일 줄임
+      # (v9) 10 → 25: MPPI 속도 상한이 사각형(vx·vy 각 0.2)이라 몸을 45° 돌려 대각선으로 가면 0.28 m/s 로 빨라짐
+      #   → facing 4차 B5371_S 이동 중 yaw 1.48 → 0.56 rad 로 돌며 대각 주행 (1.5.0 에는 원형 상한 OmniConstraintCritic 없음)
+      TwirlingCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 25.0
+
+# ───────────────────────── 코스트맵 ─────────────────────────
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      update_frequency: 10.0            # /scan 10 Hz
+      publish_frequency: 5.0
+      global_frame: odom
+      robot_base_frame: base_footprint
+      rolling_window: true
+      width: 2
+      height: 2
+      resolution: 0.02                  # 한쪽 60 mm = 3칸 (0.05 면 1칸 → 통과 불가)
+      # 처음 /swerve/footprint 오기 전 쓰는 값 = 조향 0° 외곽 + 0.01. 이후 토픽으로 교체(조향 따라 바뀜)
+      footprint: "[[0.2277, 0.1924], [0.03, 0.2251], [-0.03, 0.2251], [-0.2277, 0.1924], [-0.2277, -0.1924], [-0.03, -0.2251], [0.03, -0.2251], [0.2277, -0.1924]]"
+      footprint_padding: 0.0            # 패딩은 swerve_controller_node(footprint_padding 0.01) 에서 이미 넣음
+      subscribe_to_stamped_footprint: true   # /local_costmap/footprint → (launch 리매핑) /swerve/footprint
+      plugins: ["obstacle_layer", "inflation_layer"]
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: true
+        observation_sources: scan
+        scan:
+          topic: /scan
+          data_type: "LaserScan"
+          marking: true
+          clearing: true
+          max_obstacle_height: 2.0
+          obstacle_min_range: 0.0
+          obstacle_max_range: 2.0
+          raytrace_min_range: 0.0
+          raytrace_max_range: 2.5
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.32          # ≥ 외접원 0.294 (MPPI 발자국 검사 가속 조건)
+        cost_scaling_factor: 8.0
+      always_send_full_costmap: true
+      introspection_mode: "disabled"
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      global_frame: map
+      robot_base_frame: base_footprint
+      resolution: 0.02                  # 지도와 같음
+      track_unknown_space: true
+      # 전역은 고정 footprint (조향 따라 바뀌면 경기장 전체 재팽창 → Jetson 부하). 플래너는 중심점만 검사
+      footprint: "[[0.2277, 0.1924], [0.03, 0.2251], [-0.03, 0.2251], [-0.2277, 0.1924], [-0.2277, -0.1924], [-0.03, -0.2251], [0.03, -0.2251], [0.2277, -0.1924]]"
+      footprint_padding: 0.0
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: true
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: true
+        observation_sources: scan
+        scan:
+          topic: /scan
+          data_type: "LaserScan"
+          marking: true
+          clearing: true
+          max_obstacle_height: 2.0
+          obstacle_min_range: 0.0
+          obstacle_max_range: 2.0
+          raytrace_min_range: 0.0
+          raytrace_max_range: 2.5
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.32
+        cost_scaling_factor: 8.0        # 통로 중앙 비용 < 벽 쪽 → 경로가 통로 가운데로
+      always_send_full_costmap: true
+      introspection_mode: "disabled"
+
+# ───────────────────────── 전역 경로 ─────────────────────────
+planner_server:
+  ros__parameters:
+    allow_partial_planning: false
+    expected_planner_frequency: 20.0
+    planner_plugins: ["GridBased"]
+    costmap_update_timeout: 1.0
+    introspection_mode: "disabled"
+    GridBased:
+      plugin: "nav2_navfn_planner::NavfnPlanner"
+      tolerance: 0.05                   # 목표가 막혔을 때 허용 (기본 0.5 는 엉뚱한 곳에 섬)
+      use_astar: false
+      allow_unknown: false              # 지도 밖·미탐색 영역으로 경로 금지
+
+# ───────────────────────── 복구 동작 ─────────────────────────
+# 제자리 회전(Spin)·후진(BackUp)은 벽 접촉 = 실격 위험 → BT 에서 빼고 wait 만 둠
+behavior_server:
+  ros__parameters:
+    local_costmap_topic: local_costmap/costmap_raw
+    global_costmap_topic: global_costmap/costmap_raw
+    local_footprint_topic: local_costmap/published_footprint
+    global_footprint_topic: global_costmap/published_footprint
+    cycle_frequency: 10.0
+    behavior_plugins: ["wait"]
+    wait:
+      plugin: "nav2_behaviors::Wait"
+    local_frame: odom
+    global_frame: map
+    robot_base_frame: base_footprint
+    transform_tolerance: 0.1
+
+# ───────────────────────── 속도 평활 ─────────────────────────
+velocity_smoother:
+  ros__parameters:
+    smoothing_frequency: 20.0
+    scale_velocities: false
+    feedback: "OPEN_LOOP"
+    max_velocity: [0.2, 0.2, 0.4]       # [vx, vy, wz] = MPPI 상한과 같게
+    min_velocity: [-0.2, -0.2, -0.4]
+    max_accel: [0.5, 0.5, 1.0]          # r12 command_acceleration 0.5 m/s² 와 같게
+    max_decel: [-0.5, -0.5, -1.0]
+    odom_topic: "odom"
+    odom_duration: 0.1
+    deadband_velocity: [0.0, 0.0, 0.0]
+    velocity_timeout: 0.5               # 입력 끊기면 0 (cmd_frame_adapter 0.25 s, r12 0.25 s 가 뒤에서 한 번 더)
+
+# ───────────────────────── 수명주기 관리 ─────────────────────────
+lifecycle_manager_localization:
+  ros__parameters:
+    autostart: true
+    node_names: ["map_server", "amcl"]
+    bond_timeout: 4.0
+    service_timeout: 10.0               # (11/14) 시작 중 change_state 응답 유실 대비
+
+lifecycle_manager_navigation:
+  ros__parameters:
+    autostart: true
+    node_names: ["controller_server", "planner_server", "behavior_server", "bt_navigator", "velocity_smoother"]
+    bond_timeout: 4.0
+    service_timeout: 10.0

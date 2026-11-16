@@ -1,0 +1,23 @@
+# nz2_swerve_nav/config/r12_sim_overrides.yaml
+# 팀 r12_swerve_controller 파라미터 덮어쓰기 (시뮬). 팀 r12_swerve.yaml 다음에 로드됨 → 여기 값이 이김
+# 11/13: 이론 최대 속도 (팀 확정 65 rpm × 증속 4 = 바퀴 260 rpm, 바퀴 66 mm)
+#   선속   260 × π × 0.066 / 60 = 0.898 m/s
+#   바퀴   0.898 / 0.033 = 27.2 rad/s   (URDF 바퀴 한계 32 rad/s 로 함께 올림)
+#   요     0.898 / 0.1754(모듈 반지름 √2 × 0.124) = 5.12 rad/s (제자리 회전에서 바퀴가 0.898 m/s)
+#   가속   (11/14 v3) r12 램프 0 = 끔. 가속은 velocity_smoother 0.5 m/s² (= 펌웨어 구동 Profile Acc 10 ≈ 0.5 m/s²)
+#   조향   4.0 rad/s (펌웨어 최대 7.9 의 51 %, 정지→게걸음 경로 오차 8 mm)
+# ⚠ 시뮬 전용. 실물은 r12_real_overrides.yaml (조향 4.0 만) — 실물 속도는 바퀴 띄우고 단계적으로
+# ⚠ Nav2 MPPI vx_max·vy_max·wz_max 를 나중에 이 값 이하로 맞출 것
+# (11/14) 조향 한계 ±90° → ±110° (1.92 rad, URDF 시뮬 관절 한계와 같음)
+#   r12 는 ±limit + 히스테리시스 0.17 rad 밖이면 180° 뒤집음. ±90° 면 정확히 옆(게걸음)이 경계라
+#   MPPI 명령 방향이 ±10° 만 흔들려도 모듈이 180° 돌고 바퀴가 역회전 (facing 시험 L3 정체 원인 후보)
+#   ±110° 면 게걸음 ±20° 까지 뒤집지 않음. ⚠ 실물(r12_real_overrides)은 케이블·펌웨어 한계 확인 후 같이 맞출 것
+/r12_swerve_controller:
+  ros__parameters:
+    linear_speed_m_s: 0.898
+    yaw_rate_rad_s: 5.12
+    steering_rate_rad_s: 4.0
+    wheel_speed_rad_s: 27.2
+    command_acceleration_m_s2: 0.0   # (11/14 v3) 램프 끔: 가속 제한은 velocity_smoother 가 함. 램프가 있으면 정렬 게이트가 안 풀림
+    timeout_s: 0.25
+    steering_angle_rad: 1.92

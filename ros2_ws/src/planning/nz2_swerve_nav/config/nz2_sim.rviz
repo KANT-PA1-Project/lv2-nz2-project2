@@ -1,0 +1,76 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 0.1
+      Plane Cell Count: 60
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Enabled: true
+      Alpha: 0.6
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+      Value: true
+    - Class: rviz_default_plugins/LaserScan
+      Name: scan (병합)
+      Enabled: true
+      Topic:
+        Value: /scan
+        Reliability Policy: Best Effort
+      Size (m): 0.015
+      Style: Flat Squares
+      Color Transformer: FlatColor
+      Color: 255; 0; 0
+      Value: true
+    - Class: rviz_default_plugins/LaserScan
+      Name: lidar_front (원본)
+      Enabled: false
+      Topic:
+        Value: /lidar_front/scan
+        Reliability Policy: Best Effort
+      Size (m): 0.01
+      Style: Flat Squares
+      Color Transformer: FlatColor
+      Color: 255; 255; 0
+      Value: false
+    - Class: rviz_default_plugins/Polygon
+      Name: footprint
+      Enabled: true
+      Topic:
+        Value: /swerve/footprint
+        Durability Policy: Transient Local
+      Color: 0; 255; 0
+      Value: true
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: false
+      Value: false
+  Global Options:
+    Fixed Frame: odom
+    Background Color: 48; 48; 48
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Scale: 400
+      X: 0
+      Y: 0
+    Saved: ~
+Window Geometry:
+  Height: 900
+  Width: 1400
