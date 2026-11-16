@@ -1,0 +1,19 @@
+# 경기장 좌표(mm, 원점 = A 왼쪽 아래 기둥 중심, +X 오른쪽, +Y 위쪽), yaw(rad, +X=0)
+# 중심 좌표: 발제 v5 그림. approach(접근 자세)는 모두 [가정] — 경기장 공개 기간 실측 후 교체하고
+# check_map.py로 통로 550mm·벽 이격을 검증한다. 기존 arena_map.yaml 스키마로 합칠 수 있으면 합친다.
+start_pose: [734, 950, 3.14159]       # 출발·관측 위치, -X 방향(신호등 쪽)
+
+boxes:                                 # 시작 박스 6곳 (각 퍽 2개, 중심 X±40)
+  0: {center: [1468, 950],  approach: [1018, 950, 0.0]}
+  1: {center: [3670, 3152], approach: [3220, 3152, 0.0]}
+  2: {center: [2936, 5354], approach: [2936, 4904, 1.5708]}
+  3: {center: [734, 5354],  approach: [734, 4904, 1.5708]}
+  4: {center: [2202, 5354], approach: [2202, 4904, 1.5708]}
+  5: {center: [3670, 3886], approach: [3220, 3886, 0.0]}
+
+locations:                             # 목적지 L1~L3 (주사위 방향은 지도 +Y 고정)
+  L1: {center: [3670, 950],  approach: [3220, 950, 0.0],      place_order: null}
+  L2: {center: [2202, 3700], approach: [2202, 4150, -1.5708], place_order: null}
+  L3: {center: [3670, 5354], approach: [3670, 4904, 1.5708],  place_order: null}
+# place_order: null 이면 접근 방향 기준 '먼 점 → 가까운 점' 자동. 손목 롤 간섭 실측 후
+# [[col,row], ...] 9칸 순서로 고정할 수 있다 (col 0=왼쪽, row 0=위쪽).
