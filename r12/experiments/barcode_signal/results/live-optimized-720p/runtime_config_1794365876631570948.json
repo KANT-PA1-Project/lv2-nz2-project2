@@ -1,0 +1,33 @@
+{
+  "auto_start": true,
+  "no_auto": false,
+  "width": 1280,
+  "height": 720,
+  "fps": 15,
+  "signal_width": 640,
+  "search_hz": 10.0,
+  "display_hz": 10.0,
+  "barcode_hz": 5.0,
+  "barcode_roi": null,
+  "full_scan_every": 2.0,
+  "barcode_upscale": 2,
+  "prepare_timeout": 30.0,
+  "startup_timeout": 30.0,
+  "exposure": 150.0,
+  "wb": 4600.0,
+  "serial": null,
+  "out": "reports/live-optimized-720p",
+  "no_show": false,
+  "max_frames": null,
+  "signal_rule": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py",
+  "model_required": false,
+  "source_sha256": {
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/live_mission_optimized.py": "e3d896f721a8f02db9019d54f6604dc200f3f93ee01731a9baf868b69141094f",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py": "c937988c072fe765a2424942c9f4d66019b4f09a838f6d79f2e41e3ce4636fc3",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/tower_live_hsv.py": "f67babd8fdf29981f57eab1363300c5d616421060309118f21c4aa69005a10b3",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/mission_live_support.py": "54263ff64294551df23895616f5293f2c2d7d84ee58d8caadb63988868ce1686",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/mission_summary.py": "589c9a272e34f0afa522dc3871ed2843282cc24ff737fefd8cd7de6d2536c86b",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/barcode_support.py": "57e8bd7dce762e43f592bf7aad68bad3c648c2a7fbe12ded09b1d1937aaff926",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/configs/barcodes.json": "b3c5b2578b3eb5ad1e253e3808a2334e514da441405f11a12514adf2f9681d52"
+  }
+}

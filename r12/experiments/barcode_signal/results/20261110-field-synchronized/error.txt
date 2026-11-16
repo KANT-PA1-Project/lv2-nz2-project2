@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/test_tower_signal_isaac.py", line 375, in main
+    raise RuntimeError('시험 카메라 자세가 렌더 중 변경됨; 이 조건은 무효')
+RuntimeError: 시험 카메라 자세가 렌더 중 변경됨; 이 조건은 무효

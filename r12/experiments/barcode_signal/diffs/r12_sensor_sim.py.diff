@@ -1,0 +1,29 @@
+--- /tmp/claude-0/repo/tree/r12/scripts/r12_sensor_sim.py	2026-11-06 10:50:32.072551905 +0900
++++ scripts/r12_sensor_sim.py	2026-11-10 10:58:11.481032000 +0900
+@@ -506,16 +506,8 @@
+   pending_perception_record=dict(perception)
+  if perception_enabled:
+   perception=fresh_response(request,perception,perception_max_age_ns)
+- panel_bbox=perception.get('barcode_boxes',[None])[0] if perception.get('barcode_boxes') else None
+  import cv2
+- signal_color='UNKNOWN'
+- if panel_bbox is not None:
+-  x0,y0,x1,y1=panel_bbox;h=max(1,y1-y0)
+-  crop=rgb[0][max(0,int(y0-3*h)):max(0,int(y0)),max(0,int(x0)):min(640,int(x1))]
+-  if crop.size:
+-   hsv=cv2.cvtColor(crop,cv2.COLOR_RGB2HSV);bright=(hsv[:,:,1]>150)&(hsv[:,:,2]>180)
+-   votes={c:int(np.count_nonzero(bright&mask)) for c,mask in [('R',(hsv[:,:,0]<10)|(hsv[:,:,0]>170)),('Y',(hsv[:,:,0]>=20)&(hsv[:,:,0]<=40)),('G',(hsv[:,:,0]>=45)&(hsv[:,:,0]<=90))]}
+-   lit=[c for c,n in votes.items() if n>=12];signal_color=lit[0] if len(lit)==1 else ('OFF' if not lit else 'UNKNOWN')
++ signal_color='UNKNOWN'  # 신호등 색은 r12_sensor_ros.py 가 tower_signal 로 판정 (바코드 위 영역 방식 삭제)
+  encoder_packet_raw=capture_encoder_raw if capture_joint_epoch_enabled else robot.get_joint_positions()
+  measured=np.rint(encoder_packet_raw*4096/(2*np.pi))*2*np.pi/4096
+  measured[grip]=np.rint(encoder_packet_raw[grip]/1e-5)*1e-5  # provisional 10um linear readout, not motor angular ticks
+@@ -551,7 +543,7 @@
+   from arm_practice.capture_joint_epoch import EPOCH_FIELDS
+   packet['arm_capture_epoch']={key:np.asarray(frame_arrays[key]).tolist() for key in EPOCH_FIELDS}
+   packet['arm_capture_epoch'].update(run_id=capture_run_id,stamp_ns=packet['stamp_ns'])
+- packet['signal_observation']={'run_id':capture_run_id,'stamp_ns':packet['stamp_ns'],'capture_monotonic_ns':frame_capture_monotonic_ns,'camera':'r07_camera1','clock_domain':'synthetic_packet_20hz','color':signal_color,'roi_source':{'run_id':perception.get('run_id'),'stamp_ns':perception.get('stamp_ns'),'capture_monotonic_ns':perception.get('capture_monotonic_ns'),'camera':'r07_camera1'} if panel_bbox is not None else None}
++ packet['signal_observation']={'run_id':capture_run_id,'stamp_ns':packet['stamp_ns'],'capture_monotonic_ns':frame_capture_monotonic_ns,'camera':'r07_camera1','clock_domain':'synthetic_packet_20hz','color':signal_color,'roi_source':{'run_id':capture_run_id,'stamp_ns':packet['stamp_ns'],'capture_monotonic_ns':frame_capture_monotonic_ns,'camera':'r07_camera1'}}  # 신호등 영역은 같은 프레임에서 기하로 계산 (바코드 박스 의존 제거)
+  packet['fault']=None
+  if os.getenv('R12_FAULT_AUDIT','0')=='1':
+   for start,kind in [(200,'imu0'),(230,'imu1'),(260,'encoder'),(290,'camera'),(320,'lidar')]:

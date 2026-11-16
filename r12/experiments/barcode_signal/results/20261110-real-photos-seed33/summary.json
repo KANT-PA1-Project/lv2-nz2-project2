@@ -1,0 +1,117 @@
+{
+  "scope": "Diagnostic with provisional assistant-reviewed still-image colors, existing label boxes split in thirds; not user-confirmed truth, detector, camera projection, timing or independent holdout validation.",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "seed": 33,
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "limitations": [
+    "The tower_light dataset class provides location only, not R/Y/G/OFF truth.",
+    "Folder on/off names are not per-frame electrical-state truth.",
+    "Assistant visual review is provisional; no controller timing/state log or independent human confirmation.",
+    "Label boxes may include cap/base and are not calibrated three-lens boundaries.",
+    "Small Y/G sample counts, sequential captures correlated; not a general accuracy estimate.",
+    "Still images do not prove 12-event timing or transition behavior."
+  ],
+  "images": 48,
+  "visually_labeled_eligible": 46,
+  "unknown_truth": 1,
+  "invalid_annotation": 0,
+  "three_tiers_not_visible": 2,
+  "truth_counts": {
+    "R": 13,
+    "G": 2,
+    "OFF": 27,
+    "Y": 4
+  },
+  "truth_review": {
+    "method": "assistant visual review of source contacts/full images, no candidate predictions exposed",
+    "independently_user_confirmed": false,
+    "diagnostic_only": true
+  },
+  "prediction_counts": {
+    "R": 7,
+    "UNKNOWN": 8,
+    "Y": 7,
+    "OFF": 25,
+    "G": 1
+  },
+  "confusion": {
+    "R->R": 6,
+    "G->UNKNOWN": 1,
+    "OFF->Y": 2,
+    "OFF->OFF": 24,
+    "Y->Y": 4,
+    "OFF->R": 1,
+    "R->UNKNOWN": 7,
+    "G->G": 1
+  },
+  "correct": 35,
+  "wrong_color": 3,
+  "unknown": 8,
+  "diagnostic_accuracy": 0.7608695652173914,
+  "per_group": {
+    "1025_tower/tower_light_off": {
+      "OFF": 4
+    },
+    "1025_tower/tower_light_off_1_2f": {
+      "OFF": 4
+    },
+    "1025_tower/tower_light_off_1_3f": {
+      "OFF": 4
+    },
+    "1025_tower/tower_light_off_2": {
+      "OFF": 4
+    },
+    "1025_tower/tower_light_off_2_3f": {
+      "OFF": 4
+    },
+    "1025_tower/tower_light_on": {
+      "R": 2,
+      "Y": 1,
+      "OFF": 1
+    },
+    "1025_tower/tower_light_on_2": {
+      "R": 2,
+      "UNKNOWN": 1,
+      "OFF": 1
+    },
+    "1025_tower/tower_light_on_4": {
+      "Y": 3,
+      "UNKNOWN": 1
+    },
+    "1025_tower/tower_light_on_5": {
+      "R": 1,
+      "OFF": 1,
+      "UNKNOWN": 1,
+      "Y": 1
+    },
+    "1026_tower/traffic_puck_g": {
+      "R": 1,
+      "UNKNOWN": 2,
+      "OFF": 1
+    },
+    "1026_tower/traffic_puck_r": {
+      "Y": 2,
+      "UNKNOWN": 1,
+      "G": 1
+    },
+    "1026_tower/traffic_puck_r_g": {
+      "R": 1,
+      "UNKNOWN": 2,
+      "OFF": 1
+    }
+  },
+  "signal_source_sha256": "7c4cc3b4d16560b3cde638e1e98d2d140b177e25dbe21d06c32770cffdac45c6",
+  "manifest_sha256": "3973dd41112c644bbff426e19389757b00ebac5d81ed71355b54cd90990ed59a"
+}

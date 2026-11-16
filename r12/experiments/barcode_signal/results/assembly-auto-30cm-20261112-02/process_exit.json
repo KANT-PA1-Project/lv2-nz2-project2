@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/pa33/pa-course/.venv-isaacsim/bin/python",
+    "-B",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/run.py",
+    "--config",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/sim_assembly/config_auto_signal_fallback_30cm.json",
+    "--prepared",
+    "/tmp/codex-assembly-auto-30cm-20261112-02",
+    "--out",
+    "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/assembly-auto-30cm-20261112-02"
+  ],
+  "pid": 1327945,
+  "returncode": 0,
+  "timed_out": false,
+  "wall_s": 207.50402174299234,
+  "result_status": "passed"
+}

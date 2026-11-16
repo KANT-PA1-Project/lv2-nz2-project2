@@ -1,0 +1,107 @@
+{
+  "checks": {
+    "normal_exit": true,
+    "exact_sequence": true,
+    "all_810_frames_correct": true,
+    "barcode_preserved": true,
+    "sequence_preserved_after_save": true,
+    "mast_only": true,
+    "prepared_config_matches": true,
+    "mass_and_drive_applied": true,
+    "firmware_check_enabled": true,
+    "all_joint_feedback_valid": true,
+    "measured_fold_region_respected": true,
+    "settled_before_recording": true,
+    "no_premature_recording": true,
+    "tower_saved_before_motion": true,
+    "preserved_during_barcode_approach": true,
+    "source_hashes_matched_before_metadata_fix": true,
+    "prepared_mass_is_corrected": true
+  },
+  "all_checks_passed": false,
+  "metrics": {
+    "frames": 1235,
+    "classified_frames": 810,
+    "physics_samples": 39520,
+    "ready_at_s": 1.535416746744886,
+    "barcode_at_s": 39.1687520428095,
+    "native_peak_rad_s": 0.40006905794143677,
+    "fd_peak_rad_s": 0.40008544921875,
+    "settle_samples_before_record": 479,
+    "twelfth_flash_recorded_at_s": 24.535417946288362,
+    "signal_complete_at_s": 28.53541815490462,
+    "max_distance_to_final_motion_target_rad": 1.6046,
+    "prepared_total_mass_kg": 4.296004088403792,
+    "declared_frame_count": 1175,
+    "max_logged_arm_contact_component_N": 0.0
+  },
+  "phase_changes": [
+    {
+      "t_s": 0.03541666851378977,
+      "phase": "settle_tower",
+      "sequence": "",
+      "barcode": null
+    },
+    {
+      "t_s": 0.5020833595190197,
+      "phase": "prepare",
+      "sequence": "",
+      "barcode": null
+    },
+    {
+      "t_s": 1.535416746744886,
+      "phase": "record",
+      "sequence": "",
+      "barcode": null
+    },
+    {
+      "t_s": 28.53541815490462,
+      "phase": "saved",
+      "sequence": "RGYRGYGRGRGG",
+      "barcode": null
+    },
+    {
+      "t_s": 30.56875159428455,
+      "phase": "approach_base",
+      "sequence": "RGYRGYGRGRGG",
+      "barcode": null
+    },
+    {
+      "t_s": 33.90208510146476,
+      "phase": "approach_arm",
+      "sequence": "RGYRGYGRGRGG",
+      "barcode": null
+    },
+    {
+      "t_s": 38.73541868687607,
+      "phase": "barcode",
+      "sequence": "RGYRGYGRGRGG",
+      "barcode": null
+    },
+    {
+      "t_s": 39.1687520428095,
+      "phase": "done",
+      "sequence": "RGYRGYGRGRGG",
+      "barcode": "P2-02"
+    }
+  ],
+  "limitations": [
+    "Simulation only; kinematic base, no actual swerve driving or ROS integration",
+    "Arm self collision disabled; hardware zero/sign mapping not calibrated",
+    "Firmware goal checks do not reproduce live cache, entry interlock or watchdog",
+    "Fixture sequence begins after READY; cannot prove handling a sequence already started while moving"
+  ],
+  "reviewed_at_local_date": "2026-11-13",
+  "perception_and_motion_checks_passed": true,
+  "metadata_checks": {
+    "reported_frame_count_matches_video_and_log": false
+  },
+  "video": {
+    "codec_name": "h264",
+    "width": 1280,
+    "height": 480,
+    "duration": "41.166667",
+    "nb_frames": "1235"
+  },
+  "metadata_fix": "run.py finalizes frame_count and wall_s after the post-completion hold; original experimental result.json retained unchanged. CPU regression checked; Isaac not rerun."
+}

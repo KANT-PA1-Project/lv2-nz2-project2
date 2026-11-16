@@ -1,0 +1,509 @@
+{
+  "sequence": "RGYRGYGRGRGG",
+  "sequence_counts": {
+    "R": 4,
+    "Y": 2,
+    "G": 6
+  },
+  "frames": 570,
+  "full_frames": 570,
+  "smoke_or_truncated": false,
+  "r12_src": "/home/pa33/git/lv2-nz2-project2/r12/src",
+  "tower_signal_source": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py",
+  "field_scene_source": "/home/pa33/git/lv2-nz2-project2/r12/models/navigation/mission_scene.usda",
+  "excluded_field_prims": [
+    "/World/Mission/StartPanel/Board",
+    "/World/Mission/StartPanel/Barcode"
+  ],
+  "maze_prim_count": 214,
+  "camera_mode": "start",
+  "field": true,
+  "camera_height_m": null,
+  "pose_error_m": 0.0,
+  "dome": 1800.0,
+  "subframes": 2,
+  "resolution": [
+    640,
+    480
+  ],
+  "K": [
+    [
+      400.0,
+      0.0,
+      319.5
+    ],
+    [
+      0.0,
+      400.0,
+      239.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "tower": {
+    "xy_m": [
+      0.12,
+      0.95
+    ],
+    "base_z_m": 0.0,
+    "lens_diameter_m": 0.0396,
+    "tiers": {
+      "G": [
+        0.08445,
+        0.11935
+      ],
+      "Y": [
+        0.12045,
+        0.15535
+      ],
+      "R": [
+        0.15645,
+        0.19135
+      ]
+    }
+  },
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "results": [
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 109,
+      "frame_accuracy": 0.7811244979919678,
+      "first_wrong_frames": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "confusion": {
+        "OFF->OFF": 197,
+        "R->R": 68,
+        "OFF->R": 68,
+        "G->UNKNOWN": 12,
+        "G->G": 90,
+        "Y->Y": 34,
+        "OFF->G": 12,
+        "OFF->Y": 17
+      },
+      "recorder_complete": false,
+      "recorder_error": "Unknown signal color",
+      "recorded_sequence": "R",
+      "sequence_match": false,
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 237,
+        "frame_accuracy": 0.5240963855421688,
+        "first_wrong_frames": [
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        "confusion": {
+          "OFF->OFF": 197,
+          "R->R": 4,
+          "R->UNKNOWN": 64,
+          "OFF->UNKNOWN": 40,
+          "OFF->R": 33,
+          "G->UNKNOWN": 42,
+          "G->G": 60,
+          "Y->UNKNOWN": 34,
+          "OFF->G": 12,
+          "OFF->Y": 12
+        },
+        "recorder_complete": false,
+        "recorder_error": "Unknown signal color",
+        "recorded_sequence": "R",
+        "sequence_match": false
+      },
+      "decision_counts": {
+        "off": 219,
+        "single": 143,
+        "dominant_bloom": 189,
+        "ambiguous": 19
+      },
+      "frame_trace": "frames_e0.5_0.5m.jsonl",
+      "camera_world": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 0.5,
+      "distance_m": 0.5286795060766747,
+      "unknown_reasons": {
+        "multiple_lit:RG": 17,
+        "multiple_lit:YG": 1,
+        "ambiguous:G": 1
+      },
+      "lit_ratio_min": {
+        "R": 0.12121212121212122,
+        "Y": 0.0,
+        "G": 0.008264462809917356
+      },
+      "lens_px": [
+        18,
+        17
+      ]
+    },
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 200,
+      "frame_accuracy": 0.5983935742971888,
+      "first_wrong_frames": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "confusion": {
+        "OFF->OFF": 141,
+        "R->R": 60,
+        "OFF->R": 68,
+        "G->UNKNOWN": 39,
+        "G->G": 63,
+        "OFF->G": 67,
+        "Y->Y": 34,
+        "OFF->Y": 17,
+        "R->UNKNOWN": 8,
+        "OFF->UNKNOWN": 1
+      },
+      "recorder_complete": false,
+      "recorder_error": "Unknown signal color",
+      "recorded_sequence": "R",
+      "sequence_match": false,
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 321,
+        "frame_accuracy": 0.35542168674698793,
+        "first_wrong_frames": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "confusion": {
+          "OFF->OFF": 141,
+          "R->UNKNOWN": 68,
+          "OFF->UNKNOWN": 78,
+          "G->UNKNOWN": 66,
+          "OFF->G": 68,
+          "Y->UNKNOWN": 34,
+          "OFF->Y": 3,
+          "OFF->R": 4,
+          "G->G": 36
+        },
+        "recorder_complete": false,
+        "recorder_error": "Unknown signal color",
+        "recorded_sequence": "",
+        "sequence_match": false
+      },
+      "decision_counts": {
+        "off": 151,
+        "dominant_bloom": 229,
+        "ambiguous": 57,
+        "single": 133
+      },
+      "frame_trace": "frames_e1_0.5m.jsonl",
+      "camera_world": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 1.0,
+      "distance_m": 0.5286795060766747,
+      "unknown_reasons": {
+        "multiple_lit:RG": 46,
+        "multiple_lit:RY": 9,
+        "multiple_lit:RYG": 1,
+        "ambiguous:G": 1
+      },
+      "lit_ratio_min": {
+        "R": 0.12121212121212122,
+        "Y": 0.0,
+        "G": 0.0
+      },
+      "lens_px": [
+        18,
+        17
+      ]
+    },
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 52,
+      "frame_accuracy": 0.8955823293172691,
+      "first_wrong_frames": [
+        42,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330
+      ],
+      "confusion": {
+        "OFF->OFF": 259,
+        "R->R": 68,
+        "OFF->R": 29,
+        "G->G": 85,
+        "Y->Y": 34,
+        "G->UNKNOWN": 17,
+        "OFF->UNKNOWN": 6
+      },
+      "recorder_complete": false,
+      "recorder_error": "Unknown signal color",
+      "recorded_sequence": "RG",
+      "sequence_match": false,
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 154,
+        "frame_accuracy": 0.6907630522088353,
+        "first_wrong_frames": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "confusion": {
+          "OFF->OFF": 259,
+          "R->UNKNOWN": 68,
+          "OFF->R": 5,
+          "G->G": 85,
+          "Y->UNKNOWN": 34,
+          "OFF->UNKNOWN": 30,
+          "G->UNKNOWN": 17
+        },
+        "recorder_complete": false,
+        "recorder_error": "Unknown signal color",
+        "recorded_sequence": "R",
+        "sequence_match": false
+      },
+      "decision_counts": {
+        "off": 281,
+        "single": 106,
+        "dominant_bloom": 155,
+        "ambiguous": 28
+      },
+      "frame_trace": "frames_e2_0.5m.jsonl",
+      "camera_world": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 2.0,
+      "distance_m": 0.5286795060766747,
+      "unknown_reasons": {
+        "ambiguous:G": 1,
+        "multiple_lit:RYG": 10,
+        "multiple_lit:RG": 10,
+        "multiple_lit:RY": 2,
+        "ambiguous:R": 5
+      },
+      "lit_ratio_min": {
+        "R": 0.30303030303030304,
+        "Y": 0.8347107438016529,
+        "G": 0.5785123966942148
+      },
+      "lens_px": [
+        18,
+        17
+      ]
+    }
+  ],
+  "passed": 0,
+  "conditions": 3,
+  "scope": "단독 렌더 시험의 조건별 성공·실패 기록. 이 해상도·화각·렌더 설정에서만 유효. 로봇·위치추정·ROS·실물 카메라·실물 신호등 판정 근거가 아님"
+}

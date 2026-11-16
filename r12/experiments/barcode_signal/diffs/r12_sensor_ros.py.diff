@@ -1,0 +1,35 @@
+--- /tmp/claude-0/repo/tree/r12/scripts/r12_sensor_ros.py	2026-11-06 10:50:32.072551905 +0900
++++ scripts/r12_sensor_ros.py	2026-11-10 11:08:54.957405590 +0900
+@@ -39,6 +39,7 @@
+ publication_diagnostics=PublicationDiagnostics(out,buffered=os.getenv("R12_BUFFER_PUBLICATION_DIAGNOSTICS","0")=="1") if os.getenv("R12_PUBLICATION_DIAGNOSTICS","0")=="1" else None
+ from arm_practice.perception_response_identity import check_packet_perception
+ from arm_practice.signal_observation import checked_signal_color
++from arm_practice.tower_signal import tower_signal_color,signal_frame_fresh
+ from arm_practice.arm_feedback_record import arm_feedback_record
+ from arm_practice.base_feedback_record import base_feedback_record
+ from arm_practice.motion_envelope import MotionEnvelope
+@@ -78,6 +79,9 @@
+ perception_required=os.getenv('R12_MISSION_PERCEPTION','1')=='1'
+ perception_max_age_ns=int(float(os.getenv('R12_PERCEPTION_MAX_AGE_S','0.5'))*1e9)
+ if perception_max_age_ns<=0:raise ValueError('Invalid perception maximum age')
++# tower_signal 판정은 프레임 영상(data)이 필요한데, 수신 즉시 기록(R12_SIGNAL_AT_RECEIVE=1) 시점에는 영상이 아직 없음.
++# 생산자는 이제 색을 UNKNOWN 으로 보내므로 그 경로를 켜면 기록기가 오류로 멈춤 → 조용히 우회하지 않고 시작 시 거부
++if os.getenv('R12_SIGNAL_AT_RECEIVE','0')=='1':raise SystemExit('R12_SIGNAL_AT_RECEIVE=1 은 tower_signal 신호등 판정과 함께 쓸 수 없음 (수신 시점에 영상이 없음). 0 으로 실행')
+ recorder=SignalRecorder();signal_armed=False;barcode=None;signal_error=None;inventory={}
+ wrist_identity=WristIdentity()
+ goal_observation_dwell_s=float(os.getenv('R12_GOAL_OBSERVATION_DWELL_S','0'))
+@@ -429,7 +433,13 @@
+   perception_check=check_packet_perception(packet,now_ns=time.monotonic_ns(),max_age_ns=perception_max_age_ns)
+   perception=packet.get('perception',{}) if perception_check['matched'] else {}
+   if perception_required:
+-   signal_color=checked_signal_color(packet,now_ns=time.monotonic_ns(),max_age_ns=perception_max_age_ns)
++   # 신호등 색: 추정 맵 자세 + 카메라 FK 로 신호등 위치를 투영해 칸별 밝기로 판정 (시뮬 정답 자세 사용 안 함)
++   signal_color='UNKNOWN';tower_signal=None
++   if map_pose is not None and signal_frame_fresh(packet,now_ns=time.monotonic_ns(),max_age_ns=perception_max_age_ns):
++    Tmap=np.eye(4);Tmap[:2,:2]=[[np.cos(map_pose[2]),-np.sin(map_pose[2])],[np.sin(map_pose[2]),np.cos(map_pose[2])]];Tmap[:2,3]=map_pose[:2]
++    T_world_cam=Tmap@np.array(packet['camera_transforms']['r07_camera1_left_optical'])
++    tower_signal=tower_signal_color(data['rgb'][0],T_world_cam,camera_matrix(),depth=data['depth'])
++    signal_color=tower_signal['color']
+    codes=perception.get('barcodes',[])
+    if len(set(codes))==1:barcode=codes[0]
+    if fresh and barcode and not signal_armed and signal_color=='OFF':signal_armed=True
