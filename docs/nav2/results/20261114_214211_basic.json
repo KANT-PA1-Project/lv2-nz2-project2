@@ -1,0 +1,90 @@
+{
+ "route": "basic",
+ "goals_file": "/home/pa24/SuDragon_ws/hive/projects/nz2/ros2_ws/install/nz2_swerve_nav/share/nz2_swerve_nav/config/nav_test_goals.yaml",
+ "results": [
+  {
+   "name": "L1_W",
+   "goal": [
+    3.207,
+    0.991,
+    0.0
+   ],
+   "max_v": 6.376346680372271e-19,
+   "max_wz": 2.0099775589077878e-15,
+   "recoveries": 25,
+   "status": "중단(실패)",
+   "time_s": 18.1,
+   "error": "208 GridBasedplugin failed to plan from (1.61, 4.76) [q: 0.00, 0.00, 0.72, 0.70] (yaw: 1.60) to (3.21, 0.99) [q: 0.00, 0.00, 0.00, 1.00] (yaw: 0.00): \"Failed to create plan with tolerance of: 0.050000\"",
+   "amcl_err_mm": 4095.7,
+   "amcl_err_deg": 91.5,
+   "true_err_mm": 2473.3,
+   "true_err_deg": -0.0,
+   "amcl_vs_true_mm": 3909.8,
+   "amcl_vs_true_deg": 91.5,
+   "min_clearance_mm": 106.7
+  },
+  {
+   "name": "CENTER",
+   "goal": [
+    2.207,
+    3.531,
+    0.0
+   ],
+   "max_v": 6.585837872592105e-19,
+   "max_wz": 2.010097853786478e-15,
+   "recoveries": 25,
+   "status": "중단(실패)",
+   "time_s": 19.0,
+   "error": "208 GridBasedplugin failed to plan from (1.61, 4.76) [q: 0.00, 0.00, 0.72, 0.70] (yaw: 1.60) to (2.21, 3.53) [q: 0.00, 0.00, 0.00, 1.00] (yaw: 0.00): \"Failed to create plan with tolerance of: 0.050000\"",
+   "amcl_err_mm": 1368.8,
+   "amcl_err_deg": 91.5,
+   "true_err_mm": 2971.7,
+   "true_err_deg": -0.0,
+   "amcl_vs_true_mm": 3909.8,
+   "amcl_vs_true_deg": 91.5,
+   "min_clearance_mm": 106.7
+  },
+  {
+   "name": "L3_S",
+   "goal": [
+    3.71,
+    4.931,
+    0.0
+   ],
+   "max_v": 6.849756252610486e-19,
+   "max_wz": 2.0100508077229923e-15,
+   "recoveries": 25,
+   "status": "중단(실패)",
+   "time_s": 19.0,
+   "error": "208 GridBasedplugin failed to plan from (1.61, 4.76) [q: 0.00, 0.00, 0.72, 0.70] (yaw: 1.60) to (3.71, 4.93) [q: 0.00, 0.00, 0.00, 1.00] (yaw: 0.00): \"Failed to create plan with tolerance of: 0.050000\"",
+   "amcl_err_mm": 2110.2,
+   "amcl_err_deg": 91.5,
+   "true_err_mm": 4970.4,
+   "true_err_deg": -0.0,
+   "amcl_vs_true_mm": 3909.8,
+   "amcl_vs_true_deg": 91.5,
+   "min_clearance_mm": 106.7
+  },
+  {
+   "name": "START",
+   "goal": [
+    0.734,
+    0.95,
+    0.0
+   ],
+   "max_v": 7.101983071206485e-19,
+   "max_wz": 2.0099312274363994e-15,
+   "recoveries": 25,
+   "status": "중단(실패)",
+   "time_s": 19.0,
+   "error": "208 GridBasedplugin failed to plan from (1.61, 4.76) [q: 0.00, 0.00, 0.72, 0.70] (yaw: 1.60) to (0.73, 0.95) [q: 0.00, 0.00, 0.00, 1.00] (yaw: 0.00): \"Failed to create plan with tolerance of: 0.050000\"",
+   "amcl_err_mm": 3909.8,
+   "amcl_err_deg": 91.5,
+   "true_err_mm": 0.0,
+   "true_err_deg": -0.0,
+   "amcl_vs_true_mm": 3909.8,
+   "amcl_vs_true_deg": 91.5,
+   "min_clearance_mm": 106.7
+  }
+ ]
+}

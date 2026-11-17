@@ -1,0 +1,86 @@
+{
+ "route": "facing",
+ "goals_file": "/home/pa24/SuDragon_ws/hive/projects/nz2/ros2_ws/install/nz2_swerve_nav/share/nz2_swerve_nav/config/nav_test_goals.yaml",
+ "results": [
+  {
+   "name": "L1_S",
+   "goal": [
+    3.687,
+    0.511,
+    90.0
+   ],
+   "max_v": 0.0,
+   "max_wz": 0.0,
+   "recoveries": 0,
+   "status": "거부",
+   "time_s": 0.0,
+   "true_err_mm": 2985.5,
+   "true_err_deg": -90.0,
+   "min_clearance_mm": null
+  },
+  {
+   "name": "CENTER",
+   "goal": [
+    2.207,
+    3.531,
+    90.0
+   ],
+   "max_v": 0.0,
+   "max_wz": 0.0,
+   "recoveries": 0,
+   "status": "거부",
+   "time_s": 0.0,
+   "true_err_mm": 2971.7,
+   "true_err_deg": -90.0,
+   "min_clearance_mm": null
+  },
+  {
+   "name": "L3_S",
+   "goal": [
+    3.71,
+    4.931,
+    90.0
+   ],
+   "max_v": 0.0,
+   "max_wz": 0.0,
+   "recoveries": 0,
+   "status": "거부",
+   "time_s": 0.0,
+   "true_err_mm": 4970.4,
+   "true_err_deg": -90.0,
+   "min_clearance_mm": null
+  },
+  {
+   "name": "B5371_S",
+   "goal": [
+    0.717,
+    4.901,
+    90.0
+   ],
+   "max_v": 0.0,
+   "max_wz": 0.0,
+   "recoveries": 0,
+   "status": "거부",
+   "time_s": 0.0,
+   "true_err_mm": 3951.0,
+   "true_err_deg": -90.0,
+   "min_clearance_mm": null
+  },
+  {
+   "name": "START",
+   "goal": [
+    0.734,
+    0.95,
+    0.0
+   ],
+   "max_v": 0.0,
+   "max_wz": 0.0,
+   "recoveries": 0,
+   "status": "거부",
+   "time_s": 0.0,
+   "true_err_mm": 0.0,
+   "true_err_deg": -0.0,
+   "min_clearance_mm": null
+  }
+ ]
+}

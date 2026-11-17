@@ -1,0 +1,27 @@
+{
+ "route": "facing",
+ "goals_file": "/home/pa24/SuDragon_ws/hive/projects/nz2/ros2_ws/install/nz2_swerve_nav/share/nz2_swerve_nav/config/nav_test_goals.yaml",
+ "results": [
+  {
+   "name": "L1_S",
+   "goal": [
+    3.687,
+    0.511,
+    90.0
+   ],
+   "max_v": 0.1167195010487481,
+   "max_wz": 0.21418143068380793,
+   "recoveries": 4,
+   "status": "취소",
+   "time_s": 151.0,
+   "error": "0",
+   "amcl_err_mm": 3018.4,
+   "amcl_err_deg": -112.11,
+   "true_err_mm": 3012.3,
+   "true_err_deg": -113.56,
+   "amcl_vs_true_mm": 6.6,
+   "amcl_vs_true_deg": 1.45,
+   "min_clearance_mm": 72.6
+  }
+ ]
+}
