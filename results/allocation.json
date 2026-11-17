@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "round": null,
+  "run_id": null,
+  "code_commit": null,
+  "inputs": {
+    "signal_ref": "signal.json",
+    "counts": {
+      "R": null,
+      "Y": null,
+      "G": null
+    },
+    "barcode": null,
+    "sort_order": null,
+    "puck_inventory_source": "TODO: 관측 기반 목록 경로"
+  },
+  "plan": {
+    "planned_before_first_pick": null,
+    "locations": [
+      {
+        "location": "L1",
+        "tag_id": 12,
+        "group": null,
+        "count": null,
+        "constraint": "TODO: R=빨강만 | G=초록만 | Y=한 모양 통일",
+        "puck_ids": [],
+        "targets": [
+          {
+            "puck_id": null,
+            "cell": null,
+            "center_mm": [
+              null,
+              null,
+              100
+            ]
+          }
+        ]
+      },
+      {
+        "location": "L2",
+        "tag_id": 13,
+        "group": null,
+        "count": null,
+        "constraint": "TODO: R=빨강만 | G=초록만 | Y=한 모양 통일",
+        "puck_ids": [],
+        "targets": [
+          {
+            "puck_id": null,
+            "cell": null,
+            "center_mm": [
+              null,
+              null,
+              100
+            ]
+          }
+        ]
+      },
+      {
+        "location": "L3",
+        "tag_id": 14,
+        "group": null,
+        "count": null,
+        "constraint": "TODO: R=빨강만 | G=초록만 | Y=한 모양 통일",
+        "puck_ids": [],
+        "targets": [
+          {
+            "puck_id": null,
+            "cell": null,
+            "center_mm": [
+              null,
+              null,
+              100
+            ]
+          }
+        ]
+      }
+    ],
+    "checks": {
+      "all_12_used": null,
+      "duplicates": [],
+      "missing": [],
+      "constraint_violations": []
+    }
+  },
+  "verification": {
+    "note": "반드시 이동 후 새 관측으로 생성. plan 값을 복사하지 않는다.",
+    "observed_stamp": null,
+    "locations": [
+      {
+        "location": "L1",
+        "observed": [
+          {
+            "puck_id": null,
+            "center_mm": [
+              null,
+              null
+            ],
+            "error_mm": null
+          }
+        ],
+        "pips_ok": null,
+        "extra_pucks": []
+      },
+      {
+        "location": "L2",
+        "observed": [
+          {
+            "puck_id": null,
+            "center_mm": [
+              null,
+              null
+            ],
+            "error_mm": null
+          }
+        ],
+        "pips_ok": null,
+        "extra_pucks": []
+      },
+      {
+        "location": "L3",
+        "observed": [
+          {
+            "puck_id": null,
+            "center_mm": [
+              null,
+              null
+            ],
+            "error_mm": null
+          }
+        ],
+        "pips_ok": null,
+        "extra_pucks": []
+      }
+    ],
+    "duplicates": [],
+    "missing": [],
+    "result": "pending",
+    "sources": {
+      "images": null,
+      "rosbag": null
+    }
+  }
+}

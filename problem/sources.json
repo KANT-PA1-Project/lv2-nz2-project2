@@ -1,0 +1,81 @@
+{
+  "prepared_date": "2026-11-17",
+  "notion": "https://app.notion.com/p/teamsparta/2-40e2dc3ef51480148ba8dfc2085b9f22",
+  "requirements_section": "6 주요 산출물 / ① 문제 패키지",
+  "rules": {
+    "source": "/home/pa33/git/p2_perception/mission.pdf",
+    "version": "v5",
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "sha256": "bc1defea1b8d80af2f868cc9d01eae7288170fafefbc29159d48e2e84ed997f1"
+  },
+  "inventory_basis": "provided_public_Q1_not_physically_confirmed",
+  "provided_mission_json_version": "v4",
+  "team_repository": "KANT-PA1-Project/lv2-nz2-project2",
+  "team_branch": "feat/barcode-signal",
+  "team_commit": "d63ebcdf31a7d03580a61ac6fbd973e9bd8482f5",
+  "source_snapshots": [
+    {
+      "snapshot": "sources/dice-patterns.png",
+      "source": "/home/pa33/Downloads/project2-dice-student-package/dice-patterns.png",
+      "sha256": "00a0779b17f0dde2ca3a5eb5f06dca675903ba2aec0ee3b01f3c447935c8176b"
+    },
+    {
+      "snapshot": "sources/maze-dice.png",
+      "source": "/home/pa33/Downloads/project2-dice-student-package/maze-dice.png",
+      "sha256": "691907ac63b12194a2c5cd48af5290469639d0777ec480eedd83d265fdb8b422"
+    },
+    {
+      "snapshot": "sources/mission.json",
+      "source": "/home/pa33/Downloads/project2-dice-student-package/mission.json",
+      "sha256": "9d4c0a71ff28baf08f0a1090ab3606280a371a8a81ab8fc81de168c9fcf04f27"
+    },
+    {
+      "snapshot": "sources/placement.csv",
+      "source": "/home/pa33/Downloads/project2-dice-student-package/placement.csv",
+      "sha256": "71cda20a135a2e28280c3f52db7c8df54147dde5f483e9462e8f1e48db40d5e9"
+    },
+    {
+      "snapshot": "sources/posts.csv",
+      "source": "/home/pa33/Downloads/project2-dice-student-package/posts.csv",
+      "sha256": "888694f02306eb4fcfb52e6699c6877c32dda82967085edfc317691a96a8854a"
+    },
+    {
+      "snapshot": "sources/validate_problem.py",
+      "source": "/home/pa33/Downloads/project2-dice-student-package/validate_problem.py",
+      "sha256": "ab6b0f2a87dea7bd6b748d1407dc4f2a6c3b169f58a2f654c9a416fc7ab58d68"
+    },
+    {
+      "snapshot": "sources/walls.csv",
+      "source": "/home/pa33/Downloads/project2-dice-student-package/walls.csv",
+      "sha256": "82e8251c7a91f6642196cd3d684230ebb7fc9f64a3eb1ae85941c3f61771c264"
+    },
+    {
+      "snapshot": "sources/mission-v5.txt",
+      "source": "/home/pa33/git/p2_perception/mission.pdf pages 1..8 pdftotext -layout",
+      "sha256": "bad1110db6f7571a963148f8c8a4f6dcd88b583e1df743d765d71668092c121e"
+    }
+  ],
+  "team_files": [
+    {
+      "repo_relative_path": "r12/src/arm_practice/mission.py",
+      "sha256": "ba639260427d82c057fb67709aee6f015b7a1227e24efb31d1901b5d17b0a8c3"
+    },
+    {
+      "repo_relative_path": "r12/src/arm_practice/mission_markers.py",
+      "sha256": "d57cd851a40057acb3d6ad396cee698eabbe34b2209eb3fc68c9bbe72a11627d"
+    },
+    {
+      "repo_relative_path": "r12/configs/mission/practice.json",
+      "sha256": "a15632bc25f60a32a42296f3869878ea06828fa346765773208ffa23fd6ab749"
+    }
+  ]
+}
