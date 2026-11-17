@@ -59,7 +59,7 @@ validation.json의 logical_pass는 true, submission_ready는 false다.
 팀 레포 루트에서 실행한다.
 
 ```bash
-python3 project2/problem/validate.py --output project2/problem/validation.json
+python3 problem/validate.py --output problem/validation.json
 ```
 
 원본 스냅샷·입력 데이터 SHA256, 모든 유효 그룹 할당은 validation.json과 sources.json에 있다.

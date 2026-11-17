@@ -198,7 +198,7 @@ Y 그룹은 원기둥 또는 직육면체 한 모양으로 통일하고 색상 �
 팀 레포 루트에서 다음 명령을 실행한다. Python 표준 라이브러리와 저장소의 CPU 계획 함수만 사용한다.
 
 ```bash
-python3 project2/problem/validate.py --output project2/problem/validation.json
+python3 problem/validate.py --output problem/validation.json
 ```
 
 입력 변경 후에도 `logical_pass`가 true인지 확인한다.
