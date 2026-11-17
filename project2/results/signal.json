@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "robot_observation",
+  "env": "TODO: real | sim | mock",
+  "round": null,
+  "run_id": null,
+  "problem_id": null,
+  "code_commit": null,
+  "start_cmd_time": null,
+  "first_sample_stamp": null,
+  "flashes": [
+    {
+      "index": 1,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 2,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 3,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 4,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 5,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 6,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 7,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 8,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 9,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 10,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 11,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    },
+    {
+      "index": 12,
+      "color": null,
+      "onset_stamp": null,
+      "offset_stamp": null,
+      "confidence": null
+    }
+  ],
+  "sequence": [],
+  "counts": {
+    "R": null,
+    "Y": null,
+    "G": null
+  },
+  "end_detection": {
+    "off_duration_s": null,
+    "end_confirmed_stamp": null,
+    "signal_complete": false
+  },
+  "barcode": {
+    "text": null,
+    "symbology": "Code 128",
+    "sort_order": null,
+    "decoded_stamp": null
+  },
+  "validity": {
+    "flash_count_is_12": null,
+    "each_color_1_to_6": null,
+    "unknown_color_flashes": [],
+    "barcode_registered": null,
+    "result": "pending",
+    "safe_stop_reason": null
+  },
+  "sources": {
+    "events_jsonl": null,
+    "rosbag": null,
+    "video": null
+  }
+}
