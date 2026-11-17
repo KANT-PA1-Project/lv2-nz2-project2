@@ -1,127 +1,76 @@
 {
-  "schema_version": 1,
-  "evidence_kind": "robot_observation",
-  "env": "TODO: real | sim | mock",
-  "round": null,
-  "run_id": null,
-  "problem_id": null,
-  "code_commit": null,
-  "start_cmd_time": null,
-  "first_sample_stamp": null,
-  "flashes": [
-    {
-      "index": 1,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 2,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 3,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 4,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 5,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 6,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 7,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 8,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 9,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 10,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 11,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    },
-    {
-      "index": 12,
-      "color": null,
-      "onset_stamp": null,
-      "offset_stamp": null,
-      "confidence": null
-    }
-  ],
-  "sequence": [],
-  "counts": {
-    "R": null,
-    "Y": null,
-    "G": null
-  },
-  "end_detection": {
-    "off_duration_s": null,
-    "end_confirmed_stamp": null,
-    "signal_complete": false
-  },
+  "run_id": "assembly-sim-B16 (assembly-auto-30cm-control-20261112-03)",
+  "env": "모의 — Isaac Sim, 전체 로봇 assembly.urdf, 손목 D435 640×480, PathTracing. 실물 아님",
+  "source": "r12/experiments/barcode_signal/results/assembly-auto-30cm-control-20261112-03/result.json, audit.json",
   "barcode": {
-    "text": null,
-    "symbology": "Code 128",
-    "sort_order": null,
-    "decoded_stamp": null
+    "text": "P2-02",
+    "order": "descending",
+    "camera": "mast",
+    "saved_at_s": 0.935
   },
-  "validity": {
-    "flash_count_is_12": null,
-    "each_color_1_to_6": null,
-    "unknown_color_flashes": [],
-    "barcode_registered": null,
-    "result": "pending",
-    "safe_stop_reason": null
+  "observe": {
+    "camera": "wrist",
+    "record_start_s": 19.435,
+    "saved_at_s": 46.435,
+    "record_duration_s": 27.0,
+    "ready_evidence": {
+      "prestart_off_guaranteed": true,
+      "recovery_long_off_observed": false,
+      "stable_off_s": 1.0000000521540642,
+      "baseline_frames": 5,
+      "max_jitter_px": 3,
+      "horizontal_crop_allowed": false,
+      "observed_tiers": null
+    }
   },
-  "sources": {
-    "events_jsonl": null,
-    "rosbag": null,
-    "video": null
-  }
+  "sequence": [
+    "R",
+    "G",
+    "Y",
+    "R",
+    "G",
+    "Y",
+    "G",
+    "R",
+    "G",
+    "R",
+    "G",
+    "G"
+  ],
+  "counts": {
+    "R": 4,
+    "Y": 2,
+    "G": 6
+  },
+  "total": 12,
+  "end_detected": {
+    "ok": true
+  },
+  "frames": {
+    "classified": 810,
+    "correct_color": 810
+  },
+  "scoring_truth": {
+    "sequence": "RGYRGYGRGRGG",
+    "barcode": "P2-02",
+    "sequence_match": true
+  },
+  "checks": {
+    "result_passed": true,
+    "process_exit_zero": true,
+    "exact_sequence": true,
+    "all_classified_frames_correct": true,
+    "barcode_preserved": true,
+    "no_camera_switch_after_READY": true,
+    "fallback_only_before_READY": true,
+    "no_partial_record_during_motion": true,
+    "fresh_settle_before_READY": true,
+    "record_preserved_after_extra_lamp": true
+  },
+  "status": "OK",
+  "error": null,
+  "limits": [
+    "시뮬 렌더 영상. 실물 D435 노출·화이트밸런스 미검증",
+    "점멸별 켜짐·꺼짐 시각은 결과 파일에 없음 (프레임 수만 기록)"
+  ]
 }
