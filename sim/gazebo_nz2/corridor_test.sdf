@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!-- 통로 시험 월드: 폭 550 mm, 벽 두께 3 mm, 벽 높이 390 mm (실제 경기장 약 0.39 m). x 방향 직선 → 오른쪽(+x 끝)에서 +y 로 꺾이는 L자 -->
+<sdf version="1.9">
+  <world name="corridor_test">
+    <physics name="1ms" type="ignored"><max_step_size>0.001</max_step_size><real_time_factor>1.0</real_time_factor></physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"><render_engine>ogre2</render_engine></plugin>
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
+    <light type="directional" name="sun"><direction>-0.4 0.2 -1</direction></light>
+    <model name="ground"><static>true</static><link name="ground">
+      <collision name="collision"><geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry></collision>
+      <visual name="visual"><geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry></visual>
+    </link></model>
+    <model name="wall_south"><static>true</static><pose>1.0250 -0.2765 0.195 0 0 0</pose><link name="l">
+      <collision name="c"><geometry><box><size>3.0530 0.0030 0.39</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>3.0530 0.0030 0.39</size></box></geometry><material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+    </link></model>
+    <model name="wall_north"><static>true</static><pose>0.7500 0.2765 0.195 0 0 0</pose><link name="l">
+      <collision name="c"><geometry><box><size>2.5000 0.0030 0.39</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>2.5000 0.0030 0.39</size></box></geometry><material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+    </link></model>
+    <model name="wall_back"><static>true</static><pose>-0.5015 0.0000 0.195 0 0 0</pose><link name="l">
+      <collision name="c"><geometry><box><size>0.0030 0.5560 0.39</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.0030 0.5560 0.39</size></box></geometry><material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+    </link></model>
+    <model name="wall_east"><static>true</static><pose>2.5515 1.0125 0.195 0 0 0</pose><link name="l">
+      <collision name="c"><geometry><box><size>0.0030 2.5780 0.39</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.0030 2.5780 0.39</size></box></geometry><material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+    </link></model>
+    <model name="wall_west"><static>true</static><pose>1.9985 1.2875 0.195 0 0 0</pose><link name="l">
+      <collision name="c"><geometry><box><size>0.0030 2.0250 0.39</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.0030 2.0250 0.39</size></box></geometry><material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+    </link></model>
+    <model name="wall_end"><static>true</static><pose>2.2750 2.3015 0.195 0 0 0</pose><link name="l">
+      <collision name="c"><geometry><box><size>0.5500 0.0030 0.39</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.5500 0.0030 0.39</size></box></geometry><material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+    </link></model>
+  </world>
+</sdf>
