@@ -1,0 +1,150 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Tool Properties
+    Name: Tool Properties
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Map
+      Name: map (map_server)
+      Enabled: true
+      Alpha: 0.7
+      Color Scheme: map
+      Topic:
+        Value: /map
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+      Value: true
+    - Class: rviz_default_plugins/Map
+      Name: global_costmap
+      Enabled: true
+      Alpha: 0.3
+      Color Scheme: costmap
+      Topic:
+        Value: /global_costmap/costmap
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+      Value: true
+    - Class: rviz_default_plugins/Map
+      Name: local_costmap
+      Enabled: true
+      Alpha: 0.5
+      Color Scheme: costmap
+      Topic:
+        Value: /local_costmap/costmap
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+      Value: true
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 0.1
+      Plane Cell Count: 80
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Enabled: true
+      Alpha: 0.6
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+      Value: true
+    - Class: rviz_default_plugins/LaserScan
+      Name: scan (병합)
+      Enabled: true
+      Topic:
+        Value: /scan
+        Reliability Policy: Best Effort
+      Size (m): 0.015
+      Style: Flat Squares
+      Color Transformer: FlatColor
+      Color: 255; 0; 0
+      Value: true
+    - Class: nav2_rviz_plugins/ParticleCloud
+      Name: AMCL 입자
+      Enabled: true
+      Topic:
+        Value: /particle_cloud
+        Reliability Policy: Best Effort
+      Color: 0; 180; 255
+      Arrow Length: 0.05
+      Shape: Arrow (Flat)
+      Value: true
+    - Class: rviz_default_plugins/Path
+      Name: 전역 경로 /plan
+      Enabled: true
+      Topic:
+        Value: /plan
+      Color: 255; 170; 0
+      Line Style: Lines
+      Value: true
+    - Class: rviz_default_plugins/Path
+      Name: MPPI 최적 경로
+      Enabled: true
+      Topic:
+        Value: /controller_server/optimal_path
+      Color: 255; 0; 255
+      Line Style: Lines
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Name: MPPI 후보 (무거움)
+      Enabled: false
+      Topic:
+        Value: /controller_server/candidate_trajectories
+      Value: false
+    - Class: rviz_default_plugins/Polygon
+      Name: footprint (조향 기반)
+      Enabled: true
+      Topic:
+        Value: /swerve/footprint
+        Durability Policy: Transient Local
+      Color: 0; 255; 0
+      Value: true
+    - Class: rviz_default_plugins/Polygon
+      Name: local_costmap 이 쓰는 footprint
+      Enabled: true
+      Topic:
+        Value: /local_costmap/published_footprint
+      Color: 255; 255; 0
+      Value: true
+    - Class: rviz_default_plugins/Pose
+      Name: 목표
+      Enabled: true
+      Topic:
+        Value: /goal_pose
+      Color: 255; 25; 0
+      Shape: Arrow
+      Value: true
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: false
+      Value: false
+  Global Options:
+    Fixed Frame: map
+    Background Color: 48; 48; 48
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Value: /goal_pose
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Scale: 120
+      X: 2.2
+      Y: 3.1
+    Saved: ~
+Window Geometry:
+  Height: 900
+  Width: 1400

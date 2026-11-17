@@ -1,0 +1,111 @@
+{
+ "route": "facing",
+ "goals_file": "/home/pa24/SuDragon_ws/hive/projects/nz2/ros2_ws/install/nz2_swerve_nav/share/nz2_swerve_nav/config/nav_test_goals.yaml",
+ "results": [
+  {
+   "name": "L1_S",
+   "goal": [
+    3.687,
+    0.511,
+    90.0
+   ],
+   "max_v": 0.1657532141838833,
+   "max_wz": 0.4211999998057642,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 61.1,
+   "error": "0",
+   "amcl_err_mm": 11.6,
+   "amcl_err_deg": -3.29,
+   "true_err_mm": 54.1,
+   "true_err_deg": -3.13,
+   "amcl_vs_true_mm": 45.6,
+   "amcl_vs_true_deg": -0.17,
+   "min_clearance_mm": 96.6
+  },
+  {
+   "name": "CENTER",
+   "goal": [
+    2.207,
+    3.531,
+    90.0
+   ],
+   "max_v": 0.16880171582107176,
+   "max_wz": 0.4211999997799933,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 42.8,
+   "error": "0",
+   "amcl_err_mm": 8.3,
+   "amcl_err_deg": -5.15,
+   "true_err_mm": 32.4,
+   "true_err_deg": -1.55,
+   "amcl_vs_true_mm": 26.3,
+   "amcl_vs_true_deg": -3.6,
+   "min_clearance_mm": 98.6
+  },
+  {
+   "name": "L3_S",
+   "goal": [
+    3.71,
+    4.931,
+    90.0
+   ],
+   "max_v": 0.18491692635603063,
+   "max_wz": 0.0938875183311342,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 20.0,
+   "error": "0",
+   "amcl_err_mm": 59.0,
+   "amcl_err_deg": -4.06,
+   "true_err_mm": 81.3,
+   "true_err_deg": -5.38,
+   "amcl_vs_true_mm": 33.2,
+   "amcl_vs_true_deg": 1.32,
+   "min_clearance_mm": 95.4
+  },
+  {
+   "name": "B5371_S",
+   "goal": [
+    0.717,
+    4.901,
+    90.0
+   ],
+   "max_v": 0.1820201120021493,
+   "max_wz": 0.09671532494375103,
+   "recoveries": 1,
+   "status": "중단(실패)",
+   "time_s": 61.8,
+   "error": "103 Resulting plan has 0 poses in it.",
+   "amcl_err_mm": 676.9,
+   "amcl_err_deg": -3.02,
+   "true_err_mm": 717.8,
+   "true_err_deg": -3.26,
+   "amcl_vs_true_mm": 42.3,
+   "amcl_vs_true_deg": 0.24,
+   "min_clearance_mm": 74.8
+  },
+  {
+   "name": "START",
+   "goal": [
+    0.734,
+    0.95,
+    0.0
+   ],
+   "max_v": 0.15730567231871226,
+   "max_wz": 0.08827591129906563,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 30.7,
+   "error": "0",
+   "amcl_err_mm": 57.7,
+   "amcl_err_deg": 0.04,
+   "true_err_mm": 52.9,
+   "true_err_deg": -1.15,
+   "amcl_vs_true_mm": 12.7,
+   "amcl_vs_true_deg": 1.19,
+   "min_clearance_mm": 83.6
+  }
+ ]
+}

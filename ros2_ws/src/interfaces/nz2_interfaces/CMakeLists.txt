@@ -31,6 +31,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetPerceptionMode.srv"
   "action/ExecuteMission.action"
   "action/PickPlace.action"
+  "action/ArmSkill.action"
+  "srv/SetMode.srv"
   DEPENDENCIES std_msgs geometry_msgs sensor_msgs
 )
 

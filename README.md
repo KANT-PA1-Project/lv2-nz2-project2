@@ -14,7 +14,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 
 ## 프로젝트 소개
 
-국제올림피아드 모바일로보틱스 규칙을 바탕으로, 빨강·초록·파랑 퍽을 지정된 순서대로 선반에서 다른 선반으로 옮기는 모바일 매니퓰레이터를 만든다. 스월브 드라이브로 전방향 주행하고, 개조한 OpenMANIPULATOR-X로 퍽을 집어 옮긴다.
+발제 v5 「주사위 기억 로봇」을 수행하는 모바일 매니퓰레이터를 만든다. 신호등 점멸 횟수와 바코드를 읽어 목적지를 정하고, 빨강·초록 퍽을 주사위 눈 모양으로 옮겨 놓는다. 스월브 드라이브로 전방향 주행하고, 개조한 OpenMANIPULATOR-X로 퍽을 집어 옮긴다.
 
 | 구성 | 내용 |
 |---|---|
@@ -27,9 +27,16 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 ## 대회 미션과 규정
 
 - **대회**: 로봇 기능대회 모바일 로보틱스 부문 (국제올림피아드 모바일로보틱스 규칙 준용). 대회일 **2026-11-11**. 세부 규칙은 미공개라 아래 일부는 `[가정]`이다.
-- **미션**: RGB 퍽을 지정된 순서에 맞춰 선반에서 다른 선반으로 옮긴다.
-- **퍽**: 반지름 3cm·높이 6cm 원통 또는 3×3×6cm 직육면체. 세워져 있거나 누워 있을 수 있어 인식·파지 전략이 자세에 따라 달라진다.
-- **선반 높이**: 80mm.
+- **미션 (발제 v5 「주사위 기억 로봇」)**:
+  1. 출발·관측 위치 (734, 950) mm에서 −X 방향의 신호등(바닥, (80, 950))과 바코드((80, 650), 높이 450 mm)를 본다.
+  2. 신호등은 경기 전부터 **무한루프**로 R·Y·G 12회 점멸을 반복한다. 12번째 뒤 3초 소등 다음부터가 한 프레임의 시작이다.
+  3. R·Y·G 횟수(각 1~6, 합 12)를 바코드 규칙(P2-01/03 오름차순, P2-02/04 내림차순, 동률 R→Y→G)으로 정렬해 L1·L2·L3에 배정한다.
+  4. 시작 박스 6곳의 퍽 12개(red·green, 원통 Ø30×60 mm / 직육면체 30×30×60 mm)를 탐색해 이동 전에 전체 할당을 확정한다. R 그룹 = 빨강, G 그룹 = 초록, Y 그룹 = 같은 모양(색 무관).
+  5. 각 장소에 주사위 눈(점 간격 60 mm)으로 놓고, 세 장소를 다시 촬영해 재검증한 뒤 출발 구역으로 복귀해 3초 정지한다.
+  - 상세 설계: [docs/planning/mission_fsm_design.md](docs/planning/mission_fsm_design.md)
+- **퍽**: 빨강·초록 2색, 원통 Ø30×60 mm 또는 직육면체 30×30×60 mm. 세워져 있거나 누워 있을 수 있다.
+- **선반(박스)**: 면 높이 70 mm, 206×208 mm.
+- **폐기 (발제 v5)**: 운영팀 배포 매핑 DB, `mission_reader`, `MAPPING` 상태는 쓰지 않는다.
 - **규정 (실격 조건)**:
   - 시작·종료 시 로봇이 **400×400mm 이내**에 들어와야 한다(높이 제한 없음).
   - 벽·선반에 **접촉하면 실격**이다. 주행·파지 경로에 여유 간격을 두고 설계한다.
@@ -43,7 +50,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 | 제어기 | OpenCR 1.0 2대. **#1** = 스월브 8모터, **#2** = 로봇팔. 상위 컴퓨터는 Jetson Orin Nano |
 | 센서 | Intel RealSense D435 깊이 카메라 (대수 `[확인 필요]`), QR·바코드·AprilTag·신호등 색상 인식 |
 | 전원 | 12V SMPS 약 30A, OpenCR 12V 5A |
-| 기구 | 차체 약 400×400mm, 팔 제외 높이 267mm, 목표 총중량 5kg 이내. 2020 프로파일 450mm 설치. Fusion 360 설계 + Bambu Lab 3D 프린팅 |
+| 기구 | 차체 약 400×400mm, 팔 제외 높이 267mm, 카메라 장착면 180mm, 목표 총중량 5kg 이내. 2020 프로파일 450mm 설치. Fusion 360 설계 + Bambu Lab 3D 프린팅 |
 
 **아직 정해지지 않은 항목**
 
@@ -59,8 +66,9 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 [Jetson Orin Nano] ROS 2
   ├─ 인지     RealSense D435 → 깊이·영상, AprilTag·바코드·신호등 색상 인식
   ├─ 주행     Nav2, cuVSLAM, 위치 추정은 우선 AMCL
-  ├─ 팔 계획  MoveIt 2 → 팔 경로 계획, 퍽 파지
-  └─ 미션 FSM 퍽 순서 시퀀스, 실격 회피 로직
+  ├─ 팔 계획  팔 경로 계획, 퍽 파지 (MoveIt 2 / q-motion 미정)
+  └─ 미션 FSM 신호 기억 → 바코드 정렬 → 탐색 → 할당·운반 계획 → 주사위 배치 → 재검증 → 복귀 (docs/planning/mission_fsm_design.md)
+
         │  (Jetson ↔ OpenCR 브리지)   [통신 방식 확인 필요]
         ├──────────────┬──────────────┐
   [OpenCR #1]                    [OpenCR #2]
@@ -69,7 +77,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 ```
 
 - **주행 제어**: 스월브 역기구학으로 각 모듈의 조향각·구동속도를 계산한다. 계산을 OpenCR에서 할지 Jetson에서 할지는 미정이다.
-- **팔 제어**: OpenCR #2가 다이나믹셀 위치·전류 제어를 담당하고, 상위에서 MoveIt 2로 경로를 계획한다.
+- **팔 제어**: OpenCR #2가 다이나믹셀 위치·전류 제어를 담당하고, 상위에서 팔 경로를 계획한다. 경로 계획 도구는 MoveIt 2와 q-motion 중 `[미정]`이다.
 - **인지**: RealSense D435로 퍽 위치·자세(세움/누움)를 추정하고, AprilTag·바코드·신호등 색상으로 과제 순서와 위치를 판별한다.
 - **시뮬레이션**: Isaac Sim으로 경기장·퍽을 재현하고, 도메인 랜덤화로 sim-to-real 간극을 줄인다. 실제 적용 여부는 `[확인 필요]`.
 - **ROS 2 패키지 구성**: Jetson 쪽 코드는 `ros2_ws/src/` 아래 역할별 레이어(interfaces·perception·planning·control)로 나눈다. 자세한 구분은 아래 "디렉터리 구조"를 본다.
@@ -89,20 +97,26 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 ```
 lv2-nz2-project2/
 ├── README.md
+├── docs/                   설계 문서 (데이터 흐름도 등)
 ├── ros2_ws/                ROS 2 colcon 워크스페이스
 │   └── src/
-│       ├── interfaces/     메시지·서비스·액션 정의, Jetson↔OpenCR 브리지
-│       ├── perception/     카메라·인식 (RealSense, AprilTag·바코드·신호등)
-│       ├── planning/       미션 FSM, 주행·팔 경로 계획
-│       └── control/        스월브·팔 제어 명령 생성
-├── firmware/               OpenCR 1.0 펌웨어 소스코드
-└── tools/                  개발·측정 도구 (로봇에 올라가지 않음)
+│       ├── interfaces/                메시지·서비스·액션 정의
+│       ├── perception/                카메라·인식 (RealSense, AprilTag·바코드·신호등)
+│       ├── planning/                  미션 FSM, 주행·팔 경로 계획
+│       ├── control/                   스월브·팔 제어, OpenCR 브리지
+│       ├── description/                URDF/xacro 로봇 모델 (파트 공통)
+│       └── bringup/                    전체 통합 실행 launch (파트 공통)
+└── firmware/               OpenCR 1.0 펌웨어 소스코드
+    ├── opencr1_swerve/     스월브 8모터
+    └── opencr2_arm/        로봇팔
+
 ```
 
 | 폴더 | 내용 |
 |---|---|
-| [ros2_ws/](ros2_ws/) | ROS 2 colcon 워크스페이스. `src/` 아래 4개 레이어 폴더는 그룹 디렉터리이며, 실제 패키지는 각 폴더 안에 `nz2_*` 접두사로 추가한다 (예: `src/perception/nz2_puck_detector`) |
-| [firmware/](firmware/) | OpenCR 1.0 펌웨어 소스코드 |
+| [docs/](docs/) | 설계 문서 (ROS 2 데이터 흐름도 등) |
+| [ros2_ws/](ros2_ws/) | ROS 2 colcon 워크스페이스. `src/` 아래 4개 레이어 폴더(interfaces·perception·planning·control)에 `nz2_*` 패키지를 두고, 특정 레이어에 속하지 않는 `nz2_description`(로봇 모델)·`nz2_bringup`(통합 실행)은 `src/` 바로 아래에 둔다 |
+| [firmware/](firmware/) | OpenCR 1.0 펌웨어 소스코드. `opencr1_swerve`(스월브), `opencr2_arm`(로봇팔) |
 | [tools/](tools/README.md) | 개발·측정용 도구 모음. 대회 로봇 코드와 별개 (예: [팔 가동범위 측정](tools/arm_motor_range_check/README.md)) |
 
 ## 환경과 버전
@@ -134,13 +148,17 @@ lv2-nz2-project2/
 | vision_msgs | 4.2.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 인지 메시지 |
 | control_msgs | 6.10.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 팔·그리퍼 액션 |
 | cv_bridge | 4.1.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 영상 변환 |
-| MoveIt 2 | 2.15.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 팔 경로 계획 |
+| MoveIt 2 | 2.15.0 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 팔 경로 계획 후보 (q-motion과 택일, `[미정]`) |
+| joint_state_publisher | 2.4.3 | apt (NVIDIA Isaac ROS 저장소) | Jetson · URDF 확인용 (nz2_description) |
+| rviz2 | 15.2.5 | apt (NVIDIA Isaac ROS 저장소) | Jetson · 시각화·URDF 확인용 |
 | colcon-common-extensions / rosdep / vcstool | 0.3.0 / 0.27.0 / 0.3.0 | apt | Jetson · 빌드 도구 |
 | arduino-cli | 1.5.1 | GitHub 릴리스 (ARM64) | Jetson · OpenCR 펌웨어 빌드 |
 | OpenCR 코어 | 1.5.3 | [ROBOTIS-GIT/OpenCR](https://github.com/ROBOTIS-GIT/OpenCR) 릴리스 | Jetson · OpenCR 펌웨어 빌드 (fqbn `ROBOTIS:OpenCR:OpenCR`) |
 | Dynamixel2Arduino | 0.8.1 | 소스 (커밋 `cfbbaf7`) | Jetson · OpenCR 펌웨어 |
 | arm-none-eabi-g++ | 13.2.1 | apt (`gcc-arm-none-eabi`) | Jetson · OpenCR 펌웨어 컴파일러 |
 | opencr_ld | 커밋 `68ec75d` | 소스 빌드 (OpenCR 저장소) | Jetson · OpenCR 펌웨어 업로드 |
+| pyzbar | 0.1.9 (apt 후보값, Jetson 설치 후 `apt policy`로 확인) | apt `python3-pyzbar` (`libzbar0t64` 함께 설치) | Jetson · 바코드 판독 (nz2_perception) |
+| pytest | 7.4.4 | apt `python3-pytest` | 개발 PC · 코어 단위 테스트 (nz2_signal, nz2_mission) |
 | dynamixel-sdk (pip) | `[확인 필요]` | pip (`tools/arm_motor_range_check/requirements.txt`) | 개발 PC · 팔 가동범위 측정 도구 |
 | pyserial | `[확인 필요]` | pip (`tools/arm_motor_range_check/requirements.txt`) | 개발 PC · 팔 가동범위 측정 도구 |
 

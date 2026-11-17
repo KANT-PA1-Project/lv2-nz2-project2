@@ -1,0 +1,16 @@
+# nz2_swerve_nav/config/real_robot.yaml — 실물(6단계) 덮어쓰기. swerve_nav.yaml 다음에 로드 (real_nav.launch.py)
+#   swerve_nav.yaml 은 시뮬과 공용으로 두고, 실물에서만 다른 값만 여기
+swerve_controller:            # odom 전용 모드 (drive_enable false)
+  ros__parameters:
+    # 실물 조향 영점·바퀴 부호: real_wheel_check.py 결과로 정함. 0 / +1 이 기본
+    #   r12 가 보낸 조향 명령과 /r12/joint_states 측정이 같은 기준이면 0 그대로 (r12 명령 = URDF 관절각)
+    steer_offset: [0.0, 0.0, 0.0, 0.0]
+    wheel_sign: [1.0, 1.0, 1.0, 1.0]
+    steer_limit: 1.5708         # 실물 r12 조향 한계 ±90° (r12_real_overrides 와 같게). footprint 계산용
+    joint_state_timeout: 0.20   # 브리지 50 Hz → 0.2 s = 10프레임 누락
+
+scan_merger:
+  ros__parameters:
+    # LDS-03 은 10 Hz (단독 시험 3개 확인). 한 주기 0.1 s + 지연 여유
+    max_scan_age: 0.30
+    range_max: 12.0             # LDS-03 사양 0.05~12 m
