@@ -1,0 +1,37 @@
+{
+  "problem_id": "NZ2-Q1-review",
+  "package_status": "pending_physical_confirmation_and_peer_review",
+  "actual_inventory_confirmation": {
+    "status": "pending",
+    "date": null,
+    "operator": null,
+    "evidence": null
+  },
+  "physical_setup_confirmation": {
+    "status": "pending",
+    "date": null,
+    "operator": null,
+    "evidence": null
+  },
+  "other_team_review": {
+    "status": "pending",
+    "team": null,
+    "reviewer": null,
+    "date": null,
+    "result": null,
+    "evidence": null
+  },
+  "return_zone_confirmation": {
+    "status": "pending",
+    "polygon_mm": null,
+    "evidence": null
+  },
+  "destination_tag_mount_confirmation": {
+    "status": "pending",
+    "evidence": null
+  },
+  "submission_tag": {
+    "name": "project2-problem-submit",
+    "status": "pending"
+  }
+}
