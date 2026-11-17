@@ -55,7 +55,7 @@ TARGET_STAGE1 = {"x": (0.28, 0.38), "y": (-0.08, 0.08), "z": (0.12, 0.20)}   # �
 CURRICULUM_SWITCH_STEPS = 24 * 250               # 목표 범위 확대 시점 (약 250회차)
 SMOOTH_CURRICULUM_STEPS = 24 * 500               # 변화율·속도 벌점 강화 시점 (약 500회차, 범위 확대와 분리)
 ENTROPY_COEF = 0.005
-ARM_JOINTS = ["arm_joint[1-5]"]
+ARM_JOINTS = C.ARM_JOINT_REGEX                 # (11/12) R12: arm_joint1~5 / 전체 로봇: arm_yaw~wrist_roll
 
 
 def tcp_position_error(env, command_name: str, asset_cfg: SceneEntityCfg) -> torch.Tensor:

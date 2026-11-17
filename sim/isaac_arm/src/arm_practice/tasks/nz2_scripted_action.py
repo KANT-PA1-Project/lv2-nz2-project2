@@ -34,6 +34,7 @@ from isaaclab.managers import SceneEntityCfg
 from isaaclab.utils import math as math_utils
 
 from arm_practice.tasks import nz2_arm_kin as K
+from arm_practice.tasks import nz2_common as C
 
 P_WAIT, P_TO_VIA, P_DESCEND, P_APPROACH, P_CLOSE, P_LIFT, P_HOLD, P_DONE, P_SKIP, P_IDLE = range(10)
 PHASE_NAMES = ["WAIT", "TO_VIA", "DESCEND", "APPROACH", "CLOSE", "LIFT", "HOLD", "DONE", "SKIP", "IDLE"]
@@ -88,7 +89,7 @@ class NZ2ScriptedPickAction(JointPositionAction):
         self._written = False
         self._checked = False
         self._t0 = time.time()
-        self._l5 = SceneEntityCfg("robot", body_names=["arm_link5"])
+        self._l5 = SceneEntityCfg("robot", body_names=[C.L5_BODY])
         self._l5.resolve(env.scene)
         self._check_d435()
 

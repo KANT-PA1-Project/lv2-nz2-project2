@@ -170,12 +170,15 @@ def load_urdf_dims(urdf_path: str | None = None, config_path: str | None = None,
     if cfg and os.path.isfile(os.path.expanduser(cfg)):
         c = json.load(open(os.path.expanduser(cfg), encoding="utf-8"))
         names = list(c.get("joint_names", []))
-        if all(n in names for n in ARM_CHAIN):
-            idx = [names.index(n) for n in ARM_CHAIN]
+        full = c.get("robot") == "nz2_full"                      # (11/12) 전체 로봇: 관절 이름이 다르고 순서·부호는 R12 와 같음
+        if all(n in names for n in ARM_CHAIN) or (full and len(names) >= 5):
+            idx = [names.index(n) for n in ARM_CHAIN] if not full else [0, 1, 2, 3, 4]
             Q_LOWER = tuple(float(c["lower"][i]) for i in idx)
             Q_UPPER = tuple(float(c["upper"][i]) for i in idx)
         j1 = c.get("arm_j1_xyz")
-        if j1 is not None and "urdf_j1_xyz" in info:
+        if full:
+            info["usd_vs_urdf_j1_mm"] = "전체 로봇: 팔 장착 위치는 시뮬 FK 자기검사(TCP 20 mm)로 확인"
+        elif j1 is not None and "urdf_j1_xyz" in info:
             d = max(abs(a - b) for a, b in zip(j1, info["urdf_j1_xyz"]))
             info["usd_vs_urdf_j1_mm"] = round(d * 1000, 2)
             if d > 0.001:
