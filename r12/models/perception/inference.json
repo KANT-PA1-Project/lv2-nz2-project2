@@ -1,0 +1,14 @@
+{
+  "imgsz": 800,
+  "pose_views": "scale3_median",
+  "detector_confidence": 0.25,
+  "pose_confidence": 0.25,
+  "box_dimensions_m": [
+    0.205,
+    0.205,
+    0.07
+  ],
+  "box_dimensions_confirmed": false,
+  "selection_split": "val",
+  "nonrigid_boxes": "detection only; excluded from rigid-pose evaluation"
+}

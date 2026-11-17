@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="r12_no_usb_experimental">
+  <group name="arm"><chain base_link="base_link" tip_link="arm_link5"/></group>
+  <virtual_joint name="world_fixed" type="fixed" parent_frame="world" child_link="base_link"/>
+  <group_state name="home" group="arm">
+    <joint name="arm_joint1" value="0"/><joint name="arm_joint2" value="0"/>
+    <joint name="arm_joint3" value="0"/><joint name="arm_joint4" value="0"/>
+    <joint name="arm_joint5" value="0"/>
+  </group_state>
+  <disable_collisions link1="base_link" link2="arm_link1" reason="Adjacent"/>
+  <disable_collisions link1="arm_link1" link2="arm_link2" reason="Adjacent"/>
+  <disable_collisions link1="arm_link2" link2="arm_link3" reason="Adjacent"/>
+  <disable_collisions link1="arm_link3" link2="arm_link4" reason="Adjacent"/>
+  <disable_collisions link1="arm_link4" link2="arm_link5" reason="Adjacent"/>
+</robot>

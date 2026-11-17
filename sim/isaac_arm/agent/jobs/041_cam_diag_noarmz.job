@@ -1,0 +1,9 @@
+# 11/11 카메라 빈 화면 진단 2: 040(집기 경로 + r20d 팔 높이 0.209)은 wrist·top·percep 카메라 전부 빈 화면.
+#   같은 집기 경로에서 NZ2_CHASSIS 없이(팔 바닥 z 0, 카메라 점검 통과 조건과 같은 높이) → r20d 가 원인인지 확인
+MODE=percep-dump
+NZ2_LIE_ROLL=1
+NZ2_WAIT_S=2.0
+NZ2_CAM_CHECK=1
+NZ2_PERCEP_BLANK_ABORT=40
+NZ2_PERCEP_MAX=16
+STAGE=3

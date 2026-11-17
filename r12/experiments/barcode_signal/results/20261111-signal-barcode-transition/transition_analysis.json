@@ -1,0 +1,256 @@
+{
+  "source_log": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/mission_1794384817214095507.jsonl",
+  "recording_resolution": [
+    640,
+    480
+  ],
+  "offline_barcode_sample_stride": 6,
+  "offline_upscale": 1,
+  "first_failed_round": {
+    "partial_sequence": "YGGGGYYRRRGR",
+    "last_on_camera_s": 1794386701.114,
+    "failure_camera_s": 1794386701.714,
+    "failure_reason": "fixed_roi_body_lost",
+    "signal_complete": false,
+    "terminal_off_3s_confirmed": false
+  },
+  "completed_signal_archive": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/signal_record_1794384817214094371_5.json",
+  "completed_record": {
+    "sequence": [
+      "R",
+      "R",
+      "R",
+      "R",
+      "Y",
+      "Y",
+      "R",
+      "G",
+      "Y",
+      "R",
+      "G",
+      "G"
+    ],
+    "counts": {
+      "R": 6,
+      "Y": 3,
+      "G": 3
+    },
+    "signal_complete": true,
+    "completed_at_camera_s": 1794386869.0632484,
+    "run_id": 1794384817214094371,
+    "round_index": 5,
+    "scope": "completed_signal_observation_not_puck_allocation"
+  },
+  "events": [
+    {
+      "kind": "failure",
+      "reason": "Automatic preparation timeout; no READY issued"
+    },
+    {
+      "kind": "reset"
+    },
+    {
+      "kind": "arm",
+      "t_s": 1794386659.218635,
+      "confirmed_off": "prestart_off_contract",
+      "fixed_settings": true,
+      "preparation": {
+        "prestart_off_guaranteed": true,
+        "recovery_long_off_observed": false,
+        "stable_off_s": 1.0007092952728271,
+        "baseline_frames": 5,
+        "max_jitter_px": 3
+      }
+    },
+    {
+      "kind": "failure",
+      "reason": "Unknown signal color"
+    },
+    {
+      "kind": "signal_retry",
+      "t_s": 1794386701.7143638,
+      "failed_round": 1,
+      "failed_snapshot": {
+        "status": "error",
+        "error": "Unknown signal color",
+        "barcode": null,
+        "direction": null,
+        "sequence": [
+          "Y",
+          "G",
+          "G",
+          "G",
+          "G",
+          "Y",
+          "Y",
+          "R",
+          "R",
+          "R",
+          "G",
+          "R"
+        ],
+        "counts": {
+          "R": 4,
+          "Y": 3,
+          "G": 5
+        },
+        "signal_complete": false,
+        "locations": [],
+        "puck_allocation": "pending_inventory",
+        "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+        "barcodes": [],
+        "sortOrder": null,
+        "sortLabel": null
+      },
+      "detail": {
+        "color": "UNKNOWN",
+        "reason": "fixed_roi_body_lost"
+      },
+      "required_quiet_s": 2.5
+    },
+    {
+      "kind": "failure",
+      "reason": "Automatic preparation timeout; no READY issued"
+    },
+    {
+      "kind": "signal_retry",
+      "t_s": 1794386731.7683218,
+      "failed_round": 2,
+      "failed_snapshot": {
+        "status": "error",
+        "error": "Automatic preparation timeout; no READY issued",
+        "barcode": "P2-01",
+        "direction": "ascending",
+        "sequence": [],
+        "counts": {
+          "R": 0,
+          "Y": 0,
+          "G": 0
+        },
+        "signal_complete": false,
+        "locations": [],
+        "puck_allocation": "pending_inventory",
+        "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+        "barcodes": [
+          {
+            "barcode": "P2-01",
+            "sortOrder": "ASC",
+            "sortLabel": "오름차순"
+          }
+        ],
+        "sortOrder": "ASC",
+        "sortLabel": "오름차순"
+      },
+      "detail": {
+        "reason": "retry_preparation_timeout"
+      },
+      "required_quiet_s": 2.5
+    },
+    {
+      "kind": "failure",
+      "reason": "Automatic preparation timeout; no READY issued"
+    },
+    {
+      "kind": "signal_retry",
+      "t_s": 1794386761.8226414,
+      "failed_round": 3,
+      "failed_snapshot": {
+        "status": "error",
+        "error": "Automatic preparation timeout; no READY issued",
+        "barcode": "P2-01",
+        "direction": "ascending",
+        "sequence": [],
+        "counts": {
+          "R": 0,
+          "Y": 0,
+          "G": 0
+        },
+        "signal_complete": false,
+        "locations": [],
+        "puck_allocation": "pending_inventory",
+        "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+        "barcodes": [
+          {
+            "barcode": "P2-01",
+            "sortOrder": "ASC",
+            "sortLabel": "오름차순"
+          }
+        ],
+        "sortOrder": "ASC",
+        "sortLabel": "오름차순"
+      },
+      "detail": {
+        "reason": "retry_preparation_timeout"
+      },
+      "required_quiet_s": 2.5
+    },
+    {
+      "kind": "arm",
+      "t_s": 1794386774.4643853,
+      "confirmed_off": "retry_long_off",
+      "fixed_settings": true,
+      "preparation": {
+        "prestart_off_guaranteed": false,
+        "recovery_long_off_observed": true,
+        "stable_off_s": 2.5017409324645996,
+        "baseline_frames": 5,
+        "max_jitter_px": 3
+      }
+    },
+    {
+      "kind": "failure",
+      "reason": "Unknown signal color"
+    },
+    {
+      "kind": "signal_retry",
+      "t_s": 1794386797.0799983,
+      "failed_round": 4,
+      "failed_snapshot": {
+        "status": "error",
+        "error": "Unknown signal color",
+        "barcode": "P2-01",
+        "direction": "ascending",
+        "sequence": [
+          "R"
+        ],
+        "counts": {
+          "R": 1,
+          "Y": 0,
+          "G": 0
+        },
+        "signal_complete": false,
+        "locations": [],
+        "puck_allocation": "pending_inventory",
+        "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+        "barcodes": [
+          {
+            "barcode": "P2-01",
+            "sortOrder": "ASC",
+            "sortLabel": "오름차순"
+          }
+        ],
+        "sortOrder": "ASC",
+        "sortLabel": "오름차순"
+      },
+      "detail": {
+        "color": "UNKNOWN",
+        "reason": "fixed_roi_body_lost"
+      },
+      "required_quiet_s": 2.5
+    },
+    {
+      "kind": "arm",
+      "t_s": 1794386822.6310358,
+      "confirmed_off": "retry_long_off",
+      "fixed_settings": true,
+      "preparation": {
+        "prestart_off_guaranteed": false,
+        "recovery_long_off_observed": true,
+        "stable_off_s": 2.5017542839050293,
+        "baseline_frames": 5,
+        "max_jitter_px": 3
+      }
+    }
+  ],
+  "scope": "Latest two recorded videos and matching log; no live camera run performed after UI/guard change."
+}

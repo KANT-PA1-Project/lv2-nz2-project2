@@ -1,0 +1,17 @@
+#usda 1.0
+(
+    defaultPrim = "Robot"
+)
+
+def Xform "Robot" (
+    delete apiSchemas = ["PhysicsArticulationRootAPI"]
+    prepend references = @r12_mobile_gripper.usda@
+)
+{
+    over "base_link" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI"]
+    )
+    {
+    }
+}
+

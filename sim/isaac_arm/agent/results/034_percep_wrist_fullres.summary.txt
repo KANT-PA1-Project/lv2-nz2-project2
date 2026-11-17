@@ -1,0 +1,58 @@
+[NZ2] 차체 R20D: 팔 베이스 z 0.209 m, 차체 중심→팔 0.12 m, 팔→차체 앞끝(박스 기준) 0.100 m, 차체 충돌 근사 0.0,0.105,0.197
+[NZ2] 팔 높이 z 0.209 관측 자세 자동 탐색: (0.0, -1.548, 0.393, 1.622, 0.0) {'mean_depth_m': 0.412, 'occl_mm': 22.0}
+[NZ2-KIN] 차체 충돌 근사 (NZ2_CHASSIS_KEEPOUT): ((0.0, 0.105, 0.197),)
+[NZ2-KIN] 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf: 어깨 0.0595, L2 (0.0240, 0.1854), L3 0.1490, j4→j5 0.06635, TCP 0.1050 m / URDF FK 대조 최대 0.0 mm
+[NZ2-RES] α=0.1 (팔 5축, 최대 속도 비율), 인식 오차 편향 σ xy 6.0 / z 2.0 mm + 잡음 σ xy 0.0 / z 0.0 mm, 오프셋 한계 ±0.08 rad, 잔차 단계 ['APPROACH', 'CLOSE', 'LIFT'], 닫기 전 손끝 게이트 끔, 옆 퍽 장애물 켬 (여유 3 mm), via 들어올림 +60 mm, 누운 퍽 잡기 높이 +5 mm, 누운 퍽 롤 맞춤 켬 (기울기 한계 25°, yaw 편향 σ 5°)
+[NZ2-RES] 정지 확인 게이트: 켬 (via·pre, 추종 오차 < 0.02 rad + 관절속도 < 0.05 rad/s, 0.2 s 유지, 최대 1.0 s)
+[NZ2-RES] 처짐 보상: ki 3.0 /s, 최대 0.15 rad, 모드 static (명령 관절속도 < 0.05 rad/s 일 때만 적분)
+[NZ2-RES] FK 자기검사(시뮬 vs 해석 FK): TCP 오차 최대 0.0 mm (J1_Z=0.209, ARM_Z=0.209, 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf, URDF FK 대조 0.0 mm)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 0): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 1, 누적 1)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 1): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 2, 누적 2)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 2): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 3, 누적 3)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 3): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 4, 누적 4)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 4): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 5, 누적 5)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 5): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 6, 누적 6)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 6): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 7, 누적 7)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 7): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 8, 누적 8)
+[NZ2-PERCEP][오류] 처음 8장 연속 빈 영상 → 카메라 렌더 문제, 중단 (센서 wrist_cam)
+--- 꼬리 ---
+|   3   | contact_arm_link3_pen |   -2.0 |
+|   4   | contact_arm_link4_pen |   -2.0 |
+|   5   | contact_arm_link5_pen |   -2.0 |
+|   6   | contact_termination   |  -10.0 |
+|   7   | contact_fbad_l_pen    |   -2.0 |
+|   8   | contact_fbad_r_pen    |   -2.0 |
+|   9   | grasp                 |    2.0 |
+|   10  | lift                  |    5.0 |
+|   11  | success_bonus         |   20.0 |
+|   12  | wrong_touch           |   -1.0 |
+|   13  | puck_fail             |  -10.0 |
+|   14  | res_l2                |  -0.01 |
++-------+-----------------------+--------+
+
+[INFO] Curriculum Manager:  <CurriculumManager> contains 2 active terms.
++-------------------------+
+| Active Curriculum Terms |
++-------+-----------------+
+| Index | Name            |
++-------+-----------------+
+|   0   | vispick_stage   |
+|   1   | success_rate    |
++-------+-----------------+
+
+[INFO]: Completed setting up the environment...
+[INFO]: Gym observation space: Dict('critic': Box(-inf, inf, (8, 79), float32), 'policy': Box(-inf, inf, (8, 60), float32), 'top_cam': Box(-inf, inf, (8, 4, 96, 128), float32), 'wrist_cam': Box(-inf, inf, (8, 4, 96, 128), float32))
+[INFO]: Gym action space: Box(-inf, inf, (8, 6), float32)
+[INFO] Zero agent is running, press Ctrl+C to exit...
+[NZ2-RES] FK 자기검사(시뮬 vs 해석 FK): TCP 오차 최대 0.0 mm (J1_Z=0.209, ARM_Z=0.209, 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf, URDF FK 대조 0.0 mm)
+Warp CUDA error 219: invalid OpenGL or DirectX context (in function wp_cuda_graphics_register_gl_buffer, /builds/omniverse/warp/warp/native/warp.cu:5717)
+Warp UserWarning: Could not register GL buffer since CUDA/OpenGL interoperability is not available. Falling back to copy operations between the Warp array and the OpenGL buffer.
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 0): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 1, 누적 1)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 1): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 2, 누적 2)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 2): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 3, 누적 3)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 3): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 4, 누적 4)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 4): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 5, 누적 5)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 5): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 6, 누적 6)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 6): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 7, 누적 7)
+[NZ2-PERCEP][경고] 빈 영상 건너뜀 (look, env 7): RGB 표준편차 0.00, 깊이 유효 0.000 (연속 8, 누적 8)
+[NZ2-PERCEP][오류] 처음 8장 연속 빈 영상 → 카메라 렌더 문제, 중단 (센서 wrist_cam)

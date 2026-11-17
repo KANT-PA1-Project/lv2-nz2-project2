@@ -1,0 +1,171 @@
+{
+  "sequence": "RGYRGYGRGRGG",
+  "sequence_counts": {
+    "R": 4,
+    "Y": 2,
+    "G": 6
+  },
+  "frames": 70,
+  "full_frames": 570,
+  "smoke_or_truncated": true,
+  "r12_src": "/home/pa33/git/lv2-nz2-project2/r12/src",
+  "tower_signal_source": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py",
+  "field_scene_source": "/home/pa33/git/lv2-nz2-project2/r12/models/navigation/mission_scene.usda",
+  "excluded_field_prims": [
+    "/World/Mission/StartPanel/Board",
+    "/World/Mission/StartPanel/Barcode"
+  ],
+  "maze_prim_count": 214,
+  "renderer": "PathTracing",
+  "scene_saved": false,
+  "camera_mode": "start",
+  "field": true,
+  "camera_height_m": null,
+  "pose_error_m": 0.0,
+  "dome": 1800.0,
+  "subframes": 2,
+  "resolution": [
+    640,
+    480
+  ],
+  "K": [
+    [
+      400.0,
+      0.0,
+      319.5
+    ],
+    [
+      0.0,
+      400.0,
+      239.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "tower": {
+    "xy_m": [
+      0.12,
+      0.95
+    ],
+    "base_z_m": 0.0,
+    "lens_diameter_m": 0.0396,
+    "tiers": {
+      "G": [
+        0.08445,
+        0.11935
+      ],
+      "Y": [
+        0.12045,
+        0.15535
+      ],
+      "R": [
+        0.15645,
+        0.19135
+      ]
+    }
+  },
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "results": [
+    {
+      "frames": 70,
+      "frame_matches": 70,
+      "truth": "OOOOOOOOOOOOOOOOOOOORRRRRRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOOOOGGGGGGGGGG",
+      "predicted": "OOOOOOOOOOOOOOOOOOOORRRRRRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOOOOGGGGGGGGGG",
+      "sequence_match": null,
+      "recorded_sequence": null,
+      "recorder_error": null,
+      "frame_accuracy": null,
+      "legacy": {
+        "frame_matches": 50
+      },
+      "decision_counts": {
+        "off": 40,
+        "dominant_bloom": 20,
+        "single": 10
+      },
+      "frame_trace": "frames_e1_0.5m.jsonl",
+      "camera_world": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 1.0,
+      "distance_m": 0.5286795060766747,
+      "unknown_reasons": {},
+      "lit_ratio_min": {
+        "R": 1.0,
+        "Y": null,
+        "G": 0.8429752066115702
+      },
+      "lens_px": [
+        18,
+        17
+      ]
+    }
+  ],
+  "passed": null,
+  "conditions": 1,
+  "scope": "단독 렌더 시험의 조건별 성공·실패 기록. 이 해상도·화각·렌더 설정에서만 유효. 로봇·위치추정·ROS·실물 카메라·실물 신호등 판정 근거가 아님"
+}

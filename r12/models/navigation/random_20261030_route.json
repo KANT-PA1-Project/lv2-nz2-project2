@@ -1,0 +1,364 @@
+{
+  "fixture": "Solvable synthetic random practice seed 20261030; no perception evidence",
+  "scope": "Navigation-only synthetic practice itinerary. Arrival is NOT pickup, placement, signal recognition, or visual re-verification. No payload is attached.",
+  "allocation": {
+    "evidence_kind": "planner_output_not_observation",
+    "sequence": [
+      "Y",
+      "G",
+      "Y",
+      "Y",
+      "G",
+      "G",
+      "R",
+      "R",
+      "R",
+      "R",
+      "Y",
+      "R"
+    ],
+    "counts": {
+      "Y": 4,
+      "G": 3,
+      "R": 5
+    },
+    "barcode": "P2-02",
+    "locations": [
+      {
+        "location": "L1",
+        "group": "R",
+        "targets": [
+          {
+            "id": 1,
+            "center_m": [
+              3.61,
+              1.01,
+              0.1
+            ]
+          },
+          {
+            "id": 6,
+            "center_m": [
+              3.73,
+              1.01,
+              0.1
+            ]
+          },
+          {
+            "id": 9,
+            "center_m": [
+              3.67,
+              0.95,
+              0.1
+            ]
+          },
+          {
+            "id": 10,
+            "center_m": [
+              3.61,
+              0.8899999999999999,
+              0.1
+            ]
+          },
+          {
+            "id": 11,
+            "center_m": [
+              3.73,
+              0.8899999999999999,
+              0.1
+            ]
+          }
+        ]
+      },
+      {
+        "location": "L2",
+        "group": "Y",
+        "targets": [
+          {
+            "id": 2,
+            "center_m": [
+              2.142,
+              3.7600000000000002,
+              0.1
+            ]
+          },
+          {
+            "id": 3,
+            "center_m": [
+              2.262,
+              3.7600000000000002,
+              0.1
+            ]
+          },
+          {
+            "id": 4,
+            "center_m": [
+              2.142,
+              3.64,
+              0.1
+            ]
+          },
+          {
+            "id": 5,
+            "center_m": [
+              2.262,
+              3.64,
+              0.1
+            ]
+          }
+        ]
+      },
+      {
+        "location": "L3",
+        "group": "G",
+        "targets": [
+          {
+            "id": 0,
+            "center_m": [
+              3.61,
+              5.414,
+              0.1
+            ]
+          },
+          {
+            "id": 7,
+            "center_m": [
+              3.67,
+              5.354,
+              0.1
+            ]
+          },
+          {
+            "id": 8,
+            "center_m": [
+              3.73,
+              5.2940000000000005,
+              0.1
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "points": {
+    "START": [
+      0.734,
+      0.95
+    ],
+    "S1": [
+      2.018,
+      0.95
+    ],
+    "S2": [
+      3.8804758878007997,
+      2.6438662571187925
+    ],
+    "S3": [
+      2.936,
+      4.804
+    ],
+    "S4": [
+      0.734,
+      5.904
+    ],
+    "S5": [
+      2.202,
+      5.904
+    ],
+    "S6": [
+      3.1618662571187923,
+      4.0964758878008
+    ],
+    "L1": [
+      3.12,
+      0.9500000000000001
+    ],
+    "L2": [
+      2.752,
+      3.7
+    ],
+    "L3": [
+      4.058908729652601,
+      5.742908729652601
+    ]
+  },
+  "steps": [
+    {
+      "station": "S4",
+      "phase": "inventory_approach"
+    },
+    {
+      "station": "S5",
+      "phase": "inventory_approach"
+    },
+    {
+      "station": "S3",
+      "phase": "inventory_approach"
+    },
+    {
+      "station": "S6",
+      "phase": "inventory_approach"
+    },
+    {
+      "station": "S1",
+      "phase": "inventory_approach"
+    },
+    {
+      "station": "S2",
+      "phase": "inventory_approach"
+    },
+    {
+      "station": "S2",
+      "phase": "pickup_approach",
+      "puck_id": 8
+    },
+    {
+      "station": "L3",
+      "phase": "placement_approach",
+      "puck_id": 8
+    },
+    {
+      "station": "S4",
+      "phase": "pickup_approach",
+      "puck_id": 10
+    },
+    {
+      "station": "L1",
+      "phase": "placement_approach",
+      "puck_id": 10
+    },
+    {
+      "station": "S1",
+      "phase": "pickup_approach",
+      "puck_id": 3
+    },
+    {
+      "station": "L2",
+      "phase": "placement_approach",
+      "puck_id": 3
+    },
+    {
+      "station": "S6",
+      "phase": "pickup_approach",
+      "puck_id": 5
+    },
+    {
+      "station": "L2",
+      "phase": "placement_approach",
+      "puck_id": 5
+    },
+    {
+      "station": "S4",
+      "phase": "pickup_approach",
+      "puck_id": 9
+    },
+    {
+      "station": "L1",
+      "phase": "placement_approach",
+      "puck_id": 9
+    },
+    {
+      "station": "S5",
+      "phase": "pickup_approach",
+      "puck_id": 4
+    },
+    {
+      "station": "L2",
+      "phase": "placement_approach",
+      "puck_id": 4
+    },
+    {
+      "station": "S6",
+      "phase": "pickup_approach",
+      "puck_id": 2
+    },
+    {
+      "station": "L2",
+      "phase": "placement_approach",
+      "puck_id": 2
+    },
+    {
+      "station": "S5",
+      "phase": "pickup_approach",
+      "puck_id": 6
+    },
+    {
+      "station": "L1",
+      "phase": "placement_approach",
+      "puck_id": 6
+    },
+    {
+      "station": "S2",
+      "phase": "pickup_approach",
+      "puck_id": 7
+    },
+    {
+      "station": "L3",
+      "phase": "placement_approach",
+      "puck_id": 7
+    },
+    {
+      "station": "S3",
+      "phase": "pickup_approach",
+      "puck_id": 0
+    },
+    {
+      "station": "L3",
+      "phase": "placement_approach",
+      "puck_id": 0
+    },
+    {
+      "station": "S3",
+      "phase": "pickup_approach",
+      "puck_id": 11
+    },
+    {
+      "station": "L1",
+      "phase": "placement_approach",
+      "puck_id": 11
+    },
+    {
+      "station": "S1",
+      "phase": "pickup_approach",
+      "puck_id": 1
+    },
+    {
+      "station": "L1",
+      "phase": "placement_approach",
+      "puck_id": 1
+    },
+    {
+      "station": "L1",
+      "phase": "verification_approach"
+    },
+    {
+      "station": "L2",
+      "phase": "verification_approach"
+    },
+    {
+      "station": "L3",
+      "phase": "verification_approach"
+    },
+    {
+      "station": "START",
+      "phase": "return"
+    }
+  ],
+  "planned_grid_distance_m": 117.84464063610147,
+  "job_order": [
+    11,
+    3,
+    6,
+    8,
+    2,
+    7,
+    5,
+    1,
+    10,
+    9,
+    4,
+    0
+  ],
+  "all_pair_paths_connected": 100,
+  "planner": "A* collision-grid distances; shortest survey permutation, then exact single-puck transfer-order DP and verification order."
+}

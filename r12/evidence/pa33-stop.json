@@ -1,0 +1,21 @@
+{
+  "stopped_at": 1793869451.7718062,
+  "reason": "User latest instruction: local only, remote stopped, no new launch",
+  "owned_active_pid_count": 0,
+  "experiment_lock_count": 0,
+  "latest_run": "pa33_callback_view_v135_20261105",
+  "latest_source": "/home/pa33/.cache/isaac-fleet-r12/callback_native_v135",
+  "source_manifest_sha256": "1e15b308ed2461efedc78e3c4d3d73d81c99651dd3c2ad20e7ee655378a3abb8",
+  "model_root": "/home/pa33/.cache/isaac-fleet-r12/mission_native_perception_v23/models/perception",
+  "model_pins": {
+    "inference.json": "55ef3bd1d17d7a27dc85b0e86d66e085cfa0b165fbfc3bc5e332a75a80230bc5",
+    "yolo/weights/best.pt": "e844ec62ac01bb42272ce4a05f2f39128e2d57306b9857d96ef855c10757c473",
+    "centerpose/best.pt": "3ed5fe5711a5d96298a829a491ab0b1cc33f642434a3e3dc0a166ba60b2d1ae4"
+  },
+  "verified_model_hashes": {
+    "inference.json": "55ef3bd1d17d7a27dc85b0e86d66e085cfa0b165fbfc3bc5e332a75a80230bc5",
+    "yolo/weights/best.pt": "e844ec62ac01bb42272ce4a05f2f39128e2d57306b9857d96ef855c10757c473",
+    "centerpose/best.pt": "3ed5fe5711a5d96298a829a491ab0b1cc33f642434a3e3dc0a166ba60b2d1ae4"
+  },
+  "native_admission": false
+}

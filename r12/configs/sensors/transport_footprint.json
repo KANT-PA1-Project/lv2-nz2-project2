@@ -1,0 +1,64 @@
+{
+  "vertices": [
+    [
+      0.26478492744920584,
+      0.06325961274108932
+    ],
+    [
+      0.26478492744920584,
+      -0.06325961274108932
+    ],
+    [
+      0.2387585776901105,
+      -0.23912160953423583
+    ],
+    [
+      0.13444311248080673,
+      -0.250223375253845
+    ],
+    [
+      -0.12634649868183226,
+      -0.25022337525384497
+    ],
+    [
+      -0.14608812919796896,
+      -0.24920013247400274
+    ],
+    [
+      -0.2390915598782346,
+      -0.2390657782298032
+    ],
+    [
+      -0.250223375253845,
+      -0.13444298654347742
+    ],
+    [
+      -0.250223375253845,
+      0.13444298654347742
+    ],
+    [
+      -0.2390915598782346,
+      0.2390657782298032
+    ],
+    [
+      -0.14608812919796896,
+      0.24920013247400274
+    ],
+    [
+      -0.12634649868183226,
+      0.25022337525384497
+    ],
+    [
+      0.13444311248080673,
+      0.250223375253845
+    ],
+    [
+      0.2387585776901105,
+      0.23912160953423583
+    ]
+  ],
+  "padding_m": 0.04,
+  "source": "Sampled CAD collision geometry at transport arm poses and all sampled steering angles; includes open gripper.",
+  "restriction": "Base translation permitted only with transport arm held; other arm poses need regenerated envelope.",
+  "padding_evidence": "Static2cm map fixedyawpi:4.5cm connects all10station centers;5cm blocks S6dock.4cm candidate; dynamic validation pending."
+}

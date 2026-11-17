@@ -1,0 +1,2361 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def Xform "Maze"
+    {
+        double3 xformOp:translate = (2.2345244884490967, 3.213563919067383, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Xform "Geometry" (
+            prepend references = @../../assets/vendor/maze/maze.usda@
+        )
+        {
+            over "wall_edge"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+
+            over "wall_e0"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+
+            over "wall_d0"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+
+            over "wall_c0"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+
+            over "wall_b2"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+
+            over "wall_b1"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+
+            over "wall_b0"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+
+            over "wall_a1"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+
+            over "wall_a0"
+            {
+                over "wall"
+                {
+                    over "geo" (
+                        prepend apiSchemas = ["MaterialBindingAPI"]
+                    )
+                    {
+                        rel material:binding = </World/FixtureMaterials/OpaqueAcrylic>
+                        float[] primvars:displayOpacity = [1]
+                    }
+                }
+            }
+        }
+    }
+
+    def "Tables"
+    {
+        def Cube "S1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (1.468, 0.95, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "S2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (3.67, 3.152, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "S3" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (2.936, 5.354, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "S4" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (0.734, 5.354, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "S5" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (2.202, 5.354, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "S6" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (3.67, 3.886, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "L1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (3.67, 0.95, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "L3" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (3.67, 5.354, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Cube "L2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            color3f[] primvars:displayColor = [(0.48, 0.3, 0.15)]
+            double size = 1
+            float3 xformOp:scale = (0.205, 0.205, 0.07)
+            double3 xformOp:translate = (2.202, 3.7, 0.035)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def "FixtureMaterials"
+    {
+        def Material "OpaqueAcrylic"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/OpaqueAcrylic/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.0611, 0.0807, 0.163)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+
+        def Material "R"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/R/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.7, 0.025, 0.025)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+
+        def Material "G"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/G/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.025, 0.55, 0.04)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+
+        def Material "Tag0"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag0/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag0/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-0.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag0/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag1"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag1/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag1/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-1.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag1/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag2"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag2/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag2/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-2.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag2/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag3"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag3/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag3/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-3.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag3/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag4"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag4/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag4/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-4.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag4/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag5"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag5/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag5/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-5.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag5/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag6"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag6/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag6/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-6.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag6/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag7"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag7/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag7/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-7.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag7/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag8"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag8/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag8/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-8.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag8/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag9"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag9/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag9/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-9.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag9/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag10"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag10/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag10/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-10.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag10/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Tag11"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Tag11/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Tag11/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/tag36h11-11.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Tag11/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Panel"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Panel/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.08, 0.08, 0.08)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+
+        def Material "Code128"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/Code128/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/FixtureMaterials/Code128/Texture.outputs:rgb>
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @textures/mission_code128.png@
+                float2 inputs:st.connect = </World/FixtureMaterials/Code128/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "LampR"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/LampR/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.015, 0.015, 0.015)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+
+        def Material "LampY"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/LampY/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.015, 0.015, 0.015)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+
+        def Material "LampG"
+        {
+            token outputs:surface.connect = </World/FixtureMaterials/LampG/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.015, 0.015, 0.015)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+    }
+
+    def "Pucks"
+    {
+        def Xform "Puck0" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (2.891, 5.354, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/G>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag0>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag0>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag0>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag0>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag0>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag0>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck1" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (1.423, 0.95, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cylinder "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                uniform token axis = "Z"
+                double height = 0.06
+                rel material:binding = </World/FixtureMaterials/R>
+                double radius = 0.015
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag1>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag1>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "side"
+            {
+                matrix4d xformOp:transform = ( (0, 1, 0, 0), (0, 0, 1, 0), (1, 0, 0, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+                    int[] faceVertexIndices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95]
+                    rel material:binding = </World/FixtureMaterials/Tag1>
+                    point3f[] points = [(-0.009278372, -0.01, -0.0032057576), (-0.008608859, -0.01, -0.0027097547), (-0.008608859, 0.01, -0.0027097547), (-0.009278372, 0.01, -0.0032057576), (-0.008608859, -0.01, -0.0027097547), (-0.007912888, -0.01, -0.002251616), (-0.007912888, 0.01, -0.002251616), (-0.008608859, 0.01, -0.0027097547), (-0.007912888, -0.01, -0.002251616), (-0.0071925987, -0.01, -0.0018327492), (-0.0071925987, 0.01, -0.0018327492), (-0.007912888, 0.01, -0.002251616), (-0.0071925987, -0.01, -0.0018327492), (-0.0064502037, -0.01, -0.001454442), (-0.0064502037, 0.01, -0.001454442), (-0.0071925987, 0.01, -0.0018327492), (-0.0064502037, -0.01, -0.001454442), (-0.005687985, -0.01, -0.0011178569), (-0.005687985, 0.01, -0.0011178569), (-0.0064502037, 0.01, -0.001454442), (-0.005687985, -0.01, -0.0011178569), (-0.0049082856, -0.01, -0.0008240283), (-0.0049082856, 0.01, -0.0008240283), (-0.005687985, 0.01, -0.0011178569), (-0.0049082856, -0.01, -0.0008240283), (-0.0041135014, -0.01, -0.0005738592), (-0.0041135014, 0.01, -0.0005738592), (-0.0049082856, 0.01, -0.0008240283), (-0.0041135014, -0.01, -0.0005738592), (-0.003306075, -0.01, -0.00036811855), (-0.003306075, 0.01, -0.00036811855), (-0.0041135014, 0.01, -0.0005738592), (-0.003306075, -0.01, -0.00036811855), (-0.002488488, -0.01, -0.00020743857), (-0.002488488, 0.01, -0.00020743857), (-0.003306075, 0.01, -0.00036811855), (-0.002488488, -0.01, -0.00020743857), (-0.0016632531, -0.01, -0.00009231312), (-0.0016632531, 0.01, -0.00009231312), (-0.002488488, 0.01, -0.00020743857), (-0.0016632531, -0.01, -0.00009231312), (-0.00083290646, -0.01, -0.000023096027), (-0.00083290646, 0.01, -0.000023096027), (-0.0016632531, 0.01, -0.00009231312), (-0.00083290646, -0.01, -0.000023096027), (0, -0.01, 0), (0, 0.01, 0), (-0.00083290646, 0.01, -0.000023096027), (0, -0.01, 0), (0.00083290646, -0.01, -0.000023096027), (0.00083290646, 0.01, -0.000023096027), (0, 0.01, 0), (0.00083290646, -0.01, -0.000023096027), (0.0016632531, -0.01, -0.00009231312), (0.0016632531, 0.01, -0.00009231312), (0.00083290646, 0.01, -0.000023096027), (0.0016632531, -0.01, -0.00009231312), (0.002488488, -0.01, -0.00020743857), (0.002488488, 0.01, -0.00020743857), (0.0016632531, 0.01, -0.00009231312), (0.002488488, -0.01, -0.00020743857), (0.003306075, -0.01, -0.00036811855), (0.003306075, 0.01, -0.00036811855), (0.002488488, 0.01, -0.00020743857), (0.003306075, -0.01, -0.00036811855), (0.0041135014, -0.01, -0.0005738592), (0.0041135014, 0.01, -0.0005738592), (0.003306075, 0.01, -0.00036811855), (0.0041135014, -0.01, -0.0005738592), (0.0049082856, -0.01, -0.0008240283), (0.0049082856, 0.01, -0.0008240283), (0.0041135014, 0.01, -0.0005738592), (0.0049082856, -0.01, -0.0008240283), (0.005687985, -0.01, -0.0011178569), (0.005687985, 0.01, -0.0011178569), (0.0049082856, 0.01, -0.0008240283), (0.005687985, -0.01, -0.0011178569), (0.0064502037, -0.01, -0.001454442), (0.0064502037, 0.01, -0.001454442), (0.005687985, 0.01, -0.0011178569), (0.0064502037, -0.01, -0.001454442), (0.0071925987, -0.01, -0.0018327492), (0.0071925987, 0.01, -0.0018327492), (0.0064502037, 0.01, -0.001454442), (0.0071925987, -0.01, -0.0018327492), (0.007912888, -0.01, -0.002251616), (0.007912888, 0.01, -0.002251616), (0.0071925987, 0.01, -0.0018327492), (0.007912888, -0.01, -0.002251616), (0.008608859, -0.01, -0.0027097547), (0.008608859, 0.01, -0.0027097547), (0.007912888, 0.01, -0.002251616), (0.008608859, -0.01, -0.0027097547), (0.009278372, -0.01, -0.0032057576), (0.009278372, 0.01, -0.0032057576), (0.008608859, 0.01, -0.0027097547)]
+                    texCoord2f[] primvars:st = [(0, 0), (0.041666668, 0), (0.041666668, 1), (0, 1), (0.041666668, 0), (0.083333336, 0), (0.083333336, 1), (0.041666668, 1), (0.083333336, 0), (0.125, 0), (0.125, 1), (0.083333336, 1), (0.125, 0), (0.16666667, 0), (0.16666667, 1), (0.125, 1), (0.16666667, 0), (0.20833333, 0), (0.20833333, 1), (0.16666667, 1), (0.20833333, 0), (0.25, 0), (0.25, 1), (0.20833333, 1), (0.25, 0), (0.29166666, 0), (0.29166666, 1), (0.25, 1), (0.29166666, 0), (0.33333334, 0), (0.33333334, 1), (0.29166666, 1), (0.33333334, 0), (0.375, 0), (0.375, 1), (0.33333334, 1), (0.375, 0), (0.41666666, 0), (0.41666666, 1), (0.375, 1), (0.41666666, 0), (0.45833334, 0), (0.45833334, 1), (0.41666666, 1), (0.45833334, 0), (0.5, 0), (0.5, 1), (0.45833334, 1), (0.5, 0), (0.5416667, 0), (0.5416667, 1), (0.5, 1), (0.5416667, 0), (0.5833333, 0), (0.5833333, 1), (0.5416667, 1), (0.5833333, 0), (0.625, 0), (0.625, 1), (0.5833333, 1), (0.625, 0), (0.6666667, 0), (0.6666667, 1), (0.625, 1), (0.6666667, 0), (0.7083333, 0), (0.7083333, 1), (0.6666667, 1), (0.7083333, 0), (0.75, 0), (0.75, 1), (0.7083333, 1), (0.75, 0), (0.7916667, 0), (0.7916667, 1), (0.75, 1), (0.7916667, 0), (0.8333333, 0), (0.8333333, 1), (0.7916667, 1), (0.8333333, 0), (0.875, 0), (0.875, 1), (0.8333333, 1), (0.875, 0), (0.9166667, 0), (0.9166667, 1), (0.875, 1), (0.9166667, 0), (0.9583333, 0), (0.9583333, 1), (0.9166667, 1), (0.9583333, 0), (1, 0), (1, 1), (0.9583333, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck2" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (3.625, 3.886, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/R>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag2>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag2>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag2>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag2>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag2>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag2>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck3" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (1.513, 0.95, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/R>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag3>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag3>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag3>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag3>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag3>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag3>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck4" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (2.157, 5.354, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/R>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag4>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag4>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag4>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag4>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag4>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag4>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck5" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (3.715, 3.886, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/R>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag5>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag5>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag5>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag5>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag5>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag5>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck6" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (2.247, 5.354, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/R>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag6>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag6>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag6>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag6>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag6>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag6>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck7" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (3.625, 3.152, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/G>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag7>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag7>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag7>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag7>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag7>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag7>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck8" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (3.715, 3.152, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/G>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag8>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag8>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag8>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag8>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag8>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag8>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck9" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (0.689, 5.354, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/R>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag9>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag9>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag9>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag9>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag9>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag9>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck10" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (0.779, 5.354, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cylinder "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                uniform token axis = "Z"
+                double height = 0.06
+                rel material:binding = </World/FixtureMaterials/R>
+                double radius = 0.015
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag10>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag10>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "side"
+            {
+                matrix4d xformOp:transform = ( (0, 1, 0, 0), (0, 0, 1, 0), (1, 0, 0, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+                    int[] faceVertexIndices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95]
+                    rel material:binding = </World/FixtureMaterials/Tag10>
+                    point3f[] points = [(-0.009278372, -0.01, -0.0032057576), (-0.008608859, -0.01, -0.0027097547), (-0.008608859, 0.01, -0.0027097547), (-0.009278372, 0.01, -0.0032057576), (-0.008608859, -0.01, -0.0027097547), (-0.007912888, -0.01, -0.002251616), (-0.007912888, 0.01, -0.002251616), (-0.008608859, 0.01, -0.0027097547), (-0.007912888, -0.01, -0.002251616), (-0.0071925987, -0.01, -0.0018327492), (-0.0071925987, 0.01, -0.0018327492), (-0.007912888, 0.01, -0.002251616), (-0.0071925987, -0.01, -0.0018327492), (-0.0064502037, -0.01, -0.001454442), (-0.0064502037, 0.01, -0.001454442), (-0.0071925987, 0.01, -0.0018327492), (-0.0064502037, -0.01, -0.001454442), (-0.005687985, -0.01, -0.0011178569), (-0.005687985, 0.01, -0.0011178569), (-0.0064502037, 0.01, -0.001454442), (-0.005687985, -0.01, -0.0011178569), (-0.0049082856, -0.01, -0.0008240283), (-0.0049082856, 0.01, -0.0008240283), (-0.005687985, 0.01, -0.0011178569), (-0.0049082856, -0.01, -0.0008240283), (-0.0041135014, -0.01, -0.0005738592), (-0.0041135014, 0.01, -0.0005738592), (-0.0049082856, 0.01, -0.0008240283), (-0.0041135014, -0.01, -0.0005738592), (-0.003306075, -0.01, -0.00036811855), (-0.003306075, 0.01, -0.00036811855), (-0.0041135014, 0.01, -0.0005738592), (-0.003306075, -0.01, -0.00036811855), (-0.002488488, -0.01, -0.00020743857), (-0.002488488, 0.01, -0.00020743857), (-0.003306075, 0.01, -0.00036811855), (-0.002488488, -0.01, -0.00020743857), (-0.0016632531, -0.01, -0.00009231312), (-0.0016632531, 0.01, -0.00009231312), (-0.002488488, 0.01, -0.00020743857), (-0.0016632531, -0.01, -0.00009231312), (-0.00083290646, -0.01, -0.000023096027), (-0.00083290646, 0.01, -0.000023096027), (-0.0016632531, 0.01, -0.00009231312), (-0.00083290646, -0.01, -0.000023096027), (0, -0.01, 0), (0, 0.01, 0), (-0.00083290646, 0.01, -0.000023096027), (0, -0.01, 0), (0.00083290646, -0.01, -0.000023096027), (0.00083290646, 0.01, -0.000023096027), (0, 0.01, 0), (0.00083290646, -0.01, -0.000023096027), (0.0016632531, -0.01, -0.00009231312), (0.0016632531, 0.01, -0.00009231312), (0.00083290646, 0.01, -0.000023096027), (0.0016632531, -0.01, -0.00009231312), (0.002488488, -0.01, -0.00020743857), (0.002488488, 0.01, -0.00020743857), (0.0016632531, 0.01, -0.00009231312), (0.002488488, -0.01, -0.00020743857), (0.003306075, -0.01, -0.00036811855), (0.003306075, 0.01, -0.00036811855), (0.002488488, 0.01, -0.00020743857), (0.003306075, -0.01, -0.00036811855), (0.0041135014, -0.01, -0.0005738592), (0.0041135014, 0.01, -0.0005738592), (0.003306075, 0.01, -0.00036811855), (0.0041135014, -0.01, -0.0005738592), (0.0049082856, -0.01, -0.0008240283), (0.0049082856, 0.01, -0.0008240283), (0.0041135014, 0.01, -0.0005738592), (0.0049082856, -0.01, -0.0008240283), (0.005687985, -0.01, -0.0011178569), (0.005687985, 0.01, -0.0011178569), (0.0049082856, 0.01, -0.0008240283), (0.005687985, -0.01, -0.0011178569), (0.0064502037, -0.01, -0.001454442), (0.0064502037, 0.01, -0.001454442), (0.005687985, 0.01, -0.0011178569), (0.0064502037, -0.01, -0.001454442), (0.0071925987, -0.01, -0.0018327492), (0.0071925987, 0.01, -0.0018327492), (0.0064502037, 0.01, -0.001454442), (0.0071925987, -0.01, -0.0018327492), (0.007912888, -0.01, -0.002251616), (0.007912888, 0.01, -0.002251616), (0.0071925987, 0.01, -0.0018327492), (0.007912888, -0.01, -0.002251616), (0.008608859, -0.01, -0.0027097547), (0.008608859, 0.01, -0.0027097547), (0.007912888, 0.01, -0.002251616), (0.008608859, -0.01, -0.0027097547), (0.009278372, -0.01, -0.0032057576), (0.009278372, 0.01, -0.0032057576), (0.008608859, 0.01, -0.0027097547)]
+                    texCoord2f[] primvars:st = [(0, 0), (0.041666668, 0), (0.041666668, 1), (0, 1), (0.041666668, 0), (0.083333336, 0), (0.083333336, 1), (0.041666668, 1), (0.083333336, 0), (0.125, 0), (0.125, 1), (0.083333336, 1), (0.125, 0), (0.16666667, 0), (0.16666667, 1), (0.125, 1), (0.16666667, 0), (0.20833333, 0), (0.20833333, 1), (0.16666667, 1), (0.20833333, 0), (0.25, 0), (0.25, 1), (0.20833333, 1), (0.25, 0), (0.29166666, 0), (0.29166666, 1), (0.25, 1), (0.29166666, 0), (0.33333334, 0), (0.33333334, 1), (0.29166666, 1), (0.33333334, 0), (0.375, 0), (0.375, 1), (0.33333334, 1), (0.375, 0), (0.41666666, 0), (0.41666666, 1), (0.375, 1), (0.41666666, 0), (0.45833334, 0), (0.45833334, 1), (0.41666666, 1), (0.45833334, 0), (0.5, 0), (0.5, 1), (0.45833334, 1), (0.5, 0), (0.5416667, 0), (0.5416667, 1), (0.5, 1), (0.5416667, 0), (0.5833333, 0), (0.5833333, 1), (0.5416667, 1), (0.5833333, 0), (0.625, 0), (0.625, 1), (0.5833333, 1), (0.625, 0), (0.6666667, 0), (0.6666667, 1), (0.625, 1), (0.6666667, 0), (0.7083333, 0), (0.7083333, 1), (0.6666667, 1), (0.7083333, 0), (0.75, 0), (0.75, 1), (0.7083333, 1), (0.75, 0), (0.7916667, 0), (0.7916667, 1), (0.75, 1), (0.7916667, 0), (0.8333333, 0), (0.8333333, 1), (0.7916667, 1), (0.8333333, 0), (0.875, 0), (0.875, 1), (0.8333333, 1), (0.875, 0), (0.9166667, 0), (0.9166667, 1), (0.875, 1), (0.9166667, 0), (0.9583333, 0), (0.9583333, 1), (0.9166667, 1), (0.9583333, 0), (1, 0), (1, 1), (0.9583333, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+
+        def Xform "Puck11" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        )
+        {
+            float physics:mass = 0.025
+            double3 xformOp:translate = (2.981, 5.354, 0.1001)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Cube "Body" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/FixtureMaterials/R>
+                double size = 1
+                float3 xformOp:scale = (0.03, 0.03, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+
+            def Xform "top"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag11>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "bottom"
+            {
+                matrix4d xformOp:transform = ( (-1, 0, -1.2246467991473532e-16, 0), (0, 1, 0, 0), (1.2246467991473532e-16, 0, -1, 0), (0, 0, -0.030029999999999998, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag11>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "px"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, -1, 0), (0, 1, 0, 0), (1, 0, 2.220446049250313e-16, 0), (0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag11>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "nx"
+            {
+                matrix4d xformOp:transform = ( (2.220446049250313e-16, 0, 1, 0), (0, 1, 0, 0), (-1, 0, 2.220446049250313e-16, 0), (-0.01503, 0, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag11>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "py"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, -1, 0), (0, 1, 2.220446049250313e-16, 0), (0, 0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag11>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+
+            def Xform "ny"
+            {
+                matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 2.220446049250313e-16, 1, 0), (0, -1, 2.220446049250313e-16, 0), (0, -0.01503, 0, 1) )
+                uniform token[] xformOpOrder = ["xformOp:transform"]
+
+                def Mesh "Surface" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    uniform bool doubleSided = 1
+                    int[] faceVertexCounts = [4]
+                    int[] faceVertexIndices = [0, 1, 2, 3]
+                    rel material:binding = </World/FixtureMaterials/Tag11>
+                    point3f[] points = [(-0.01, -0.01, 0), (0.01, -0.01, 0), (0.01, 0.01, 0), (-0.01, 0.01, 0)]
+                    texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                        interpolation = "faceVarying"
+                    )
+                }
+            }
+        }
+    }
+
+    def Xform "StartPanel"
+    {
+        double3 xformOp:translate = (0.08, 0.95, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Cube "Board" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </World/FixtureMaterials/Panel>
+            double size = 1
+            float3 xformOp:scale = (0.015, 0.5, 0.8)
+            double3 xformOp:translate = (0, 0, 0.4)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+
+        def Xform "Barcode"
+        {
+            matrix4d xformOp:transform = ( (0, 1, 0, 0), (0, 0, 1, 0), (1, 0, 0, 0), (0.008, 0, 0.3, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+
+            def Mesh "Surface" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform bool doubleSided = 1
+                int[] faceVertexCounts = [4]
+                int[] faceVertexIndices = [0, 1, 2, 3]
+                rel material:binding = </World/FixtureMaterials/Code128>
+                point3f[] points = [(-0.21, -0.085, 0), (0.21, -0.085, 0), (0.21, 0.085, 0), (-0.21, 0.085, 0)]
+                texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                    interpolation = "faceVarying"
+                )
+            }
+        }
+
+        def Sphere "LampR" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </World/FixtureMaterials/LampR>
+            double radius = 0.04
+            double3 xformOp:translate = (0.014, -0.14, 0.58)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "LampY" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </World/FixtureMaterials/LampY>
+            double radius = 0.04
+            double3 xformOp:translate = (0.014, 0, 0.58)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+
+        def Sphere "LampG" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </World/FixtureMaterials/LampG>
+            double radius = 0.04
+            double3 xformOp:translate = (0.014, 0.14, 0.58)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+        }
+    }
+}
+

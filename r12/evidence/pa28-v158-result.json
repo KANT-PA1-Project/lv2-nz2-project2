@@ -1,0 +1,55 @@
+{
+  "updated_at": 1793869281.2500002,
+  "runs": {
+    "157": {
+      "presence": {
+        "manager_enabled": false,
+        "replicator_enabled": false,
+        "replicator_in_sysmodules": false
+      },
+      "after_close": {
+        "clean_return": true,
+        "fault": null,
+        "replicator_in_sysmodules": false
+      },
+      "supervisor": {
+        "exit_code": 0,
+        "error": null,
+        "min_free_mib": 7398.0,
+        "source_unchanged": true,
+        "performance_accepted": false
+      },
+      "source_sha256": "113e7f116ccd23b179b01af90a2465f9f42023ecad45c1e9601999a8418513bd",
+      "startup_error_count": 0
+    },
+    "158": {
+      "presence": {
+        "manager_enabled": false,
+        "replicator_enabled": true,
+        "replicator_in_sysmodules": true
+      },
+      "after_close": {
+        "clean_return": true,
+        "fault": null,
+        "replicator_in_sysmodules": false
+      },
+      "supervisor": {
+        "exit_code": 255,
+        "error": "native_error_log",
+        "min_free_mib": 7130.0,
+        "source_unchanged": true,
+        "performance_accepted": false
+      },
+      "source_sha256": "c96cc384ad8301c5cd31458bdb319d0e6ccacb2b02c6972f9ec9da4e13030ef0",
+      "startup_error_count": 0
+    }
+  },
+  "finding": "minimal normal exit baseline established; adding Replicator dependency and closure reproduces Python finalizer eventdispatcher SIGSEGV; manager absent in both",
+  "scope_limit": "full physical harness native libc simulation_manager exit crash not yet resolved",
+  "version": "SimulationApp2.19.0 Isaac6.1.0; Replicator1.13.36",
+  "installed_lifetime_evidence": "Replicator extension and orchestrator shutdown reset observers but keep observer lists; no private shutdown invoked",
+  "v156_excluded_reason": "missing omni.kit.usd.layers from removed transitive dependency; installed SimulationApp.utils requires explicit layer dependency",
+  "next_hypothesis": "public extension disable+GC before dispatcher unload in isolated minimal diagnostic",
+  "native_lift_attempted": false,
+  "mission_success": false
+}

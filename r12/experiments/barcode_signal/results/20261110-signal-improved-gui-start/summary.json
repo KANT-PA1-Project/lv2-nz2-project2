@@ -1,0 +1,527 @@
+{
+  "off_reference_enabled": true,
+  "off_reference_scope": "Simulation commanded-OFF calibration only; real matched OFF video not available",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "barcode": null,
+  "sequence": "RGYRGYGRGRGG",
+  "sequence_counts": {
+    "R": 4,
+    "Y": 2,
+    "G": 6
+  },
+  "frames": 570,
+  "full_frames": 570,
+  "smoke_or_truncated": false,
+  "r12_src": "/home/pa33/git/lv2-nz2-project2/r12/src",
+  "tower_signal_source": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/src/arm_practice/tower_signal.py",
+  "field_scene_source": "/home/pa33/git/lv2-nz2-project2/r12/models/navigation/mission_scene.usda",
+  "excluded_field_prims": [
+    "/World/Mission/StartPanel/Board",
+    "/World/Mission/StartPanel/Barcode"
+  ],
+  "maze_prim_count": 214,
+  "renderer": "PathTracing",
+  "scene_saved": false,
+  "fixed_robot_pose": [
+    0.734,
+    0.95,
+    0.008,
+    180.0
+  ],
+  "random_view_ranges": null,
+  "seed": 0,
+  "camera_mode": "start",
+  "field": true,
+  "camera_height_m": null,
+  "pose_error_m": 0.0,
+  "dome": 1800.0,
+  "subframes": 2,
+  "resolution": [
+    640,
+    480
+  ],
+  "K": [
+    [
+      400.0,
+      0.0,
+      319.5
+    ],
+    [
+      0.0,
+      400.0,
+      239.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "tower": {
+    "xy_m": [
+      0.12,
+      0.95
+    ],
+    "base_z_m": 0.0,
+    "lens_diameter_m": 0.0396,
+    "tiers": {
+      "G": [
+        0.08445,
+        0.11935
+      ],
+      "Y": [
+        0.12045,
+        0.15535
+      ],
+      "R": [
+        0.15645,
+        0.19135
+      ]
+    }
+  },
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_unique_enabled": true,
+    "white_unique_min": 0.3,
+    "white_other_max": 0.1,
+    "delta_v": 40.0,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "results": [
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 0,
+      "frame_accuracy": 1.0,
+      "first_wrong_frames": [],
+      "confusion": {
+        "OFF->OFF": 294,
+        "R->R": 68,
+        "G->G": 102,
+        "Y->Y": 34
+      },
+      "recorder_complete": true,
+      "recorder_error": null,
+      "recorded_sequence": "RGYRGYGRGRGG",
+      "sequence_match": true,
+      "off_reference_used": true,
+      "off_reference_frames": 3,
+      "without_off_reference": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "prior_candidate_same_rois": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "decision_counts": {
+        "off_delta": 330,
+        "single": 240
+      },
+      "frame_trace": "frames_e0.5_v0_0.5m.jsonl",
+      "view_index": 0,
+      "view_parameters": null,
+      "camera_world": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 0.5,
+      "distance_m": 0.5286795060766747,
+      "unknown_reasons": {},
+      "lit_ratio_min": {
+        "R": 1.0,
+        "Y": 1.0,
+        "G": 1.0
+      },
+      "lens_px": [
+        18,
+        17
+      ]
+    },
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 0,
+      "frame_accuracy": 1.0,
+      "first_wrong_frames": [],
+      "confusion": {
+        "OFF->OFF": 294,
+        "R->R": 68,
+        "G->G": 102,
+        "Y->Y": 34
+      },
+      "recorder_complete": true,
+      "recorder_error": null,
+      "recorded_sequence": "RGYRGYGRGRGG",
+      "sequence_match": true,
+      "off_reference_used": true,
+      "off_reference_frames": 3,
+      "without_off_reference": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "prior_candidate_same_rois": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "decision_counts": {
+        "off_delta": 330,
+        "single": 240
+      },
+      "frame_trace": "frames_e1_v0_0.5m.jsonl",
+      "view_index": 0,
+      "view_parameters": null,
+      "camera_world": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 1.0,
+      "distance_m": 0.5286795060766747,
+      "unknown_reasons": {},
+      "lit_ratio_min": {
+        "R": 1.0,
+        "Y": 1.0,
+        "G": 1.0
+      },
+      "lens_px": [
+        18,
+        17
+      ]
+    },
+    {
+      "frames": 570,
+      "frames_scored": 498,
+      "frame_errors": 0,
+      "frame_accuracy": 1.0,
+      "first_wrong_frames": [],
+      "confusion": {
+        "OFF->OFF": 294,
+        "R->R": 68,
+        "G->G": 102,
+        "Y->Y": 34
+      },
+      "recorder_complete": true,
+      "recorder_error": null,
+      "recorded_sequence": "RGYRGYGRGRGG",
+      "sequence_match": true,
+      "off_reference_used": true,
+      "off_reference_frames": 3,
+      "without_off_reference": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "prior_candidate_same_rois": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "legacy": {
+        "frames": 570,
+        "frames_scored": 498,
+        "frame_errors": 0,
+        "frame_accuracy": 1.0,
+        "first_wrong_frames": [],
+        "confusion": {
+          "OFF->OFF": 294,
+          "R->R": 68,
+          "G->G": 102,
+          "Y->Y": 34
+        },
+        "recorder_complete": true,
+        "recorder_error": null,
+        "recorded_sequence": "RGYRGYGRGRGG",
+        "sequence_match": true
+      },
+      "decision_counts": {
+        "off_delta": 330,
+        "single": 240
+      },
+      "frame_trace": "frames_e2_v0_0.5m.jsonl",
+      "view_index": 0,
+      "view_parameters": null,
+      "camera_world": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_projection_used": [
+        [
+          2.6316545595557142e-17,
+          0.5000000000000001,
+          -0.8660254037844386,
+          0.6480880799123161
+        ],
+        [
+          1.0,
+          -6.123233995736769e-17,
+          -4.964778590024975e-18,
+          0.9249999999999999
+        ],
+        [
+          -5.551115123125785e-17,
+          -0.8660254037844386,
+          -0.5000000000000001,
+          0.8767
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "emissive": 2.0,
+      "distance_m": 0.5286795060766747,
+      "unknown_reasons": {},
+      "lit_ratio_min": {
+        "R": 1.0,
+        "Y": 1.0,
+        "G": 1.0
+      },
+      "lens_px": [
+        18,
+        17
+      ]
+    }
+  ],
+  "passed": 3,
+  "conditions": 3,
+  "scope": "단독 렌더 시험의 조건별 성공·실패 기록. 이 해상도·화각·렌더 설정에서만 유효. 로봇·위치추정·ROS·실물 카메라·실물 신호등 판정 근거가 아님"
+}

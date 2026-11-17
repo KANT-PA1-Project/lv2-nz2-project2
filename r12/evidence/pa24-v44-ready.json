@@ -1,0 +1,576 @@
+{
+  "epoch_count": 20,
+  "bench_exact_epoch_ready_count": 20,
+  "attempt_counts": [
+    3
+  ],
+  "ready_ms_min": 145.188538,
+  "ready_ms_median": 148.2914755,
+  "ready_ms_max": 165.222425,
+  "checks": [
+    {
+      "frame": 0,
+      "attempts": 3,
+      "ready_ms": 165.222425,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 1,
+      "attempts": 3,
+      "ready_ms": 152.774653,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 2,
+      "attempts": 3,
+      "ready_ms": 146.753883,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 3,
+      "attempts": 3,
+      "ready_ms": 147.276996,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 4,
+      "attempts": 3,
+      "ready_ms": 150.006136,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 5,
+      "attempts": 3,
+      "ready_ms": 147.357529,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 6,
+      "attempts": 3,
+      "ready_ms": 151.229667,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 7,
+      "attempts": 3,
+      "ready_ms": 148.380578,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 8,
+      "attempts": 3,
+      "ready_ms": 145.188538,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 9,
+      "attempts": 3,
+      "ready_ms": 148.044581,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 10,
+      "attempts": 3,
+      "ready_ms": 148.021786,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 11,
+      "attempts": 3,
+      "ready_ms": 146.978201,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 12,
+      "attempts": 3,
+      "ready_ms": 151.130685,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 13,
+      "attempts": 3,
+      "ready_ms": 156.478514,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 14,
+      "attempts": 3,
+      "ready_ms": 147.757171,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 15,
+      "attempts": 3,
+      "ready_ms": 148.202373,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 16,
+      "attempts": 3,
+      "ready_ms": 150.964484,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 17,
+      "attempts": 3,
+      "ready_ms": 152.344125,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 18,
+      "attempts": 3,
+      "ready_ms": 149.034898,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    },
+    {
+      "frame": 19,
+      "attempts": 3,
+      "ready_ms": 147.921147,
+      "bench_exact_epoch_ready": true,
+      "saved_rgbd_matches_assessed_hashes": {
+        "r07_camera1": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera2": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera3": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "arm_camera": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        },
+        "r07_camera1_right": {
+          "depth": true,
+          "rgba255_reconstruction": true
+        }
+      }
+    }
+  ],
+  "full_mission_8RGB4depth_certificate": false,
+  "exposure_time_certified": false,
+  "motion_authorized": false,
+  "interpretation": "Three fixed-physics renders align shared ReferenceTime to exact native step/960 within1ns; measured q unchanged. Assessed RGBD buffers match saved RGBD hashes including observed opaque alpha reconstruction. Only five-camera bench reference alignment demonstrated."
+}

@@ -1,0 +1,13 @@
+{
+  "scope": "Paired CPU microbenchmark, same640x480 simulated OFF median, same registered ROI and restored genuine OFF median,40 calls per method interleaved; GUI active. Not Jetson benchmark.",
+  "methods": {
+    "previous": {
+      "median_ms": 36.65974400064442,
+      "p95_ms": 40.87348595276125
+    },
+    "roi": {
+      "median_ms": 0.39047549216775224,
+      "p95_ms": 0.46404059321503155
+    }
+  }
+}

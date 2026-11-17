@@ -1,0 +1,36 @@
+{
+  "scope": "bounded simulation research; no motion authorization for retreat/carry",
+  "settle_close_contact_hold": {
+    "contact_is_grasp_success": false,
+    "object_support_contact": "allowed only while object is still supported in initial lift phase; not carry admission",
+    "unexpected_nonpad_puck_contact": "reject",
+    "robot_environment_clearance_m": 0.03,
+    "nonpad_object_clearance_m": 0.03
+  },
+  "lift_retention": {
+    "minimum_hold_seconds": 2,
+    "minimum_lift_height_m": 0.025,
+    "maximum_object_tool_relative_translation_drift_m": 0.002,
+    "required_contact_pairs": [
+      "exact target/left pad",
+      "exact target/right pad"
+    ],
+    "support_contact_during_hold": "reject",
+    "failure_or_native_error": "reject",
+    "command_closure_alone_success": false
+  },
+  "carry_entry": {
+    "object_environment_clearance_m": 0.03,
+    "nonpad_object_clearance_m": 0.03,
+    "required": "validated pose/retention/geometry uncertainty budget plus continuous collision proof",
+    "current_uncertainty_bound_m": 0.002367421930488301,
+    "bound_is_validated": false,
+    "admitted": false
+  },
+  "retreat": {
+    "monotonicity_verified": false,
+    "admitted": false
+  },
+  "sampling_limit": "native geometry checks every 0.1s do not certify swept clearance",
+  "mission_success": false
+}
