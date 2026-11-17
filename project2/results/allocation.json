@@ -1,0 +1,395 @@
+{
+  "run_id": "assembly-sim-B16 (assembly-auto-30cm-control-20261112-03)",
+  "env": "소프트웨어 계산 (팀 nz2_mission 코드, ROS 2 미사용)",
+  "input": {
+    "sequence": "RGYRGYGRGRGG",
+    "counts": {
+      "R": 4,
+      "Y": 2,
+      "G": 6
+    },
+    "barcode": "P2-02",
+    "order": "descending",
+    "tie_rule": "R>Y>G",
+    "signal_source": "signal.json"
+  },
+  "registry": [
+    {
+      "id": 0,
+      "color": "red",
+      "shape": "cyl",
+      "box": 0,
+      "start_mm": [
+        1428,
+        950,
+        70
+      ]
+    },
+    {
+      "id": 1,
+      "color": "red",
+      "shape": "cyl",
+      "box": 0,
+      "start_mm": [
+        1508,
+        950,
+        70
+      ]
+    },
+    {
+      "id": 2,
+      "color": "red",
+      "shape": "cyl",
+      "box": 1,
+      "start_mm": [
+        3630,
+        3152,
+        70
+      ]
+    },
+    {
+      "id": 3,
+      "color": "red",
+      "shape": "cube",
+      "box": 1,
+      "start_mm": [
+        3710,
+        3152,
+        70
+      ]
+    },
+    {
+      "id": 4,
+      "color": "red",
+      "shape": "cube",
+      "box": 2,
+      "start_mm": [
+        2896,
+        5354,
+        70
+      ]
+    },
+    {
+      "id": 5,
+      "color": "red",
+      "shape": "cube",
+      "box": 2,
+      "start_mm": [
+        2976,
+        5354,
+        70
+      ]
+    },
+    {
+      "id": 6,
+      "color": "green",
+      "shape": "cyl",
+      "box": 3,
+      "start_mm": [
+        694,
+        5354,
+        70
+      ]
+    },
+    {
+      "id": 7,
+      "color": "green",
+      "shape": "cyl",
+      "box": 3,
+      "start_mm": [
+        774,
+        5354,
+        70
+      ]
+    },
+    {
+      "id": 8,
+      "color": "green",
+      "shape": "cyl",
+      "box": 4,
+      "start_mm": [
+        2162,
+        5354,
+        70
+      ]
+    },
+    {
+      "id": 9,
+      "color": "green",
+      "shape": "cube",
+      "box": 4,
+      "start_mm": [
+        2242,
+        5354,
+        70
+      ]
+    },
+    {
+      "id": 10,
+      "color": "green",
+      "shape": "cube",
+      "box": 5,
+      "start_mm": [
+        3630,
+        3886,
+        70
+      ]
+    },
+    {
+      "id": 11,
+      "color": "green",
+      "shape": "cube",
+      "box": 5,
+      "start_mm": [
+        3710,
+        3886,
+        70
+      ]
+    }
+  ],
+  "registry_note": "팀 확정 등록표 (2026-11-17)",
+  "algorithm": "nz2_mission.core.allocator.allocate — Y 모양 조합 전수 + R/G 거리 비용 최소",
+  "cost": 36038.5,
+  "places": [
+    {
+      "place": "L1",
+      "tag_id": 12,
+      "center_mm": [
+        3670,
+        950
+      ],
+      "approach": [
+        3220,
+        950,
+        0.0
+      ],
+      "group": "G",
+      "n": 6,
+      "condition": {
+        "type": "color",
+        "color": "green"
+      },
+      "puck_ids": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "place_order_and_targets_mm": [
+        {
+          "puck_id": 6,
+          "cell_col_row": [
+            2,
+            0
+          ],
+          "xyz": [
+            3730.0,
+            1010.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 7,
+          "cell_col_row": [
+            2,
+            1
+          ],
+          "xyz": [
+            3730.0,
+            950.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 8,
+          "cell_col_row": [
+            2,
+            2
+          ],
+          "xyz": [
+            3730.0,
+            890.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 9,
+          "cell_col_row": [
+            0,
+            0
+          ],
+          "xyz": [
+            3610.0,
+            1010.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 10,
+          "cell_col_row": [
+            0,
+            1
+          ],
+          "xyz": [
+            3610.0,
+            950.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 11,
+          "cell_col_row": [
+            0,
+            2
+          ],
+          "xyz": [
+            3610.0,
+            890.0,
+            70
+          ]
+        }
+      ],
+      "condition_met": true
+    },
+    {
+      "place": "L2",
+      "tag_id": 13,
+      "center_mm": [
+        2202,
+        3700
+      ],
+      "approach": [
+        2202,
+        4150,
+        -1.5708
+      ],
+      "group": "R",
+      "n": 4,
+      "condition": {
+        "type": "color",
+        "color": "red"
+      },
+      "puck_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "place_order_and_targets_mm": [
+        {
+          "puck_id": 0,
+          "cell_col_row": [
+            0,
+            2
+          ],
+          "xyz": [
+            2142.0,
+            3640.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 1,
+          "cell_col_row": [
+            2,
+            2
+          ],
+          "xyz": [
+            2262.0,
+            3640.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 2,
+          "cell_col_row": [
+            0,
+            0
+          ],
+          "xyz": [
+            2142.0,
+            3760.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 3,
+          "cell_col_row": [
+            2,
+            0
+          ],
+          "xyz": [
+            2262.0,
+            3760.0,
+            70
+          ]
+        }
+      ],
+      "condition_met": true
+    },
+    {
+      "place": "L3",
+      "tag_id": 14,
+      "center_mm": [
+        3670,
+        5354
+      ],
+      "approach": [
+        3670,
+        4904,
+        1.5708
+      ],
+      "group": "Y",
+      "n": 2,
+      "condition": {
+        "type": "shape",
+        "shape": "cube"
+      },
+      "puck_ids": [
+        4,
+        5
+      ],
+      "place_order_and_targets_mm": [
+        {
+          "puck_id": 4,
+          "cell_col_row": [
+            0,
+            0
+          ],
+          "xyz": [
+            3610.0,
+            5414.0,
+            70
+          ]
+        },
+        {
+          "puck_id": 5,
+          "cell_col_row": [
+            2,
+            2
+          ],
+          "xyz": [
+            3730.0,
+            5294.0,
+            70
+          ]
+        }
+      ],
+      "condition_met": true
+    }
+  ],
+  "validation": {
+    "all_12_used": true,
+    "duplicates": [],
+    "missing": [],
+    "conditions_met": {
+      "L1": true,
+      "L2": true,
+      "L3": true
+    }
+  },
+  "status": "OK",
+  "error": null
+}
