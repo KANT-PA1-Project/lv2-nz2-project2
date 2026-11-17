@@ -6,9 +6,9 @@
                    dice_layout.place_order)로 계산. 퍽 등록표는 팀 확정본(아래 REGISTRY).
 
 실행 (개발 PC, 저장소 루트에서):
-  python3 project2/tools/build_results.py --repo . \
+  python3 tools/build_results.py --repo . \
     --run r12/experiments/barcode_signal/results/assembly-auto-30cm-control-20261112-03 \
-    --out project2/results
+    --out results
 """
 import argparse, json, math, sys
 from pathlib import Path
