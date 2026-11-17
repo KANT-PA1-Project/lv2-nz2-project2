@@ -1,0 +1,75 @@
+{
+  "prepared_date": "2026-11-17",
+  "author_basis": "Git author chj1319 and existing pa33 work logs",
+  "new_robot_or_simulation_runs": false,
+  "files": [
+    {
+      "file": "yolo_fp16_validation.json",
+      "kind": "unchanged_existing_report",
+      "source": "/tmp/nz2-centerpose-verified/jetson-results/yolo_fp16_validation.json",
+      "sha256": "25fcd21184adf3af97b092ad14d6e15fb163a03e113ec17b460c7627bc15ec94"
+    },
+    {
+      "file": "centerpose_fp32_validation.json",
+      "kind": "unchanged_existing_report",
+      "source": "/tmp/nz2-centerpose-verified/jetson-results/centerpose_fp32_validation.json",
+      "sha256": "723740e4e57b9ec74970ce3e76184dce59d145ff7fd2af0eef2639eb9de1005e"
+    },
+    {
+      "file": "centerpose_fp16_validation.json",
+      "kind": "unchanged_existing_report",
+      "source": "/tmp/nz2-centerpose-verified/jetson-results/centerpose_fp16_validation.json",
+      "sha256": "07598567a90f0c801b5a456558d84714f17612f2e5782734d8a4664bff62bfb9"
+    },
+    {
+      "file": "arm_puck_same_face_fit.json",
+      "kind": "unchanged_existing_report",
+      "source": "/tmp/arm_puck_same_face_fit.json",
+      "sha256": "f5ea1ae62dda0c52a021625a14b5d108a9d47c82726bba246952f74c8823b899"
+    },
+    {
+      "file": "assembly_B34_review.json",
+      "kind": "unchanged_existing_report",
+      "source": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/assembly-sim-B34-tower80/review_20261115.json",
+      "sha256": "ee9ad3b923cdd8aebd4cfaba525127e9368a51ac0d97761be915a077c93641eb"
+    },
+    {
+      "file": "arm_neural_5mm_summary.json",
+      "kind": "new_summary_from_existing_records",
+      "source": [
+        "/tmp/arm_puck_neural_5mm_test.json",
+        "/tmp/arm_puck_neural_5mm_plan.json"
+      ],
+      "sha256": "a00feed4a77495b68df921f10d8e99e4563e96c308409658656df958e5e5f04c"
+    },
+    {
+      "file": "worklog-excerpts.md",
+      "kind": "verbatim_selected_existing_worklog_sections",
+      "source": "/home/pa33/git/p2_perception/수정.md",
+      "section_prefixes": [
+        "## 2026-10-28 · AprilTag 판독 노드",
+        "## 2026-10-29 · 합성 v4:",
+        "## 2026-10-30 · train:val:test",
+        "## 2026-11-04 · 담당 변경:",
+        "## 2026-11-15 (42)",
+        "## 2026-11-15 (44)",
+        "## 2026-11-15 (86)",
+        "## 2026-11-15 (89)",
+        "## 2026-11-15 (90)",
+        "## 2026-11-16 (93)"
+      ],
+      "sha256": "78a7423f1c3a2323f80e37cadefbd4881e8a934ebe461dba1be257f809d739ad"
+    },
+    {
+      "file": "github-review-verification.json",
+      "kind": "new_read_only_GitHub_review_and_remote_state_verification",
+      "source": [
+        "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/4#pullrequestreview-5567977707",
+        "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/8#pullrequestreview-5612582251",
+        "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/9#pullrequestreview-5612611135",
+        "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/11#pullrequestreview-5625771022"
+      ],
+      "sha256": "41c188efb5f740e27c8ac94ab2db9e9824524dd1f277460f548e0a756f5bd3a1"
+    }
+  ]
+}

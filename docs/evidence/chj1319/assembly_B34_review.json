@@ -1,0 +1,131 @@
+{
+  "scope": "single_simulation_layout_only_not_physical_driving_or_policy_validation",
+  "checks": {
+    "process_success": true,
+    "result_passed": true,
+    "tower_xy_correct": true,
+    "only_non_note_config_change_is_tower_xy": true,
+    "same_source_hashes_as_B33": true,
+    "frames_match_video_1570": true,
+    "sequence_12_correct": true,
+    "classified_frames_correct": true,
+    "barcode_correct": true,
+    "no_fallback": true,
+    "no_base_translation_after_barcode": true,
+    "arm_positions_in_config_limits": true,
+    "logged_arm_contact_forces_zero": true,
+    "all_classified_boxes_inside_image": true,
+    "mission_result_preserved": true
+  },
+  "configuration_changes": [
+    {
+      "field": ".tower_scene.xy_m",
+      "B33": [
+        0.3035,
+        0.95
+      ],
+      "B34": [
+        0.08,
+        0.95
+      ]
+    }
+  ],
+  "frame_count": 1570,
+  "classified_frame_count": 810,
+  "correct_classified_frames": 810,
+  "phase_frames": {
+    "settle_start": 14,
+    "approach_base": 101,
+    "approach_arm": 185,
+    "barcode": 59,
+    "seek_move": 62,
+    "stow_retract": 62,
+    "stow_arm": 185,
+    "prepare": 31,
+    "record": 810,
+    "saved": 61
+  },
+  "phase_starts": [
+    {
+      "phase": "settle_start",
+      "t_s": 0.03541666851378977
+    },
+    {
+      "phase": "approach_base",
+      "t_s": 0.5020833595190197
+    },
+    {
+      "phase": "approach_arm",
+      "t_s": 3.868750201771036
+    },
+    {
+      "phase": "barcode",
+      "t_s": 10.035417190054432
+    },
+    {
+      "phase": "seek_move",
+      "t_s": 11.56875060335733
+    },
+    {
+      "phase": "barcode",
+      "t_s": 13.635417377809063
+    },
+    {
+      "phase": "stow_retract",
+      "t_s": 14.06875073374249
+    },
+    {
+      "phase": "stow_arm",
+      "t_s": 16.135417508194223
+    },
+    {
+      "phase": "prepare",
+      "t_s": 22.30208449647762
+    },
+    {
+      "phase": "record",
+      "t_s": 23.335417883703485
+    },
+    {
+      "phase": "saved",
+      "t_s": 50.33541929186322
+    }
+  ],
+  "barcode_pose_mast_box": [
+    526.0,
+    326.0,
+    576.0,
+    400.0
+  ],
+  "record_boxes_unique": [
+    [
+      533.0,
+      331.0,
+      569.0,
+      395.0
+    ]
+  ],
+  "maximum_base_translation_after_barcode_m": 2.457562461863554e-07,
+  "maximum_logged_arm_contact_force_N": 0.0,
+  "initial_base_xy": [
+    0.7339999675750732,
+    0.949999988079071
+  ],
+  "final_base_xy": [
+    0.6000000238418579,
+    0.699999988079071
+  ],
+  "comparison_B33": {
+    "fallback_used": true,
+    "ready_s": 27.702084778109565,
+    "B34_ready_s": 23.335417883703485,
+    "ready_time_saved_s": 4.36666689440608
+  },
+  "notes": [
+    "Video ffprobe counted 1570 frames at 1280x480/30fps; ffmpeg full decode returned 0 with no error output.",
+    "Frame phase is logged after transitions: first record row has color=null; final classified OFF row has phase=saved. Select non-null color rows in record/saved to recover 810/810.",
+    "result.base_moved=false does not mean no initial approach: frame trace moves from (0.734,0.950) to (0.600,0.700) before barcode. There is no further base translation after barcode.",
+    "Two cameras were used: gripper for barcode and mast for signal. Arm was retracted and stowed between tasks. This is not a test of one unchanged arm pose for the full sequence.",
+    "Self collision is disabled and physical driving/policy/real robot are not tested. Single geometry and renderer lighting only."
+  ]
+}

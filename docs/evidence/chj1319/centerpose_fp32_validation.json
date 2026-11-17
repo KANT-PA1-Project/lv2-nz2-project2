@@ -1,0 +1,155 @@
+{
+  "model": "centerpose",
+  "precision": "fp32",
+  "input_shape": [
+    3,
+    3,
+    128,
+    128
+  ],
+  "outputs": [
+    "hm",
+    "hps",
+    "reg",
+    "scale"
+  ],
+  "engine_mb": 98.68,
+  "device_memory_mb": 8.6,
+  "cases": [
+    {
+      "index": 0,
+      "raw_max_abs": {
+        "hm": 8.58306884765625e-06,
+        "hps": 2.1219253540039062e-05,
+        "reg": 2.86102294921875e-06,
+        "scale": 4.76837158203125e-07
+      },
+      "center_difference_mm": 2.826716605758815e-05
+    },
+    {
+      "index": 1,
+      "raw_max_abs": {
+        "hm": 1.1444091796875e-05,
+        "hps": 6.437301635742188e-05,
+        "reg": 6.67572021484375e-06,
+        "scale": 1.6987323760986328e-06
+      },
+      "center_difference_mm": 0.0005185825169255062
+    },
+    {
+      "index": 2,
+      "raw_max_abs": {
+        "hm": 7.62939453125e-06,
+        "hps": 1.8715858459472656e-05,
+        "reg": 3.814697265625e-06,
+        "scale": 4.76837158203125e-07
+      },
+      "center_difference_mm": 4.9680081161271496e-05
+    },
+    {
+      "index": 3,
+      "raw_max_abs": {
+        "hm": 7.62939453125e-06,
+        "hps": 2.9921531677246094e-05,
+        "reg": 2.86102294921875e-06,
+        "scale": 5.066394805908203e-07
+      },
+      "center_difference_mm": 1.3684838806601233e-05
+    },
+    {
+      "index": 4,
+      "raw_max_abs": {
+        "hm": 9.5367431640625e-06,
+        "hps": 2.384185791015625e-05,
+        "reg": 2.86102294921875e-06,
+        "scale": 4.76837158203125e-07
+      },
+      "center_difference_mm": 1.4362641406217881e-05
+    },
+    {
+      "index": 5,
+      "raw_max_abs": {
+        "hm": 7.62939453125e-06,
+        "hps": 2.288818359375e-05,
+        "reg": 2.86102294921875e-06,
+        "scale": 6.92903995513916e-07
+      },
+      "center_difference_mm": 2.1745431050849094e-05
+    },
+    {
+      "index": 6,
+      "raw_max_abs": {
+        "hm": 7.62939453125e-06,
+        "hps": 2.6702880859375e-05,
+        "reg": 3.337860107421875e-06,
+        "scale": 5.364418029785156e-07
+      },
+      "center_difference_mm": 2.827918880579564e-05
+    },
+    {
+      "index": 7,
+      "raw_max_abs": {
+        "hm": 2.1457672119140625e-05,
+        "hps": 6.270408630371094e-05,
+        "reg": 7.62939453125e-06,
+        "scale": 1.1771917343139648e-06
+      },
+      "center_difference_mm": 0.0001679223117927983
+    },
+    {
+      "index": 8,
+      "raw_max_abs": {
+        "hm": 6.67572021484375e-06,
+        "hps": 2.002716064453125e-05,
+        "reg": 4.291534423828125e-06,
+        "scale": 5.066394805908203e-07
+      },
+      "center_difference_mm": 9.592943180700734e-05
+    },
+    {
+      "index": 9,
+      "raw_max_abs": {
+        "hm": 8.106231689453125e-06,
+        "hps": 2.193450927734375e-05,
+        "reg": 3.337860107421875e-06,
+        "scale": 5.289912223815918e-07
+      },
+      "center_difference_mm": 6.052702284980833e-05
+    },
+    {
+      "index": 10,
+      "raw_max_abs": {
+        "hm": 6.67572021484375e-06,
+        "hps": 2.002716064453125e-05,
+        "reg": 3.5762786865234375e-06,
+        "scale": 4.917383193969727e-07
+      },
+      "center_difference_mm": 2.440894213560733e-05
+    },
+    {
+      "index": 11,
+      "raw_max_abs": {
+        "hm": 9.059906005859375e-06,
+        "hps": 3.24249267578125e-05,
+        "reg": 3.0994415283203125e-06,
+        "scale": 5.364418029785156e-07
+      },
+      "center_difference_mm": 0.00014212842285025773
+    }
+  ],
+  "finite": true,
+  "latency_including_copies_ms": {
+    "mean": 9.948695520015463,
+    "median": 9.947210000063933,
+    "p95": 9.967746999961946,
+    "iterations": 50
+  },
+  "fp32_allclose": true,
+  "center_difference_max_mm": 0.0005185825169255062,
+  "decoder_flag_mismatches": 0,
+  "review_passed": true,
+  "review_limits": {
+    "center_difference_mm": 1,
+    "decoder_flag_mismatches": 0
+  }
+}

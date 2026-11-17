@@ -1,0 +1,44 @@
+{
+  "experiment_date": "2026-11-15",
+  "evidence_kind": "derived_summary_of_existing_physical_arm_test",
+  "source_raw_path": "/tmp/arm_puck_neural_5mm_test.json",
+  "source_raw_sha256": "2d319e1ffa7cd198acc4e778cc36d93904ba3d5f372cb8ab36894f99d7ffcf5d",
+  "source_plan_path": "/tmp/arm_puck_neural_5mm_plan.json",
+  "source_plan_sha256": "ac3c1550b836d55f08cd07a2032b6db477c1a3800a102027e9c0d56f61285268",
+  "source_sample_count": 545,
+  "requested_tcp_step_mm": 5,
+  "physical_tcp_external_measurement": false,
+  "model": "neural-refiner-v1",
+  "target_motor_deg": [
+    28.375967025756836,
+    -59.4782829284668,
+    67.42338562011719,
+    43.48163604736328,
+    -7.571963787078857,
+    -102.66
+  ],
+  "final_motor_deg": [
+    28.39,
+    -59.5,
+    67.68,
+    43.42,
+    -7.56,
+    -102.66
+  ],
+  "maximum_final_tracking_error_deg": 0.2566143798828193,
+  "maximum_abs_current_ma_by_motor": [
+    3.0,
+    22.0,
+    404.0,
+    186.0,
+    5.0,
+    0.0
+  ],
+  "script_passed": true,
+  "stop_response": "OK S fail=0x0 ms=6",
+  "fault_at_final": 0,
+  "offline_mask_at_final": 0,
+  "grasp_lift_transport_place_performed": false,
+  "torque_at_test_end": true,
+  "historical_state_note": "This is the test-end state. A later user-requested torque OFF was recorded in work log 93."
+}
