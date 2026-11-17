@@ -21,12 +21,12 @@
   <숫자>                일반 웹캠 번호
 
 실행 예 (개발 PC 또는 Jetson, ultralytics 설치된 환경)
-  cd "$HOME/git/lv2-nz2-project2/r12/experiments/barcode_signal"
+  cd "$HOME/git/p2_perception/Claude outputs/tower_signal"
   python scripts/tower_yolo_signal.py --model ~/git/p2_perception/models/current.pt --source realsense --exposure 150 --wb 4600
   python scripts/tower_yolo_signal.py --model ~/git/p2_perception/models/current.onnx --source realsense --exposure 150
   python scripts/tower_yolo_signal.py --model ~/git/p2_perception/models/current.pt --source ~/git/p2_perception/data/real/raw/1111_check/tower/real_xxx.mp4 --sequence
   python scripts/tower_yolo_signal.py --model ~/git/p2_perception/models/current.pt \
-         --source "$HOME/git/lv2-nz2-project2/r12/experiments/barcode_signal/validation_set_20261110/images" --no-show
+         --source "$HOME/git/p2_perception/Claude outputs/tower_signal/validation_set_20261110/images" --no-show
 
 바코드: 같은 영상에서 매 BARCODE_EVERY 프레임마다 화면 전체를 자동 해독 (scripts/barcode_support.py 의
   decode_rgb + StableCode, zxing-cpp Code 128). 등록 코드(P2-01~04)가 3프레임 연속 같으면 확정.
@@ -51,7 +51,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-HERE = Path(__file__).resolve().parents[1]                        # r12/experiments/barcode_signal
+HERE = Path(__file__).resolve().parents[1]                        # Claude outputs/tower_signal
 
 # ---------------- 설정값 (한곳에서 변경) ----------------
 WIDTH, HEIGHT, FPS = 640, 480, 30
@@ -252,14 +252,6 @@ def frames_from(source, a):
         yield bgr, (n / fps if not source.isdigit() else time.monotonic()), None
 
 
-def _repo_r12():
-    """이 파일이 저장소 r12/ 아래에 있으면 그 r12, 아니면 None (상대 경로 우선)."""
-    for parent in Path(__file__).resolve().parents:
-        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
-            return parent
-    return None
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--model', required=True, help='.pt / .onnx / .engine (tower_light 클래스 포함)')
@@ -274,7 +266,7 @@ def main():
     ap.add_argument('--no-show', action='store_true')
     ap.add_argument('--log', default=None, help='프레임별 결과 jsonl 경로')
     ap.add_argument('--sequence', action='store_true', help='tutor SignalRecorder 로 12회 기록')
-    ap.add_argument('--r12-src', default=str(_repo_r12() / 'src') if _repo_r12() else os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
+    ap.add_argument('--r12-src', default=os.path.expanduser('~/git/lv2-nz2-project2/r12/src'))
     ap.add_argument('--stop-when-done', action='store_true',
                     help='--sequence 기록이 완료되거나 오류가 나면 종료 (자동 점검용)')
     a = ap.parse_args()

@@ -1,0 +1,23 @@
+# HSV/ZXing 전용 초안. 기존 perception.launch.py와 별도 실행.
+# 카메라 토픽 이름은 가정이며 실제 드라이버 이름으로 바꾼다.
+/barcode_signal:
+  ros__parameters:
+    perception_root: ""       # 로컬 p2/Claude outputs/tower_signal 자동 탐색. 배포 PC는 명시.
+    r12_src: ""               # SignalRecorder가 있는 r12/src. 비우면 기존 R12_SRC/기본 경로.
+    signal_image_topic: "/mast/color/image_raw"
+    barcode_image_topic: "/gripper/color/image_raw"
+    process_hz: 30.0
+    search_hz: 10.0
+    barcode_hz: 5.0
+    status_hz: 1.0
+    signal_width: 640
+    barcode_upscale: 2
+    barcode_roi: [0, 0, 0, 0]  # native 이미지 x,y,w,h. w/h=0은 전체. 이동 후 바뀌면 갱신/재시작.
+    full_scan_every_s: 2.0
+    max_image_age_s: 0.25      # 수신 후 경과 + ROS header 시각 둘 다 검사. rosbag은 use_sim_time 필요.
+    max_decode_age_s: 2.0     # 오래 걸린 작업 결과는 버림. 최대 작업자1개, 대기 작업0개.
+    auto_start: false          # 기본은 서비스로 명시적 시작. 참이면 소등·정지 계약이 필요.
+    fixed_camera_settings_confirmed: false  # 외부 드라이버 노출/WB 고정 후에만 true.
+    camera_settings_token: "exposure150_wb4600"  # 메타데이터일 뿐, 드라이버 설정을 바꾸지 않음.
+    auto_retry_signal: true
+    log_dir: "~/nz2_logs/barcode_signal"  # 완료 결과 JSON만 저장, 영상/매프레임 로그 없음.

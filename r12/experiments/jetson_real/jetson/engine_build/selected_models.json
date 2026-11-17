@@ -1,0 +1,31 @@
+{
+  "models": {
+    "yolo": {
+      "path": "/home/nz2/models/perception_6class_20261115/yolo_fp16.engine",
+      "precision": "fp16",
+      "sha256": "3dbdfdc0867f736ec919811bc8db4988551fc035220199b66216e46607eb3ed8",
+      "input_shape": [
+        1,
+        3,
+        800,
+        800
+      ],
+      "validation": "yolo_fp16_validation.json"
+    },
+    "centerpose": {
+      "path": "/home/nz2/models/perception_6class_20261115/centerpose_fp32.engine",
+      "precision": "fp32",
+      "sha256": "897cfef1c47088ad4efdf0578424dcc1e157a3df79002664dc574cb6f8e09de9",
+      "input_shape": [
+        3,
+        3,
+        128,
+        128
+      ],
+      "validation": "centerpose_fp32_validation.json"
+    }
+  },
+  "selection": "Fastest engine passing documented offline parity review",
+  "review_scope": "3 existing image fixtures for YOLO, 12 crop batches for CenterPose. Real camera accuracy pending.",
+  "original_weights_directory": "/home/pa33/Downloads/drive-download-20261104T022039Z-1-001"
+}

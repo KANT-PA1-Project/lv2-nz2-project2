@@ -1,0 +1,26 @@
+/barcode_signal:
+  ros__parameters:
+    perception_root: "/home/nz2/p2_runtime_ws/runtime/tower_signal"
+    r12_src: "/home/nz2/p2_runtime_ws/runtime/r12_src"
+    signal_image_topic: "/top/color/image_raw"
+    barcode_image_topic: "/gripper/color/image_raw"
+    fixed_camera_settings_confirmed: false
+    auto_start: false
+
+/arm_bridge:
+  ros__parameters:
+    allow_motion: false
+    max_speed_deg_s: 5.0
+    serial_settle_sec: 0.25
+
+/yolo_detector:
+  ros__parameters:
+    engine_path: "/home/nz2/models/perception_6class_20261115/yolo_fp16.engine"
+    backend: "tensorrt"
+    input_height: 800
+    input_width: 800
+    process_hz: 15.0
+    enable_front: false
+    enable_gripper: true
+    publish_debug_image: false
+    class_names: ["red_cylinder", "red_cuboid", "green_cylinder", "green_cuboid", "box", "apriltag"]

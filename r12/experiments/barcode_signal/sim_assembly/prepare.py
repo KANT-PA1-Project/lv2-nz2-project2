@@ -7,7 +7,7 @@ import argparse
 import json
 from pathlib import Path
 
-from common import ARM_JOINTS, CAMERA_FRAME, WRIST_LINK, arm_limits, load_config, sanitize_urdf, sha256
+from common import ARM_JOINTS, CAMERA_FRAME, WRIST_LINK, arm_limits, load_config, sanitize_urdf, sha256, urdf_path
 
 
 def main():
@@ -18,7 +18,7 @@ def main():
     cfg, model = load_config(a.config)
     out = a.out.expanduser().resolve()
     out.mkdir(parents=True, exist_ok=False)
-    source = Path(cfg['assembly_dir']) / 'assembly.urdf'
+    source = urdf_path(cfg)
     lower, upper = arm_limits(cfg, model)
     manifest = sanitize_urdf(source, out / 'assembly_sim.urdf', (lower, upper), cfg.get('mass_scale', 1.0))
     manifest['mass_scale'] = cfg.get('mass_scale', 1.0)
@@ -28,7 +28,7 @@ def main():
         wrist_camera=dict(parent=WRIST_LINK, frame=CAMERA_FRAME,
                           parent_to_optical=model.static_frame(WRIST_LINK, CAMERA_FRAME).tolist()),
         mast_camera=dict(parent='base_link', frame='mast_d435_color_optical_frame',
-                         pitch_down_deg=cfg.get('mast_pitch_down_deg') or 60.0,
+                         pitch_down_deg=model.mast_pitch_down_deg(cfg.get('mast_pitch_down_deg')),
                          parent_to_optical=model.mast_to_optical(cfg.get('mast_pitch_down_deg')).tolist()),
         arm_joints=ARM_JOINTS, arm_lower=lower.tolist(), arm_upper=upper.tolist(),
         gravity_torque_nm=dict(
