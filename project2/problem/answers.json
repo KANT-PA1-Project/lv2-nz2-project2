@@ -1,0 +1,173 @@
+{
+  "problem_id": "NZ2-Q1-review",
+  "evidence_kind": "operator_answer_key",
+  "counts": {
+    "R": 4,
+    "Y": 2,
+    "G": 6
+  },
+  "barcode": "P2-01",
+  "locations": [
+    {
+      "location": "L1",
+      "group": "Y",
+      "count": 2,
+      "ids": [
+        0,
+        1
+      ],
+      "targets": [
+        {
+          "id": 0,
+          "center_mm": [
+            3610,
+            1010,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 1,
+          "center_mm": [
+            3730,
+            890,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        }
+      ]
+    },
+    {
+      "location": "L2",
+      "group": "R",
+      "count": 4,
+      "ids": [
+        2,
+        3,
+        8,
+        9
+      ],
+      "targets": [
+        {
+          "id": 2,
+          "center_mm": [
+            2142,
+            3760,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 3,
+          "center_mm": [
+            2262,
+            3760,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 8,
+          "center_mm": [
+            2142,
+            3640,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 9,
+          "center_mm": [
+            2262,
+            3640,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        }
+      ]
+    },
+    {
+      "location": "L3",
+      "group": "G",
+      "count": 6,
+      "ids": [
+        4,
+        5,
+        6,
+        7,
+        10,
+        11
+      ],
+      "targets": [
+        {
+          "id": 4,
+          "center_mm": [
+            3610,
+            5414,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 5,
+          "center_mm": [
+            3610,
+            5354,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 6,
+          "center_mm": [
+            3610,
+            5294,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 7,
+          "center_mm": [
+            3730,
+            5414,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 10,
+          "center_mm": [
+            3730,
+            5354,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        },
+        {
+          "id": 11,
+          "center_mm": [
+            3730,
+            5294,
+            100
+          ],
+          "bottom_z_mm": 70,
+          "top_z_mm": 130
+        }
+      ]
+    }
+  ],
+  "equivalent_valid_allocations_accepted": true,
+  "id_to_cell_policy": "example_assignment_any_bijection_within_valid_group_allowed"
+}

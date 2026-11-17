@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "problem_id": "NZ2-Q1-review",
+  "basis": "provided_public_Q1_example",
+  "sequence": [
+    "R",
+    "G",
+    "R",
+    "R",
+    "G",
+    "R",
+    "G",
+    "G",
+    "Y",
+    "G",
+    "Y",
+    "G"
+  ],
+  "counts": {
+    "R": 4,
+    "Y": 2,
+    "G": 6
+  },
+  "barcode": "P2-01",
+  "barcode_symbology": "Code 128",
+  "sort_order": "ASC",
+  "tie_break_order": [
+    "R",
+    "Y",
+    "G"
+  ],
+  "on_s": 1.0,
+  "off_s": 1.0,
+  "end_off_s": 3.0,
+  "operator_starts_after_robot_ready": true,
+  "timing_origin": "first_flash_onset",
+  "expected_end_from_first_onset_s": 26.0,
+  "purpose": "operator_ground_truth"
+}

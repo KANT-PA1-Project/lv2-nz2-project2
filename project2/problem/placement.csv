@@ -1,0 +1,13 @@
+id,color,shape,source_box,slot,x_mm,y_mm,bottom_z_mm,top_z_mm,posture,tag_id
+0,R,cylinder,S1,L,1428,950,70,130,up,0
+1,R,cylinder,S3,L,2896,5354,70,130,up,1
+2,R,cylinder,S5,L,2162,5354,70,130,up,2
+3,R,cuboid,S6,L,3630,3886,70,130,up,3
+4,G,cylinder,S1,R,1508,950,70,130,up,4
+5,G,cylinder,S2,R,3710,3152,70,130,up,5
+6,G,cylinder,S4,R,774,5354,70,130,up,6
+7,G,cuboid,S5,R,2242,5354,70,130,up,7
+8,R,cuboid,S2,L,3630,3152,70,130,up,8
+9,R,cuboid,S4,L,694,5354,70,130,up,9
+10,G,cuboid,S3,R,2976,5354,70,130,up,10
+11,G,cuboid,S6,R,3710,3886,70,130,up,11
