@@ -6,14 +6,13 @@ import copy
 import hashlib
 import json
 import math
-import os
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-PERCEPTION_ROOT = HERE.parent                      # r12/experiments/barcode_signal
+PERCEPTION_ROOT = HERE.parent                      # Claude outputs/tower_signal
 def _find_r12():
     """저장소 안(r12/experiments/...)에 있으면 그 저장소의 r12, 아니면 기본 tutor 체크아웃."""
     for parent in HERE.parents:
@@ -36,6 +35,12 @@ MAST_FRAME = 'mast_d435_color_optical_frame'
 # 바퀴 중심 z(-0.003-0.145) - 타이어 반지름 0.033 = -0.181 → base_link 원점은 지면 위 0.181 m.
 # README 의 gz 생성 높이 0.182 를 그대로 쓴다(1 mm 낙하 후 정착).
 BASE_HEIGHT_M = 0.182
+FOOTPRINT_LINK = 'base_footprint'   # v99 nz2fix URDF 에만 있음. 시뮬은 base_link 를 뿌리로 쓴다
+
+
+def urdf_path(cfg):
+    """원본 URDF 경로. config urdf_file 이 없으면 assembly.urdf (v25 이하). v99 는 real_final_..._nz2fix.urdf."""
+    return Path(cfg['assembly_dir']) / cfg.get('urdf_file', 'assembly.urdf')
 
 
 def sha256(path):
@@ -55,15 +60,8 @@ def _vec(value, n, name):
 
 def load_config(path, check_poses=True):
     cfg = json.loads(Path(path).read_text(encoding='utf-8'))
-    # 저장소 밖 외부 자산은 환경변수로 덮어쓸 수 있다(설정 파일 값은 원래 PC 경로).
-    #   NZ2_ASSEMBLY_DIR: 최종 조립 URDF 폴더(assembly.urdf, meshes/, sensors.json)
-    #   NZ2_FLOOR_USD   : 바닥 visual USD(scene.usda). 빈 값이면 바닥 교체 안 함
-    if os.environ.get('NZ2_ASSEMBLY_DIR'):
-        cfg['assembly_dir'] = os.environ['NZ2_ASSEMBLY_DIR']
-    if 'NZ2_FLOOR_USD' in os.environ:
-        cfg['floor_visual_usd'] = os.environ['NZ2_FLOOR_USD'] or None
     cfg['assembly_dir'] = str(Path(cfg['assembly_dir']).expanduser().resolve())
-    urdf = Path(cfg['assembly_dir']) / 'assembly.urdf'
+    urdf = urdf_path(cfg)
     if not urdf.is_file():
         raise FileNotFoundError(urdf)
     scale = cfg.get('mass_scale', 1.0)
@@ -147,7 +145,7 @@ def load_config(path, check_poses=True):
         raise ValueError('signal_camera 는 wrist 또는 mast')
     pitch = cfg.get('mast_pitch_down_deg')
     if pitch is not None and not 0 < pitch < 90:
-        raise ValueError('mast_pitch_down_deg: 0~90 또는 null(URDF 60°)')
+        raise ValueError('mast_pitch_down_deg: 0~90 또는 null(URDF 값: v25 60°, v99 35°)')
     if cfg['barcode_upscale'] not in (1, 2):
         raise ValueError('barcode_upscale 은 1 또는 2')
     if cfg.get('floor_visual_usd'):
@@ -233,6 +231,8 @@ class Model:
         self.joints = {}
         self.by_child = {}
         for j in root.findall('joint'):
+            if j.find('parent').get('link') == FOOTPRINT_LINK:   # v99 nz2fix: base_link 를 뿌리로 (차체 자세는 base_transform 이 담당)
+                continue
             origin = j.find('origin')
             axis = j.find('axis')
             limit = j.find('limit')
@@ -304,6 +304,13 @@ class Model:
             frame[:3, :3] = rpy_matrix([0., math.radians(pitch_down_deg), math.pi])
         return frame @ self.joints['mast_d435_color_optical_frame_fixed']['origin']
 
+    def mast_pitch_down_deg(self, pitch_down_deg=None):
+        """실제로 쓰는 상단 카메라 하향각[deg] (설정값, 없으면 URDF 값)."""
+        if pitch_down_deg is not None:
+            return float(pitch_down_deg)
+        r = self.joints['mast_d435_color_frame_fixed']['origin'][:3, :3]
+        return math.degrees(math.asin(max(-1., min(1., -r[2, 0]))))
+
     def gravity_torque(self, q5, base_xyz_yaw, g=9.81):
         """정지 자세에서 팔 관절별 중력 토크(N·m). 구동 한계 검토용."""
         q = self.arm_q(q5)
@@ -339,7 +346,12 @@ def sanitize_urdf(source, destination, limits=None, mass_scale=1.0):
     removed_links = set()
     for j in list(robot.findall('joint')):
         child = j.find('child').get('link')
-        if j.get('type') == 'fixed' and (child.startswith(('wrist_d435', 'mast_d435', 'lidar_', 'puck_slot_'))):
+        if j.find('parent').get('link') == FOOTPRINT_LINK:   # v99 nz2fix 의 base_footprint(yaw π) 제거 → v25 와 같은 base_link 뿌리
+            if j.get('type') != 'fixed' or child != 'base_link':
+                raise ValueError(f'예상 밖 base_footprint 관절: {j.get("name")}')
+            robot.remove(j)
+            removed_links.add(FOOTPRINT_LINK)
+        elif j.get('type') == 'fixed' and (child.startswith(('wrist_d435', 'mast_d435', 'lidar_', 'puck_slot_'))):
             robot.remove(j)
             removed_links.add(child)
         elif j.get('name').endswith(('_steer_joint', '_wheel_joint')):

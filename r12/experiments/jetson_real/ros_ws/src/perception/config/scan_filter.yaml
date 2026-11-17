@@ -1,0 +1,13 @@
+# 라이다 4개 몸체 가림 필터 (scan_body_filter.py) [2026-11-02]
+# 라이다 드라이버는 /scan/<이름>_raw 로 내보내게 하고(remap), 이 필터가 /scan/<이름> 으로 내보냄 → 카토그래퍼는 그대로
+/scan_body_filter:
+  ros__parameters:
+    inputs:  ["/scan/front_right_raw", "/scan/front_left_raw", "/scan/rear_left_raw", "/scan/rear_right_raw"]
+    outputs: ["/scan/front_right", "/scan/front_left", "/scan/rear_left", "/scan/rear_right"]
+    base_frame: "base_link"
+    # 로봇 몸 상자 (base_link 기준, m): 차체 400×400 + 사방 3 cm 여유 [가정: base_link = 차체 중심]
+    #   실물에서 몸이 지도에 찍히면 여유를 늘리고(0.25), 가까운 벽이 지워지면 줄임
+    body_box: [-0.23, 0.23, -0.23, 0.23]
+    min_range: 0.05          # LDS-03 최소 거리
+    extra_drop_deg: [0.0]    # 추가로 지울 각도 구간 [시작, 끝, 시작, 끝, …] (라이다 자기 좌표, 도). 없으면 [0.0]
+    stats_period_s: 10.0     # 10 초마다 라이다별 지운 비율 로그

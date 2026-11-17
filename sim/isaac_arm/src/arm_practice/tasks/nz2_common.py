@@ -46,6 +46,39 @@ ACTION_TERM = "arm_action"
 # 질량 없는 고정 링크(gripper_tcp)는 강체가 아니라 body 로 못 찾음 → arm_link5 + 오프셋
 TCP_BODY = "arm_link5"
 TCP_OFFSET_M = (0.105, 0.0, 0.0)               # 롤 축 → 패드 중심 (URDF gripper_tcp 와 같은 값)
+L5_BODY = "arm_link5"                           # j5 원점 몸체 (FK 자기검사)
+FINGER_BODIES = ["gripper_left_finger", "gripper_right_finger"]
+FINGER_BODY_REGEX = "gripper_.*_finger"
+FINGER_MIMIC_REGEX = ["gripper_(left|right)_joint"]
+ARM_JOINT_NAMES = ["arm_joint1", "arm_joint2", "arm_joint3", "arm_joint4", "arm_joint5"]
+GRIP_JOINT = "gripper_joint"
+
+# ===== (11/12) 최종 URDF 전체 로봇 (ARM_CONFIG json 의 robot = "nz2_full") =====
+#   USD: models/nz2_full/nz2_full_robot_light.usda (assembly.usd + 질량 ×0.1·R12 관절 부호·펌웨어 한계·집게 mimic·root_joint)
+#   링크 이름·TCP·손가락은 json 에서 읽음. 관절 값 규약은 R12 와 같음 (q_USD = q_R12) → IK·상태기계 그대로
+import json as _json
+import os as _os
+ROBOT_CFG: dict = {}
+try:
+    _p = _os.environ.get("ARM_CONFIG")
+    if _p and _os.path.isfile(_os.path.expanduser(_p)):
+        ROBOT_CFG = _json.load(open(_os.path.expanduser(_p), encoding="utf-8"))
+except Exception as _e:                          # json 이 깨졌으면 load_robot_config 가 다시 오류를 냄
+    print(f"[NZ2] ARM_CONFIG 읽기 실패: {_e}")
+FULL_ROBOT = ROBOT_CFG.get("robot") == "nz2_full"
+if FULL_ROBOT:
+    LINK_PATHS = dict(ROBOT_CFG["link_paths"])
+    BASE_LINK_PATH = ROBOT_CFG.get("base_link_path", "base_link")
+    TCP_BODY = ROBOT_CFG["tcp_link"]
+    TCP_OFFSET_M = tuple(ROBOT_CFG["tcp_offset_m"])
+    L5_BODY = LINK_PATHS["arm_link5"]
+    FINGER_BODIES = list(ROBOT_CFG["finger_bodies"])
+    FINGER_BODY_REGEX = "(" + "|".join(re.escape(b) for b in FINGER_BODIES) + ")"
+    FINGER_MIMIC_REGEX = [re.escape(j) for j in ROBOT_CFG.get("finger_mimic_joints", [])]
+    ARM_JOINT_NAMES = list(ROBOT_CFG["joint_names"][:5])
+    GRIP_JOINT = ROBOT_CFG["joint_names"][5]
+    print(f"[NZ2] 전체 로봇 모드: {ROBOT_CFG.get('usd_path')} / 관절 {ROBOT_CFG['joint_names']} / TCP {TCP_BODY}+{TCP_OFFSET_M}")
+ARM_JOINT_REGEX = [re.escape(n) for n in ARM_JOINT_NAMES]
 
 # ===== 떨림 방지 =====
 ACTION_MODE = "delta"                          # v3: 행동 = 관절 속도 명령(a=0 이면 정지). "absolute" = v2 방식(떨림 확인됨)
@@ -136,8 +169,14 @@ def setup_robot_common(robot):
     """조향·바퀴 고정, 손가락은 mimic 이 움직이도록 게인 0, 자기충돌 ON"""
     robot.actuators["steer_hold"] = ImplicitActuatorCfg(joint_names_expr=[".*_steer_joint"], **STEER_HOLD)
     robot.actuators["wheel_hold"] = ImplicitActuatorCfg(joint_names_expr=[".*_wheel_joint"], **WHEEL_HOLD)
-    robot.actuators["finger_mimic"] = ImplicitActuatorCfg(
-        joint_names_expr=["gripper_(left|right)_joint"], stiffness=0.0, damping=0.0)
+    if FINGER_MIMIC_REGEX:
+        robot.actuators["finger_mimic"] = ImplicitActuatorCfg(
+            joint_names_expr=list(FINGER_MIMIC_REGEX), stiffness=0.0, damping=0.0)
+    mirror = ROBOT_CFG.get("finger_mirror_joint") if FULL_ROBOT else None
+    if mirror:            # (11/12) 오른쪽 집게: 왼쪽과 같은 이득으로 위치 구동 (목표는 행동 클래스가 왼쪽 목표를 복사)
+        robot.actuators["finger_mirror"] = ImplicitActuatorCfg(
+            joint_names_expr=[re.escape(mirror)], stiffness=ROBOT_CFG["stiffness"][5], damping=ROBOT_CFG["damping"][5],
+            joint_effort_limit=ROBOT_CFG["effort"][5], joint_velocity_limit=ROBOT_CFG["velocity"][5])
     robot.spawn.activate_contact_sensors = True
     # 차체 고정은 USD root_joint 가 담당. fix_root_link=True 는 RuntimeError (2026-11-03 확인) → 쓰지 않음
     robot.spawn.articulation_props = PhysxArticulationRootPropertiesCfg(
@@ -167,6 +206,6 @@ def add_contact_termination_penalty(env_cfg):
 def add_finger_friction_dr(env_cfg):
     env_cfg.events.finger_friction = EventTermCfg(
         func=mdp.randomize_rigid_body_material, mode="startup",
-        params={"asset_cfg": SceneEntityCfg("robot", body_names="gripper_.*_finger"),
+        params={"asset_cfg": SceneEntityCfg("robot", body_names=FINGER_BODY_REGEX),
                 "static_friction_range": FINGER_FRICTION, "dynamic_friction_range": FINGER_FRICTION,
                 "restitution_range": (0.0, 0.0), "num_buckets": 64, "make_consistent": True})

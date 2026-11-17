@@ -21,6 +21,13 @@ LAB=~/pa-course/IsaacLab-6.1
 R12=~/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD
 SRC_USD="${NZ2_SRC_USD:-$R12/urdf/r12_arm_train_pos/r12_arm_train/r12_arm_train.usda}"
 export ARM_CONFIG=$R12/isaac/nz2_arm_armonly.json
+# (11/12) NZ2_ROBOT=full → 최종 URDF 전체 로봇 (차체·스워브·기둥·트레이 포함, 질량 4.296 kg). view = 시각 메시 전부(GUI 확인용, env 적게)
+case "${NZ2_ROBOT:-}" in
+  full) export ARM_CONFIG=~/manipulator-isaac61-lyrical-practice/models/nz2_full/nz2_full.json
+        export NZ2_TOPCAM_PITCH_DEG="${NZ2_TOPCAM_PITCH_DEG:-60}" ;;
+  full-view) export ARM_CONFIG=~/manipulator-isaac61-lyrical-practice/models/nz2_full/nz2_full_view.json
+        export NZ2_TOPCAM_PITCH_DEG="${NZ2_TOPCAM_PITCH_DEG:-60}" ;;
+esac
 export NZ2_URDF="${NZ2_URDF:-$R12/urdf/r12_arm_train.urdf}"   # 해석 IK 치수를 이 URDF 에서 자동으로 읽음 (새 URDF 면 이 경로를 바꾸고 usd 다시)
 export NZ2_TOPCAM_PITCH_DEG="${NZ2_TOPCAM_PITCH_DEG:-65}"
 # 차체 프리셋 (11/10): NZ2_CHASSIS=r20d → 새 R20D 차체 위 실기 팔 높이·위치 + 차체 충돌 근사

@@ -1,0 +1,154 @@
+{
+ "robot": "nz2_full",
+ "note": "11/12 최종 URDF 전체 로봇 (assembly.usd + nz2_make_full_usd.py 덮어쓰기). 관절 부호 = R12/펌웨어 규약, 집게 jaw_left + = 벌림(m), jaw_right 는 왼쪽 목표 복사 구동 / 집게 소프트 열림 한계 16 mm/손가락 (패드 간격 51 mm, 바깥면 ±44 mm ≤ R12 ±48 mm: 옆 퍽 보호)",
+ "joint_names": [
+  "arm_yaw_joint",
+  "shoulder_joint",
+  "elbow_joint",
+  "wrist_pitch_joint",
+  "wrist_roll_joint",
+  "jaw_left_joint"
+ ],
+ "tcp_link": "wrist_roll",
+ "home": [
+  0.0,
+  -0.1745,
+  0.2618,
+  1.9199,
+  0.0,
+  0.016
+ ],
+ "lower": [
+  -3.0543,
+  -1.6581,
+  -1.9373,
+  -1.7279,
+  -2.9671,
+  0.0
+ ],
+ "upper": [
+  3.0543,
+  1.9722,
+  1.4312,
+  2.042,
+  2.9671,
+  0.016
+ ],
+ "action_scale": [
+  0.5,
+  0.5,
+  0.5,
+  0.5,
+  0.5,
+  0.01
+ ],
+ "effort": [
+  4.1,
+  4.1,
+  4.1,
+  4.1,
+  4.1,
+  20.0
+ ],
+ "velocity": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.05
+ ],
+ "stiffness": [
+  60.0,
+  60.0,
+  60.0,
+  60.0,
+  30.0,
+  5000.0
+ ],
+ "damping": [
+  6.0,
+  6.0,
+  6.0,
+  6.0,
+  3.0,
+  200.0
+ ],
+ "target_range": {
+  "x": [
+   0.25,
+   0.35
+  ],
+  "y": [
+   -0.08,
+   0.08
+  ],
+  "z": [
+   0.1,
+   0.2
+  ]
+ },
+ "success_distance_m": 0.01,
+ "arm_j1_xyz": [
+  0.15384,
+  0.000125,
+  0.032
+ ],
+ "root_rot_xyzw": [
+  0.0,
+  0.0,
+  1.0,
+  0.0
+ ],
+ "tcp_offset_m": [
+  -0.105,
+  0.0,
+  0.0
+ ],
+ "link_paths": {
+  "arm_link2": "shoulder",
+  "arm_link3": "elbow",
+  "arm_link4": "wrist_pitch",
+  "arm_link5": "wrist_roll",
+  "finger_l": "jaw_left",
+  "finger_r": "jaw_right"
+ },
+ "base_link_path": "base_link",
+ "finger_bodies": [
+  "jaw_left",
+  "jaw_right"
+ ],
+ "finger_mimic_joints": [],
+ "wrist_cam": {
+  "pos": [
+   -0.04265,
+   -0.0325,
+   0.05243
+  ],
+  "rpy_deg": [
+   0.0,
+   30.0,
+   180.0
+  ]
+ },
+ "top_cam": {
+  "parent": "base_link",
+  "pos": [
+   0.0059,
+   -0.0325,
+   0.4654
+  ],
+  "rpy_deg": [
+   0.0,
+   60.0,
+   180.0
+  ],
+  "pos_arm": [
+   -0.15974,
+   0.0,
+   0.6464
+  ]
+ },
+ "usd_path": "/home/pa24/manipulator-isaac61-lyrical-practice/models/nz2_full/nz2_full_robot.usda",
+ "finger_mirror_joint": "jaw_right_joint"
+}

@@ -1,0 +1,61 @@
+{
+  "git_repository": "SeongminJaden/turtlebot-swerve-cuvslam",
+  "git_commit": "97e163f7ea9fd05f6a8fdd028b431157751daba8",
+  "checkpoint_sha256": {
+    "/home/pa33/Downloads/drive-download-20261104T022039Z-1-001/centerpose_best.pt": "3ed5fe5711a5d96298a829a491ab0b1cc33f642434a3e3dc0a166ba60b2d1ae4",
+    "/home/pa33/Downloads/drive-download-20261104T022039Z-1-001/yolo_best.pt": "e844ec62ac01bb42272ce4a05f2f39128e2d57306b9857d96ef855c10757c473"
+  },
+  "source_sha256": {
+    "perception/scripts/train_centerpose.py": "5bcf7e057d1be4c1e03fd4c8907eea31750d0ae3a376205bfb4cfa6dd8a20923",
+    "perception/third_party/centerpose/centerpose.py": "78b45036895f95e0d22a1e2e053b6cebb05f29cc4c18af7cc797d9e057c638b7",
+    "perception/third_party/centerpose/model_utils.py": "ef3672d8d2072856d43ae2cdce611d4a82a5c79997beafeba9bbb41fa4c5bc79"
+  },
+  "outputs_sha256": {
+    "centerpose.onnx": "f31d8b903aa107cb4e1d9d03292f445d777319b0a58611a38016caf7967a01a0",
+    "yolo.onnx": "f8fed54a76db52c9d9b20107c77ff543e2f3e8b742cf013f5d953d11d591d6be"
+  },
+  "centerpose": {
+    "shape": [
+      3,
+      3,
+      128,
+      128
+    ],
+    "input_name": "images",
+    "output_names": [
+      "hm",
+      "hps",
+      "reg",
+      "scale"
+    ],
+    "crop_scales": [
+      1.5,
+      1.35,
+      1.65
+    ],
+    "preprocessing": "Git crop_image, BGR to RGB, float32 /255",
+    "pose_views": "scale3_median",
+    "metric_depth_head": true,
+    "opset": 17
+  },
+  "yolo": {
+    "shape": [
+      1,
+      3,
+      800,
+      800
+    ],
+    "names": {
+      "0": "red_cylinder",
+      "1": "red_cuboid",
+      "2": "green_cylinder",
+      "3": "green_cuboid",
+      "4": "box",
+      "5": "apriltag"
+    },
+    "opset": 17
+  },
+  "validation": "FP32 CPU output parity with original Git PyTorch on existing image crops",
+  "hardware_validation": "pending",
+  "yolo_validation": "yolo_validation.json"
+}

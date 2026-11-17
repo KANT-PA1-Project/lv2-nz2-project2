@@ -59,7 +59,7 @@ tutor `r12/experiments/r20d_perception/`(R20D 차체 + R12 팔 조합)의 시험
 ## 실행 (아직 실행하지 않음)
 
 ```bash
-cd "$HOME/git/lv2-nz2-project2/r12/experiments/barcode_signal/sim_assembly"
+cd "$HOME/git/p2_perception/Claude outputs/tower_signal/sim_assembly"
 python3 -B prepare.py --config config.json --out /tmp/assembly-prepared-01
 python3 -B launch.py --config config.json --prepared /tmp/assembly-prepared-01 --out "../reports/assembly-sim-01"
 ```
@@ -167,7 +167,7 @@ READY 이후에는 카메라 전환·부분 순서 이어붙이기를 하지 않
 `tower_scene` 배치는 장면과 자세 계산 양쪽에 적용한다. 원본 판독 규칙/실물 ROS는 수정하지 않았다.
 
 ```bash
-cd "$HOME/git/lv2-nz2-project2/r12/experiments/barcode_signal"
+cd "$HOME/git/p2_perception/Claude outputs/tower_signal"
 # CPU 검사 (Isaac/카메라를 실행하지 않음)
 PYTHONDONTWRITEBYTECODE=1 "$HOME/yolo_env/bin/python" -B -m pytest \
   sim_assembly/test_signal_fallback.py -q -p no:cacheprovider
@@ -273,7 +273,7 @@ python3 -B sim_assembly/launch.py \
 | B19 | `config_auto_mast_relocate_30cm_initial.json` | 사용 가능한 초기 잘림 허용→이동 없이 상단12회 | 통과: 12회 정확, 810/810프레임, 이동 없음 |
 
 ```bash
-cd "$HOME/git/lv2-nz2-project2/r12/experiments/barcode_signal"
+cd "$HOME/git/p2_perception/Claude outputs/tower_signal"
 PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 "$HOME/yolo_env/bin/python" -B \
   sim_assembly/prepare.py --config sim_assembly/config_auto_mast_relocate_30cm.json \
   --out /tmp/codex-assembly-sim-B18
@@ -394,3 +394,38 @@ B26 원본 `result.json.frame_count=1175`는 확정 후2초(60프레임) 녹화 
 상단 카메라·차체 위치가 같고 신호등이 가리지 않으면 신호 먼저 판독하는 정책은 유지할 수 있지만,
 실물은 측정된 관절값에서 출발하고 바닥 접촉 중이면 먼저 그리퍼를 들어 올린 뒤 차체 이동해야 한다.
 이 시작 자세 변경·상승 경로와 Nav2 구동, 실제 펌웨어 현재위치/진입 인터락·워치독은 별도 검증 사항이다.
+
+### v24 URDF 검증 (2026-11-13)
+`~/Downloads/assembly_puck_slots_v24/assembly.urdf`(최종) + `mass_scale 0.099911`(= v24 기반 `assembly_nz2.urdf` 총질량 4.296 kg). 기본 `config.json` 도 v24 로 전환.
+- **B28 (신호 먼저)**: 통과 — B26 과 시각까지 같음(1.54 s READY, 28.5 s 12회 810/810, 39.17 s P2-02).
+- **B29 (바코드 먼저, −10 cm, 보정, 거두고 접기, 재이동)**: 통과 — B27 과 시각까지 같음(14.07 s 확정, 27.7 s READY, 54.7 s 12회 810/810). 실행 1261 s.
+- Nav2 용 `assembly_nz2.urdf` 를 v24 에서 재생성(`~/Downloads/assembly_puck_slots_v24/assembly_nz2.urdf`, check_urdf 통과).
+
+### v25 URDF 검증 (2026-11-13, 진짜 최종)
+`~/Desktop/assembly_puck_slots_v25/assembly.urdf` + `mass_scale 0.099859`. v24 대비 상단 카메라·마스트 +35 mm.
+- **B30 (신호 먼저)**: 통과 — B28 과 같음.
+- **B31 (바코드 먼저)**: 통과 — 바코드 위치에서 상단 카메라로 바로 READY(23.34 s), 차체 재이동 불필요. 12회 810/810.
+- Nav2 용 `~/Desktop/assembly_puck_slots_v25/assembly_nz2.urdf` 생성(check_urdf 통과).
+
+### v99 URDF 검증 (2026-11-15, 찐찐찐 최종)
+`~/Desktop/nz2_robot_v99_share./nz2_robot_v99_share/real_final_plz_no_more_edit_v99_nz2fix.urdf` (팀 README_URDF.txt: 이 파일 사용).
+- v25 대비 변경은 상단 D435 하향 60°→35°(`mast_d435_*` 4개 pitch 1.0472→0.6109)와 마운트 메시/base_link 관성(+0.133 kg)뿐. 팔·바퀴·손목 카메라·sensors.json 동일(스크립트 비교).
+- 시뮬 코드: config `urdf_file`(기본 `assembly.urdf`) 추가. nz2fix 의 `base_footprint`(yaw π)는 시뮬 준비 때 제거해 v25 와 같은 base_link 뿌리로 씀(정리된 URDF 관절 원점이 v25 와 완전히 같음 확인). 상단 하향각은 `mast_pitch_down_deg: null` 이면 URDF 값(35°)을 그대로 씀.
+- 질량: 사용자 지시 실제 총질량 **7.2 kg** → `mass_scale 0.166843` (= 7.2 / 43.154, 링크별 같은 비율 [가정: 팔/차체 질량 배분은 CAD 비율]). 중력 토크 최대 0.82 N·m (한도 4 N·m).
+- **B32 (= B30, 신호 먼저)**: 통과 — B30 과 시각까지 같음(28.5 s 12회 RGYRGYGRGRGG, 39.17 s P2-02). 단 READY 화면에서 신호등이 상단 화면 **아래 가장자리**(받침 일부 잘림), 60° 때보다 여유 적음.
+- **B33 (= B31, 바코드 먼저)**: 통과 — 단 B31 과 달리 바코드 위치에서 상단 카메라에 신호등이 안 보임(`tower_candidate_at_barcode_pose` None) → 24.3 s 차체만 (783.5,730) 재이동 → 27.7 s READY → 12회 일치. B27/B29 와 같은 경로. 재이동 뒤에도 신호등이 화면 **오른쪽 아래 구석**.
+- 원인: 35° 는 60° 보다 위쪽(벽)을 보므로 바닥 가까운 신호등이 화면 아래로 밀림. 접은 팔이 상단 화면 왼쪽 약 1/3 을 가림(60° 때와 같음).
+- 실물 대비: 화면 가장자리라 차체 위치 오차 몇 cm 로 잘릴 수 있음 → 마운트 각도를 40~45° 로 하거나 신호 관측 위치를 신호등에서 더 멀리 잡는 안 검토 필요(미실행).
+- 회귀 시험: 옛 폴더 `~/Desktop/assembly_puck_slots./`(삭제됨)를 가리키던 설정 17개를 v99 폴더 + `urdf_file` 로 바꿈 → `test_signal_fallback.py` 19개 통과. 이 17개 설정으로 옛 B 실험을 다시 돌리면 상단 카메라가 35° 라 당시(60°)와 조건이 다름(당시 조건은 각 결과 폴더 inputs.json 에 남아 있음).
+
+### B34 — 신호등을 미션 좌표 (80,950) mm로 이동 (2026-11-15)
+
+- 설정 `config_B34_tower80.json`: B33의 신호등 중심축만 (303.5,950)→(80,950) mm. v99/상단35°/7.2kg/바코드 z0.10m/팔·차체 경로/조명/렌더 모두 그대로. B33 실행 소스 해시와 전부 동일.
+- **통과**: 기존 바코드 보정1회 → 14.07s P2-02 확정 → 거두기/접기 완료22.30s → 추가 차체 이동 없이23.34s READY → 50.34s 12회 RGYRGYGRGRGG 저장. 판독810/810, 52.34s 종료.
+- B33은 신호 재관측 차체 이동이 필요했고 READY27.70s였다. B34는 바코드 관측 차체 (600,700) mm에서 계속 기록해4.37s 단축. 시작 (734,950)에서 바코드 위치로 접근한 이동은 있음.
+- 바코드 확정 당시 상단 몸통도 검출([526,326,576,400] px). 실제 기록 박스[533,331,569,395] px, 640×480 화면 오른쪽71px/아래85px 여유. 이 수치만으로 실물 위치 오차 허용범위를 보장하지 않음.
+- **두 카메라 사용**: 바코드=그리퍼, 신호등=상단. 팔 거두기/접기를 수행했으므로 팔 자세까지 그대로인 동시 전체 판독 시험은 아님.
+- 결과 `../reports/assembly-sim-B34-tower80/`: result/process_exit/review_20261115.json, camera.mp4, barcode_saved.png, ready.png, signal_saved.png. 종료0, 영상1570프레임·전체 디코딩오류0. 기록된 팔 접촉0N, 설정 관절범위 이내.
+- 독립 집계는 record/saved 중 color가 있는810행을 사용한다. 첫 record행은 전환 직후color=null이고 마지막 판독OFF행은saved로 기록되므로 phase=record만 세면809로 보인다.
+- result.base_moved=false는 시작 접근까지 없었다는 뜻으로 해석하면 안 됨. frames.jsonl에서 시작→바코드 접근과 확정 후 차체고정을 각각 확인했다.
+- 단일 시뮬 배치의 영상 인지 시험. 자기충돌 OFF, 실제 바퀴·정책·ROS 팔 브리지·실물 구동 검증은 포함하지 않음.

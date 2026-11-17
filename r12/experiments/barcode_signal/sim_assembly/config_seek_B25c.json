@@ -1,6 +1,7 @@
 {
   "scope": "simulation_only_assembly_urdf_arm_observation",
-  "assembly_dir": "~/Desktop/assembly_puck_slots.",
+  "assembly_dir": "~/Desktop/nz2_robot_v99_share./nz2_robot_v99_share",
+  "urdf_file": "real_final_plz_no_more_edit_v99_nz2fix.urdf",
   "barcode_base_xyz_yaw": [
     0.6,
     0.7,

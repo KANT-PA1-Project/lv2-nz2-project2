@@ -22,7 +22,7 @@ import sys
 from types import SimpleNamespace
 
 from common import (ARM_JOINTS, ARM_LINKS, JAW_JOINTS, PERCEPTION_ROOT, R12, WRIST_LINK,
-                    arm_limits, load_config, sha256)
+                    arm_limits, load_config, sha256, urdf_path)
 from appearance import asset_paths, apply_floor, apply_gripper
 from signal_fallback import SignalFallback, wall_budget
 
@@ -41,7 +41,7 @@ def main():
     manifest = json.loads((prepared / 'manifest.json').read_text())
     if manifest['config'] != cfg or manifest['sim_urdf_sha256'] != sha256(prepared / 'assembly_sim.urdf'):
         raise ValueError('준비 자료와 설정이 다름: 새 폴더로 prepare 다시 실행')
-    if manifest['source_urdf_sha256'] != sha256(Path(cfg['assembly_dir']) / 'assembly.urdf'):
+    if manifest['source_urdf_sha256'] != sha256(urdf_path(cfg)):
         raise ValueError('원본 URDF 가 준비 후 바뀜')
     if any(sha256(path) != digest for path, digest in manifest['mesh_sha256'].items()):
         raise ValueError('원본 메시가 준비 후 바뀜')
@@ -62,7 +62,7 @@ def main():
     for p in (PERCEPTION_ROOT / 'src/arm_practice').glob('*.py'):
         provenance[str(p)] = sha256(p)
     for p in (R12 / 'models/navigation/mission_scene.usda', R12 / 'src/arm_practice/mission.py',
-              Path(cfg['assembly_dir']) / 'assembly.urdf', Path(cfg['assembly_dir']) / 'sensors.json',
+              urdf_path(cfg), Path(cfg['assembly_dir']) / 'sensors.json',
               PERCEPTION_ROOT / 'configs/barcodes.json',
               PERCEPTION_ROOT / 'references' / (cfg['barcode']['code'] + '.png')):
         provenance[str(p)] = sha256(p)
@@ -75,7 +75,7 @@ def main():
         if path.suffix in ('.py', '.json'):
             shutil.copy2(path, snapshots / (digest[:12] + '-' + path.name))
     result = dict(status='not_completed', scope=cfg['scope'], rule_status='후보 규칙, 실사 정답 영상 검증 전',
-                  robot_model='assembly_puck_slots/assembly.urdf', driving_tested=False,
+                  robot_model=str(urdf_path(cfg)), driving_tested=False,
                   learned_policy_tested=False, physical_robot_tested=False, arm_self_collision=False,
                   trial_mode=cfg.get('trial_mode', 'barcode_then_tower'), barcode_tested=not tower_only)
     result['wall_budget_s'] = wall_budget_s
