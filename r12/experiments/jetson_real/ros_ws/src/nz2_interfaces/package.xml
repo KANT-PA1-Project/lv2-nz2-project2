@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>nz2_interfaces</name>
+  <version>0.0.1</version>
+  <description>NZ2 커스텀 인터페이스 (인지 범위 초안): Puck, PuckArray, TrafficLight, ShelfPose, Barcode, BarcodeArray, PerceptionState, SetPerceptionMode</description>
+  <maintainer email="chj021216@gmail.com">nz2</maintainer>
+  <license>MIT</license>
+
+  <!-- [범위] 이번 초안은 인지(perception)용 타입만 정의. planning/control 타입
+       (DriveMode, ControlStatus, SwerveCommand, GripperCommand/Goal, ExecuteTask,
+        ApproachPose, PlanGrasp, SolveIK, BinSlot 등)은 nz2_dataflow에 있으나 다른 담당 몫이라 제외. -->
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

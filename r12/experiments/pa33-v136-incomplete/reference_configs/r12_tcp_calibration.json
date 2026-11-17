@@ -1,0 +1,18 @@
+{
+  "parent": "arm_link5",
+  "frame": "grasp_tcp",
+  "translation_m": [
+    0.12475,
+    0,
+    0
+  ],
+  "rpy_rad": [
+    0,
+    0,
+    0
+  ],
+  "method": "CAD opposing fingertip midpoint; +X approach, Y opening, Z up at home",
+  "physically_calibrated": false,
+  "gripper_actuated": false,
+  "policy_compatible": false
+}

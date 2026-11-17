@@ -1,0 +1,83 @@
+{
+  "baseline": "v133",
+  "candidate": "v135",
+  "samples_each": 10,
+  "metrics": {
+    "callback_copy_ms": {
+      "baseline": {
+        "p50": 1.9603745,
+        "p95": 4.511087399999997,
+        "max": 5.819232
+      },
+      "candidate": {
+        "p50": 0.010439,
+        "p95": 0.0123036,
+        "max": 0.012372
+      }
+    },
+    "callback_hash_ms": {
+      "baseline": {
+        "p50": 9.7909375,
+        "p95": 11.3604201,
+        "max": 11.404629
+      },
+      "candidate": {
+        "p50": 9.906834,
+        "p95": 10.804099149999999,
+        "max": 11.207386
+      }
+    },
+    "spin_CPU_ms": {
+      "baseline": {
+        "p50": 38.357949500000004,
+        "p95": 57.92028284999999,
+        "max": 60.800358
+      },
+      "candidate": {
+        "p50": 31.643818500000002,
+        "p95": 49.822896899999996,
+        "max": 50.293515
+      }
+    },
+    "producer_ACK_ms": {
+      "baseline": {
+        "p50": 316.87622899999997,
+        "p95": 390.79928794999995,
+        "max": 416.29019
+      },
+      "candidate": {
+        "p50": 313.2897845,
+        "p95": 385.37145654999995,
+        "max": 411.897922
+      }
+    },
+    "shadow_ms": {
+      "baseline": {
+        "p50": 306.361557,
+        "p95": 333.2724313,
+        "max": 336.305614
+      },
+      "candidate": {
+        "p50": 306.951096,
+        "p95": 332.75306555000003,
+        "max": 334.968884
+      }
+    },
+    "ready_ms": {
+      "baseline": {
+        "p50": 98.500606,
+        "p95": 122.88001029999997,
+        "max": 136.792762
+      },
+      "candidate": {
+        "p50": 101.33077349999999,
+        "p95": 115.39849339999998,
+        "max": 123.398849
+      }
+    }
+  },
+  "timer_semantics": "callback_copy_ms baseline measures bytes copy; candidate measures readonly view construction, no bytes copied",
+  "assessment": "Single paired run: local copy cost reduced (median1.960375->.010439ms). ACKmedian316.876->313.290,max416.290->411.898ms; cannot attribute full pipeline difference solely to change. Hash cost remains median9.907ms. Supports narrow candidate under callback-exclusive backing ownership; not fleetwide robustness/fullmission proof.",
+  "validation": "all children0/source unchanged/10freshID/31ROSsamples each/settledframes7\u20139; QoS/hash/duplicate rejection code unchanged",
+  "motion_authorized": false
+}

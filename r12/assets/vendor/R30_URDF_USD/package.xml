@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>r30_description</name>
+  <version>0.1.0</version>
+  <description>R30(nz2fix v99) swerve + wrist-roll arm description; base_footprint+joints restored from assembly_nz2, mast camera 35deg. Experimental, not hardware certified</description>
+  <maintainer email="maintainer@example.invalid">Robot project owner</maintainer>
+  <license>Proprietary - see original component licenses</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,16 @@
+{
+  "checkpoint_source": "/home/pa28/r12-development/pa28_pgs_480_v145/model_101.pt",
+  "checkpoint_sha256": "f75ebef53997c2e249c6304a580b8c2e917d277c77dd3639675fd73bc054982e",
+  "snapshot": "/home/pa28/r12-development/pa28_pgs_480_v145",
+  "seed": 20261106,
+  "episodes": 1,
+  "sim_seconds_per_episode": 80.0,
+  "policy_hz": 20,
+  "planned_policy_steps_upper_bound": 1600,
+  "policy_label": "trained",
+  "deterministic_inference": true,
+  "control_mode": "fixed offline goal-only IK target replaces policy action; loaded policy unused",
+  "runtime_TCP_used_for_control": false,
+  "training_updates": false,
+  "official_play_exports": "written beside copiedcheckpoint in evaloutput only"
+}

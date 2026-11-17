@@ -1,0 +1,30 @@
+{
+  "updated_at": 1793869449.0049455,
+  "status": "stopped_per_user_remote_shutdown",
+  "owned_active_pids": [],
+  "running_related_user_units": [],
+  "experiment_lock_free": true,
+  "gpu_free_mib": 6484,
+  "temperature_c": 39,
+  "latest_completed": {
+    "run": "pa24_native_ready_v44_20261105",
+    "local_result": "/home/seongmin/Documents/Codex/2026-10-30/https-github-com-seongminjaden-manipulator-isaac61/outputs/r12/fleet_parallel_development_20261104/pa24/native_ready_v44",
+    "remote_snapshot": "/home/pa24/r12-snapshots/pa24_native_ready_v44_20261105",
+    "remote_results": "/home/pa24/isaac-fleet-runs/pa24_native_ready_v44_20261105",
+    "exit_code": 0,
+    "physics_sha256": "2984e76b63aeedc4d4ab1fedd13ccb956269919486785a44334de2f04b17efeb",
+    "achieved": "20/20 independent five-camera bench exact renderer-reference epoch after3renders in145-165ms; unchanged physicalq/ticks, IDs20/20",
+    "not_achieved": "No exposure timestamp,8RGB4depth mission authority,independent pad calibration or mission completion"
+  },
+  "prepared_not_executed": {
+    "path": "/home/seongmin/Documents/Codex/2026-10-30/https-github-com-seongminjaden-manipulator-isaac61/outputs/r12/fleet_parallel_development_20261104/pa24/producer8_v45",
+    "stage": "Python syntax compiled; native NOT run, remote NOT copied, CPU integration tests pending",
+    "main_source_sha256": "e71367479bdc2da9e1d153f73ef18ca99dcb7548586e597a9332931264e219b8",
+    "model_arm_urdf_sha256": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
+    "camera_schema_sha256": "9a72afb847cb394c9b4a216e8e37a3b404fe969e50d786cb0163283ccf18c002",
+    "next_work_if_local_authorized": "Review integration against pa33 callback_native_v135 adapter, CPU schema tests then local-only resource-preflight. v45 current verifier happens after npz compression and may cause500ms freshness failure; verify in-memory before compression, never relax issuer limit."
+  },
+  "remote_next_action": "None; do not launch remote work until new user instruction",
+  "calibration_accepted": false,
+  "motion_authorized": false
+}

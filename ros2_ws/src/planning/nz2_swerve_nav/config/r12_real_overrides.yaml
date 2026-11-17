@@ -1,0 +1,23 @@
+# nz2_swerve_nav/config/r12_real_overrides.yaml — 팀 r12 실물 덮어쓰기 (11/15 6단계 v2)
+# 팀 r12_swerve.yaml 은 그대로 두고 이 파일을 뒤에 로드 (real_nav.launch.py 가 자동)
+#
+# 조향 속도 4.0 rad/s: 펌웨어 조향 Profile Velocity 330 = 7.9 rad/s 의 51 % (90° 0.39 s)
+# 가속 램프 0: cmd_frame_adapter 정렬 게이트와 램프가 같이 있으면 게이트가 안 풀림 (시뮬 facing 2차 150 s 정체)
+#   → 가속 제한은 Nav2 velocity_smoother 0.5 m/s² + 펌웨어 구동 Profile Acceleration 에 맡김
+#   ⚠ 바퀴 띄움 시험에서 펌웨어 구동 Profile Acc 가 0(무제한)이면 이 값을 0.3 으로 되돌리고 게이트 끔(align_gate false)
+# 조향 한계 ±90° 유지: 펌웨어·케이블 확인 전 (시뮬은 ±110°). 확인 후 1.92 로 올리고 real_robot.yaml steer_limit 도 같이
+# 속도: 0.2 m/s / 0.4 rad/s (팀 기본). MPPI vx 0.2·wz 0.4 와 같음. 지면 시험 통과 후 올림
+/r12_swerve_controller:
+  ros__parameters:
+    steering_rate_rad_s: 4.0
+    command_acceleration_m_s2: 0.0
+    steering_angle_rad: 1.5707963267948966
+    linear_speed_m_s: 0.2
+    yaw_rate_rad_s: 0.4
+    timeout_s: 0.25
+
+/r12_opencr_bridge:
+  ros__parameters:
+    # ⚠ 기본 port_globs 에 /dev/serial/by-id/* 가 있어 라이다(LDS-03, ttyUSB) 포트까지 열고 'I' 핸드셰이크를 보냄
+    #   → 라이다 드라이버와 같은 포트를 115200 으로 다시 설정해 라이다가 끊길 수 있음. OpenCR 는 ttyACM 이므로 ACM 만
+    port_globs: ['/dev/ttyACM*']

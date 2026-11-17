@@ -1,0 +1,109 @@
+# NZ2 인지 노드 파라미터 (ROS 2 표준 파라미터 형식)
+# launch 에서 이 파일을 각 노드에 전달한다.
+# 양식 참고: ROS-Vision-Tracker 는 detector_config 파일 경로를 노드가 직접 읽지만,
+# 여기서는 ROS 파라미터(노드명: ros__parameters)로 전달하는 표준 방식을 썼다.
+#
+# [수정 2026-10-28] 전면 카메라 삭제 → 모든 인지 = 그리퍼 D435 1대 (/gripper/...)
+#   미션 v5: 신호 12회 점멸(켜짐 1 s + 소등 1 s) 기록 → 신호등 판정 창을 짧게, signal_recorder 추가
+#            바코드 = Code 128 "P2-01"~"P2-04" → barcode_reader 가 ZBar 사용
+#            장소·시작 박스 높이 70 mm
+
+/yolo_detector:
+  ros__parameters:
+    # .engine = TensorRT(Jetson) / .onnx = OpenCV DNN(노트북 CPU). ~ 는 홈 폴더로 바뀜
+    engine_path: "~/nz2_models/current.engine"   # jetson/build_engine.sh 로 만든 FP16 엔진
+    backend: "auto"                        # auto(확장자로 결정) / tensorrt / opencv
+    process_hz: 30.0                       # [2026-11-03] 초당 최대 추론 수(상한). 영상 도착 즉시 추론 → 카메라 30 fps 면 약 30 Hz. Orin Nano 부하 줄이려면 15
+    rate_tolerance: 0.3                    # [2026-11-03] 카메라 지터 허용: 최소 간격 = 1/process_hz × 0.7
+    input_height: 384
+    input_width: 640
+    conf_threshold: 0.25
+    iou_threshold: 0.45
+    enable_front: false                    # 전면 카메라 삭제 (2026-10-28)
+    enable_gripper: true
+    publish_debug_image: false   # [2026-10-30] 끔 — /perception/puck_debug_image 가 퍽·신호등 박스까지 그림. YOLO 원본 결과만 볼 때 true
+    # 학습 config.yaml 의 classes 와 순서가 같아야 함 (tower_light 가 0번)
+    # 2026-10-24: 빨강/초록 2색(파랑 없음) + 자세(up=서있음 / down=누움) → 9개
+    class_names: ["tower_light",
+                  "cyl_red_up", "cyl_red_down", "cyl_green_up", "cyl_green_down",
+                  "box_red_up", "box_red_down", "box_green_up", "box_green_down"]
+
+/puck_registry:          # [2026-10-29] 퍽 등록·추적 (YOLO + 태그 ID + depth/tf) → /perception/puck_tracks
+  ros__parameters:
+    conf_min: 0.35             # YOLO 퍽 최소 점수 (v6 최고 F1 0.373 근처)
+    puck_tag_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    tower_iou: 0.15            # 신호등 박스와 이만큼 겹치는 퍽 박스는 버림
+    tag_margin_px: 4.0
+    sync_tol_s: 0.08           # 검출·태그·depth 시각 차 허용
+    max_input_age_s: 1.0       # 지연된 검출 버림 (rosbag 재생은 0)
+    confirm_hits: 3            # 연속 3프레임이면 확정
+    max_gap_s: 0.3             # 이보다 오래 끊기면 연속 수 초기화
+    hold_s: 1.0                # 마지막 관측 후 출력 유지
+    assoc_dist_m: 0.03         # [2026-10-30] 이 거리 안 같은 색 트랙 = 같은 퍽 (위치 먼저, ID 는 투표)
+    track_frame: "map"         # [2026-10-30] 지도 기준으로 저장 (나중에 찾아갈 위치). 없으면 ↓
+    track_frame_fallback: "odom"   # map tf 가 없을 때 (SLAM 안 켬). 둘 다 없으면 카메라 좌표
+    clear_on_start: true       # [2026-10-30] 시작할 때 등록표 비움 (매 판 한 바퀴 돌며 새로 등록). 지난 판은 _prev.json
+    id_min_votes: 3            # [2026-10-30] 같은 ID 를 3번 읽어야 확정 (한 번 잘못 읽어도 안 바뀜)
+    id_min_ratio: 0.7          #   그 퍽에서 읽힌 ID 중 70% 이상
+    relocate_dist_m: 0.10      #   같은 ID 가 10 cm 넘게 떨어진 곳에서 읽히면 다른 퍽으로 따로 추적 (오독 의심)
+    duplicate_dist_m: 0.05     #   같은 ID 트랙 둘이 5 cm 넘게 떨어져 동시에 보이면 등록표에 conflict
+    base_frame: "base_link"    # '위' 방향·바닥 높이 기준 ("" = 높이로 자세 판정 안 함)
+    floor_z: 0.0               # base_link 에서 바닥 높이 [URDF 확인: base_link 가 바퀴 축이면 음수]
+    box_top_z: 0.070
+    posture_split_m: 0.045     # 퍽 윗면 - 박스 윗면 > 45 mm → 서있음 (60 / 30 mm)
+    registry_path: "~/nz2_logs/puck_registry.json"
+    registry_min_obs: 3
+    publish_markers: true      # RViz /perception/puck_markers (모양·색·자세·중심·ID·좌표)
+    publish_debug_image: true  # /perception/puck_debug_image (영상 위 박스·중심점·태그·3D 위치). Jetson 부하가 크면 false
+    image_topic: "/gripper/color/image_raw"
+
+/traffic_light_filter:
+  ros__parameters:
+    confirm_frames: 2      # 확정 상태(state)용. 점멸 기록은 raw_state 를 씀
+    min_score: 0.4
+    # (선택) YOLO 가 색별 클래스를 내면 이 이름들이 각각 RED/YELLOW/GREEN 으로 매핑됨
+    state_class_names: ["light_red", "light_yellow", "light_green"]
+    # 지금 모델은 tower_light 1클래스 → 박스를 세로 3칸으로 나눠 밝기로 판정 (2026-10-24 추가)
+    image_topic: "/gripper/color/image_raw"
+    image_reliable: true   # BEST_EFFORT 면 큰 영상이 버려져 "같은 시각 영상 없음" → 안 보임으로 처리됨
+    tower_class: "tower_light"
+    v_threshold: 200       # 켜진 램프 밝기 기준 (노출 고정값에 맞춰 실측 조정)
+    on_ratio: 0.15         # 칸 안 밝은 픽셀 비율이 이 이상이면 켜짐
+    window_frames: 3       # LED 깜빡임 대응: 최근 N 프레임 중 (예전 8 → 꺼짐 확정이 1 s 걸려 같은 색 연속 점멸이 합쳐짐)
+    window_min_on: 1       #   이만큼 켜지면 켜진 것으로
+
+/barcode_reader:
+  ros__parameters:
+    process_hz: 5.0
+    image_topic: "/gripper/color/image_raw"
+    image_reliable: true
+    confirm_reads: 3       # 같은 문자열 3회 연속 → confidence 1.0 (확정)
+    valid_codes: ["P2-01", "P2-02", "P2-03", "P2-04"]   # 미션 v5 바코드 4종 (01/03 오름차순, 02/04 내림차순)
+    upscale_retry: true    # 못 읽으면 2배 확대해서 한 번 더
+
+/tag_reader:
+  ros__parameters:
+    image_topic: "/gripper/color/image_raw"
+    info_topic: "/gripper/color/camera_info"
+    output_topic: "/nz2/tags"          # 팀 레포 토픽 이름 (vision_msgs/Detection3DArray)
+    image_reliable: true
+    process_hz: 10.0
+    tag_size_m: 0.016                  # 퍽 태그 검은 사각형 16 mm (라벨 20 mm)
+    large_tag_ids: [12, 13, 14]        # 장소 L1~L3
+    large_tag_size_m: 0.048
+    max_id: 14                         # 0~11 퍽, 12~14 장소. 이보다 큰 ID 는 버림
+    min_tag_px: 10.0                   # 한 변 이 픽셀 미만이면 ID 만 (자세 계산 안 함)
+    output_frame: ""                   # 비우면 카메라 광학 프레임. tf 준비되면 "base_link"
+    max_image_age_s: 0.5               # rosbag 재생 시험이면 0 (검사 끔)
+
+/perception_master:
+  ros__parameters:
+    state_hz: 10.0
+    fresh_timeout: 0.5
+    loc_cov_max: 0.25
+    # [2026-10-30] 입력 토픽 + 요약(/perception/summary) 주기
+    pucks_topic: "/perception/puck_tracks"        # puck_registry (태그 ID·추적). 옛 puck_localizer = /perception/pucks
+    detections_topic: "/perception/detections"
+    camera_info_topic: "/gripper/color/camera_info"
+    pose_topic: ""                       # [2026-10-30] AMCL 안 씀 → 구독 안 함 (카토그래퍼 tf 판정은 추후). 쓰면 "/amcl_pose"
+    summary_period_s: 1.0

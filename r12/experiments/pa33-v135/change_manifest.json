@@ -1,0 +1,14 @@
+{
+  "run_id": "pa33_callback_view_v135_20261105",
+  "baseline": "ROS_reject_v133",
+  "change": "one expression callback bytes copy -> readonly memoryview hash",
+  "hypothesis": "approximately1.15ms aggregate median CPU copy reduction; full pipeline gain not assumed",
+  "ownership": "single executor callback received Image, no writes/exported mutable aliases; readonly view does not freeze underlying memory",
+  "frames": 10,
+  "wall_budget_s": 240,
+  "output_budget_MiB": 600,
+  "VRAM_reserve_MiB": 1024,
+  "required_ROS_samples": 31,
+  "physics_support_and_thresholds_unchanged": true,
+  "motion_authorized": false
+}

@@ -1,0 +1,165 @@
+{
+  "pucks": [
+    {
+      "color": "G",
+      "shape": "cuboid",
+      "id": 0,
+      "source": "S3",
+      "center_m": [
+        2.891,
+        5.354,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cylinder",
+      "id": 1,
+      "source": "S1",
+      "center_m": [
+        1.423,
+        0.95,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 2,
+      "source": "S6",
+      "center_m": [
+        3.625,
+        3.886,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 3,
+      "source": "S1",
+      "center_m": [
+        1.513,
+        0.95,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 4,
+      "source": "S5",
+      "center_m": [
+        2.157,
+        5.354,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 5,
+      "source": "S6",
+      "center_m": [
+        3.715,
+        3.886,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 6,
+      "source": "S5",
+      "center_m": [
+        2.247,
+        5.354,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "G",
+      "shape": "cuboid",
+      "id": 7,
+      "source": "S2",
+      "center_m": [
+        3.625,
+        3.152,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "G",
+      "shape": "cuboid",
+      "id": 8,
+      "source": "S2",
+      "center_m": [
+        3.715,
+        3.152,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 9,
+      "source": "S4",
+      "center_m": [
+        0.689,
+        5.354,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cylinder",
+      "id": 10,
+      "source": "S4",
+      "center_m": [
+        0.779,
+        5.354,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    },
+    {
+      "color": "R",
+      "shape": "cuboid",
+      "id": 11,
+      "source": "S3",
+      "center_m": [
+        2.981,
+        5.354,
+        0.1001
+      ],
+      "mass_assumed_kg": 0.025
+    }
+  ],
+  "barcode": "P2-02",
+  "sequence": "YGYYGGRRRRYR",
+  "signal_period_s": 2,
+  "signal_on_s": 1,
+  "end_off_s": 3,
+  "central_box_count": 1,
+  "panel_reference_m": [
+    0.08,
+    0.95,
+    0
+  ],
+  "panel_size_assumed_m": [
+    0.015,
+    0.5,
+    0.8
+  ],
+  "evidence_kind": "simulation_fixture_not_perception"
+}

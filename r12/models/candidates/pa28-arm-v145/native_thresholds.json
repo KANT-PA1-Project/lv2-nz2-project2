@@ -1,0 +1,14 @@
+{
+  "/physicsScene": {
+    "physxScene:enableExternalForcesEveryIteration": false,
+    "physxScene:enableGPUDynamics": true,
+    "physxScene:enableStabilization": false,
+    "physxScene:solverType": "PGS"
+  },
+  "/World/envs/env_0/Robot": {
+    "physxArticulation:sleepThreshold": 0.0,
+    "physxArticulation:solverPositionIterationCount": 32,
+    "physxArticulation:solverVelocityIterationCount": 1,
+    "physxArticulation:stabilizationThreshold": 9.999999747378752e-06
+  }
+}

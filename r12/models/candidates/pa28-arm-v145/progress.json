@@ -1,0 +1,7 @@
+{
+  "policy_steps": 1600,
+  "physics_steps": 38400,
+  "wall_s_excluding_startup": 294.71363245201064,
+  "measured_single_env_policy_steps_per_s": 5.428998946156772,
+  "remaining_wall_upper_estimate_s": 0.0
+}

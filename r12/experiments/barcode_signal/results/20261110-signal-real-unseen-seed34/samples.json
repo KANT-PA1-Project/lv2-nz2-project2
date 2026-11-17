@@ -1,0 +1,1432 @@
+{
+  "seed": 34,
+  "per_group": 4,
+  "inventory": {
+    "1025_tower:tower_boxes": 1626,
+    "1026_tower:tower_boxes": 267
+  },
+  "excluded_samples": "reports/20261110-real-photos-seed33/samples.json",
+  "min_capture_index_gap": 10,
+  "selected_group_counts": {
+    "1025_tower/tower_light_off": 2,
+    "1025_tower/tower_light_off_1_2f": 3,
+    "1025_tower/tower_light_off_1_3f": 4,
+    "1025_tower/tower_light_off_2": 2,
+    "1025_tower/tower_light_off_2_3f": 2,
+    "1025_tower/tower_light_on": 4,
+    "1025_tower/tower_light_on_2": 4,
+    "1025_tower/tower_light_on_4": 4,
+    "1025_tower/tower_light_on_5": 4,
+    "1026_tower/traffic_puck_g": 3,
+    "1026_tower/traffic_puck_r": 4,
+    "1026_tower/traffic_puck_r_g": 4
+  },
+  "frozen_signal_sha256": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+  "group_sizes": {
+    "1025_tower/tower_light_off": 64,
+    "1025_tower/tower_light_off_1_2f": 76,
+    "1025_tower/tower_light_off_1_3f": 94,
+    "1025_tower/tower_light_off_2": 70,
+    "1025_tower/tower_light_off_2_3f": 70,
+    "1025_tower/tower_light_on": 111,
+    "1025_tower/tower_light_on_2": 220,
+    "1025_tower/tower_light_on_4": 650,
+    "1025_tower/tower_light_on_5": 271,
+    "1026_tower/traffic_puck_g": 91,
+    "1026_tower/traffic_puck_r": 68,
+    "1026_tower/traffic_puck_r_g": 108
+  },
+  "scope": "New image SHA256-disjoint diagnostic; same original capture sessions plus one previously unused dark capture group; manual lens ROIs and assistant provisional truth, not end-to-end detector or independent-environment validation.",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "samples": [
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_2__real_20261026_163513_0019.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_2__real_20261026_163513_0019.json",
+      "bbox": [
+        733.1124267578125,
+        465.4209899902344,
+        778.0860595703125,
+        557.5084228515625
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_2",
+      "id": "photo_000",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "0af356727d8cdfabbb091fec61c5eb03fc4bf07e562e99730c1a4527ec408b53",
+      "contact_crop": [
+        706,
+        442,
+        805,
+        580
+      ],
+      "contact_scale": 1.8888888888888888,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r__real_20261027_171721_0069.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r__real_20261027_171721_0069.json",
+      "bbox": [
+        988.1829833984375,
+        427.9627685546875,
+        1043.7916259765625,
+        533.3759765625
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_r",
+      "id": "photo_001",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "83c3caf17f6de1cd76a30b73ea45bc69d81b9cbfe5ea05f0f6c350a4b1ac5f64",
+      "contact_crop": [
+        954,
+        401,
+        1077,
+        559
+      ],
+      "contact_scale": 1.6422764227642277,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_2f__real_20261024_163209_0033.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_2f__real_20261024_163209_0033.json",
+      "bbox": [
+        677.0,
+        603.0,
+        713.0,
+        686.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_1_2f",
+      "id": "photo_002",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "69fc64fb89fd764b17d487941dbbe1ce6f619dfa4bb5e750df9a330d2f864d43",
+      "contact_crop": [
+        655,
+        582,
+        734,
+        706
+      ],
+      "contact_scale": 2.1012658227848102,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r_g__real_20261027_171317_0011.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r_g__real_20261027_171317_0011.json",
+      "bbox": [
+        898.92041015625,
+        456.037841796875,
+        952.916259765625,
+        588.586669921875
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_r_g",
+      "id": "photo_003",
+      "truth": "Y",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "6080a36398d0d97bce961d6852d84cdeea2a7b0041ff8064e169e27152e5a6ff",
+      "contact_crop": [
+        866,
+        422,
+        985,
+        621
+      ],
+      "contact_scale": 1.3025210084033614,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_4__real_20261026_164848_0128.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_4__real_20261026_164848_0128.json",
+      "bbox": [
+        946.3997802734375,
+        393.26568603515625,
+        972.9107666015625,
+        460.51580810546875
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_4",
+      "id": "photo_004",
+      "truth": null,
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Severe motion blur; emitting state and individual lens borders ambiguous.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": null,
+      "image_sha256": "434bc862416bf5a8c8a8deeec9aa4d2ff9c0ade7e3669c1216ca77f7d867d17e",
+      "contact_crop": [
+        930,
+        376,
+        988,
+        477
+      ],
+      "contact_scale": 2.5689655172413794,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_2__real_20261026_163614_0140.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_2__real_20261026_163614_0140.json",
+      "bbox": [
+        565.2574462890625,
+        195.59423828125,
+        616.9522705078125,
+        302.15960693359375
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_2",
+      "id": "photo_005",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "a902291e45b6c3733f9e4e37e65a4f45da2232f2d0e7fb2fb3532a01e64b6b8a",
+      "contact_crop": [
+        534,
+        168,
+        647,
+        328
+      ],
+      "contact_scale": 1.6283185840707965,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_5__real_20261026_165955_0124.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_5__real_20261026_165955_0124.json",
+      "bbox": [
+        709.7478991596638,
+        328.90756302521004,
+        755.8579711914062,
+        435.947509765625
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_5",
+      "id": "photo_006",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "c08291eeb072e61af1193b06c9b3b045817ffa66969eeb857ab4d885b968fc72",
+      "contact_crop": [
+        682,
+        302,
+        783,
+        462
+      ],
+      "contact_scale": 1.6237623762376239,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_2__real_20261026_163522_0037.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_2__real_20261026_163522_0037.json",
+      "bbox": [
+        490.0,
+        451.0,
+        523.0,
+        536.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_2",
+      "id": "photo_007",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "b5c3bfc24cdd2dfbb6d94ea61f40f67c40389bc775e7e91aa86bf3a7008bea95",
+      "contact_crop": [
+        470,
+        429,
+        542,
+        557
+      ],
+      "contact_scale": 2.0277777777777777,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_2_3f__real_20261024_162933_0022.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_2_3f__real_20261024_162933_0022.json",
+      "bbox": [
+        742.0,
+        337.0,
+        825.0,
+        531.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_2_3f",
+      "id": "photo_008",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "c57e9c888e384808d04c8f4b49d63fb4b807755753212285ddc91628c1859681",
+      "contact_crop": [
+        692,
+        288,
+        874,
+        579
+      ],
+      "contact_scale": 0.8956043956043956,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_4__real_20261026_164758_0057.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_4__real_20261026_164758_0057.json",
+      "bbox": [
+        675.7142857142858,
+        488.86904761904765,
+        728.0952380952382,
+        588.2738095238096
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_4",
+      "id": "photo_009",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "c01d463f57d07c97035a59389f9dac7af93595395db6250a26a4ad3a85450641",
+      "contact_crop": [
+        644,
+        464,
+        759,
+        613
+      ],
+      "contact_scale": 1.7478260869565216,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r__real_20261027_171656_0019.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r__real_20261027_171656_0019.json",
+      "bbox": [
+        786.8052978515625,
+        363.70623779296875,
+        833.3785400390625,
+        459.80316162109375
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_r",
+      "id": "photo_010",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "a8f34b07d20449b3108e03067e27ca8d70ff02ae9434515e300463eb44365bf4",
+      "contact_crop": [
+        758,
+        339,
+        861,
+        483
+      ],
+      "contact_scale": 1.8058252427184467,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r_g__real_20261027_171430_0031.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r_g__real_20261027_171430_0031.json",
+      "bbox": [
+        791.8604736328125,
+        432.84552001953125,
+        825.4940185546875,
+        505.6856689453125
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_r_g",
+      "id": "photo_011",
+      "truth": "Y",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "eb36f5e103ef74059cd2dea8699554efb7d6513e1480ad602e1f4328da37d339",
+      "contact_crop": [
+        771,
+        414,
+        845,
+        523
+      ],
+      "contact_scale": 2.391891891891892,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_5__real_20261026_170039_0211.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_5__real_20261026_170039_0211.json",
+      "bbox": [
+        1213.9495798319329,
+        219.24369747899158,
+        1247.563025210084,
+        291.5126050420168
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_5",
+      "id": "photo_012",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "4318853c69f5ff1ed8d62d667d6f38cb715d1bf6e5fbc2fc325f4301e07886cd",
+      "contact_crop": [
+        1193,
+        201,
+        1267,
+        309
+      ],
+      "contact_scale": 2.4054054054054053,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off__real_20261024_161727_0049.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off__real_20261024_161727_0049.json",
+      "bbox": [
+        870.8878173828125,
+        622.8698120117188,
+        925.2977294921875,
+        719.0844116210938
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off",
+      "id": "photo_013",
+      "truth": null,
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Signal partly outside source image. Full three-tier diagnostic excluded, prediction retained.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": false,
+      "image_sha256": "d36bd8cc625b08596d5cce2d0cd858af9a56fef8764c7cd1760fcac3e7a0571f",
+      "contact_crop": [
+        838,
+        598,
+        957,
+        720
+      ],
+      "contact_scale": 2.134453781512605,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_2__real_20261024_162747_0025.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_2__real_20261024_162747_0025.json",
+      "bbox": [
+        627.4801635742188,
+        657.022216796875,
+        695.9854125976562,
+        718.265625
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_2",
+      "id": "photo_014",
+      "truth": null,
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Signal partly outside source image. Full three-tier diagnostic excluded, prediction retained.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": false,
+      "image_sha256": "087c8bf69db2e243202ef42def5eeb0c8625b024b5cf1301a1c4e3b831a17374",
+      "contact_crop": [
+        586,
+        641,
+        737,
+        720
+      ],
+      "contact_scale": 1.8543046357615893,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_3f__real_20261024_163027_0000.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_3f__real_20261024_163027_0000.json",
+      "bbox": [
+        615.0,
+        358.0,
+        644.0,
+        422.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_1_3f",
+      "id": "photo_015",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "43491a5df64a30d5ea3c30feb89d20e2727ade508e27fc410c5b55d859af453b",
+      "contact_crop": [
+        597,
+        342,
+        661,
+        438
+      ],
+      "contact_scale": 2.703125,
+      "contact_page": 0
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_2_3f__real_20261024_162925_0006.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_2_3f__real_20261024_162925_0006.json",
+      "bbox": [
+        288.0,
+        331.0,
+        319.0,
+        405.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_2_3f",
+      "id": "photo_016",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "9f3b87234c146453ae9f3fb75de3d8edc43c70ba93551bc1e871a67932948b9f",
+      "contact_crop": [
+        269,
+        312,
+        337,
+        423
+      ],
+      "contact_scale": 2.338235294117647,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_2__real_20261024_162812_0071.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_2__real_20261024_162812_0071.json",
+      "bbox": [
+        654.0,
+        536.0,
+        681.0,
+        600.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_2",
+      "id": "photo_017",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "0265c39b9751fdead4a11706b8d9564b191189cce65d7c88fc2a3dde015eabfa",
+      "contact_crop": [
+        637,
+        520,
+        697,
+        616
+      ],
+      "contact_scale": 2.7,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r_g__real_20261027_171506_0103.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r_g__real_20261027_171506_0103.json",
+      "bbox": [
+        890.169189453125,
+        480.1020202636719,
+        922.748046875,
+        552.037353515625
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_r_g",
+      "id": "photo_018",
+      "truth": "Y",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "79b824dd820fbf0d86a10a4d3d85461b99993599d7644c6d0bcc6aa8d2db7310",
+      "contact_crop": [
+        870,
+        462,
+        942,
+        570
+      ],
+      "contact_scale": 2.4027777777777777,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off__real_20261024_161704_0002.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off__real_20261024_161704_0002.json",
+      "bbox": [
+        673.0,
+        492.0,
+        709.0,
+        584.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off",
+      "id": "photo_019",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "f7e2545291a723a2f66af642cc5ce1f20822358b9ad365574664ae295004a005",
+      "contact_crop": [
+        651,
+        469,
+        730,
+        607
+      ],
+      "contact_scale": 1.8860759493670887,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_4__real_20261026_165258_0412.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_4__real_20261026_165258_0412.json",
+      "bbox": [
+        751.0,
+        456.0,
+        783.0,
+        526.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_4",
+      "id": "photo_020",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "447153143946d09e4b53fe05cd165d24f7e9412c415947bee73a2f73471a4e91",
+      "contact_crop": [
+        731,
+        438,
+        802,
+        543
+      ],
+      "contact_scale": 2.4788732394366195,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_4__real_20261026_165415_0564.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_4__real_20261026_165415_0564.json",
+      "bbox": [
+        702.0750732421875,
+        280.9022216796875,
+        761.05126953125,
+        361.44091796875
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_4",
+      "id": "photo_021",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "b80586346db09cebd39f5145327e669bdbcf6f0f41ce87e573c9f5a01b40ca93",
+      "contact_crop": [
+        666,
+        260,
+        796,
+        381
+      ],
+      "contact_scale": 2.146153846153846,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_3f__real_20261024_163042_0031.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_3f__real_20261024_163042_0031.json",
+      "bbox": [
+        497.0,
+        517.0,
+        528.0,
+        601.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_1_3f",
+      "id": "photo_022",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "609aea12ab28b734e4275b4aef158952edb1d7e650d3ceffcc13a77d3124356f",
+      "contact_crop": [
+        478,
+        496,
+        546,
+        622
+      ],
+      "contact_scale": 2.0588235294117645,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on__real_20261026_121620_0040.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on__real_20261026_121620_0040.json",
+      "bbox": [
+        847.1428571428572,
+        385.8928571428571,
+        900.1190476190477,
+        504.34523809523813
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on",
+      "id": "photo_023",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "a64f6abea903c1558369ce004a24adf673bc3bd204203b475a94b920fd45b5ac",
+      "contact_crop": [
+        815,
+        356,
+        931,
+        533
+      ],
+      "contact_scale": 1.4655172413793103,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_g__real_20261027_171617_0084.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_g__real_20261027_171617_0084.json",
+      "bbox": [
+        742.9761904761906,
+        484.7023809523809,
+        783.0704345703125,
+        578.5784912109375
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_g",
+      "id": "photo_024",
+      "truth": "Y",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "545da2aab76d2772b82a92c238ba4969cd6c69a2573706a2faef54dbfbdaf25b",
+      "contact_crop": [
+        718,
+        461,
+        807,
+        602
+      ],
+      "contact_scale": 1.8426966292134832,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_5__real_20261026_165742_0090.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_5__real_20261026_165742_0090.json",
+      "bbox": [
+        837.4789915966386,
+        394.453781512605,
+        882.8571428571428,
+        467.563025210084
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_5",
+      "id": "photo_025",
+      "truth": "Y",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "55048425071753a8aa88e64311879d028c6b1ca23a95a09c9bfd105e078240f1",
+      "contact_crop": [
+        810,
+        376,
+        910,
+        485
+      ],
+      "contact_scale": 2.39,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on__real_20261026_121633_0066.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on__real_20261026_121633_0066.json",
+      "bbox": [
+        752.5000000000001,
+        188.27380952380952,
+        863.2142857142858,
+        394.82142857142856
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on",
+      "id": "photo_026",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "c7586399ae620cefc2d86507dd2f99379293b3952612c2426ce02e2a9e065eb0",
+      "contact_crop": [
+        686,
+        136,
+        929,
+        446
+      ],
+      "contact_scale": 0.8395061728395061,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_g__real_20261027_171604_0057.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_g__real_20261027_171604_0057.json",
+      "bbox": [
+        700.5383911132812,
+        541.8838500976562,
+        741.3283081054688,
+        648.7525024414062
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_g",
+      "id": "photo_027",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "2ff8889a4c32b91b7a9d87dea4994a803241f7af1ad20997b1d4b7792dd455ac",
+      "contact_crop": [
+        676,
+        515,
+        765,
+        675
+      ],
+      "contact_scale": 1.6292134831460674,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r__real_20261027_171650_0007.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r__real_20261027_171650_0007.json",
+      "bbox": [
+        816.830078125,
+        372.375,
+        857.536865234375,
+        469.244384765625
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_r",
+      "id": "photo_028",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "5366e83629e52a7702878654d5fc1ba67280310ac64a847370af4cdac64707ba",
+      "contact_crop": [
+        792,
+        348,
+        881,
+        493
+      ],
+      "contact_scale": 1.797752808988764,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r_g__real_20261027_171501_0093.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r_g__real_20261027_171501_0093.json",
+      "bbox": [
+        892.29638671875,
+        461.5277099609375,
+        928.480712890625,
+        543.3304443359375
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_r_g",
+      "id": "photo_029",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "708b3a92e604f525f8e624f25d9896223a0901925a7c2111cfa367033d294baa",
+      "contact_crop": [
+        870,
+        441,
+        950,
+        563
+      ],
+      "contact_scale": 2.125,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_3f__real_20261024_163105_0077.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_3f__real_20261024_163105_0077.json",
+      "bbox": [
+        706.0,
+        459.0,
+        733.0,
+        512.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_1_3f",
+      "id": "photo_030",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "84b91932d15942e70a8423f95f0c601a246787e32cdc8543c644d30d08a58982",
+      "contact_crop": [
+        689,
+        445,
+        749,
+        525
+      ],
+      "contact_scale": 3.25,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_2f__real_20261024_163155_0004.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_2f__real_20261024_163155_0004.json",
+      "bbox": [
+        429.0,
+        383.0,
+        468.0,
+        449.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_1_2f",
+      "id": "photo_031",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "de2598ac3be2855f6561abcaeb1feb25e186cd2a5052f12d2be779a305db59f0",
+      "contact_crop": [
+        405,
+        366,
+        491,
+        465
+      ],
+      "contact_scale": 2.627906976744186,
+      "contact_page": 1
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_5__real_20261026_170104_0260.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_5__real_20261026_170104_0260.json",
+      "bbox": [
+        712.0238095238096,
+        209.10714285714283,
+        775.7142857142858,
+        329.9404761904762
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_5",
+      "id": "photo_032",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "bc70f2bbf59e8384050737aea22a62fefd64cbb2cbb4ea59a78a744ee122b8b9",
+      "contact_crop": [
+        673,
+        178,
+        813,
+        360
+      ],
+      "contact_scale": 1.4285714285714286,
+      "contact_page": 2
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r__real_20261027_171726_0079.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_r__real_20261027_171726_0079.json",
+      "bbox": [
+        394.4161071777344,
+        535.868896484375,
+        447.7067565917969,
+        637.5762939453125
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_r",
+      "id": "photo_033",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "1c86a1f6604f34de9d6d0eeaa0bb275ccce4ebb8ddc614f555191cf0b3a1e4ee",
+      "contact_crop": [
+        362,
+        510,
+        479,
+        663
+      ],
+      "contact_scale": 1.7008547008547008,
+      "contact_page": 2
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on__real_20261026_121625_0050.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on__real_20261026_121625_0050.json",
+      "bbox": [
+        606.0,
+        447.2023809523809,
+        650.1190476190477,
+        555.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on",
+      "id": "photo_034",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log. Red strips visibly brighter; provisional medium-confidence R, no controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "997f97c41a530306aa886beb0179c65877c0063ecc7f746de78fd19676d67c44",
+      "contact_crop": [
+        579,
+        420,
+        676,
+        581
+      ],
+      "contact_scale": 1.6185567010309279,
+      "contact_page": 2
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_3f__real_20261024_163037_0020.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_3f__real_20261024_163037_0020.json",
+      "bbox": [
+        847.0,
+        382.0,
+        933.0,
+        566.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_1_3f",
+      "id": "photo_035",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "c8ea6a5b038c471be9f39048358fc77d47c1e2c80396bb90e09e3ec7d2c3c99c",
+      "contact_crop": [
+        795,
+        336,
+        984,
+        612
+      ],
+      "contact_scale": 0.9417989417989417,
+      "contact_page": 2
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_g__real_20261027_171609_0068.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1026_tower/traffic_puck_g__real_20261027_171609_0068.json",
+      "bbox": [
+        863.5226266043527,
+        602.5595238095239,
+        916.7857142857143,
+        717.7939104352677
+      ],
+      "shape_index": 0,
+      "group": "1026_tower/traffic_puck_g",
+      "id": "photo_036",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Signal partly outside source image. Full three-tier diagnostic excluded, prediction retained.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": false,
+      "image_sha256": "611b9024bbd70671bf2f1c33a24f0b1faa5eb3ad138474ad7baa987eee987efd",
+      "contact_crop": [
+        831,
+        573,
+        948,
+        720
+      ],
+      "contact_scale": 1.7692307692307692,
+      "contact_page": 2
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on__real_20261026_121608_0017.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on__real_20261026_121608_0017.json",
+      "bbox": [
+        731.952380952381,
+        384.54761904761904,
+        772.952380952381,
+        485.54761904761904
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on",
+      "id": "photo_037",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "ad9afeb9b48f75e2b3dd511271733e7496c9623eab5f0ea559e601c715e46807",
+      "contact_crop": [
+        707,
+        359,
+        797,
+        510
+      ],
+      "contact_scale": 1.7222222222222223,
+      "contact_page": 2
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_2f__real_20261024_163218_0050.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_off_1_2f__real_20261024_163218_0050.json",
+      "bbox": [
+        704.0,
+        444.0,
+        741.0,
+        534.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_off_1_2f",
+      "id": "photo_038",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "357adaa924e41c1392da9f7a78f7d1606e7f531616e9a1e624ab767ca92a75b2",
+      "contact_crop": [
+        681,
+        421,
+        763,
+        556
+      ],
+      "contact_scale": 1.9268292682926829,
+      "contact_page": 2
+    },
+    {
+      "image": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_2__real_20261026_163658_0151.jpg",
+      "annotation": "/home/pa33/git/p2_perception/data/real/review/1025_tower/tower_light_on_2__real_20261026_163658_0151.json",
+      "bbox": [
+        594.0,
+        508.0,
+        627.0,
+        583.0
+      ],
+      "shape_index": 0,
+      "group": "1025_tower/tower_light_on_2",
+      "id": "photo_039",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "20210eeb3879e883d98928bea02b59ca4179ae2e2dc2674fae8c6bb0462b062b",
+      "contact_crop": [
+        574,
+        489,
+        646,
+        601
+      ],
+      "contact_scale": 2.3194444444444446,
+      "contact_page": 2
+    },
+    {
+      "id": "photo_040",
+      "image": "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164022_0010.jpg",
+      "annotation": null,
+      "shape_index": null,
+      "group": "1025_tower/tower_light_on_3",
+      "bbox": [
+        500,
+        340,
+        566,
+        470
+      ],
+      "bbox_source": "assistant visual approximate localization",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log. Dark capture; x4 review display used only to inspect outlines. Classifier receives untouched original RGB.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "73aa2e0cc6d3dc135c72d170f45fd6041d20c36cfaabdda3bf13ec1b9d5489c6",
+      "contact_crop": [
+        460,
+        307,
+        605,
+        502
+      ],
+      "contact_scale": 1.3310344827586207,
+      "contact_page": 2
+    },
+    {
+      "id": "photo_041",
+      "image": "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164049_0064.jpg",
+      "annotation": null,
+      "shape_index": null,
+      "group": "1025_tower/tower_light_on_3",
+      "bbox": [
+        640,
+        416,
+        724,
+        590
+      ],
+      "bbox_source": "assistant visual approximate localization",
+      "truth": "R",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log. Dark capture; x4 review display used only to inspect outlines. Classifier receives untouched original RGB.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "0155292f1aff5a4b2e7b9a066171cf37cd4b07245e2599850e720f1d58476168",
+      "contact_crop": [
+        589,
+        372,
+        774,
+        633
+      ],
+      "contact_scale": 0.9945945945945946,
+      "contact_page": 2,
+      "roi_annotation_confidence": "low_due_to_bloom"
+    },
+    {
+      "id": "photo_042",
+      "image": "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164318_0335.jpg",
+      "annotation": null,
+      "shape_index": null,
+      "group": "1025_tower/tower_light_on_3",
+      "bbox": [
+        1020,
+        310,
+        1114,
+        470
+      ],
+      "bbox_source": "assistant visual approximate localization",
+      "truth": "Y",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log. Dark capture; x4 review display used only to inspect outlines. Classifier receives untouched original RGB.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "db7799ede26cf3a790a9f73e352dae6f06b4ea13e1b727e506792744695c4449",
+      "contact_crop": [
+        963,
+        270,
+        1170,
+        510
+      ],
+      "contact_scale": 1.0821256038647342,
+      "contact_page": 2,
+      "roi_annotation_confidence": "low_due_to_bloom"
+    },
+    {
+      "id": "photo_043",
+      "image": "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164200_0204.jpg",
+      "annotation": null,
+      "shape_index": null,
+      "group": "1025_tower/tower_light_on_3",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "bbox_source": "full-frame contact only; no lens location available",
+      "truth": null,
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Tower lenses not reliably localizable even for annotation; full-frame contact is not a lens bbox. Dark capture; x4 review display used only to inspect outlines. Classifier receives untouched original RGB.",
+      "lens_bbox": null,
+      "annotation_valid": false,
+      "three_tiers_visible": null,
+      "image_sha256": "ba3fe132b6aad2aedc273c649c11f038f857daacf919e257e13987800502387b",
+      "contact_crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "contact_scale": 0.21875,
+      "contact_page": 2,
+      "roi_unavailable_reason": "lens_not_localizable_in_dark_frame"
+    },
+    {
+      "id": "photo_044",
+      "image": "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164300_0300.jpg",
+      "annotation": null,
+      "shape_index": null,
+      "group": "1025_tower/tower_light_on_3",
+      "bbox": [
+        500,
+        240,
+        570,
+        390
+      ],
+      "bbox_source": "assistant visual approximate localization",
+      "truth": "OFF",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log. Dark capture; x4 review display used only to inspect outlines. Classifier receives untouched original RGB.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "b82116d2cc10cecbba26c806472f3891bfd11965503957ad972a5c9172b36717",
+      "contact_crop": [
+        458,
+        202,
+        612,
+        427
+      ],
+      "contact_scale": 1.155844155844156,
+      "contact_page": 2
+    },
+    {
+      "id": "photo_045",
+      "image": "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164144_0173.jpg",
+      "annotation": null,
+      "shape_index": null,
+      "group": "1025_tower/tower_light_on_3",
+      "bbox": [
+        245,
+        274,
+        320,
+        415
+      ],
+      "bbox_source": "assistant visual approximate localization",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log. Dark capture; x4 review display used only to inspect outlines. Classifier receives untouched original RGB.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "89f2a368d021cab5a98203ac8f74a8b2086b70b2e551b2b6d3ec7a3445804646",
+      "contact_crop": [
+        200,
+        238,
+        365,
+        450
+      ],
+      "contact_scale": 1.2242424242424241,
+      "contact_page": 2,
+      "roi_annotation_confidence": "low_due_to_bloom"
+    },
+    {
+      "id": "photo_046",
+      "image": "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164344_0387.jpg",
+      "annotation": null,
+      "shape_index": null,
+      "group": "1025_tower/tower_light_on_3",
+      "bbox": [
+        470,
+        478,
+        546,
+        640
+      ],
+      "bbox_source": "assistant visual approximate localization",
+      "truth": "G",
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Provisional visible-light state, not confirmed by user/controller log. Dark capture; x4 review display used only to inspect outlines. Classifier receives untouched original RGB.",
+      "lens_bbox": null,
+      "annotation_valid": true,
+      "three_tiers_visible": true,
+      "image_sha256": "7a3098377b27386932b794c9b44d16ee72fa7261b71e4ff8f1bc9cc9b9d660b9",
+      "contact_crop": [
+        424,
+        437,
+        591,
+        680
+      ],
+      "contact_scale": 1.0718562874251496,
+      "contact_page": 2,
+      "roi_annotation_confidence": "low_due_to_bloom"
+    },
+    {
+      "id": "photo_047",
+      "image": "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164234_0273.jpg",
+      "annotation": null,
+      "shape_index": null,
+      "group": "1025_tower/tower_light_on_3",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "bbox_source": "full-frame contact only; no lens location available",
+      "truth": null,
+      "truth_source": "assistant_visual_review_before_frozen_rule_predictions",
+      "truth_note": "Tower lenses not reliably localizable even for annotation; full-frame contact is not a lens bbox. Dark capture; x4 review display used only to inspect outlines. Classifier receives untouched original RGB.",
+      "lens_bbox": null,
+      "annotation_valid": false,
+      "three_tiers_visible": null,
+      "image_sha256": "64e60180ea51c039bf44612cac6cafa26f38fb9f20eb5e4223f97819da0d4de1",
+      "contact_crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "contact_scale": 0.21875,
+      "contact_page": 2,
+      "roi_unavailable_reason": "lens_not_localizable_in_dark_frame"
+    }
+  ],
+  "extra_raw_sampling": {
+    "seed": 34,
+    "min_capture_index_gap": 20,
+    "images": [
+      "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164022_0010.jpg",
+      "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164049_0064.jpg",
+      "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164318_0335.jpg",
+      "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164200_0204.jpg",
+      "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164300_0300.jpg",
+      "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164144_0173.jpg",
+      "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164344_0387.jpg",
+      "/home/pa33/git/p2_perception/data/real/raw/1025_tower/tower_light_on_3/real_20261026_164234_0273.jpg"
+    ],
+    "scope": "Capture group not used in seed33 diagnosis; source is raw images, not original location annotations."
+  },
+  "rule_frozen_for_test": true,
+  "truth_review": {
+    "method": "assistant provisional visual review before frozen-rule predictions",
+    "independently_user_confirmed": false,
+    "diagnostic_only": true,
+    "review_display": "Original RGB; x4 visualization for dark outlines only, never fed to classifier"
+  },
+  "limitations": [
+    "Camera/exposure-matched confirmed OFF frames unavailable; no real OFF-reference comparison.",
+    "Some images are cropped, blurred or too dark to localize. Retained, separately reported.",
+    "Within-session capture-index separation is not a guarantee of environmental independence.",
+    "Color truth and lens geometry are assistant visual annotations, not controller state or user-confirmed ground truth."
+  ],
+  "overlap_previous_sha256": 0,
+  "roi_annotations": "references/tower-photo-body-axis-seed34.json",
+  "frozen_signal_sha256_check": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac"
+}

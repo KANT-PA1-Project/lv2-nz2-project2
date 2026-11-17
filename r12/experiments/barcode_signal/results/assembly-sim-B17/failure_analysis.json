@@ -1,0 +1,25 @@
+{
+  "reason": "At settled mast view green OFF lens split into two disconnected HSV blobs. Width ratios fail existing Y/G stacked validation; no READY and no recording.",
+  "green_blobs": [
+    [
+      456,
+      242,
+      15,
+      28
+    ],
+    [
+      484,
+      258,
+      10,
+      14
+    ]
+  ],
+  "yellow_blob": [
+    463,
+    221,
+    42,
+    38
+  ],
+  "status": "failed; acquisition timeout",
+  "next_trial": "B18 increases camera-to-tower horizontal range; no thresholds changed"
+}

@@ -1,0 +1,322 @@
+[
+  {
+    "frame": 0,
+    "physics_step": 10070,
+    "captured": true,
+    "capture_monotonic_ns": 91419817125992,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 10489583333,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91420068772681,
+        "blob_copy_end_ns": 91420073213382,
+        "serialization_start_ns": 91420073218351,
+        "serialization_end_ns": 91420074003579,
+        "header_bytes": 27832,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91420074004494,
+        "unix_send_end_ns": 91420112618384,
+        "ack_receive_start_ns": 91420228768954,
+        "ack_receive_end_ns": 91420229023914,
+        "ack_validation_end_ns": 91420229025863
+      }
+    }
+  },
+  {
+    "frame": 1,
+    "physics_step": 10134,
+    "captured": true,
+    "capture_monotonic_ns": 91420558451634,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 10556250000,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91420793125196,
+        "blob_copy_end_ns": 91420796308935,
+        "serialization_start_ns": 91420796313574,
+        "serialization_end_ns": 91420797047629,
+        "header_bytes": 27816,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91420797048825,
+        "unix_send_end_ns": 91420825537718,
+        "ack_receive_start_ns": 91420911101049,
+        "ack_receive_end_ns": 91420911401855,
+        "ack_validation_end_ns": 91420911404078
+      }
+    }
+  },
+  {
+    "frame": 2,
+    "physics_step": 10198,
+    "captured": true,
+    "capture_monotonic_ns": 91421255576187,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 10622916666,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91421476316438,
+        "blob_copy_end_ns": 91421479331549,
+        "serialization_start_ns": 91421479335073,
+        "serialization_end_ns": 91421480077181,
+        "header_bytes": 27804,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91421480078487,
+        "unix_send_end_ns": 91421499124915,
+        "ack_receive_start_ns": 91421557626175,
+        "ack_receive_end_ns": 91421557931363,
+        "ack_validation_end_ns": 91421557933214
+      }
+    }
+  },
+  {
+    "frame": 3,
+    "physics_step": 10262,
+    "captured": true,
+    "capture_monotonic_ns": 91421953504005,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 10689583333,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91422178746194,
+        "blob_copy_end_ns": 91422182537415,
+        "serialization_start_ns": 91422182541776,
+        "serialization_end_ns": 91422183271318,
+        "header_bytes": 27825,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91422183272446,
+        "unix_send_end_ns": 91422198615322,
+        "ack_receive_start_ns": 91422255717742,
+        "ack_receive_end_ns": 91422256026934,
+        "ack_validation_end_ns": 91422256028900
+      }
+    }
+  },
+  {
+    "frame": 4,
+    "physics_step": 10326,
+    "captured": true,
+    "capture_monotonic_ns": 91422643840176,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 10756250000,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91422869570595,
+        "blob_copy_end_ns": 91422873764897,
+        "serialization_start_ns": 91422873768695,
+        "serialization_end_ns": 91422874508433,
+        "header_bytes": 27794,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91422874509613,
+        "unix_send_end_ns": 91422893044837,
+        "ack_receive_start_ns": 91422955616648,
+        "ack_receive_end_ns": 91422955889832,
+        "ack_validation_end_ns": 91422955891453
+      }
+    }
+  },
+  {
+    "frame": 5,
+    "physics_step": 10390,
+    "captured": true,
+    "capture_monotonic_ns": 91423326205907,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 10822916666,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91423559762596,
+        "blob_copy_end_ns": 91423564027620,
+        "serialization_start_ns": 91423564031843,
+        "serialization_end_ns": 91423564744945,
+        "header_bytes": 27828,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91423564746179,
+        "unix_send_end_ns": 91423589272350,
+        "ack_receive_start_ns": 91423653234965,
+        "ack_receive_end_ns": 91423653522307,
+        "ack_validation_end_ns": 91423653524040
+      }
+    }
+  },
+  {
+    "frame": 6,
+    "physics_step": 10454,
+    "captured": true,
+    "capture_monotonic_ns": 91424020817761,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 10889583333,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91424248111243,
+        "blob_copy_end_ns": 91424250956275,
+        "serialization_start_ns": 91424250960244,
+        "serialization_end_ns": 91424251692168,
+        "header_bytes": 27804,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91424251693431,
+        "unix_send_end_ns": 91424275282982,
+        "ack_receive_start_ns": 91424338043466,
+        "ack_receive_end_ns": 91424338323016,
+        "ack_validation_end_ns": 91424338324885
+      }
+    }
+  },
+  {
+    "frame": 7,
+    "physics_step": 10518,
+    "captured": true,
+    "capture_monotonic_ns": 91424704446677,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 10956250000,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91424927147285,
+        "blob_copy_end_ns": 91424930311313,
+        "serialization_start_ns": 91424930316086,
+        "serialization_end_ns": 91424931009008,
+        "header_bytes": 27832,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91424931010143,
+        "unix_send_end_ns": 91424952159735,
+        "ack_receive_start_ns": 91425018687737,
+        "ack_receive_end_ns": 91425018976590,
+        "ack_validation_end_ns": 91425018977943
+      }
+    }
+  },
+  {
+    "frame": 8,
+    "physics_step": 10582,
+    "captured": true,
+    "capture_monotonic_ns": 91425403273144,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 11022916666,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91425626835209,
+        "blob_copy_end_ns": 91425629734093,
+        "serialization_start_ns": 91425629738280,
+        "serialization_end_ns": 91425630500097,
+        "header_bytes": 27794,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91425630501438,
+        "unix_send_end_ns": 91425643719330,
+        "ack_receive_start_ns": 91425704637548,
+        "ack_receive_end_ns": 91425704902873,
+        "ack_validation_end_ns": 91425704904479
+      }
+    }
+  },
+  {
+    "frame": 9,
+    "physics_step": 10646,
+    "captured": true,
+    "capture_monotonic_ns": 91426085691578,
+    "native_verification": {
+      "run_id": "pa33_callback_view_v135_20261105",
+      "clock_epoch": "native-mission-stationary-epoch1"
+    },
+    "ROS_publication": {
+      "kind": "publication_result",
+      "capture_stamp_ns": 11089583333,
+      "all_received": true,
+      "expected": 31,
+      "received": 31,
+      "errors": [],
+      "domain": 33,
+      "producer_transport_timing": {
+        "blob_copy_start_ns": 91426306480866,
+        "blob_copy_end_ns": 91426309358937,
+        "serialization_start_ns": 91426309362783,
+        "serialization_end_ns": 91426310111265,
+        "header_bytes": 27808,
+        "blob_bytes": 36864000,
+        "unix_send_start_ns": 91426310112329,
+        "unix_send_end_ns": 91426328457829,
+        "ack_receive_start_ns": 91426391878281,
+        "ack_receive_end_ns": 91426392115645,
+        "ack_validation_end_ns": 91426392117157
+      }
+    }
+  }
+]

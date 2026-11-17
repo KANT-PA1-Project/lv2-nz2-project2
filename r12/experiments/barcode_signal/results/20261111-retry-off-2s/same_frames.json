@@ -1,0 +1,1448 @@
+{
+  "video": "/home/pa33/git/p2_perception/Claude outputs/tower_signal/reports/live-optimized-720p/camera_1794386737873186734.mp4",
+  "sampled_frames": 49,
+  "stride": 30,
+  "identical_raw_per_frame_results": true,
+  "scope": "Frame-level barcode/body/OFF-reference-free color comparison only. Does not establish identical arming/retry timing or a correct 12-flash sequence. Fixed OFF baseline registration is not replayed here.",
+  "rows": [
+    {
+      "frame": 0,
+      "video_s": 0.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            336,
+            200,
+            410,
+            334
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            336,
+            200,
+            410,
+            334
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 30,
+      "video_s": 1.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            340,
+            202,
+            414,
+            340
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            340,
+            202,
+            414,
+            340
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 60,
+      "video_s": 2.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            338,
+            216,
+            408,
+            352
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            338,
+            216,
+            408,
+            352
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 90,
+      "video_s": 3.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            318,
+            228,
+            402,
+            362
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            318,
+            228,
+            402,
+            362
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 120,
+      "video_s": 4.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            326,
+            230,
+            396,
+            364
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            326,
+            230,
+            396,
+            364
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 150,
+      "video_s": 5.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            324,
+            234,
+            394,
+            368
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            324,
+            234,
+            394,
+            368
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 180,
+      "video_s": 6.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            322,
+            232,
+            392,
+            365
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            322,
+            232,
+            392,
+            365
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 210,
+      "video_s": 7.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        }
+      }
+    },
+    {
+      "frame": 240,
+      "video_s": 8.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            320,
+            228,
+            390,
+            362
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            320,
+            228,
+            390,
+            362
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 270,
+      "video_s": 9.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            318,
+            228,
+            390,
+            362
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            318,
+            228,
+            390,
+            362
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 300,
+      "video_s": 10.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            224,
+            386,
+            360
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            224,
+            386,
+            360
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 330,
+      "video_s": 11.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            226,
+            386,
+            360
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            226,
+            386,
+            360
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 360,
+      "video_s": 12.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            224,
+            386,
+            356
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            224,
+            386,
+            356
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 390,
+      "video_s": 13.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            222,
+            386,
+            356
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            222,
+            386,
+            356
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 420,
+      "video_s": 14.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        }
+      }
+    },
+    {
+      "frame": 450,
+      "video_s": 15.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            312,
+            218,
+            382,
+            354
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            312,
+            218,
+            382,
+            354
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 480,
+      "video_s": 16.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            294,
+            218,
+            382,
+            354
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            294,
+            218,
+            382,
+            354
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 510,
+      "video_s": 17.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            300,
+            216,
+            380,
+            352
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            300,
+            216,
+            380,
+            352
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 540,
+      "video_s": 18.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            312,
+            216,
+            382,
+            352
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            312,
+            216,
+            382,
+            352
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 570,
+      "video_s": 19.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            310,
+            214,
+            382,
+            348
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            310,
+            214,
+            382,
+            348
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 600,
+      "video_s": 20.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            312,
+            212,
+            384,
+            347
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            312,
+            212,
+            384,
+            347
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 630,
+      "video_s": 21.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            210,
+            388,
+            344
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            316,
+            210,
+            388,
+            344
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 660,
+      "video_s": 22.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            336,
+            214,
+            408,
+            350
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            336,
+            214,
+            408,
+            350
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 690,
+      "video_s": 23.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            328,
+            212,
+            402,
+            348
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            328,
+            212,
+            402,
+            348
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 720,
+      "video_s": 24.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        }
+      }
+    },
+    {
+      "frame": 750,
+      "video_s": 25.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        }
+      }
+    },
+    {
+      "frame": 780,
+      "video_s": 26.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        }
+      }
+    },
+    {
+      "frame": 810,
+      "video_s": 27.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        }
+      }
+    },
+    {
+      "frame": 840,
+      "video_s": 28.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        }
+      }
+    },
+    {
+      "frame": 870,
+      "video_s": 29.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            324,
+            214,
+            398,
+            350
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            324,
+            214,
+            398,
+            350
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 900,
+      "video_s": 30.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            322,
+            212,
+            394,
+            346
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            322,
+            212,
+            394,
+            346
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 930,
+      "video_s": 31.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            324,
+            236,
+            396,
+            369
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            324,
+            236,
+            396,
+            369
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 960,
+      "video_s": 32.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            382,
+            240,
+            458,
+            374
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            382,
+            240,
+            458,
+            374
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 990,
+      "video_s": 33.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            382,
+            230,
+            454,
+            364
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            382,
+            230,
+            454,
+            364
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1020,
+      "video_s": 34.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            376,
+            230,
+            452,
+            365
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            376,
+            230,
+            452,
+            365
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1050,
+      "video_s": 35.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            376,
+            232,
+            452,
+            366
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            376,
+            232,
+            452,
+            366
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1080,
+      "video_s": 36.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": null,
+          "signal_color_without_reference": "UNKNOWN",
+          "signal_reason": "body_not_found"
+        }
+      }
+    },
+    {
+      "frame": 1110,
+      "video_s": 37.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            374,
+            230,
+            450,
+            364
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            374,
+            230,
+            450,
+            364
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1140,
+      "video_s": 38.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            372,
+            230,
+            448,
+            364
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            372,
+            230,
+            448,
+            364
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1170,
+      "video_s": 39.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            362,
+            234,
+            436,
+            370
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            362,
+            234,
+            436,
+            370
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1200,
+      "video_s": 40.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            364,
+            234,
+            440,
+            371
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            364,
+            234,
+            440,
+            371
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1230,
+      "video_s": 41.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            364,
+            238,
+            440,
+            374
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            364,
+            238,
+            440,
+            374
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1260,
+      "video_s": 42.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            366,
+            236,
+            440,
+            370
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            366,
+            236,
+            440,
+            370
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1290,
+      "video_s": 43.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            236,
+            442,
+            372
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            236,
+            442,
+            372
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1320,
+      "video_s": 44.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            236,
+            440,
+            372
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            236,
+            440,
+            372
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1350,
+      "video_s": 45.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            236,
+            440,
+            368
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            236,
+            440,
+            368
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1380,
+      "video_s": 46.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            236,
+            440,
+            370
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            236,
+            440,
+            370
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1410,
+      "video_s": 47.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            234,
+            440,
+            370
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            234,
+            440,
+            370
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    },
+    {
+      "frame": 1440,
+      "video_s": 48.0,
+      "same": true,
+      "variants": {
+        "2.0": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            232,
+            440,
+            366
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        },
+        "2.5": {
+          "barcodes": [],
+          "stage": "none",
+          "body_box": [
+            368,
+            232,
+            440,
+            366
+          ],
+          "signal_color_without_reference": "OFF",
+          "signal_reason": null
+        }
+      }
+    }
+  ]
+}

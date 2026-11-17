@@ -1,0 +1,62 @@
+{
+  "status": "ready",
+  "error": null,
+  "barcode": "P2-04",
+  "direction": "descending",
+  "sequence": [
+    "R",
+    "G",
+    "Y",
+    "R",
+    "G",
+    "Y",
+    "G",
+    "R",
+    "G",
+    "R",
+    "G",
+    "G"
+  ],
+  "counts": {
+    "R": 4,
+    "Y": 2,
+    "G": 6
+  },
+  "signal_complete": true,
+  "locations": [
+    {
+      "location": "L1",
+      "group": "G",
+      "count": 6,
+      "constraint": {
+        "color": "G",
+        "shape": "any"
+      }
+    },
+    {
+      "location": "L2",
+      "group": "R",
+      "count": 4,
+      "constraint": {
+        "color": "R",
+        "shape": "any"
+      }
+    },
+    {
+      "location": "L3",
+      "group": "Y",
+      "count": 2,
+      "constraint": {
+        "color": "any",
+        "shape": "one_common_shape_pending_inventory"
+      }
+    }
+  ],
+  "puck_allocation": "pending_inventory",
+  "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+  "tie_order": [
+    "R",
+    "Y",
+    "G"
+  ]
+}

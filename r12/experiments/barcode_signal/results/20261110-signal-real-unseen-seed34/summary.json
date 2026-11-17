@@ -1,0 +1,126 @@
+{
+  "scope": "Development-photo diagnostic with assistant provisional truth and visually fitted lens ROIs; not held-out or user-confirmed accuracy.",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "seed": 34,
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_unique_enabled": true,
+    "white_unique_min": 0.3,
+    "white_other_max": 0.1,
+    "delta_v": 40.0,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "images": 48,
+  "truth_review": {
+    "method": "assistant provisional visual review before frozen-rule predictions",
+    "independently_user_confirmed": false,
+    "diagnostic_only": true,
+    "review_display": "Original RGB; x4 visualization for dark outlines only, never fed to classifier"
+  },
+  "frozen_signal_sha256": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+  "excluded_samples": "reports/20261110-real-photos-seed33/samples.json",
+  "overlap_previous_sha256": 0,
+  "invalid_or_ambiguous_samples": [
+    {
+      "id": "photo_004",
+      "truth": null,
+      "reason": "three_tiers_not_visible"
+    },
+    {
+      "id": "photo_013",
+      "truth": null,
+      "reason": "three_tiers_not_visible"
+    },
+    {
+      "id": "photo_014",
+      "truth": null,
+      "reason": "three_tiers_not_visible"
+    },
+    {
+      "id": "photo_036",
+      "truth": "G",
+      "reason": "three_tiers_not_visible"
+    },
+    {
+      "id": "photo_043",
+      "truth": null,
+      "reason": "lens_not_localizable_in_dark_frame"
+    },
+    {
+      "id": "photo_047",
+      "truth": null,
+      "reason": "lens_not_localizable_in_dark_frame"
+    }
+  ],
+  "low_confidence_roi": [
+    "photo_041",
+    "photo_042",
+    "photo_045",
+    "photo_046"
+  ],
+  "methods": {
+    "old_box_old_rule": {
+      "evaluated": 42,
+      "confusion": {
+        "R->R": 3,
+        "G->G": 6,
+        "OFF->OFF": 16,
+        "Y->Y": 6,
+        "R->UNKNOWN": 7,
+        "G->UNKNOWN": 1,
+        "R->OFF": 1,
+        "G->Y": 2
+      },
+      "correct": 31,
+      "unknown": 8,
+      "wrong_color": 3
+    },
+    "lens_roi_old_rule": {
+      "evaluated": 42,
+      "confusion": {
+        "R->R": 6,
+        "G->G": 9,
+        "OFF->OFF": 16,
+        "Y->Y": 5,
+        "R->UNKNOWN": 5,
+        "Y->UNKNOWN": 1
+      },
+      "correct": 36,
+      "unknown": 6,
+      "wrong_color": 0
+    },
+    "lens_roi_new_rule": {
+      "evaluated": 42,
+      "confusion": {
+        "R->R": 11,
+        "G->G": 9,
+        "OFF->OFF": 16,
+        "Y->Y": 6
+      },
+      "correct": 42,
+      "unknown": 0,
+      "wrong_color": 0
+    }
+  },
+  "off_reference_real_evaluated": 0,
+  "off_reference_status": "Implemented; no pose/exposure-matched confirmed OFF captures available for these photos",
+  "limitations": [
+    "Camera/exposure-matched confirmed OFF frames unavailable; no real OFF-reference comparison.",
+    "Some images are cropped, blurred or too dark to localize. Retained, separately reported.",
+    "Within-session capture-index separation is not a guarantee of environmental independence.",
+    "Color truth and lens geometry are assistant visual annotations, not controller state or user-confirmed ground truth.",
+    "Manual body ROIs are diagnostic annotations, not an automatic detector or a solved camera calibration."
+  ],
+  "signal_source_sha256": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+  "manifest_sha256": "f4bd765b07fe68fd4b91570783f70ab953eecc84c00cd20580b75701412587cd",
+  "roi_source_sha256": "4d16d8617e3913c14fe52e4f88a9a4c26c647a504493131d6885b58783f192ab"
+}

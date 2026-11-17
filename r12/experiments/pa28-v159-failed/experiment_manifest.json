@@ -1,0 +1,11 @@
+{
+  "scope": "isolated runtime diagnosis; no World/gripper/fixture/controller",
+  "hypothesis": "public extension disable Replicator then gc while eventdispatcher active, after all transactions and before app.close",
+  "manager_requested": false,
+  "fast_shutdown": false,
+  "wall_budget_s": 900,
+  "native_errors_rejected": true,
+  "repair": "explicit omni.kit.usd.layers required by installed SimulationApp.utils; v156 removed transitive dependency with Replicator and was not a valid lifetime comparison",
+  "installed_API_evidence": "SimulationApp.close imports Replicator inside optional try block then closes USD stage and app normally; no caller skip_cleanup",
+  "baseline": "pa28_v158_minimal_rep_20261105"
+}

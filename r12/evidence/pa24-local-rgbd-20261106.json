@@ -1,0 +1,221 @@
+{
+  "scope": "finite local headless simulation diagnostics; not mission/calibration authority",
+  "date_kst": "2026-11-06",
+  "diagnostic_schema": "r12-camera-diagnostic-all640-v1",
+  "raw_outputs_committed": false,
+  "shared_tests_passed": 24,
+  "diagnostic_CPU_tests_passed": 62,
+  "identity_challenge": {
+    "renderer_exit_code": 0,
+    "frames": 3,
+    "live_proposals": 2,
+    "expected_ambiguous_rejections": 1,
+    "identity_reobservation_verified": true,
+    "movement_dispatch_count": 0,
+    "min_vram_free_mib": 3374.0,
+    "calibration_accepted": false,
+    "motion_authorized": false,
+    "scope": "fresh_identity_ambiguity_rejection_and_reobservation"
+  },
+  "bounded_load": {
+    "captures": 20,
+    "captures_verified": 20,
+    "ready_min_ms": 67.965149,
+    "ready_p95_ms": 78.30074480000009,
+    "ready_max_ms": 189.679007,
+    "capture_age_max_ms": 231.46094,
+    "all_render_counts": [
+      2
+    ],
+    "min_gpu_free_mib": 3198.0,
+    "scope": "20 samples under bounded synthetic GPU pressure; not an all-load or timing guarantee"
+  },
+  "completed_small_motion_runs": {
+    "live-motion-02": {
+      "completed": true,
+      "move_end_capture_age_ms": 319.450591,
+      "actual_max_joint_delta_rad": 0.00011396408081054688,
+      "endpoint_max_error_rad": 0.0002860359191894646,
+      "settled_continuous_s": 0.5,
+      "contact_count": 0,
+      "environment_lower_bound_m": 0.16575011460452824,
+      "native_CAD_translation_max_m": 9.843906957963276e-08,
+      "model_sha256": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
+      "renderer_source_sha256": "7497a9b51308ac7b71a6b9bfe2488e9f319d904cede08936e8c783d2f64906b7",
+      "min_gpu_free_mib": 3533.0
+    },
+    "live-motion-confirm-03": {
+      "completed": true,
+      "move_end_capture_age_ms": 326.848054,
+      "actual_max_joint_delta_rad": 0.00011396408081054688,
+      "endpoint_max_error_rad": 0.0002860359191894646,
+      "settled_continuous_s": 0.5,
+      "contact_count": 0,
+      "environment_lower_bound_m": 0.16575011460452824,
+      "native_CAD_translation_max_m": 9.843906957963276e-08,
+      "model_sha256": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
+      "renderer_source_sha256": "07a9b8c2ad1c014cbb244196339659a7a3f5597c3dccb21478b9d7e86eb20515",
+      "min_gpu_free_mib": 3401.0
+    },
+    "repository-motion-confirm-04": {
+      "completed": true,
+      "move_end_capture_age_ms": 313.90711,
+      "actual_max_joint_delta_rad": 0.00011396408081054688,
+      "endpoint_max_error_rad": 0.0002860359191894646,
+      "settled_continuous_s": 0.5,
+      "contact_count": 0,
+      "environment_lower_bound_m": 0.16575011460452824,
+      "native_CAD_translation_max_m": 9.843906957963276e-08,
+      "model_sha256": "4dde97582052e02daeaa0c6069b3df90e8a2964d050f597def0af5b153641a05",
+      "renderer_source_sha256": "07a9b8c2ad1c014cbb244196339659a7a3f5597c3dccb21478b9d7e86eb20515",
+      "min_gpu_free_mib": 3633.0
+    }
+  },
+  "failed_motion_attempts": [
+    {
+      "run": "live-motion-01",
+      "reason": "fresh_observation_expired_during_bounded_move",
+      "completed": false
+    }
+  ],
+  "simulation_camera_candidate_not_adopted": {
+    "scope": "post-fit comparison to authored simulation camera placement only",
+    "camera": "arm_camera_left_optical",
+    "fit_read_this_reference": false,
+    "simulation_mount_translation_error_m": 0.002157576431559199,
+    "simulation_mount_rotation_error_rad": 0.005248028524587262,
+    "held_out_consistency_residuals": {
+      "samples": 2,
+      "translation_rms_m": 0.00018284655267495362,
+      "translation_max_m": 0.00025093191233580925,
+      "rotation_rms_rad": 0.020718418914337712,
+      "rotation_max_rad": 0.028676177288616496
+    },
+    "physical_accuracy_verified": false,
+    "pad_calibrated": false,
+    "calibration_accepted": false,
+    "motion_authorized": false,
+    "error_bound_validated": false,
+    "conclusion": "small holdout consistency residuals do not establish absolute extrinsic accuracy or a general error bound"
+  },
+  "pad_tcp_frame_audit": {
+    "scope": "authored collider geometry audit only; not independent pad/TCP calibration",
+    "pads": [
+      {
+        "side": "left",
+        "inner_center_at_zero_slide_m": [
+          0.10444998741149902,
+          0.009813869372010231,
+          -6.05359673500061e-09
+        ],
+        "minimum_at_zero_slide_m": [
+          0.08594998717308044,
+          0.009813869372010231,
+          -0.00699997553601861
+        ],
+        "maximum_at_zero_slide_m": [
+          0.1229499876499176,
+          0.01411386951804161,
+          0.00699996342882514
+        ]
+      },
+      {
+        "side": "right",
+        "inner_center_at_zero_slide_m": [
+          0.10444998741149902,
+          -0.009813869372010231,
+          -6.05359673500061e-09
+        ],
+        "minimum_at_zero_slide_m": [
+          0.08594998717308044,
+          -0.01411386951804161,
+          -0.00699997553601861
+        ],
+        "maximum_at_zero_slide_m": [
+          0.1229499876499176,
+          -0.009813869372010231,
+          0.00699996342882514
+        ]
+      }
+    ],
+    "modeled_pad_contact_midpoint_link5_m": [
+      0.10444998741149902,
+      0.0,
+      -6.05359673500061e-09
+    ],
+    "configured_fingertip_tcp_link5_m": [
+      0.12475,
+      0.0,
+      0.0
+    ],
+    "frame_origin_difference_m": 0.02030001258850188,
+    "configured_tcp_method": "CAD opposing fingertip midpoint; +X approach, Y opening, Z up at home",
+    "modeled_zero_slide_aperture_m": 0.019627738744020462,
+    "modeled_open_aperture_m": 0.075,
+    "configured_tcp_is_pad_midpoint": false,
+    "independent_pad_measurement_available": false,
+    "motor_to_finger_force_identified": false,
+    "calibration_accepted": false,
+    "motion_authorized": false,
+    "decision": "Do not silently substitute a pad contact midpoint for the existing fingertip TCP. Calibrated object-to-TCP mapping and measured uncertainty are still required before terminal contact."
+  },
+  "remaining_gates": [
+    "independent pad/TCP and object-to-TCP mapping",
+    "validated sensor and robot-geometry uncertainty bound",
+    "terminal contact exception",
+    "grasp/lift/transport/place mission physics"
+  ],
+  "calibration_accepted": false,
+  "motion_authorized": false,
+  "full_mission_success": false,
+  "remote_or_hardware_execution": false,
+  "current_repository_gate_audit": {
+    "scope": "read-only current repository gate audit; no control or approval",
+    "terminal_calibration_guard": {
+      "diagnostic_consistent": false,
+      "reason": "calibration_unverified",
+      "binding_sha256": null,
+      "motion_admitted": false,
+      "mission_admitted": false
+    },
+    "tcp_calibration_method": "CAD opposing fingertip midpoint; +X approach, Y opening, Z up at home",
+    "physically_calibrated": false,
+    "gripper_actuated_calibration": false,
+    "motor_torque_to_finger_force_mapping": null,
+    "destination_mount_geometry_verified": {
+      "L1": false,
+      "L2": false,
+      "L3": false
+    },
+    "destination_mount_transforms_available": {
+      "L1": false,
+      "L2": false,
+      "L3": false
+    },
+    "fixture_truth_substituted_for_measurement": false,
+    "calibration_accepted": false,
+    "motion_authorized": false,
+    "full_mission_completed": false,
+    "remaining": [
+      "independent validated pad/TCP and camera calibration with object-to-TCP mapping",
+      "validated translation/rotation/robot-geometry uncertainty bound",
+      "verified destination marker-to-grid mount transforms",
+      "terminal corridor/contact exception and native grasp/lift/carry/place evidence"
+    ]
+  },
+  "portable_repository_runtime_check": "passed: repository-motion-confirm-04; relative model links rebased; fresh current-execution motion/settle/reobserve verified",
+  "portable_repository_validation_history": [
+    {
+      "stage": "initial_preflight",
+      "result": "refused_before_start_due_to_independent_v46_renderer"
+    },
+    {
+      "stage": "first_packaged_initialization",
+      "result": "failed_before_capture_or_motion_due_to_two_JSON_patch_end_of_line_errors; failed_snapshot_preserved"
+    },
+    {
+      "stage": "corrected_repository_snapshot",
+      "result": "passed_with_new_output_folder"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+# nz2_swerve_nav 파라미터 (Gazebo·Nav2 용 스워브 + 라이다 병합). 팀 실물 드라이버 nz2_swerve 의 swerve.yaml 과 별개
+swerve_controller:
+  ros__parameters:
+    # 모듈 순서 = URDF 이름 순서 (주의: URDF 이름은 실제와 180° 반대. URDF front_left = 실제 오른쪽 뒤)
+    module_names: ["front_left", "front_right", "rear_left", "rear_right"]
+    module_x: [0.124, 0.124, -0.124, -0.124]     # base_link 기준 조향축 [m]
+    module_y: [0.124, -0.124, 0.124, -0.124]
+    steer_offset: [0.0, 0.0, 0.0, 0.0]           # 실물: 조향 영점 보정 [rad] (앞 모듈 90° 조립이면 ±1.5708)
+    wheel_sign: [1.0, 1.0, 1.0, 1.0]             # 실물: 기어로 회전 방향이 뒤집히면 -1
+    box_center_x: [0.019183, 0.019248, -0.019248, -0.019183]  # 모듈 충돌상자 중심 (조향 프레임) [m]
+    box_center_y: [0.001219, -0.001252, 0.001252, -0.001219]
+    box_half: [0.0747, 0.0572]                   # 모듈 상자 반폭 (굴림 방향, 옆) [m]
+    plate_half: [0.17, 0.17]                     # 차체 판 반폭 [m]
+    # 라이다 하우징 (base_link_0.stl 메시 실측: 바깥 끝 ±0.2151 m, 안쪽 ±0.155 m, 폭 ±0.0275 m, 바닥 위 16~98 mm)
+    lidar_xy: [0.1851, 0.0, 0.0, 0.1851, -0.1851, 0.0, 0.0, -0.1851]  # 하우징 중심 [m]
+    lidar_half: 0.0300                           # 하우징 반폭 (정사각 근사, 옆 방향 2.5 mm 여유) [m]
+    base_yaw: 3.14159265359                      # base_footprint → base_link (정면 = 팔 쪽 = base_link -X)
+
+    wheel_radius: 0.033
+    max_wheel_speed: 0.95       # 바퀴 선속도 상한 [m/s] (XM430-W210 ×4 증속 무부하 1.06 m/s 의 90 %)
+    steer_limit: 1.92           # ±110° [가정] — 실물 케이블 확인 전엔 1.5708 로
+    clamp_tolerance: 0.17       # 한계에 걸린 방향 오차 허용 (10°)
+    align_stop: 0.35            # 조향 오차 > 20° 면 바퀴 정지
+    min_module_speed: 0.005
+
+    max_vx: 0.30                # 처음엔 0.3 m/s. 통로 검증 후 올림
+    max_vy: 0.30
+    max_wz: 1.0
+    max_acc_linear: 0.8         # [m/s^2]
+    max_acc_angular: 3.0        # [rad/s^2]
+    cmd_timeout: 0.15           # control_master 와 같은 값
+    joint_state_timeout: 0.20
+    control_rate: 50.0
+
+    footprint_padding: 0.01     # [m]
+    footprint_rate: 5.0         # [Hz]
+    odom_frame: odom
+    base_frame: base_footprint
+    publish_tf: true            # EKF/cuVSLAM 이 odom→base_footprint 를 내면 false
+    sim_joint_topics: false     # Gazebo 실행 시 launch 가 true 로 덮어씀
+    use_stamped_cmd_vel: true   # Nav2(Lyrical) 기본 TwistStamped
+
+# 라이다 4개 병합 (scan_merger_node)
+scan_merger:
+  ros__parameters:
+    input_topics: ["/lidar_front/scan", "/lidar_left/scan", "/lidar_rear/scan", "/lidar_right/scan"]
+    input_frames: ["lidar_front_scan", "lidar_left_scan", "lidar_rear_scan", "lidar_right_scan"]  # URDF 프레임 (실물 드라이버 frame_id 무시)
+    output_frame: base_footprint
+    bins: 720                   # 0.5°
+    range_min: 0.05
+    range_max: 12.0
+    footprint_margin: 0.01      # /swerve/footprint 바깥 10 mm 까지 자기 몸으로 보고 제거
+    default_footprint_half: 0.235
+    max_scan_age: 0.25          # [s] 이보다 오래된 라이다는 제외
+    publish_rate: 10.0

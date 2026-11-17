@@ -1,0 +1,111 @@
+{
+ "route": "facing",
+ "goals_file": "/home/pa24/SuDragon_ws/hive/projects/nz2/ros2_ws/install/nz2_swerve_nav/share/nz2_swerve_nav/config/nav_test_goals.yaml",
+ "results": [
+  {
+   "name": "L1_S",
+   "goal": [
+    3.687,
+    0.511,
+    90.0
+   ],
+   "max_v": 0.16528031072580235,
+   "max_wz": 0.4211999997688585,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 67.8,
+   "error": "0",
+   "amcl_err_mm": 20.0,
+   "amcl_err_deg": -2.84,
+   "true_err_mm": 50.8,
+   "true_err_deg": -1.85,
+   "amcl_vs_true_mm": 41.2,
+   "amcl_vs_true_deg": -0.99,
+   "min_clearance_mm": 91.7
+  },
+  {
+   "name": "CENTER",
+   "goal": [
+    2.207,
+    3.531,
+    90.0
+   ],
+   "max_v": 0.16046123198743628,
+   "max_wz": 0.4211999997870663,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 39.6,
+   "error": "0",
+   "amcl_err_mm": 25.4,
+   "amcl_err_deg": -4.26,
+   "true_err_mm": 53.4,
+   "true_err_deg": -3.6,
+   "amcl_vs_true_mm": 28.6,
+   "amcl_vs_true_deg": -0.66,
+   "min_clearance_mm": 109.6
+  },
+  {
+   "name": "L3_S",
+   "goal": [
+    3.71,
+    4.931,
+    90.0
+   ],
+   "max_v": 0.15795135983814698,
+   "max_wz": 0.0943610691613916,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 19.3,
+   "error": "0",
+   "amcl_err_mm": 50.6,
+   "amcl_err_deg": -4.0,
+   "true_err_mm": 78.6,
+   "true_err_deg": -4.65,
+   "amcl_vs_true_mm": 45.5,
+   "amcl_vs_true_deg": 0.64,
+   "min_clearance_mm": 93.6
+  },
+  {
+   "name": "B5371_N",
+   "goal": [
+    0.717,
+    5.841,
+    -90.0
+   ],
+   "max_v": 0.20434956537290835,
+   "max_wz": 0.4211999997691887,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 42.7,
+   "error": "0",
+   "amcl_err_mm": 18.1,
+   "amcl_err_deg": 2.33,
+   "true_err_mm": 32.6,
+   "true_err_deg": 1.98,
+   "amcl_vs_true_mm": 21.1,
+   "amcl_vs_true_deg": 0.35,
+   "min_clearance_mm": 84.5
+  },
+  {
+   "name": "START",
+   "goal": [
+    0.734,
+    0.95,
+    0.0
+   ],
+   "max_v": 0.21598317533164685,
+   "max_wz": 0.6069543135546251,
+   "recoveries": 0,
+   "status": "성공",
+   "time_s": 51.5,
+   "error": "0",
+   "amcl_err_mm": 47.3,
+   "amcl_err_deg": 0.26,
+   "true_err_mm": 48.3,
+   "true_err_deg": -1.28,
+   "amcl_vs_true_mm": 13.4,
+   "amcl_vs_true_deg": 1.54,
+   "min_clearance_mm": 43.9
+  }
+ ]
+}

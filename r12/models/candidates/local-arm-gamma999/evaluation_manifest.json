@@ -1,0 +1,14 @@
+{
+  "checkpoint_source": "/home/seongmin/Documents/Codex/2026-10-30/https-github-com-seongminjaden-manipulator-isaac61/work/r12_arm_lqr_tcp_gamma999_20261105/logs/rsl_rl/r12_arm_tcp_gamma999/2026-11-05_11-17-55/model_101.pt",
+  "checkpoint_sha256": "153905b03a1a1789d66d0356318f6dc2a0f8adf59741c7a59de0df9b56f1a838",
+  "snapshot": "/home/seongmin/Documents/Codex/2026-10-30/https-github-com-seongminjaden-manipulator-isaac61/work/r12_arm_lqr_tcp_gamma999_20261105",
+  "seed": 20261106,
+  "episodes": 1,
+  "sim_seconds_per_episode": 80,
+  "policy_hz": 20,
+  "planned_policy_steps_upper_bound": 1600,
+  "policy_label": "trained",
+  "deterministic_inference": true,
+  "training_updates": false,
+  "official_play_exports": "written beside copiedcheckpoint in evaloutput only"
+}

@@ -1,0 +1,396 @@
+"""최종 조립 URDF(assembly_puck_slots) 설정·URDF 정리·순수 numpy 정기구학.
+
+Isaac/ROS 를 import 하지 않는다. prepare.py, plan_poses.py, run.py 가 같이 쓴다.
+"""
+import copy
+import hashlib
+import json
+import math
+from pathlib import Path
+import xml.etree.ElementTree as ET
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+PERCEPTION_ROOT = HERE.parent                      # Claude outputs/tower_signal
+def _find_r12():
+    """저장소 안(r12/experiments/...)에 있으면 그 저장소의 r12, 아니면 기본 tutor 체크아웃."""
+    for parent in HERE.parents:
+        if parent.name == 'r12' and (parent / 'src/arm_practice/mission.py').is_file():
+            return parent
+    return Path('~/git/lv2-nz2-project2/r12').expanduser()
+
+
+R12 = _find_r12()  # 장면 USD·SignalRecorder 읽기 전용
+
+ARM_JOINTS = ['arm_yaw_joint', 'shoulder_joint', 'elbow_joint', 'wrist_pitch_joint', 'wrist_roll_joint']
+JAW_JOINTS = ['jaw_left_joint', 'jaw_right_joint']   # right 는 URDF 에서 left 의 mimic(배율1)
+ARM_LINKS = ['arm_yaw', 'shoulder', 'elbow', 'wrist_pitch', 'wrist_roll', 'jaw_left', 'jaw_right']
+CHASSIS_LINKS = ['base_link'] + [f'{c}_{p}' for c in ('front_left', 'front_right', 'rear_left', 'rear_right')
+                                 for p in ('steer', 'wheel')]
+WRIST_LINK = 'wrist_roll'
+CAMERA_FRAME = 'wrist_d435_color_optical_frame'
+MAST_PARENT = 'base_link'
+MAST_FRAME = 'mast_d435_color_optical_frame'
+# 바퀴 중심 z(-0.003-0.145) - 타이어 반지름 0.033 = -0.181 → base_link 원점은 지면 위 0.181 m.
+# README 의 gz 생성 높이 0.182 를 그대로 쓴다(1 mm 낙하 후 정착).
+BASE_HEIGHT_M = 0.182
+FOOTPRINT_LINK = 'base_footprint'   # v99 nz2fix URDF 에만 있음. 시뮬은 base_link 를 뿌리로 쓴다
+
+
+def urdf_path(cfg):
+    """원본 URDF 경로. config urdf_file 이 없으면 assembly.urdf (v25 이하). v99 는 real_final_..._nz2fix.urdf."""
+    return Path(cfg['assembly_dir']) / cfg.get('urdf_file', 'assembly.urdf')
+
+
+def sha256(path):
+    h = hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for chunk in iter(lambda: stream.read(1 << 20), b''):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _vec(value, n, name):
+    if (not isinstance(value, list) or len(value) != n
+            or any(isinstance(x, bool) or not isinstance(x, (int, float)) or not math.isfinite(x) for x in value)):
+        raise ValueError(f'{name}: 유한한 {n}개 숫자 배열 필요 (현재 {value!r})')
+    return value
+
+
+def load_config(path, check_poses=True):
+    cfg = json.loads(Path(path).read_text(encoding='utf-8'))
+    cfg['assembly_dir'] = str(Path(cfg['assembly_dir']).expanduser().resolve())
+    urdf = urdf_path(cfg)
+    if not urdf.is_file():
+        raise FileNotFoundError(urdf)
+    scale = cfg.get('mass_scale', 1.0)
+    if isinstance(scale, bool) or not isinstance(scale, (int, float)) or not 0 < scale <= 1:
+        raise ValueError('mass_scale: 0~1 (최종 URDF 질량 10배 오류 보정 0.100011)')
+    model = Model(urdf, mass_scale=scale)
+    lower, upper = arm_limits(cfg, model)
+    _vec(cfg['barcode_base_xyz_yaw'], 4, 'barcode_base_xyz_yaw')
+    _vec(cfg['tower_base_xyz_yaw'], 4, 'tower_base_xyz_yaw')
+    poses = [('barcode_arm_q_rad', cfg['barcode_arm_q_rad'])]
+    if not isinstance(cfg['tower_arm_waypoints_rad'], list) or not cfg['tower_arm_waypoints_rad']:
+        raise ValueError('tower_arm_waypoints_rad: 5관절 경유점 1개 이상 필요')
+    poses += [(f'tower_arm_waypoints_rad[{i}]', q) for i, q in enumerate(cfg['tower_arm_waypoints_rad'])]
+    for name, q in poses:
+        _vec(q, 5, name)
+        if check_poses and any(not lo <= x <= hi for x, lo, hi in zip(q, lower, upper)):
+            raise ValueError(f'{name}: URDF 관절 범위 밖')
+    from signal_fallback import validate_fallback, wall_budget
+    validate_fallback(cfg, lower, upper)
+    wall_budget(cfg)
+    if cfg.get('tower_scene') is not None:
+        tower = cfg['tower_scene']
+        _vec(tower['xy_m'], 2, 'tower_scene.xy_m')
+        z = tower.get('base_z_m', 0.)
+        if isinstance(z, bool) or not isinstance(z, (int, float)) or not math.isfinite(z):
+            raise ValueError('tower_scene.base_z_m: finite height required')
+    _vec(cfg['barcode']['center_m'], 3, 'barcode.center_m')
+    if cfg['barcode']['code'] not in {f'P2-0{i}' for i in range(1, 5)}:
+        raise ValueError('barcode.code 는 P2-01..04')
+    seq = cfg['sequence']
+    if (not isinstance(seq, str) or len(seq) != 12 or set(seq) - set('RYG')
+            or any(not 1 <= seq.count(c) <= 6 for c in 'RYG')):
+        raise ValueError('sequence: R/Y/G 12회, 색별 1~6회')
+    if cfg.get('trial_mode', 'barcode_then_tower') not in ('barcode_then_tower', 'tower_only'):
+        raise ValueError('trial_mode 는 barcode_then_tower 또는 tower_only')
+    cam = cfg['camera']
+    if cam['width'] < 320 or cam['height'] < 240 or not 30 <= cam['hfov_deg'] <= 100:
+        raise ValueError('camera 해상도/화각 확인')
+    if cfg.get('camera_fps', 30) not in (20, 30) or cfg.get('physics_hz', 960) not in (120, 240, 480, 960):
+        raise ValueError('camera_fps 20/30, physics_hz 120/240/480/960')
+    for key in ('dome', 'emissive', 'max_seconds', 'prepare_timeout_s', 'barcode_timeout_s',
+                'motion_timeout_s', 'arm_command_velocity_rad_s'):
+        v = cfg[key]
+        if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or v <= 0:
+            raise ValueError(f'{key}: 양수 필요')
+    drive = cfg['arm_drive']
+    for key in ('stiffness_per_deg', 'damping_per_deg', 'max_force_nm'):
+        if not drive[key] > 0:
+            raise ValueError(f'arm_drive.{key}: 양수 필요')
+    motion = cfg['base_motion']
+    if not (0 < motion['speed_mps'] <= 0.5 and 0 < motion['yaw_rate_rad_s'] <= 1.5):
+        raise ValueError('base_motion: 0<speed_mps<=0.5, 0<yaw_rate_rad_s<=1.5')
+    if check_poses and cfg.get('firmware_check', False):
+        named = [('barcode_arm_q_rad', cfg['barcode_arm_q_rad'])]
+        named += [(f'tower_arm_waypoints_rad[{i}]', q) for i, q in enumerate(cfg['tower_arm_waypoints_rad'])]
+        if cfg.get('approach'):
+            named.append(('approach.start_arm_q_rad', cfg['approach']['start_arm_q_rad']))
+        if cfg.get('stow_arm_after_barcode_q_rad'):
+            named.append(('stow_arm_after_barcode_q_rad', cfg['stow_arm_after_barcode_q_rad']))
+        for name, q in named:
+            problems = firmware_check(q)
+            if problems:
+                raise ValueError(f'{name}: ' + '; '.join(problems))
+    if cfg.get('approach'):
+        ap = cfg['approach']
+        _vec(ap['start_base_xyz_yaw'], 4, 'approach.start_base_xyz_yaw')
+        _vec(ap['start_arm_q_rad'], 5, 'approach.start_arm_q_rad')
+        if check_poses and any(not lo <= x <= hi for x, lo, hi in zip(ap['start_arm_q_rad'], lower, upper)):
+            raise ValueError('approach.start_arm_q_rad: 관절 범위 밖')
+    if cfg.get('stow_arm_after_barcode_q_rad') is not None:
+        _vec(cfg['stow_arm_after_barcode_q_rad'], 5, 'stow_arm_after_barcode_q_rad')
+        if check_poses and any(not lo <= x <= hi for x, lo, hi in zip(cfg['stow_arm_after_barcode_q_rad'], lower, upper)):
+            raise ValueError('stow_arm_after_barcode_q_rad: 관절 범위 밖')
+    if cfg.get('barcode_seek') is not None and not isinstance(cfg['barcode_seek'], dict):
+        raise ValueError('barcode_seek 는 설정 dict 또는 null')
+    if cfg.get('order', 'barcode_first') not in ('barcode_first', 'tower_first'):
+        raise ValueError('order 는 barcode_first 또는 tower_first')
+    if cfg.get('order') == 'tower_first' and not cfg.get('approach'):
+        raise ValueError('order tower_first 는 approach(시작 위치) 필요')
+    if cfg.get('signal_camera', 'wrist') not in ('wrist', 'mast'):
+        raise ValueError('signal_camera 는 wrist 또는 mast')
+    pitch = cfg.get('mast_pitch_down_deg')
+    if pitch is not None and not 0 < pitch < 90:
+        raise ValueError('mast_pitch_down_deg: 0~90 또는 null(URDF 값: v25 60°, v99 35°)')
+    if cfg['barcode_upscale'] not in (1, 2):
+        raise ValueError('barcode_upscale 은 1 또는 2')
+    if cfg.get('floor_visual_usd'):
+        cfg['floor_visual_usd'] = str(Path(cfg['floor_visual_usd']).expanduser().resolve())
+    for file in (PERCEPTION_ROOT / 'scripts/live_mission_optimized.py',
+                 R12 / 'models/navigation/mission_scene.usda', R12 / 'src/arm_practice/mission.py'):
+        if not file.is_file():
+            raise FileNotFoundError(file)
+    return cfg, model
+
+
+def arm_limits(cfg, model):
+    """팔 5축 한계. config arm_limits_rad 가 있으면 그것(실측), 없으면 URDF 값."""
+    own = cfg.get('arm_limits_rad')
+    if not own:
+        return model.limits(ARM_JOINTS)
+    lower = np.array(_vec(own['lower'], 5, 'arm_limits_rad.lower'), float)
+    upper = np.array(_vec(own['upper'], 5, 'arm_limits_rad.upper'), float)
+    if np.any(lower >= upper):
+        raise ValueError('arm_limits_rad: lower < upper 필요')
+    return lower, upper
+
+
+# 팔 펌웨어 arm_config.h (FW_LIMITS_REV 8) 기준, 팀 각도[deg] = -조립본[rad]·180/π [추정: 부호·영점 실측 필요]
+FW_J_MIN_DEG = (-175., -95., -111., -99., -170.)
+FW_J_MAX_DEG = (175., 113., 82., 117., 170.)
+FW_SHOULDER_BODY_CONTACT_DEG = -102.   # 어깨가 이 각도에서 차체에 닿음(펌웨어 주석)
+FW_FOLD = dict(elbow_deg=45., shoulder_deg=-80., wrist_max_deg=0.)
+
+
+def firmware_check(q5):
+    """조립본 관절각 → 팀 각도로 바꿔 펌웨어 한계·접힘 인터락 검사. 문제 목록(빈 목록 = 통과)."""
+    team = [-math.degrees(float(v)) for v in q5]
+    problems = []
+    for i, (v, lo, hi) in enumerate(zip(team, FW_J_MIN_DEG, FW_J_MAX_DEG)):
+        if not lo <= v <= hi:
+            problems.append(f'joint{i+1} {v:.1f}° 가 펌웨어 범위 [{lo:g},{hi:g}] 밖')
+    shoulder, elbow, wrist = team[1], team[2], team[3]
+    if elbow > FW_FOLD['elbow_deg'] and shoulder < FW_FOLD['shoulder_deg'] and wrist > FW_FOLD['wrist_max_deg']:
+        problems.append(f'접힘 인터락: 팔꿈치 {elbow:.1f}°>45, 어깨 {shoulder:.1f}°<-80 에서 손목 {wrist:.1f}°>0')
+    return problems
+
+
+# ---------------------------------------------------------------- 정기구학
+def rpy_matrix(rpy):
+    r, p, y = rpy
+    cr, sr, cp, sp, cy, sy = math.cos(r), math.sin(r), math.cos(p), math.sin(p), math.cos(y), math.sin(y)
+    # URDF: R = Rz(yaw) Ry(pitch) Rx(roll)
+    return np.array([[cy*cp, cy*sp*sr - sy*cr, cy*sp*cr + sy*sr],
+                     [sy*cp, sy*sp*sr + cy*cr, sy*sp*cr - cy*sr],
+                     [-sp, cp*sr, cp*cr]])
+
+
+def axis_angle(axis, angle):
+    a = np.asarray(axis, float)
+    a = a / np.linalg.norm(a)
+    k = np.array([[0, -a[2], a[1]], [a[2], 0, -a[0]], [-a[1], a[0], 0]])
+    return np.eye(3) + math.sin(angle)*k + (1-math.cos(angle))*(k @ k)
+
+
+def homogeneous(rot=None, xyz=None):
+    t = np.eye(4)
+    if rot is not None:
+        t[:3, :3] = rot
+    if xyz is not None:
+        t[:3, 3] = xyz
+    return t
+
+
+def base_transform(xyz_yaw):
+    x, y, z, yaw = xyz_yaw
+    return homogeneous(rpy_matrix([0, 0, yaw]), [x, y, z])
+
+
+def _floats(text, n=3):
+    return [float(v) for v in (text or ' '.join(['0']*n)).split()]
+
+
+class Model:
+    """URDF 관절 트리. 손목 카메라·관절 위치·질량중심 계산용."""
+    def __init__(self, urdf, mass_scale=1.0):
+        root = ET.parse(urdf).getroot()
+        self.joints = {}
+        self.by_child = {}
+        for j in root.findall('joint'):
+            if j.find('parent').get('link') == FOOTPRINT_LINK:   # v99 nz2fix: base_link 를 뿌리로 (차체 자세는 base_transform 이 담당)
+                continue
+            origin = j.find('origin')
+            axis = j.find('axis')
+            limit = j.find('limit')
+            info = dict(name=j.get('name'), type=j.get('type'), parent=j.find('parent').get('link'),
+                        child=j.find('child').get('link'),
+                        origin=homogeneous(rpy_matrix(_floats(origin.get('rpy') if origin is not None else None)),
+                                           _floats(origin.get('xyz') if origin is not None else None)),
+                        axis=_floats(axis.get('xyz')) if axis is not None else [1, 0, 0],
+                        limit=None if limit is None or limit.get('lower') is None else
+                        (float(limit.get('lower')), float(limit.get('upper'))))
+            self.joints[info['name']] = info
+            self.by_child[info['child']] = info
+        self.inertial = {}
+        for link in root.findall('link'):
+            i = link.find('inertial')
+            if i is not None and i.find('mass') is not None:
+                o = i.find('origin')
+                self.inertial[link.get('name')] = (float(i.find('mass').get('value')) * mass_scale,
+                                                   np.array(_floats(o.get('xyz') if o is not None else None)))
+
+    def limits(self, names):
+        lo, hi = zip(*(self.joints[n]['limit'] for n in names))
+        return np.array(lo), np.array(hi)
+
+    def chain(self, link):
+        out = []
+        while link in self.by_child:
+            j = self.by_child[link]
+            out.append(j)
+            link = j['parent']
+        return out[::-1]
+
+    def link_transform(self, link, q, base=np.eye(4)):
+        """q: {관절이름: 값}. 지정 안 한 가동관절은 0."""
+        t = base.copy()
+        for j in self.chain(link):
+            t = t @ j['origin']
+            if j['type'] in ('revolute', 'continuous'):
+                t = t @ homogeneous(axis_angle(j['axis'], q.get(j['name'], 0.)))
+            elif j['type'] == 'prismatic':
+                t = t @ homogeneous(xyz=np.asarray(j['axis']) / np.linalg.norm(j['axis']) * q.get(j['name'], 0.))
+        return t
+
+    def static_frame(self, parent, child):
+        """parent→child 고정 관절 연쇄 변환(카메라 광학 프레임용)."""
+        chain = self.chain(child)
+        names = [j['parent'] for j in chain]
+        if parent not in names:
+            raise ValueError(f'{child} 는 {parent} 아래가 아님')
+        t = np.eye(4)
+        for j in chain[names.index(parent):]:
+            if j['type'] != 'fixed':
+                raise ValueError(f'{parent}→{child} 사이에 가동 관절 {j["name"]}')
+            t = t @ j['origin']
+        return t
+
+    def arm_q(self, q5):
+        return dict(zip(ARM_JOINTS, map(float, q5)))
+
+    def camera_world(self, q5, base_xyz_yaw):
+        """ROS 광학 프레임(+Z 전방, +X 오른쪽, +Y 아래)의 월드 4x4."""
+        wrist = self.link_transform(WRIST_LINK, self.arm_q(q5), base_transform(base_xyz_yaw))
+        return wrist @ self.static_frame(WRIST_LINK, CAMERA_FRAME)
+
+    def mast_to_optical(self, pitch_down_deg=None):
+        """base_link → 마스트 D435 컬러 광학 프레임. pitch_down_deg 를 주면 하향각만 바꾼다(URDF 60°)."""
+        frame = self.joints['mast_d435_color_frame_fixed']['origin'].copy()
+        if pitch_down_deg is not None:
+            frame[:3, :3] = rpy_matrix([0., math.radians(pitch_down_deg), math.pi])
+        return frame @ self.joints['mast_d435_color_optical_frame_fixed']['origin']
+
+    def mast_pitch_down_deg(self, pitch_down_deg=None):
+        """실제로 쓰는 상단 카메라 하향각[deg] (설정값, 없으면 URDF 값)."""
+        if pitch_down_deg is not None:
+            return float(pitch_down_deg)
+        r = self.joints['mast_d435_color_frame_fixed']['origin'][:3, :3]
+        return math.degrees(math.asin(max(-1., min(1., -r[2, 0]))))
+
+    def gravity_torque(self, q5, base_xyz_yaw, g=9.81):
+        """정지 자세에서 팔 관절별 중력 토크(N·m). 구동 한계 검토용."""
+        q = self.arm_q(q5)
+        base = base_transform(base_xyz_yaw)
+        torques = []
+        for name in ARM_JOINTS:
+            j = self.joints[name]
+            tj = self.link_transform(j['child'], q, base)
+            axis_w = tj[:3, :3] @ (np.asarray(j['axis']) / np.linalg.norm(j['axis']))
+            tau = 0.
+            for link in ARM_LINKS:
+                if name not in [c['name'] for c in self.chain(link)]:
+                    continue
+                m, com = self.inertial[link]
+                tl = self.link_transform(link, q, base)
+                r = tl[:3, :3] @ com + tl[:3, 3] - tj[:3, 3]
+                tau += float(np.cross(r, [0, 0, -m*g]) @ axis_w)
+            torques.append(tau)
+        return torques
+
+
+# ---------------------------------------------------------------- URDF 정리
+def sanitize_urdf(source, destination, limits=None, mass_scale=1.0):
+    """시뮬용 사본: 메시 절대경로, 조향·바퀴 고정, 센서/슬롯 프레임·gazebo 블록 제거.
+
+    센서 프레임은 질량 없는 링크라 Isaac articulation 에 넣지 않고, run.py 가
+    wrist_roll 아래에 같은 변환으로 USD 카메라를 직접 붙인다.
+    """
+    source = Path(source)
+    tree = ET.parse(source)
+    robot = tree.getroot()
+    robot.set('name', 'assembly_perception')
+    removed_links = set()
+    for j in list(robot.findall('joint')):
+        child = j.find('child').get('link')
+        if j.find('parent').get('link') == FOOTPRINT_LINK:   # v99 nz2fix 의 base_footprint(yaw π) 제거 → v25 와 같은 base_link 뿌리
+            if j.get('type') != 'fixed' or child != 'base_link':
+                raise ValueError(f'예상 밖 base_footprint 관절: {j.get("name")}')
+            robot.remove(j)
+            removed_links.add(FOOTPRINT_LINK)
+        elif j.get('type') == 'fixed' and (child.startswith(('wrist_d435', 'mast_d435', 'lidar_', 'puck_slot_'))):
+            robot.remove(j)
+            removed_links.add(child)
+        elif j.get('name').endswith(('_steer_joint', '_wheel_joint')):
+            j.set('type', 'fixed')
+            for tag in ('axis', 'limit', 'dynamics'):
+                for item in j.findall(tag):
+                    j.remove(item)
+    for link in list(robot.findall('link')):
+        if link.get('name') in removed_links:
+            robot.remove(link)
+    if limits is not None:  # 실측 한계를 시뮬 관절 한계에도 반영
+        for name, lo, hi in zip(ARM_JOINTS, *limits):
+            limit = robot.find(f"joint[@name='{name}']/limit")
+            limit.set('lower', repr(float(lo)))
+            limit.set('upper', repr(float(hi)))
+    if mass_scale != 1.0:  # 최종 URDF 질량·관성 10배 오류(Nav2 핸드오프: 42.955 → 4.296 kg)
+        for inertial in robot.iter('inertial'):
+            mass = inertial.find('mass')
+            if mass is not None:
+                mass.set('value', repr(float(mass.get('value')) * mass_scale))
+            inertia = inertial.find('inertia')
+            if inertia is not None:
+                for key in ('ixx', 'ixy', 'ixz', 'iyy', 'iyz', 'izz'):
+                    if inertia.get(key) is not None:
+                        inertia.set(key, repr(float(inertia.get(key)) * mass_scale))
+    for g in list(robot.findall('gazebo')):
+        robot.remove(g)
+    meshes = set()
+    for mesh in robot.iter('mesh'):
+        name = mesh.get('filename')
+        if '://' in name:
+            raise ValueError(f'예상 밖 메시 URI: {name}')
+        path = (source.parent / name).resolve()
+        if not path.is_file():
+            raise FileNotFoundError(path)
+        mesh.set('filename', str(path))
+        meshes.add(str(path))
+    ET.indent(tree)
+    tree.write(destination, encoding='utf-8', xml_declaration=True)
+    return dict(source_urdf_sha256=sha256(source), sim_urdf_sha256=sha256(destination),
+                removed_frame_links=sorted(removed_links), mesh_sha256={p: sha256(p) for p in sorted(meshes)},
+                chassis_fixed_joints='steer/wheel -> fixed')

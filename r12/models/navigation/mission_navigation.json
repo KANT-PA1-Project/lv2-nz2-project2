@@ -1,0 +1,183 @@
+{
+  "map_offset_m": [
+    2.2345244884490967,
+    3.213563919067383,
+    0.0
+  ],
+  "origin_method": "Translation only: lower-left collision post geo_3 centre mapped to (0,0). Source geometry unchanged. PDF/scan dimensions differ; provisional registration.",
+  "start": [
+    0.734,
+    0.95
+  ],
+  "starts": [
+    [
+      1.468,
+      0.95
+    ],
+    [
+      3.67,
+      3.152
+    ],
+    [
+      2.936,
+      5.354
+    ],
+    [
+      0.734,
+      5.354
+    ],
+    [
+      2.202,
+      5.354
+    ],
+    [
+      3.67,
+      3.886
+    ]
+  ],
+  "destinations": [
+    [
+      3.67,
+      0.95
+    ],
+    [
+      2.202,
+      3.7
+    ],
+    [
+      3.67,
+      5.354
+    ]
+  ],
+  "boxes": [
+    {
+      "name": "S1",
+      "center": [
+        1.468,
+        0.95,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    },
+    {
+      "name": "S2",
+      "center": [
+        3.67,
+        3.152,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    },
+    {
+      "name": "S3",
+      "center": [
+        2.936,
+        5.354,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    },
+    {
+      "name": "S4",
+      "center": [
+        0.734,
+        5.354,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    },
+    {
+      "name": "S5",
+      "center": [
+        2.202,
+        5.354,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    },
+    {
+      "name": "S6",
+      "center": [
+        3.67,
+        3.886,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    },
+    {
+      "name": "L1",
+      "center": [
+        3.67,
+        0.95,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    },
+    {
+      "name": "L3",
+      "center": [
+        3.67,
+        5.354,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    },
+    {
+      "name": "L2",
+      "center": [
+        2.202,
+        3.7,
+        0.035
+      ],
+      "size": [
+        0.205,
+        0.205,
+        0.07
+      ]
+    }
+  ],
+  "footprint_radius_m": 0.3,
+  "speed_limit_m_s": 0.2,
+  "navigation_only": true,
+  "box_source": "/home/seongmin/ros2_ws/src/turtlebot-swerve-cuvslam/perception/scripts/generate_dataset.py",
+  "box_source_status": "YOLO brown cardboard proxy 205x205x70 mm; physical Bambu dimensions unverified",
+  "start_region_bounds_assumed_m": [
+    0.434,
+    0.65,
+    1.034,
+    1.25
+  ],
+  "start_region_note": "600 mm square inferred from drawing, exact bounds not specified in PDF"
+}

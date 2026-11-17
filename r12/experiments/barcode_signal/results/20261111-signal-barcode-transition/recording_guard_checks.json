@@ -1,0 +1,10 @@
+{
+  "complete_record_ignores_later_on_unknown_and_gaps": true,
+  "twelve_edges_without_final_off_remains_incomplete": true,
+  "hints": {
+    "23.1": "12/12; WAIT final OFF; KEEP STILL",
+    "25.0": "12/12; final OFF 1.0/3.0s; KEEP STILL",
+    "27.0": "saved"
+  },
+  "AST_OK": true
+}

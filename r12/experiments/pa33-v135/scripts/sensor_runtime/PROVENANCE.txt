@@ -1,0 +1,1 @@
+dual_imu.py copied from user workspace /home/seongmin/ros2_ws/src/turtlebot-swerve-cuvslam/turtlebot_swerve/dual_imu.py for isolated R12 simulation. Source project was not modified. Equal-weight synchronized two-IMU fusion includes rotated covariance, lever-arm tangential/centripetal correction, and disagreement rejection. Nominal R12 transforms require physical calibration.

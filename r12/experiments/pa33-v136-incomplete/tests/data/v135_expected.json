@@ -1,0 +1,10 @@
+{
+  "source_run": "pa33_callback_view_v135_20261105",
+  "source_file": "native_producer_frames.json",
+  "source_file_sha256": "cd100ceb2569b624ee422dc72f27952bcb1510d1d155d8b664ebe0b791aefd14",
+  "fixture_scope": "timing fields only; no images or simulator truth",
+  "samples": 10,
+  "p50": 313.2897845,
+  "p95": 385.37145654999995,
+  "max": 411.897922
+}
