@@ -1,0 +1,10 @@
+{
+  "commit": "b83daec7b98c08d00adb856d7e31f2b0065d3be9",
+  "source": "https://github.com/ROBOTIS-GIT/open_manipulator",
+  "sha256": {
+    "gripper_left_palm.stl": "fb4dfabe68712bbba34deb9f8469f9187009c07579dccd5401b82d08de425267",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "official_robot_reference.urdf": "784078c2a5bb16accd2ca4cbcf0d340403d6d343f047b433b503aeae85ef17d3",
+    "gripper_right_palm.stl": "a5bfc10a067c806a19062e2fcb58989623a09edc0e9bbc4fd735a56d83f99752"
+  }
+}

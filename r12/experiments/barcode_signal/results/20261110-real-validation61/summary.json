@@ -1,0 +1,133 @@
+{
+  "scope": "Development-photo diagnostic with assistant provisional truth and visually fitted lens ROIs; not held-out or user-confirmed accuracy.",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "seed": 61,
+  "params": {
+    "v_on": 200,
+    "on_ratio": 0.15,
+    "white_v": 235,
+    "white_s_max": 80,
+    "white_unique_enabled": true,
+    "white_unique_min": 0.3,
+    "white_other_max": 0.1,
+    "delta_v": 40.0,
+    "white_weight": 0.25,
+    "dominance_ratio": 1.8,
+    "dominance_margin": 0.1,
+    "inner": 0.6,
+    "min_tier_px": 20,
+    "min_depth_m": 0.05,
+    "occlusion_tol_m": 0.15
+  },
+  "images": 61,
+  "truth_review": {
+    "method": "Supplied provisional visual labels; independently checked before predictions, no controller logs"
+  },
+  "frozen_signal_sha256": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+  "excluded_samples": null,
+  "overlap_previous_sha256": 0,
+  "invalid_or_ambiguous_samples": [
+    {
+      "id": "photo_006",
+      "truth": "R",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_007",
+      "truth": "R",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_013",
+      "truth": "Y",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_014",
+      "truth": "Y",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_020",
+      "truth": "G",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    },
+    {
+      "id": "photo_050",
+      "truth": "G",
+      "reason": "tower_right_side_clipped_at_original_image_boundary"
+    },
+    {
+      "id": "photo_052",
+      "truth": "G",
+      "reason": "dark_lens_boundaries_not_reliably_localizable"
+    }
+  ],
+  "low_confidence_roi": [],
+  "methods": {
+    "old_box_old_rule": {
+      "evaluated": 54,
+      "confusion": {
+        "R->R": 5,
+        "R->UNKNOWN": 9,
+        "Y->Y": 11,
+        "G->G": 9,
+        "G->OFF": 1,
+        "OFF->OFF": 14,
+        "Y->R": 1,
+        "Y->UNKNOWN": 1,
+        "G->UNKNOWN": 1,
+        "OFF->R": 2
+      },
+      "correct": 39,
+      "unknown": 11,
+      "wrong_color": 4
+    },
+    "lens_roi_old_rule": {
+      "evaluated": 54,
+      "confusion": {
+        "R->R": 3,
+        "R->UNKNOWN": 11,
+        "Y->Y": 12,
+        "Y->UNKNOWN": 1,
+        "G->G": 10,
+        "OFF->OFF": 14,
+        "OFF->Y": 1,
+        "G->UNKNOWN": 1,
+        "OFF->UNKNOWN": 1
+      },
+      "correct": 39,
+      "unknown": 14,
+      "wrong_color": 1
+    },
+    "lens_roi_new_rule": {
+      "evaluated": 54,
+      "confusion": {
+        "R->R": 14,
+        "Y->Y": 13,
+        "G->G": 10,
+        "OFF->OFF": 14,
+        "OFF->Y": 1,
+        "G->UNKNOWN": 1,
+        "OFF->UNKNOWN": 1
+      },
+      "correct": 51,
+      "unknown": 2,
+      "wrong_color": 1
+    }
+  },
+  "off_reference_real_evaluated": 0,
+  "off_reference_status": "Implemented; no pose/exposure-matched confirmed OFF captures available for these photos",
+  "limitations": [
+    "같은 촬영 세션이라 개발 표본과 조명·배경이 비슷함 (독립 환경 검증 아님)",
+    "dark 조건은 렌즈 칸이 안 보이고 빛 덩어리만 보임",
+    "approx_tower_center_px 는 수동 대략값 (1280×720 기준), OFF 폴더 사진은 미기재",
+    "자동 노출 사진, 정답 영상(제어기 로그) 아님",
+    "2차에 1026_tower(10/27 촬영, 퍽 놓인 장면) 사진 5장 포함 — 폴더 이름(traffic_puck_g 등)과 신호등 색은 무관",
+    "일부 사진은 같은 순간 근처의 다른 상태(예: 34 R / 53 OFF는 3프레임 차이)라 전환 직전·직후 프레임 포함",
+    "Manual body ROIs are diagnostic annotations, not an automatic detector or a solved camera calibration."
+  ],
+  "signal_source_sha256": "7850c69e6503c790bb5076ced4aa3b0d05cba0092ab472ed891b51a45762cbac",
+  "manifest_sha256": "14d6e78a6cf4d69c5e2e9d3681d58786faf749a9c98d0f2a93baaebeb5f3275d",
+  "roi_source_sha256": "ec9dc1752af59a6de0a75d858962b9f2620234762af3c9d8208bba52bdedb90d"
+}

@@ -1,0 +1,6 @@
+assembly-sim-B11 -> assembly-auto-initial-20261112-01
+assembly-sim-B12 -> assembly-auto-30cm-20261112-01
+assembly-sim-B13 -> assembly-auto-30cm-20261112-02
+assembly-sim-B14 -> assembly-auto-30cm-control-20261112-01
+assembly-sim-B15 -> assembly-auto-30cm-control-20261112-02
+assembly-sim-B16 -> assembly-auto-30cm-control-20261112-03

@@ -1,0 +1,66 @@
+{
+  "scope": "Standalone anchored bench diagnostics",
+  "seed": 2427,
+  "sensor_derived_spawn_pose": [
+    0,
+    0,
+    0
+  ],
+  "q": [
+    0.0,
+    0.3,
+    0.1,
+    -0.25,
+    0.0
+  ],
+  "cameras": [
+    "r07_camera1",
+    "r07_camera2",
+    "r07_camera3",
+    "arm_camera",
+    "r07_camera1_right"
+  ],
+  "resolution": [
+    1280,
+    960
+  ],
+  "intrinsics": [
+    800,
+    800,
+    639.5,
+    479.5
+  ],
+  "origin_link5_m": [
+    0.04741517,
+    0,
+    0.059
+  ],
+  "warmup_render_calls": null,
+  "frames_per_phase": 20,
+  "headless": true,
+  "gpu_index": 0,
+  "motion_authorized": false,
+  "encoder_measured": true,
+  "source_fixture": "pa24_wrist_roi_depth_pipeline_v2_20261105",
+  "scene_phase": "Standalone bench",
+  "allowed_single_change_between_runs": "Bounded extra render readiness only: max4renders/200ms at fixed native epoch, exact reference alignment <=1ns; no offsets",
+  "variant": "native_ready_v44",
+  "fixed_target_position_world_m": [
+    0.5169243578576614,
+    0.025000000000000036,
+    0.41613839129014235
+  ],
+  "camera_optical_keys": {
+    "r07_camera1": "r07_camera1_left_optical",
+    "r07_camera2": "r07_camera2_left_optical",
+    "r07_camera3": "r07_camera3_left_optical",
+    "arm_camera": "arm_camera_left_optical",
+    "r07_camera1_right": "r07_camera1_right_optical"
+  },
+  "initial_hold_ticks": 500,
+  "capture_interval_physics_ticks": 48,
+  "wall_budget_s": 360,
+  "disk_budget_mib": 500,
+  "max_renders": 4,
+  "max_ready_ns": 200000000
+}

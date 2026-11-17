@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-11",
+  "resolution": [
+    640,
+    480
+  ],
+  "video_fps": 30,
+  "sample_stride": 6,
+  "sample_hz": 5,
+  "source_sha256": "9f7a53fe7796ca6c031a224f80f186bca95f752b8d1d23cde6aa7273116fbad1",
+  "confirmation_window_s": 5,
+  "confirmation_matches": 3,
+  "scope": "Two newest existing videos. Deterministic 5 Hz offline samples; timings are video-relative and not the original asynchronous scheduling. No expected barcode supplied to decoder. No implementation edits."
+}

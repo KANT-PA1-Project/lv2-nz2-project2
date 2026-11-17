@@ -1,0 +1,352 @@
+[
+  {
+    "id": 0,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 1,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 2,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 3,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 4,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 5,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 6,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 7,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 8,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 9,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 10,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 11,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 12,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 13,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 14,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 15,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 16,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 17,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 18,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 19,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 20,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 21,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 22,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 23,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 24,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 25,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 26,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 27,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 28,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 29,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 30,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 31,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 32,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 33,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 34,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 35,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 36,
+    "truth": "R",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 37,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 38,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 39,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 40,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 41,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 42,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 43,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 44,
+    "truth": "Y",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 45,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 46,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 47,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 48,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 49,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 50,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 51,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 52,
+    "truth": "G",
+    "status": "unconfirmed_lit_acquisition_refused",
+    "reason": "off_confirmation_required"
+  },
+  {
+    "id": 53,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 54,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 55,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 56,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 57,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 58,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 59,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  },
+  {
+    "id": 60,
+    "truth": "OFF",
+    "status": "provisional_visual_off_used_for_acquisition_only"
+  }
+]

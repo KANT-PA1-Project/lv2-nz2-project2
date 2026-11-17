@@ -1,0 +1,97 @@
+{
+  "status": "10-stage PPO coverage completed, 0 contacts; tighter precision and stability integration under verification",
+  "learning_scope": "Swerve BC allocation baseline and PPO scalar wheel-speed residual trained from actual PhysX transitions",
+  "excluded_policy": "models/navigation/waypoint_policy.pt is a superseded known-map experiment, not the mission controller",
+  "frames": {
+    "command": "base_link",
+    "local": "odom",
+    "global": "map"
+  },
+  "input": {
+    "topic": "/r12/cmd_vel",
+    "type": "geometry_msgs/TwistStamped",
+    "timeout_s": 0.25,
+    "stale_stamp_rejected": true
+  },
+  "state": {
+    "topic": "/r12/joint_states",
+    "type": "sensor_msgs/JointState",
+    "timeout_s": 0.25
+  },
+  "output": {
+    "topic": "/r12/swerve_joint_commands",
+    "type": "sensor_msgs/JointState",
+    "transport": "simulation-only proposed adapter; downstream partial-name articulation bridge must be verified"
+  },
+  "pipeline": [
+    "Mounted rendered stereo/RGBD + camera calibration -> cuVSLAM VO and SLAM backend",
+    "Both mounted IMUs + all 4 steering and 4 wheel encoders + visual odometry -> EKF odom",
+    "Four lidar scan-to-CAD registration -> map/odom correction; all four lidars -> Nav2 obstacles and velocity guard",
+    "Rendered depth + estimated pose -> nvBlox ESDF",
+    "Known CAD occupancy + nvBlox + lidar -> Nav2 Navfn planner -> geometric holonomic follower -> bounded swerve actuator"
+  ],
+  "ground_truth_policy": "Simulator ground-truth pose is allowed only as evaluator reference, not SLAM/controller localization input",
+  "limits": {
+    "linear_speed_m_s": 0.2,
+    "yaw_rate_rad_s": 0.4,
+    "steering_rate_rad_s": 1.0,
+    "steering_angle_rad": 1.5707963267948966,
+    "wheel_speed_rad_s": 10.0,
+    "steer_and_wheel_effort_Nm": 1.0
+  },
+  "box_source": "/home/seongmin/ros2_ws/src/turtlebot-swerve-cuvslam/perception/scripts/generate_dataset.py",
+  "box_dimensions_m": [
+    0.205,
+    0.205,
+    0.07
+  ],
+  "box_physical_dimensions_verified": false,
+  "remaining": [
+    "Complete tighter-precision random 34-stage navigation itinerary",
+    "Physical carton dimensions and physical sensor calibration",
+    "Payload/arm-extension/friction/slope sweeps and hardware commissioning",
+    "Actual signal recognition, grasp, sorting, visual placement verification"
+  ],
+  "required_feedback": {
+    "steer_encoders": 4,
+    "drive_encoders": 4,
+    "imu_topics": [
+      "/opencr_1/imu",
+      "/opencr_2/imu"
+    ],
+    "imu_frames": [
+      "opencr_front_imu",
+      "opencr_rear_imu"
+    ],
+    "fusion": "Calibrate and synchronize each IMU, transform to base_link including lever arm, reject outliers, fuse once with wheel odometry and visual odometry. Avoid double-counting IMU-fed cuVSLAM.",
+    "hardware_geometry_verified": false,
+    "current_status": "Both simulated physical IMUs are fused; all 8 encoder measurements are used. Hardware transport and extrinsic calibration remain unverified."
+  },
+  "validated": {
+    "coverage_goals": 10,
+    "coverage_contacts": 0,
+    "pose_estimation_rmse_m": 0.00601859495209245,
+    "pose_estimation_max_m": 0.05383492394113406,
+    "native_ppo_gain_cases_passed": 18,
+    "random_solvable_allocation_cases": 1000,
+    "envelope_speed_sweep": {
+      "0.12": "6/6 without reversal",
+      "0.16": "6/6 with reversal",
+      "0.20": "5/6; combined motion fails yaw tracking"
+    }
+  },
+  "motion_envelope": {
+    "default_navigation_speed_m_s": 0.12,
+    "maximum_configurable_navigation_speed_m_s": 0.16,
+    "navigation_yaw_rate_rad_s": 0.2,
+    "command_acceleration_m_s2": 0.2,
+    "command_angular_acceleration_rad_s2": 0.4,
+    "command_jerk_m_s3": 0.8,
+    "command_angular_jerk_rad_s3": 1.6,
+    "tilt_slowdown_deg": 4,
+    "tilt_latched_stop_deg": 8,
+    "estimated_goal_tolerance_m": 0.02,
+    "actual_goal_acceptance_m": 0.03,
+    "scope": "Provisional flat-floor, source mass, arm home, no payload. PPO wheel scaling and steering transients mean command bounds are not measured chassis-acceleration guarantees. Emergency stops override slew limits."
+  }
+}

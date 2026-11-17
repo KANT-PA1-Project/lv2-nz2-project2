@@ -1,0 +1,3359 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="r12_no_usb_experimental">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0.216499975" rpy="0 0 0" />
+      <mass value="0.77" />
+      <inertia ixx="0.01647292908510598" iyy="0.01647292908510598" izz="0.020533333945274356" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/base_link_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/base_link_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/base_link_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/base_link_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+    <collision name="cad_occurrence_box_000">
+      <origin xyz="0.1141421356 -0.01512331867 0.186" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_001">
+      <origin xyz="0.1141421394 -0.01514718628 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_002">
+      <origin xyz="0.1141421318 -0.01514718676 0.1775999985" />
+      <geometry>
+        <box size="0.007807487488 0.007807486534 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_003">
+      <origin xyz="0.01514718676 -0.1141182709 0.186" />
+      <geometry>
+        <box size="0.006976092339 0.006952270508 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_004">
+      <origin xyz="0.01514718628 -0.1141421356 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_005">
+      <origin xyz="0.01514718676 -0.1141421318 0.1775999985" />
+      <geometry>
+        <box size="0.007807486534 0.007807487488 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_006">
+      <origin xyz="0 -0.1161182709 0.19" />
+      <geometry>
+        <box size="0.006976091385 0.006952270508 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_007">
+      <origin xyz="0 -0.1161421356 0.1875999985" />
+      <geometry>
+        <box size="0.008908392906 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_008">
+      <origin xyz="0 -0.1161421356 0.1855999985" />
+      <geometry>
+        <box size="0.008082903862 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_009">
+      <origin xyz="0.01514718676 0.1141660004 0.186" />
+      <geometry>
+        <box size="0.006976092339 0.006952270508 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_010">
+      <origin xyz="0.01514718628 0.1141421356 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_011">
+      <origin xyz="0.01514718676 0.1141421318 0.1775999985" />
+      <geometry>
+        <box size="0.007807486534 0.007807487488 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_012">
+      <origin xyz="0.1141421356 0.01517105389 0.186" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_013">
+      <origin xyz="0.1141421394 0.01514718628 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_014">
+      <origin xyz="0.1141421318 0.01514718676 0.1775999985" />
+      <geometry>
+        <box size="0.007807487488 0.007807486534 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_015">
+      <origin xyz="0.1161421356 2.386760712e-05 0.19" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_016">
+      <origin xyz="0.1161421318 0 0.1875999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_017">
+      <origin xyz="0.1161421394 0 0.1855999985" />
+      <geometry>
+        <box size="0.00808290863 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_018">
+      <origin xyz="-0.1141421356 0.01517105389 0.186" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_019">
+      <origin xyz="-0.1141421394 0.01514718628 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_020">
+      <origin xyz="-0.1141421318 0.01514718676 0.1775999985" />
+      <geometry>
+        <box size="0.007807487488 0.007807486534 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_021">
+      <origin xyz="-0.01514718676 0.1141660004 0.186" />
+      <geometry>
+        <box size="0.006976092339 0.006952270508 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_022">
+      <origin xyz="-0.01514718628 0.1141421356 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_023">
+      <origin xyz="-0.01514718676 0.1141421318 0.1775999985" />
+      <geometry>
+        <box size="0.007807486534 0.007807487488 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_024">
+      <origin xyz="0 0.1161660004 0.19" />
+      <geometry>
+        <box size="0.006976091385 0.006952270508 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_025">
+      <origin xyz="0 0.1161421356 0.1875999985" />
+      <geometry>
+        <box size="0.008908392906 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_026">
+      <origin xyz="0 0.1161421356 0.1855999985" />
+      <geometry>
+        <box size="0.008082903862 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_027">
+      <origin xyz="-0.01514718676 -0.1141182709 0.186" />
+      <geometry>
+        <box size="0.006976092339 0.006952270508 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_028">
+      <origin xyz="-0.01514718628 -0.1141421356 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_029">
+      <origin xyz="-0.01514718676 -0.1141421318 0.1775999985" />
+      <geometry>
+        <box size="0.007807486534 0.007807487488 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_030">
+      <origin xyz="-0.1141421356 -0.01512331867 0.186" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_031">
+      <origin xyz="-0.1141421394 -0.01514718628 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_032">
+      <origin xyz="-0.1141421318 -0.01514718676 0.1775999985" />
+      <geometry>
+        <box size="0.007807487488 0.007807486534 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_033">
+      <origin xyz="-0.1161421356 2.386760712e-05 0.19" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_034">
+      <origin xyz="-0.1161421318 0 0.1875999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_035">
+      <origin xyz="-0.1161421394 0 0.1855999985" />
+      <geometry>
+        <box size="0.00808290863 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_036">
+      <origin xyz="0.09999999809 -0.195 0.21" />
+      <geometry>
+        <box size="0.1375470009 0.009 0.07354702759" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_037">
+      <origin xyz="-0.09999999809 -0.195 0.21" />
+      <geometry>
+        <box size="0.1375470009 0.009 0.07354702759" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_038">
+      <origin xyz="0.195 0.09999999809 0.21" />
+      <geometry>
+        <box size="0.009 0.1375470009 0.07354702759" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_039">
+      <origin xyz="0.195 -0.09999999809 0.21" />
+      <geometry>
+        <box size="0.009 0.1375470009 0.07354702759" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_040">
+      <origin xyz="-0.09999999809 0.195 0.21" />
+      <geometry>
+        <box size="0.1375470009 0.009 0.07354702759" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_041">
+      <origin xyz="0.09999999809 0.195 0.21" />
+      <geometry>
+        <box size="0.1375470009 0.009 0.07354702759" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_042">
+      <origin xyz="-0.195 -0.09999999809 0.21" />
+      <geometry>
+        <box size="0.009 0.1375470009 0.07354702759" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_043">
+      <origin xyz="-0.195 0.09999999809 0.21" />
+      <geometry>
+        <box size="0.009 0.1375470009 0.07354702759" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_044">
+      <origin xyz="-0.08585786438 -0.1848289413 0.186" />
+      <geometry>
+        <box size="0.006976104736 0.006952255249 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_045">
+      <origin xyz="-0.08585786057 -0.1848528137 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_046">
+      <origin xyz="-0.08585786438 -0.1848528214 0.1775999985" />
+      <geometry>
+        <box size="0.007807495117 0.007807479858 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_047">
+      <origin xyz="-0.006999999523 -0.1739761276 0.21" />
+      <geometry>
+        <box size="0.006976090431 0.006952255249 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_048">
+      <origin xyz="-0.006999999762 -0.174 0.2075999985" />
+      <geometry>
+        <box size="0.008908392429 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_049">
+      <origin xyz="-0.006999999762 -0.174 0.2055999985" />
+      <geometry>
+        <box size="0.008082903385 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_050">
+      <origin xyz="0.08585786438 -0.1848289413 0.186" />
+      <geometry>
+        <box size="0.006976104736 0.006952255249 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_051">
+      <origin xyz="0.08585786057 -0.1848528137 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_052">
+      <origin xyz="0.08585786438 -0.1848528214 0.1775999985" />
+      <geometry>
+        <box size="0.007807495117 0.007807479858 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_053">
+      <origin xyz="0.006999999523 -0.1739761276 0.21" />
+      <geometry>
+        <box size="0.006976090431 0.006952255249 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_054">
+      <origin xyz="0.006999999762 -0.174 0.2075999985" />
+      <geometry>
+        <box size="0.008908392429 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_055">
+      <origin xyz="0.006999999762 -0.174 0.2055999985" />
+      <geometry>
+        <box size="0.008082903385 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_056">
+      <origin xyz="0.076 -0.18075 0.1780238647" />
+      <geometry>
+        <box size="0.006976089478 0.0005 0.006952270508" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_057">
+      <origin xyz="0.076 -0.1792999954 0.178" />
+      <geometry>
+        <box size="0.0055 0.002400009155 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_058">
+      <origin xyz="0.1240000038 -0.1905 0.242023407" />
+      <geometry>
+        <box size="0.005476539612 0.019 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_059">
+      <origin xyz="0.124 -0.18475 0.2420238724" />
+      <geometry>
+        <box size="0.006976104736 0.0005 0.006952255249" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_060">
+      <origin xyz="0.124 -0.1832999954 0.242" />
+      <geometry>
+        <box size="0.0055 0.002400009155 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_061">
+      <origin xyz="-0.1240000038 -0.1905 0.178023407" />
+      <geometry>
+        <box size="0.005476539612 0.019 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_062">
+      <origin xyz="-0.124 -0.18475 0.1780238647" />
+      <geometry>
+        <box size="0.006976104736 0.0005 0.006952270508" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_063">
+      <origin xyz="-0.124 -0.1832999954 0.178" />
+      <geometry>
+        <box size="0.0055 0.002400009155 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_064">
+      <origin xyz="-0.1120000038 -0.1905 0.242023407" />
+      <geometry>
+        <box size="0.005476539612 0.019 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_065">
+      <origin xyz="-0.112 -0.18475 0.2420238724" />
+      <geometry>
+        <box size="0.006976089478 0.0005 0.006952255249" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_066">
+      <origin xyz="-0.112 -0.1832999954 0.242" />
+      <geometry>
+        <box size="0.0055 0.002400009155 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_067">
+      <origin xyz="0.1848289413 -0.08585786438 0.186" />
+      <geometry>
+        <box size="0.006952255249 0.006976104736 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_068">
+      <origin xyz="0.1848528137 -0.08585786057 0.1795999985" />
+      <geometry>
+        <box size="0.009 0.00890839386 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_069">
+      <origin xyz="0.1848528214 -0.08585786438 0.1775999985" />
+      <geometry>
+        <box size="0.007807479858 0.007807495117 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_070">
+      <origin xyz="0.1739761276 -0.006999999523 0.21" />
+      <geometry>
+        <box size="0.006952255249 0.006976090431 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_071">
+      <origin xyz="0.174 -0.006999999762 0.2075999985" />
+      <geometry>
+        <box size="0.009 0.008908392429 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_072">
+      <origin xyz="0.1740000076 -0.007 0.2055999985" />
+      <geometry>
+        <box size="0.008082901001 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_073">
+      <origin xyz="0.1848289413 0.08585786438 0.186" />
+      <geometry>
+        <box size="0.006952255249 0.006976104736 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_074">
+      <origin xyz="0.1848528137 0.08585786057 0.1795999985" />
+      <geometry>
+        <box size="0.009 0.00890839386 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_075">
+      <origin xyz="0.1848528214 0.08585786438 0.1775999985" />
+      <geometry>
+        <box size="0.007807479858 0.007807495117 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_076">
+      <origin xyz="0.1739761276 0.006999999523 0.21" />
+      <geometry>
+        <box size="0.006952255249 0.006976090431 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_077">
+      <origin xyz="0.174 0.006999999762 0.2075999985" />
+      <geometry>
+        <box size="0.009 0.008908392429 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_078">
+      <origin xyz="0.1740000076 0.007 0.2055999985" />
+      <geometry>
+        <box size="0.008082901001 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_079">
+      <origin xyz="0.18075 0.076 0.1780238647" />
+      <geometry>
+        <box size="0.0005 0.006976089478 0.006952270508" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_080">
+      <origin xyz="0.1792999954 0.076 0.178" />
+      <geometry>
+        <box size="0.002400009155 0.0055 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_081">
+      <origin xyz="0.1905 0.1240000038 0.242023407" />
+      <geometry>
+        <box size="0.019 0.005476539612 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_082">
+      <origin xyz="0.18475 0.124 0.2420238724" />
+      <geometry>
+        <box size="0.0005 0.006976104736 0.006952255249" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_083">
+      <origin xyz="0.1832999954 0.124 0.242" />
+      <geometry>
+        <box size="0.002400009155 0.0055 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_084">
+      <origin xyz="0.1905 -0.1240000038 0.178023407" />
+      <geometry>
+        <box size="0.019 0.005476539612 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_085">
+      <origin xyz="0.18475 -0.124 0.1780238647" />
+      <geometry>
+        <box size="0.0005 0.006976104736 0.006952270508" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_086">
+      <origin xyz="0.1832999954 -0.124 0.178" />
+      <geometry>
+        <box size="0.002400009155 0.0055 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_087">
+      <origin xyz="0.1905 -0.1120000038 0.242023407" />
+      <geometry>
+        <box size="0.019 0.005476539612 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_088">
+      <origin xyz="0.18475 -0.112 0.2420238724" />
+      <geometry>
+        <box size="0.0005 0.006976089478 0.006952255249" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_089">
+      <origin xyz="0.1832999954 -0.112 0.242" />
+      <geometry>
+        <box size="0.002400009155 0.0055 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_090">
+      <origin xyz="0.08585786438 0.1848289413 0.186" />
+      <geometry>
+        <box size="0.006976104736 0.006952255249 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_091">
+      <origin xyz="0.08585786057 0.1848528137 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_092">
+      <origin xyz="0.08585786438 0.1848528214 0.1775999985" />
+      <geometry>
+        <box size="0.007807495117 0.007807479858 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_093">
+      <origin xyz="0.006999999523 0.1739761276 0.21" />
+      <geometry>
+        <box size="0.006976090431 0.006952255249 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_094">
+      <origin xyz="0.006999999762 0.174 0.2075999985" />
+      <geometry>
+        <box size="0.008908392429 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_095">
+      <origin xyz="0.006999999762 0.174 0.2055999985" />
+      <geometry>
+        <box size="0.008082903385 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_096">
+      <origin xyz="-0.08585786438 0.1848289413 0.186" />
+      <geometry>
+        <box size="0.006976104736 0.006952255249 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_097">
+      <origin xyz="-0.08585786057 0.1848528137 0.1795999985" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_098">
+      <origin xyz="-0.08585786438 0.1848528214 0.1775999985" />
+      <geometry>
+        <box size="0.007807495117 0.007807479858 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_099">
+      <origin xyz="-0.006999999523 0.1739761276 0.21" />
+      <geometry>
+        <box size="0.006976090431 0.006952255249 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_100">
+      <origin xyz="-0.006999999762 0.174 0.2075999985" />
+      <geometry>
+        <box size="0.008908392429 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_101">
+      <origin xyz="-0.006999999762 0.174 0.2055999985" />
+      <geometry>
+        <box size="0.008082903385 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_102">
+      <origin xyz="-0.076 0.18075 0.1780238647" />
+      <geometry>
+        <box size="0.006976089478 0.0005 0.006952270508" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_103">
+      <origin xyz="-0.076 0.1792999954 0.178" />
+      <geometry>
+        <box size="0.0055 0.002400009155 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_104">
+      <origin xyz="-0.1240000038 0.1905 0.242023407" />
+      <geometry>
+        <box size="0.005476539612 0.019 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_105">
+      <origin xyz="-0.124 0.18475 0.2420238724" />
+      <geometry>
+        <box size="0.006976104736 0.0005 0.006952255249" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_106">
+      <origin xyz="-0.124 0.1832999954 0.242" />
+      <geometry>
+        <box size="0.0055 0.002400009155 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_107">
+      <origin xyz="0.1240000038 0.1905 0.178023407" />
+      <geometry>
+        <box size="0.005476539612 0.019 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_108">
+      <origin xyz="0.124 0.18475 0.1780238647" />
+      <geometry>
+        <box size="0.006976104736 0.0005 0.006952270508" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_109">
+      <origin xyz="0.124 0.1832999954 0.178" />
+      <geometry>
+        <box size="0.0055 0.002400009155 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_110">
+      <origin xyz="0.1120000038 0.1905 0.242023407" />
+      <geometry>
+        <box size="0.005476539612 0.019 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_111">
+      <origin xyz="0.112 0.18475 0.2420238724" />
+      <geometry>
+        <box size="0.006976089478 0.0005 0.006952255249" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_112">
+      <origin xyz="0.112 0.1832999954 0.242" />
+      <geometry>
+        <box size="0.0055 0.002400009155 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_113">
+      <origin xyz="-0.1848289413 0.08585786438 0.186" />
+      <geometry>
+        <box size="0.006952255249 0.006976104736 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_114">
+      <origin xyz="-0.1848528137 0.08585786057 0.1795999985" />
+      <geometry>
+        <box size="0.009 0.00890839386 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_115">
+      <origin xyz="-0.1848528214 0.08585786438 0.1775999985" />
+      <geometry>
+        <box size="0.007807479858 0.007807495117 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_116">
+      <origin xyz="-0.1739761276 0.006999999523 0.21" />
+      <geometry>
+        <box size="0.006952255249 0.006976090431 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_117">
+      <origin xyz="-0.174 0.006999999762 0.2075999985" />
+      <geometry>
+        <box size="0.009 0.008908392429 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_118">
+      <origin xyz="-0.1740000076 0.007 0.2055999985" />
+      <geometry>
+        <box size="0.008082901001 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_119">
+      <origin xyz="-0.1848289413 -0.08585786438 0.186" />
+      <geometry>
+        <box size="0.006952255249 0.006976104736 0.024" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_120">
+      <origin xyz="-0.1848528137 -0.08585786057 0.1795999985" />
+      <geometry>
+        <box size="0.009 0.00890839386 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_121">
+      <origin xyz="-0.1848528214 -0.08585786438 0.1775999985" />
+      <geometry>
+        <box size="0.007807479858 0.007807495117 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_122">
+      <origin xyz="-0.1739761276 -0.006999999523 0.21" />
+      <geometry>
+        <box size="0.006952255249 0.006976090431 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_123">
+      <origin xyz="-0.174 -0.006999999762 0.2075999985" />
+      <geometry>
+        <box size="0.009 0.008908392429 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_124">
+      <origin xyz="-0.1740000076 -0.007 0.2055999985" />
+      <geometry>
+        <box size="0.008082901001 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_125">
+      <origin xyz="-0.18075 -0.076 0.1780238647" />
+      <geometry>
+        <box size="0.0005 0.006976089478 0.006952270508" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_126">
+      <origin xyz="-0.1792999954 -0.076 0.178" />
+      <geometry>
+        <box size="0.002400009155 0.0055 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_127">
+      <origin xyz="-0.1905 -0.1240000038 0.242023407" />
+      <geometry>
+        <box size="0.019 0.005476539612 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_128">
+      <origin xyz="-0.18475 -0.124 0.2420238724" />
+      <geometry>
+        <box size="0.0005 0.006976104736 0.006952255249" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_129">
+      <origin xyz="-0.1832999954 -0.124 0.242" />
+      <geometry>
+        <box size="0.002400009155 0.0055 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_130">
+      <origin xyz="-0.1905 0.1240000038 0.178023407" />
+      <geometry>
+        <box size="0.019 0.005476539612 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_131">
+      <origin xyz="-0.18475 0.124 0.1780238647" />
+      <geometry>
+        <box size="0.0005 0.006976104736 0.006952270508" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_132">
+      <origin xyz="-0.1832999954 0.124 0.178" />
+      <geometry>
+        <box size="0.002400009155 0.0055 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_133">
+      <origin xyz="-0.1905 0.1120000038 0.242023407" />
+      <geometry>
+        <box size="0.019 0.005476539612 0.005453186035" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_134">
+      <origin xyz="-0.18475 0.112 0.2420238724" />
+      <geometry>
+        <box size="0.0005 0.006976089478 0.006952255249" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_135">
+      <origin xyz="-0.1832999954 0.112 0.242" />
+      <geometry>
+        <box size="0.002400009155 0.0055 0.006350830078" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_136">
+      <origin xyz="0.055 0 0.1696800079" />
+      <geometry>
+        <box size="0.109 0.075 0.01936001587" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_137">
+      <origin xyz="0 1.413154602e-05 0.2173830032" />
+      <geometry>
+        <box size="0.103 0.09084861374 0.03476600647" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_138">
+      <origin xyz="-0.055 0 0.1696800079" />
+      <geometry>
+        <box size="0.109 0.075 0.01936001587" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_139">
+      <origin xyz="0 0.02 0.109" />
+      <geometry>
+        <box size="0.026 0.035 0.088" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_140">
+      <origin xyz="0 -0.02 0.109" />
+      <geometry>
+        <box size="0.026 0.035 0.088" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_141">
+      <origin xyz="0 0 0.1245" />
+      <geometry>
+        <box size="0.04021790314 0.092 0.127" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_142">
+      <origin xyz="0 0 0.2025" />
+      <geometry>
+        <box size="0.14 0.13 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_143">
+      <origin xyz="-0.05610000038 0.025 0.2085" />
+      <geometry>
+        <box size="0.01179999924 0.008 0.003" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_144">
+      <origin xyz="-0.05085000038 0.025 0.20675" />
+      <geometry>
+        <box size="0.001299999237 0.008 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_145">
+      <origin xyz="0.05610000038 0.025 0.2085" />
+      <geometry>
+        <box size="0.01179999924 0.008 0.003" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_146">
+      <origin xyz="0.05085000038 0.025 0.20675" />
+      <geometry>
+        <box size="0.001299999237 0.008 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_147">
+      <origin xyz="-0.05610000038 -0.025 0.2085" />
+      <geometry>
+        <box size="0.01179999924 0.008 0.003" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_148">
+      <origin xyz="-0.05085000038 -0.025 0.20675" />
+      <geometry>
+        <box size="0.001299999237 0.008 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_149">
+      <origin xyz="0.05610000038 -0.025 0.2085" />
+      <geometry>
+        <box size="0.01179999924 0.008 0.003" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_150">
+      <origin xyz="0.05085000038 -0.025 0.20675" />
+      <geometry>
+        <box size="0.001299999237 0.008 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_151">
+      <origin xyz="-0.105 0.033 0.1659599915" />
+      <geometry>
+        <box size="0.005908843994 0.006 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_152">
+      <origin xyz="-0.009 0.033 0.1659599915" />
+      <geometry>
+        <box size="0.005908845901 0.006 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_153">
+      <origin xyz="0.009 0.033 0.1659599915" />
+      <geometry>
+        <box size="0.005908845901 0.006 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_154">
+      <origin xyz="0.105 0.033 0.1659599915" />
+      <geometry>
+        <box size="0.005908843994 0.006 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_155">
+      <origin xyz="-0.105 -0.033 0.1659599915" />
+      <geometry>
+        <box size="0.005908843994 0.006 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_156">
+      <origin xyz="-0.009 -0.033 0.1659599915" />
+      <geometry>
+        <box size="0.005908845901 0.006 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_157">
+      <origin xyz="0.009 -0.033 0.1659599915" />
+      <geometry>
+        <box size="0.005908845901 0.006 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_158">
+      <origin xyz="0.105 -0.033 0.1659599915" />
+      <geometry>
+        <box size="0.005908843994 0.006 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_159">
+      <origin xyz="-0.01514718533 0.0405234127 0.1902999954" />
+      <geometry>
+        <box size="0.005476537704 0.005453174591 0.01899998474" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_160">
+      <origin xyz="-0.01514718628 0.0405 0.1854000015" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_161">
+      <origin xyz="0.01514718533 0.0405234127 0.1902999954" />
+      <geometry>
+        <box size="0.005476537704 0.005453174591 0.01899998474" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_162">
+      <origin xyz="0.01514718628 0.0405 0.1854000015" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_163">
+      <origin xyz="-0.01514718533 -0.0404765892 0.1902999954" />
+      <geometry>
+        <box size="0.005476537704 0.005453178406 0.01899998474" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_164">
+      <origin xyz="-0.01514718628 -0.0405 0.1854000015" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_165">
+      <origin xyz="0.01514718533 -0.0404765892 0.1902999954" />
+      <geometry>
+        <box size="0.005476537704 0.005453178406 0.01899998474" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_166">
+      <origin xyz="0.01514718628 -0.0405 0.1854000015" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_167">
+      <origin xyz="-0.055 0.01517059803 0.1902999954" />
+      <geometry>
+        <box size="0.005476539612 0.005453176498 0.01899998474" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_168">
+      <origin xyz="-0.055 0.0151471858 0.1832999954" />
+      <geometry>
+        <box size="0.006350852966 0.005500000954 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_169">
+      <origin xyz="-0.055 0.01517105389 0.18475" />
+      <geometry>
+        <box size="0.006976089478 0.006952264786 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_170">
+      <origin xyz="0.055 0.01517059803 0.1902999954" />
+      <geometry>
+        <box size="0.005476539612 0.005453176498 0.01899998474" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_171">
+      <origin xyz="0.055 0.0151471858 0.1832999954" />
+      <geometry>
+        <box size="0.006350852966 0.005500000954 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_172">
+      <origin xyz="0.055 0.01517105389 0.18475" />
+      <geometry>
+        <box size="0.006976089478 0.006952264786 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_173">
+      <origin xyz="-0.06500000191 0.01517059803 0.1942999878" />
+      <geometry>
+        <box size="0.005476543427 0.005453176498 0.019" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_174">
+      <origin xyz="-0.06499999809 0.0151471858 0.1863000031" />
+      <geometry>
+        <box size="0.006350849152 0.005500000954 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_175">
+      <origin xyz="-0.065 0.01517105389 0.18775" />
+      <geometry>
+        <box size="0.006976089478 0.006952264786 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_176">
+      <origin xyz="0.06500000191 0.01517059803 0.1942999878" />
+      <geometry>
+        <box size="0.005476543427 0.005453176498 0.019" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_177">
+      <origin xyz="0.06499999809 0.0151471858 0.1863000031" />
+      <geometry>
+        <box size="0.006350849152 0.005500000954 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_178">
+      <origin xyz="0.065 0.01517105389 0.18775" />
+      <geometry>
+        <box size="0.006976089478 0.006952264786 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_179">
+      <origin xyz="-0.055 -0.01512377405 0.1902999954" />
+      <geometry>
+        <box size="0.005476539612 0.005453177452 0.01899998474" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_180">
+      <origin xyz="-0.055 -0.0151471858 0.1832999954" />
+      <geometry>
+        <box size="0.006350852966 0.005500000954 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_181">
+      <origin xyz="-0.055 -0.01512331867 0.18475" />
+      <geometry>
+        <box size="0.006976089478 0.006952264786 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_182">
+      <origin xyz="0.055 -0.01512377405 0.1902999954" />
+      <geometry>
+        <box size="0.005476539612 0.005453177452 0.01899998474" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_183">
+      <origin xyz="0.055 -0.0151471858 0.1832999954" />
+      <geometry>
+        <box size="0.006350852966 0.005500000954 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_184">
+      <origin xyz="0.055 -0.01512331867 0.18475" />
+      <geometry>
+        <box size="0.006976089478 0.006952264786 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_185">
+      <origin xyz="-0.06500000191 -0.01512377405 0.1942999878" />
+      <geometry>
+        <box size="0.005476543427 0.005453177452 0.019" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_186">
+      <origin xyz="-0.06499999809 -0.0151471858 0.1863000031" />
+      <geometry>
+        <box size="0.006350849152 0.005500000954 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_187">
+      <origin xyz="-0.065 -0.01512331867 0.18775" />
+      <geometry>
+        <box size="0.006976089478 0.006952264786 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_188">
+      <origin xyz="0.06500000191 -0.01512377405 0.1942999878" />
+      <geometry>
+        <box size="0.005476543427 0.005453177452 0.019" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_189">
+      <origin xyz="0.06499999809 -0.0151471858 0.1863000031" />
+      <geometry>
+        <box size="0.006350849152 0.005500000954 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_190">
+      <origin xyz="0.065 -0.01512331867 0.18775" />
+      <geometry>
+        <box size="0.006976089478 0.006952264786 0.0005" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_191">
+      <origin xyz="-0.105 0.03302341175 0.1639599915" />
+      <geometry>
+        <box size="0.005476531982 0.005453176498 0.011" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_192">
+      <origin xyz="-0.105 0.033 0.1605999985" />
+      <geometry>
+        <box size="0.006350860596 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_193">
+      <origin xyz="-0.009000000238 0.03302341175 0.1639599915" />
+      <geometry>
+        <box size="0.005476539135 0.005453176498 0.011" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_194">
+      <origin xyz="-0.009 0.033 0.1605999985" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_195">
+      <origin xyz="0.009000000238 0.03302341175 0.1639599915" />
+      <geometry>
+        <box size="0.005476539135 0.005453176498 0.011" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_196">
+      <origin xyz="0.009 0.033 0.1599000015" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_197">
+      <origin xyz="0.105 0.03302341175 0.1639599915" />
+      <geometry>
+        <box size="0.005476531982 0.005453176498 0.011" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_198">
+      <origin xyz="0.105 0.033 0.1599000015" />
+      <geometry>
+        <box size="0.006350860596 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_199">
+      <origin xyz="-0.105 -0.0329765873 0.1639599915" />
+      <geometry>
+        <box size="0.005476531982 0.005453174591 0.011" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_200">
+      <origin xyz="-0.105 -0.033 0.1605999985" />
+      <geometry>
+        <box size="0.006350860596 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_201">
+      <origin xyz="-0.009000000238 -0.0329765873 0.1639599915" />
+      <geometry>
+        <box size="0.005476539135 0.005453174591 0.011" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_202">
+      <origin xyz="-0.009 -0.033 0.1605999985" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_203">
+      <origin xyz="0.009000000238 -0.0329765873 0.1639599915" />
+      <geometry>
+        <box size="0.005476539135 0.005453174591 0.011" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_204">
+      <origin xyz="0.009 -0.033 0.1599000015" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_205">
+      <origin xyz="0.105 -0.0329765873 0.1639599915" />
+      <geometry>
+        <box size="0.005476531982 0.005453174591 0.011" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_206">
+      <origin xyz="0.105 -0.033 0.1599000015" />
+      <geometry>
+        <box size="0.006350860596 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_207">
+      <origin xyz="-0.05799999809 0.0250234127 0.2062999878" />
+      <geometry>
+        <box size="0.005476535797 0.005453174591 0.015" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_208">
+      <origin xyz="-0.05799999809 0.025 0.2015000076" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_209">
+      <origin xyz="0.05799999809 0.0250234127 0.2062999878" />
+      <geometry>
+        <box size="0.005476535797 0.005453174591 0.015" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_210">
+      <origin xyz="0.05799999809 0.025 0.2015000076" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_211">
+      <origin xyz="-0.05799999809 -0.0249765873 0.2062999878" />
+      <geometry>
+        <box size="0.005476535797 0.005453174591 0.015" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_212">
+      <origin xyz="-0.05799999809 -0.025 0.2015000076" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_213">
+      <origin xyz="0.05799999809 -0.0249765873 0.2062999878" />
+      <geometry>
+        <box size="0.005476535797 0.005453174591 0.015" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_214">
+      <origin xyz="0.05799999809 -0.025 0.2015000076" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002400009155" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_215">
+      <origin xyz="0 0.02 0.0645" />
+      <geometry>
+        <box size="0.026 0.035 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_216">
+      <origin xyz="0 -0.02 0.0645" />
+      <geometry>
+        <box size="0.026 0.035 0.001" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_217">
+      <origin xyz="-0.01510000038 0 0.09" />
+      <geometry>
+        <box size="0.004200000763 0.075 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_218">
+      <origin xyz="0.01510000038 0 0.09" />
+      <geometry>
+        <box size="0.004200000763 0.075 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_219">
+      <origin xyz="0 0 0.09" />
+      <geometry>
+        <box size="0.03740000153 0.0873999939 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_220">
+      <origin xyz="-0.01510000038 0 0.13" />
+      <geometry>
+        <box size="0.004200000763 0.075 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_221">
+      <origin xyz="0.01510000038 0 0.13" />
+      <geometry>
+        <box size="0.004200000763 0.075 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_222">
+      <origin xyz="0 0 0.13" />
+      <geometry>
+        <box size="0.03740000153 0.0873999939 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_223">
+      <origin xyz="0.057 0 0.17325" />
+      <geometry>
+        <box size="0.104 0.086 0.0295" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_224">
+      <origin xyz="-0.1815009155 -0.05549732971 0.2099973297" />
+      <geometry>
+        <box size="0.02699816895 0.1509946594 0.07799465942" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_225">
+      <origin xyz="-0.1815054321 0.05549718475 0.2100012817" />
+      <geometry>
+        <box size="0.02698913574 0.1509943695 0.07798675537" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_226">
+      <origin xyz="-0.012 0 0.2781999969" />
+      <geometry>
+        <box size="0.0465 0.0285 0.0403999939" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_227">
+      <origin xyz="0.0495221262 -0.0495221262 0.1898500061" />
+      <geometry>
+        <box size="0.1472400188 0.1472400188 0.01229998779" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_228">
+      <origin xyz="0.0495221262 0.0495221262 0.1898500061" />
+      <geometry>
+        <box size="0.1472400188 0.1472400188 0.01229998779" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_229">
+      <origin xyz="-0.096 0.01517105389 0.196" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_230">
+      <origin xyz="-0.09600000381 0.01514718628 0.1896000061" />
+      <geometry>
+        <box size="0.00808290863 0.007 0.003200012207" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_231">
+      <origin xyz="-0.084 0.01517105389 0.252" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_232">
+      <origin xyz="-0.084 0.01514718628 0.2440999985" />
+      <geometry>
+        <box size="0.008082901001 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_233">
+      <origin xyz="0.096 0.01517105389 0.196" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_234">
+      <origin xyz="0.09600000381 0.01514718628 0.1896000061" />
+      <geometry>
+        <box size="0.00808290863 0.007 0.003200012207" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_235">
+      <origin xyz="0.084 0.01517105389 0.252" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_236">
+      <origin xyz="0.084 0.01514718628 0.2440999985" />
+      <geometry>
+        <box size="0.008082901001 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_237">
+      <origin xyz="-0.02802458382 0.016 0.269" />
+      <geometry>
+        <box size="0.004450832367 0.0085 0.004475341797" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_238">
+      <origin xyz="-0.02802458382 0.016 0.281" />
+      <geometry>
+        <box size="0.004450832367 0.0085 0.004475341797" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_239">
+      <origin xyz="-0.004024583936 0.016 0.269" />
+      <geometry>
+        <box size="0.004450832129 0.0085 0.004475341797" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_240">
+      <origin xyz="-0.004024583936 0.016 0.281" />
+      <geometry>
+        <box size="0.004450832129 0.0085 0.004475341797" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_241">
+      <origin xyz="0.06 0.02302341175 0.2545" />
+      <geometry>
+        <box size="0.005476539612 0.005453176498 0.019" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_242">
+      <origin xyz="0.06 0.023 0.2471999969" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_243">
+      <origin xyz="0.1634500046 0.0225234127 0.277" />
+      <geometry>
+        <box size="0.01100001526 0.005453174591 0.0054765625" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_244">
+      <origin xyz="-0.096 -0.01512331867 0.196" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_245">
+      <origin xyz="-0.09600000381 -0.01514718628 0.1896000061" />
+      <geometry>
+        <box size="0.00808290863 0.007 0.003200012207" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_246">
+      <origin xyz="-0.084 -0.01512331867 0.252" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_247">
+      <origin xyz="-0.084 -0.01514718628 0.2440999985" />
+      <geometry>
+        <box size="0.008082901001 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_248">
+      <origin xyz="0.096 -0.01512331867 0.196" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_249">
+      <origin xyz="0.09600000381 -0.01514718628 0.1896000061" />
+      <geometry>
+        <box size="0.00808290863 0.007 0.003200012207" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_250">
+      <origin xyz="0.084 -0.01512331867 0.252" />
+      <geometry>
+        <box size="0.006976104736 0.006952264786 0.02" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_251">
+      <origin xyz="0.084 -0.01514718628 0.2440999985" />
+      <geometry>
+        <box size="0.008082901001 0.007 0.003199996948" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_252">
+      <origin xyz="-0.02802458382 -0.016 0.269" />
+      <geometry>
+        <box size="0.004450832367 0.0085 0.004475341797" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_253">
+      <origin xyz="-0.02802458382 -0.016 0.281" />
+      <geometry>
+        <box size="0.004450832367 0.0085 0.004475341797" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_254">
+      <origin xyz="-0.004024583936 -0.016 0.269" />
+      <geometry>
+        <box size="0.004450832129 0.0085 0.004475341797" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_255">
+      <origin xyz="-0.004024583936 -0.016 0.281" />
+      <geometry>
+        <box size="0.004450832129 0.0085 0.004475341797" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_256">
+      <origin xyz="0.05198124313 -0.02500773716 0.2492270203" />
+      <geometry>
+        <box size="0.005476539612 0.005453176498 0.019" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_257">
+      <origin xyz="0.06 -0.023 0.2471999969" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_258">
+      <origin xyz="0.1634500046 -0.0224765873 0.277" />
+      <geometry>
+        <box size="0.01100001526 0.005453174591 0.0054765625" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_259">
+      <origin xyz="0.1794749985 6.59236908e-05 0.2769999695" />
+      <geometry>
+        <box size="0.02505000305 0.08986785507 0.02499993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_260">
+      <origin xyz="-0.087 0.01514718628 0.221" />
+      <geometry>
+        <box size="0.026 0.016 0.05" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_261">
+      <origin xyz="0.087 0.01514718628 0.221" />
+      <geometry>
+        <box size="0.026 0.016 0.05" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_262">
+      <origin xyz="-0.087 -0.01514718628 0.221" />
+      <geometry>
+        <box size="0.026 0.016 0.05" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_263">
+      <origin xyz="0.087 -0.01514718628 0.221" />
+      <geometry>
+        <box size="0.026 0.016 0.05" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_264">
+      <origin xyz="0 0 0.266" />
+      <geometry>
+        <box size="0.186 0.06 0.04" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_265">
+      <origin xyz="0.05549970245 -0.1513281784 0.2255" />
+      <geometry>
+        <box size="0.1509994049 0.08734364319 0.109" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_266">
+      <origin xyz="-0.05549718475 -0.1513281784 0.225503952" />
+      <geometry>
+        <box size="0.1509943695 0.08734364319 0.1089920959" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_267">
+      <origin xyz="-0.05549970245 0.1513281784 0.2255" />
+      <geometry>
+        <box size="0.1509994049 0.08734364319 0.109" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_268">
+      <origin xyz="0.05549718475 0.1513281784 0.225503952" />
+      <geometry>
+        <box size="0.1509943695 0.08734364319 0.1089920959" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_269">
+      <origin xyz="0.1084749985 0 0.27375" />
+      <geometry>
+        <box size="0.1169499969 0.06 0.0315" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_270">
+      <origin xyz="0.1725 0.0555 0.2145" />
+      <geometry>
+        <box size="0.045 0.151 0.087" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_271">
+      <origin xyz="0.1725 -0.05549718475 0.214503952" />
+      <geometry>
+        <box size="0.045 0.1509943695 0.08699209595" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_272">
+      <origin xyz="0.02549999905 -0.1149765892 0.2805" />
+      <geometry>
+        <box size="0.005476537704 0.005453178406 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_273">
+      <origin xyz="0.0255 -0.115 0.2766000214" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_274">
+      <origin xyz="0.0645 -0.1149765892 0.2805" />
+      <geometry>
+        <box size="0.005476531982 0.005453178406 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_275">
+      <origin xyz="0.06450000191 -0.115 0.2766000214" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_276">
+      <origin xyz="0.02549999905 -0.187976593 0.2805" />
+      <geometry>
+        <box size="0.005476537704 0.005453186035 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_277">
+      <origin xyz="0.0255 -0.188 0.2766000214" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_278">
+      <origin xyz="0.0645 -0.187976593 0.2805" />
+      <geometry>
+        <box size="0.005476531982 0.005453186035 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_279">
+      <origin xyz="0.06450000191 -0.188 0.2766000214" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_280">
+      <origin xyz="0.045 -0.1515 0.326" />
+      <geometry>
+        <box size="0.065 0.085 0.092" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_281">
+      <origin xyz="-0.02549999905 -0.1149765892 0.2805" />
+      <geometry>
+        <box size="0.005476537704 0.005453178406 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_282">
+      <origin xyz="-0.0255 -0.115 0.2766000214" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_283">
+      <origin xyz="-0.0645 -0.1149765892 0.2805" />
+      <geometry>
+        <box size="0.005476531982 0.005453178406 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_284">
+      <origin xyz="-0.06450000191 -0.115 0.2766000214" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_285">
+      <origin xyz="-0.02549999905 -0.187976593 0.2805" />
+      <geometry>
+        <box size="0.005476537704 0.005453186035 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_286">
+      <origin xyz="-0.0255 -0.188 0.2766000214" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_287">
+      <origin xyz="-0.0645 -0.187976593 0.2805" />
+      <geometry>
+        <box size="0.005476531982 0.005453186035 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_288">
+      <origin xyz="-0.06450000191 -0.188 0.2766000214" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_289">
+      <origin xyz="-0.045 -0.1515 0.326" />
+      <geometry>
+        <box size="0.065 0.085 0.092" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_290">
+      <origin xyz="-0.02549999905 0.1150234108 0.2805" />
+      <geometry>
+        <box size="0.005476537704 0.005453178406 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_291">
+      <origin xyz="-0.0255 0.115 0.2766000214" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_292">
+      <origin xyz="-0.0645 0.1150234108 0.2805" />
+      <geometry>
+        <box size="0.005476531982 0.005453178406 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_293">
+      <origin xyz="-0.06450000191 0.115 0.2766000214" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_294">
+      <origin xyz="-0.02549999905 0.188023407 0.2805" />
+      <geometry>
+        <box size="0.005476537704 0.005453186035 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_295">
+      <origin xyz="-0.0255 0.188 0.2766000214" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_296">
+      <origin xyz="-0.0645 0.188023407 0.2805" />
+      <geometry>
+        <box size="0.005476531982 0.005453186035 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_297">
+      <origin xyz="-0.06450000191 0.188 0.2766000214" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_298">
+      <origin xyz="-0.045 0.1515 0.326" />
+      <geometry>
+        <box size="0.065 0.085 0.092" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_299">
+      <origin xyz="0.02549999905 0.1150234108 0.2805" />
+      <geometry>
+        <box size="0.005476537704 0.005453178406 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_300">
+      <origin xyz="0.0255 0.115 0.2766000214" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_301">
+      <origin xyz="0.0645 0.1150234108 0.2805" />
+      <geometry>
+        <box size="0.005476531982 0.005453178406 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_302">
+      <origin xyz="0.06450000191 0.115 0.2766000214" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_303">
+      <origin xyz="0.02549999905 0.188023407 0.2805" />
+      <geometry>
+        <box size="0.005476537704 0.005453186035 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_304">
+      <origin xyz="0.0255 0.188 0.2766000214" />
+      <geometry>
+        <box size="0.006350852966 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_305">
+      <origin xyz="0.0645 0.188023407 0.2805" />
+      <geometry>
+        <box size="0.005476531982 0.005453186035 0.013" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_306">
+      <origin xyz="0.06450000191 0.188 0.2766000214" />
+      <geometry>
+        <box size="0.006350856781 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_307">
+      <origin xyz="0.045 0.1515 0.326" />
+      <geometry>
+        <box size="0.065 0.085 0.092" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_308">
+      <origin xyz="0.155 0.02302341175 0.258" />
+      <geometry>
+        <box size="0.005476531982 0.005453176498 0.019" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_309">
+      <origin xyz="0.155 0.023 0.2503000031" />
+      <geometry>
+        <box size="0.006350860596 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_310">
+      <origin xyz="0.155 -0.0229765873 0.258" />
+      <geometry>
+        <box size="0.005476531982 0.005453174591 0.019" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_311">
+      <origin xyz="0.155 -0.023 0.2503000031" />
+      <geometry>
+        <box size="0.006350860596 0.0055 0.002399993896" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_312">
+      <origin xyz="0.1037130461 0.1037173643 0.2221999969" />
+      <geometry>
+        <box size="0.1891258793 0.1891345158 0.1403999939" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_313">
+      <origin xyz="0.1511691437 0.1511691437 0.24275" />
+      <geometry>
+        <box size="0.07610620117 0.07610620117 0.08770001221" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_314">
+      <origin xyz="0.1037115955 -0.1037159138 0.2221999969" />
+      <geometry>
+        <box size="0.1891287804 0.1891374168 0.1403999939" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_315">
+      <origin xyz="0.1511691437 -0.1511691437 0.24275" />
+      <geometry>
+        <box size="0.07610620117 0.07610620117 0.08770001221" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_316">
+      <origin xyz="-0.1031169553 0.1017455392 0.2190968704" />
+      <geometry>
+        <box size="0.1891344976 0.189125865 0.1404000092" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_317">
+      <origin xyz="-0.1511691437 0.1511691437 0.24275" />
+      <geometry>
+        <box size="0.07610620117 0.07610620117 0.08770001221" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_318">
+      <origin xyz="-0.1037159138 -0.1037115955 0.2221999969" />
+      <geometry>
+        <box size="0.1891374168 0.1891287804 0.1403999939" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_319">
+      <origin xyz="-0.1511691437 -0.1511691437 0.24275" />
+      <geometry>
+        <box size="0.07610620117 0.07610620117 0.08770001221" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_320">
+      <origin xyz="0.1885 0.0760234108 0.178" />
+      <geometry>
+        <box size="0.023 0.005453178406 0.0054765625" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_321">
+      <origin xyz="0.0760234108 -0.1885 0.178" />
+      <geometry>
+        <box size="0.005453178406 0.023 0.0054765625" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_322">
+      <origin xyz="-0.0760234108 0.1885 0.178" />
+      <geometry>
+        <box size="0.005453178406 0.023 0.0054765625" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_323">
+      <origin xyz="-0.1885 -0.0760234108 0.178" />
+      <geometry>
+        <box size="0.023 0.005453178406 0.0054765625" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_324">
+      <origin xyz="-0.01514718533 0.0405 0.1964000015" />
+      <geometry>
+        <box size="0.008908391953 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_325">
+      <origin xyz="0.01514718533 0.0405 0.1964000015" />
+      <geometry>
+        <box size="0.008908391953 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_326">
+      <origin xyz="-0.01514718533 -0.0405 0.1964000015" />
+      <geometry>
+        <box size="0.008908391953 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_327">
+      <origin xyz="0.01514718533 -0.0405 0.1964000015" />
+      <geometry>
+        <box size="0.008908391953 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_328">
+      <origin xyz="-0.055 0.01514718628 0.1964000015" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_329">
+      <origin xyz="0.055 0.01514718628 0.1964000015" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_330">
+      <origin xyz="-0.06500000191 0.01514718628 0.2004000015" />
+      <geometry>
+        <box size="0.008908397675 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_331">
+      <origin xyz="0.06500000191 0.01514718628 0.2004000015" />
+      <geometry>
+        <box size="0.008908397675 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_332">
+      <origin xyz="-0.055 -0.01514718628 0.1964000015" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_333">
+      <origin xyz="0.055 -0.01514718628 0.1964000015" />
+      <geometry>
+        <box size="0.00890839386 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_334">
+      <origin xyz="-0.06500000191 -0.01514718628 0.2004000015" />
+      <geometry>
+        <box size="0.008908397675 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_335">
+      <origin xyz="0.06500000191 -0.01514718628 0.2004000015" />
+      <geometry>
+        <box size="0.008908397675 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_336">
+      <origin xyz="-0.05799999809 0.025 0.2104000015" />
+      <geometry>
+        <box size="0.008908390045 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_337">
+      <origin xyz="0.05799999809 0.025 0.2104000015" />
+      <geometry>
+        <box size="0.008908390045 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_338">
+      <origin xyz="-0.05799999809 -0.025 0.2104000015" />
+      <geometry>
+        <box size="0.008908390045 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_339">
+      <origin xyz="0.05799999809 -0.025 0.2104000015" />
+      <geometry>
+        <box size="0.008908390045 0.009 0.0008000030518" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_340">
+      <origin xyz="-0.11 0 0.475" />
+      <geometry>
+        <box size="0.02 0.02 0.45" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_341">
+      <origin xyz="0.07520333481 6.59236908e-05 0.8752972412" />
+      <geometry>
+        <box size="0.03081757355 0.08986785507 0.02970397949" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_342">
+      <origin xyz="-0.03792637384 0.06504019356 0.8752972412" />
+      <geometry>
+        <box size="0.08349995923 0.06366091537 0.02970397949" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_343">
+      <origin xyz="-0.03706025887 -0.06550018501 0.8752972412" />
+      <geometry>
+        <box size="0.08523218918 0.06274093246 0.02970397949" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_344">
+      <origin xyz="-0.075 0 0.8427500305" />
+      <geometry>
+        <box size="0.01 0.044 0.01089996338" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_345">
+      <origin xyz="-0.055 0 0.8427500305" />
+      <geometry>
+        <box size="0.01 0.044 0.01089996338" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_346">
+      <origin xyz="0.058194767 0 0.871124054" />
+      <geometry>
+        <box size="0.056389534 0.09659999847 0.03975189209" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_347">
+      <origin xyz="-0.03541250038 0.05609490395 0.871124054" />
+      <geometry>
+        <box size="0.09892643356 0.08522828293 0.03975189209" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_348">
+      <origin xyz="-0.03541250038 -0.05609490395 0.871124054" />
+      <geometry>
+        <box size="0.09892643356 0.08522828293 0.03975189209" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_349">
+      <origin xyz="-0.063 0.01109999999 0.7505" />
+      <geometry>
+        <box size="0.15 0.02180000001 0.191" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_350">
+      <origin xyz="-0.063 -0.01109999999 0.7505" />
+      <geometry>
+        <box size="0.15 0.02180000001 0.191" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_351">
+      <origin xyz="0.07526537323 0 0.8837312927" />
+      <geometry>
+        <box size="0.04874830627 0.09659999847 0.03004119873" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_352">
+      <origin xyz="-0.03958749819 0.0685675602 0.8837312927" />
+      <geometry>
+        <box size="0.09892642879 0.07474560165 0.03004119873" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_353">
+      <origin xyz="-0.03958749819 -0.0685675602 0.8837312927" />
+      <geometry>
+        <box size="0.09892642879 0.07474560165 0.03004119873" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_354">
+      <origin xyz="0.0205 0 0.897" />
+      <geometry>
+        <box size="0.131 0.1500281677 0.102" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_355">
+      <origin xyz="0.001100000024 0 0.944" />
+      <geometry>
+        <box size="0.009799999952 0.048 0.008" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_356">
+      <origin xyz="0.001100000024 0 0.894" />
+      <geometry>
+        <box size="0.009799999952 0.048 0.008" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_357">
+      <origin xyz="0.1685218887 -0.172 0.02919999886" />
+      <geometry>
+        <box size="0.04515623474 0.05251245117 0.03439999771" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_358">
+      <origin xyz="0.1685218887 0.172 0.02919999886" />
+      <geometry>
+        <box size="0.04515623474 0.05251245117 0.03439999771" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_359">
+      <origin xyz="-0.1685218887 0.172 0.02919999886" />
+      <geometry>
+        <box size="0.04515623474 0.05251245117 0.03439999771" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_360">
+      <origin xyz="-0.1685218887 -0.172 0.02919999886" />
+      <geometry>
+        <box size="0.04515623474 0.05251245117 0.03439999771" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_361">
+      <origin xyz="-0.06695105839 0.0495221262 0.2468500061" />
+      <geometry>
+        <box size="0.1820978832 0.1472400188 0.1262999878" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_362">
+      <origin xyz="-0.06695105839 -0.0495221262 0.2168500061" />
+      <geometry>
+        <box size="0.1820978832 0.1472400188 0.06629998779" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_363">
+      <origin xyz="-0.1155 -0.02219999999 0.2801000061" />
+      <geometry>
+        <box size="0.085 0.04360000002 0.05979998779" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_364">
+      <origin xyz="-0.05699999857 0 0.17125" />
+      <geometry>
+        <box size="0.1079899931 0.088 0.0335" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_365">
+      <origin xyz="0.1685 -0.1039986343 0.115" />
+      <geometry>
+        <box size="0.063 0.1919972687 0.214" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_366">
+      <origin xyz="0.1685 0.1039986343 0.115" />
+      <geometry>
+        <box size="0.063 0.1919972687 0.214" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_367">
+      <origin xyz="-0.1685 0.1039986343 0.115" />
+      <geometry>
+        <box size="0.063 0.1919972687 0.214" />
+      </geometry>
+    </collision>
+    <collision name="cad_occurrence_box_368">
+      <origin xyz="-0.1685 -0.1039986343 0.115" />
+      <geometry>
+        <box size="0.063 0.1919972687 0.214" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh1_wheel">
+    <inertial>
+      <origin xyz="-0.006750000641 -9.313225746e-10 0.03495613299" rpy="0 0 0" />
+      <mass value="0.15" />
+      <inertia ixx="0.00026254470730395653" iyy="0.00024670721278894806" izz="7.833749637765363e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <collision name="proxy_0">
+      <origin xyz="0 0 0" rpy="-0 1.570796327 0" />
+      <geometry>
+        <cylinder radius="0.03068719889482" length="0.0175" />
+      </geometry>
+    </collision>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh1_wheel_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh1_wheel_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh1_wheel_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="lh1_steer">
+    <inertial>
+      <origin xyz="0.00127905421 0.01927986182 -0.0384674482" rpy="0 0 0" />
+      <mass value="0.4" />
+      <inertia ixx="0.0031576251163941533" iyy="0.0028590974988865004" izz="0.0011734316839510696" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <collision name="proxy_0">
+      <origin xyz="-0.008 3.497202528e-15 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.044 0.07699244407 0.07699244407" />
+      </geometry>
+    </collision>
+    <collision name="proxy_1">
+      <origin xyz="0.0385 0.05175 -0.09509033347" rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.0835 0.03398066695" />
+      </geometry>
+    </collision>
+    <collision name="proxy_2">
+      <origin xyz="0.0011 0.04788799976 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0038 0.01 0.01" />
+      </geometry>
+    </collision>
+    <collision name="proxy_3">
+      <origin xyz="-0.0078 0.04788799976 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0016 0.038 0.038" />
+      </geometry>
+    </collision>
+    <collision name="proxy_4">
+      <origin xyz="0.00335 0.04788799976 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0207 0.06635066635 0.06635066635" />
+      </geometry>
+    </collision>
+    <collision name="proxy_5">
+      <origin xyz="-0.0256 0.0435 -0.06316533347" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0368 0.039 0.06213066695" />
+      </geometry>
+    </collision>
+    <collision name="proxy_6">
+      <origin xyz="-0.03695 0 -0.0891" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0235 0.1 0.126" />
+      </geometry>
+    </collision>
+    <collision name="proxy_7">
+      <origin xyz="0.0263 0 -0.0891" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0342 0.1 0.126" />
+      </geometry>
+    </collision>
+    <collision name="proxy_8">
+      <origin xyz="-0.0286 0.005 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0068 0.0396 0.04424101615" />
+      </geometry>
+    </collision>
+    <collision name="proxy_9">
+      <origin xyz="0.0126 0.005 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0068 0.0396 0.04424101615" />
+      </geometry>
+    </collision>
+    <collision name="proxy_10">
+      <origin xyz="0 0 0.0049" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0422 0.0422 0.0096" />
+      </geometry>
+    </collision>
+    <collision name="proxy_11">
+      <origin xyz="0 0 -2.775557562e-17" rpy="0 0 0" />
+      <geometry>
+        <box size="0.068 0.068 0.0342" />
+      </geometry>
+    </collision>
+    <collision name="proxy_12">
+      <origin xyz="-0.004 0.012 -0.0302" rpy="0 0 0" />
+      <geometry>
+        <box size="0.08 0.092 0.0342" />
+      </geometry>
+    </collision>
+    <collision name="proxy_13">
+      <origin xyz="-0.0211 0.014 -0.0951" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0662 0.138 0.138" />
+      </geometry>
+    </collision>
+    <collision name="proxy_14">
+      <origin xyz="0.0356 0.059 -0.0804" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0432 0.0664 0.031" />
+      </geometry>
+    </collision>
+    <collision name="proxy_15">
+      <origin xyz="-2.025127288e-11 -2.997602166e-15 0.0567" rpy="0 0 0" />
+      <geometry>
+        <box size="0.08462072652 0.08462072607 0.0792" />
+      </geometry>
+    </collision>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh1_steer_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh1_steer_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh1_steer_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh1_steer_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="rh1_wheel">
+    <inertial>
+      <origin xyz="-0.006750000641 9.313225746e-10 0.03495613299" rpy="0 0 0" />
+      <mass value="0.15" />
+      <inertia ixx="0.00026254470730395653" iyy="0.00024670721278894806" izz="7.833749637765363e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <collision name="proxy_0">
+      <origin xyz="0 0 0" rpy="-0 1.570796327 0" />
+      <geometry>
+        <cylinder radius="0.03068719889482" length="0.0175" />
+      </geometry>
+    </collision>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh1_wheel_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh1_wheel_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh1_wheel_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="rh1_steer">
+    <inertial>
+      <origin xyz="0.00127905421 -0.01927793585 -0.03846554458" rpy="0 0 0" />
+      <mass value="0.4" />
+      <inertia ixx="0.0031576553721389977" iyy="0.002859165911902003" izz="0.0011733935266804117" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <collision name="proxy_0">
+      <origin xyz="-0.008 -3.497202528e-15 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.044 0.07699244407 0.07699244407" />
+      </geometry>
+    </collision>
+    <collision name="proxy_1">
+      <origin xyz="0.0385 -0.05175 -0.09509033347" rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.0835 0.03398066695" />
+      </geometry>
+    </collision>
+    <collision name="proxy_2">
+      <origin xyz="0.0011 -0.04788799976 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0038 0.01 0.01" />
+      </geometry>
+    </collision>
+    <collision name="proxy_3">
+      <origin xyz="-0.0078 -0.04788799976 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0016 0.038 0.038" />
+      </geometry>
+    </collision>
+    <collision name="proxy_4">
+      <origin xyz="0.00335 -0.04788799976 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0207 0.06635066635 0.06635066635" />
+      </geometry>
+    </collision>
+    <collision name="proxy_5">
+      <origin xyz="-0.0256 -0.0435 -0.06316533347" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0368 0.039 0.06213066695" />
+      </geometry>
+    </collision>
+    <collision name="proxy_6">
+      <origin xyz="-0.03695 0 -0.0891" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0235 0.1 0.126" />
+      </geometry>
+    </collision>
+    <collision name="proxy_7">
+      <origin xyz="0.0263 0 -0.0891" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0342 0.1 0.126" />
+      </geometry>
+    </collision>
+    <collision name="proxy_8">
+      <origin xyz="-0.0286 -0.005 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0068 0.0396 0.04424101615" />
+      </geometry>
+    </collision>
+    <collision name="proxy_9">
+      <origin xyz="0.0126 -0.005 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0068 0.0396 0.04424101615" />
+      </geometry>
+    </collision>
+    <collision name="proxy_10">
+      <origin xyz="0 0 0.0049" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0422 0.0422 0.0096" />
+      </geometry>
+    </collision>
+    <collision name="proxy_11">
+      <origin xyz="0 0 -2.775557562e-17" rpy="0 0 0" />
+      <geometry>
+        <box size="0.068 0.068 0.0342" />
+      </geometry>
+    </collision>
+    <collision name="proxy_12">
+      <origin xyz="-0.004 -0.012 -0.0302" rpy="0 0 0" />
+      <geometry>
+        <box size="0.08 0.092 0.0342" />
+      </geometry>
+    </collision>
+    <collision name="proxy_13">
+      <origin xyz="-0.0211 -0.014 -0.0951" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0662 0.138 0.138" />
+      </geometry>
+    </collision>
+    <collision name="proxy_14">
+      <origin xyz="0.0356 -0.059 -0.0804" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0432 0.0664 0.031" />
+      </geometry>
+    </collision>
+    <collision name="proxy_15">
+      <origin xyz="-2.025127288e-11 2.997602166e-15 0.0567" rpy="0 0 0" />
+      <geometry>
+        <box size="0.08462072652 0.08462072607 0.0792" />
+      </geometry>
+    </collision>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh1_steer_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh1_steer_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh1_steer_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh1_steer_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="lh2_wheel">
+    <inertial>
+      <origin xyz="9.313225746e-10 -0.006750000641 0.03495613299" rpy="0 0 0" />
+      <mass value="0.15" />
+      <inertia ixx="0.00024670721278894806" iyy="0.00026254470730395653" izz="7.833749637765363e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <collision name="proxy_0">
+      <origin xyz="0 0 0" rpy="-1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.03068719889482" length="0.01750000000000003" />
+      </geometry>
+    </collision>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh2_wheel_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh2_wheel_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh2_wheel_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="lh2_steer">
+    <inertial>
+      <origin xyz="-0.01927986182 0.00127905421 -0.03846749663" rpy="0 0 0" />
+      <mass value="0.4" />
+      <inertia ixx="0.00285909575845057" iyy="0.0031576233759582225" izz="0.0011734316839510696" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <collision name="proxy_0">
+      <origin xyz="-3.497202528e-15 -0.008 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.07699244407 0.044 0.07699244407" />
+      </geometry>
+    </collision>
+    <collision name="proxy_1">
+      <origin xyz="-0.05175 0.0385 -0.09509033347" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0835 0.04 0.03398066695" />
+      </geometry>
+    </collision>
+    <collision name="proxy_2">
+      <origin xyz="-0.04788799976 0.0011 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.0038 0.01" />
+      </geometry>
+    </collision>
+    <collision name="proxy_3">
+      <origin xyz="-0.04788799976 -0.0078 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.038 0.0016 0.038" />
+      </geometry>
+    </collision>
+    <collision name="proxy_4">
+      <origin xyz="-0.04788799976 0.00335 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.06635066635 0.0207 0.06635066635" />
+      </geometry>
+    </collision>
+    <collision name="proxy_5">
+      <origin xyz="-0.0435 -0.0256 -0.06316533347" rpy="0 0 0" />
+      <geometry>
+        <box size="0.039 0.0368 0.06213066695" />
+      </geometry>
+    </collision>
+    <collision name="proxy_6">
+      <origin xyz="2.775557562e-17 -0.03695 -0.0891" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.0235 0.126" />
+      </geometry>
+    </collision>
+    <collision name="proxy_7">
+      <origin xyz="0 0.0263 -0.0891" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.0342 0.126" />
+      </geometry>
+    </collision>
+    <collision name="proxy_8">
+      <origin xyz="-0.005 -0.0286 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0396 0.0068 0.04424101615" />
+      </geometry>
+    </collision>
+    <collision name="proxy_9">
+      <origin xyz="-0.005 0.0126 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0396 0.0068 0.04424101615" />
+      </geometry>
+    </collision>
+    <collision name="proxy_10">
+      <origin xyz="0 0 0.0049" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0422 0.0422 0.0096" />
+      </geometry>
+    </collision>
+    <collision name="proxy_11">
+      <origin xyz="0 0 -2.775557562e-17" rpy="0 0 0" />
+      <geometry>
+        <box size="0.068 0.068 0.0342" />
+      </geometry>
+    </collision>
+    <collision name="proxy_12">
+      <origin xyz="-0.012 -0.004 -0.0302" rpy="0 0 0" />
+      <geometry>
+        <box size="0.092 0.08 0.0342" />
+      </geometry>
+    </collision>
+    <collision name="proxy_13">
+      <origin xyz="-0.014 -0.0211 -0.0951" rpy="0 0 0" />
+      <geometry>
+        <box size="0.138 0.0662 0.138" />
+      </geometry>
+    </collision>
+    <collision name="proxy_14">
+      <origin xyz="-0.059 0.0356 -0.0804" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0664 0.0432 0.031" />
+      </geometry>
+    </collision>
+    <collision name="proxy_15">
+      <origin xyz="3.011479954e-15 -2.0251259e-11 0.0567" rpy="0 0 0" />
+      <geometry>
+        <box size="0.08462072607 0.08462072652 0.0792" />
+      </geometry>
+    </collision>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh2_steer_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh2_steer_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh2_steer_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/lh2_steer_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="rh2_wheel">
+    <inertial>
+      <origin xyz="9.313225746e-10 0.006750000641 0.03495613299" rpy="0 0 0" />
+      <mass value="0.15" />
+      <inertia ixx="0.00024670721278894806" iyy="0.00026254470730395653" izz="7.833749637765363e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <collision name="proxy_0">
+      <origin xyz="0 0 0" rpy="1.570796327 0 0" />
+      <geometry>
+        <cylinder radius="0.03068719889482" length="0.01750000000000003" />
+      </geometry>
+    </collision>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh2_wheel_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh2_wheel_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh2_wheel_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="rh2_steer">
+    <inertial>
+      <origin xyz="-0.01927793585 -0.00127905421 -0.03846554458" rpy="0 0 0" />
+      <mass value="0.4" />
+      <inertia ixx="0.002859165911902003" iyy="0.0031576553721389977" izz="0.0011733935266804117" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <collision name="proxy_0">
+      <origin xyz="-3.497202528e-15 0.008 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.07699244407 0.044 0.07699244407" />
+      </geometry>
+    </collision>
+    <collision name="proxy_1">
+      <origin xyz="-0.05175 -0.0385 -0.09509033347" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0835 0.04 0.03398066695" />
+      </geometry>
+    </collision>
+    <collision name="proxy_2">
+      <origin xyz="-0.04788799976 -0.0011 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.0038 0.01" />
+      </geometry>
+    </collision>
+    <collision name="proxy_3">
+      <origin xyz="-0.04788799976 0.0078 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.038 0.0016 0.038" />
+      </geometry>
+    </collision>
+    <collision name="proxy_4">
+      <origin xyz="-0.04788799976 -0.00335 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.06635066635 0.0207 0.06635066635" />
+      </geometry>
+    </collision>
+    <collision name="proxy_5">
+      <origin xyz="-0.0435 0.0256 -0.06316533347" rpy="0 0 0" />
+      <geometry>
+        <box size="0.039 0.0368 0.06213066695" />
+      </geometry>
+    </collision>
+    <collision name="proxy_6">
+      <origin xyz="2.775557562e-17 0.03695 -0.0891" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.0235 0.126" />
+      </geometry>
+    </collision>
+    <collision name="proxy_7">
+      <origin xyz="0 -0.0263 -0.0891" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.0342 0.126" />
+      </geometry>
+    </collision>
+    <collision name="proxy_8">
+      <origin xyz="-0.005 0.0286 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0396 0.0068 0.04424101615" />
+      </geometry>
+    </collision>
+    <collision name="proxy_9">
+      <origin xyz="-0.005 -0.0126 -0.08423066695" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0396 0.0068 0.04424101615" />
+      </geometry>
+    </collision>
+    <collision name="proxy_10">
+      <origin xyz="0 0 0.0049" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0422 0.0422 0.0096" />
+      </geometry>
+    </collision>
+    <collision name="proxy_11">
+      <origin xyz="0 0 -2.775557562e-17" rpy="0 0 0" />
+      <geometry>
+        <box size="0.068 0.068 0.0342" />
+      </geometry>
+    </collision>
+    <collision name="proxy_12">
+      <origin xyz="-0.012 0.004 -0.0302" rpy="0 0 0" />
+      <geometry>
+        <box size="0.092 0.08 0.0342" />
+      </geometry>
+    </collision>
+    <collision name="proxy_13">
+      <origin xyz="-0.014 0.0211 -0.0951" rpy="0 0 0" />
+      <geometry>
+        <box size="0.138 0.0662 0.138" />
+      </geometry>
+    </collision>
+    <collision name="proxy_14">
+      <origin xyz="-0.059 -0.0356 -0.0804" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0664 0.0432 0.031" />
+      </geometry>
+    </collision>
+    <collision name="proxy_15">
+      <origin xyz="3.011479954e-15 2.0251259e-11 0.0567" rpy="0 0 0" />
+      <geometry>
+        <box size="0.08462072607 0.08462072652 0.0792" />
+      </geometry>
+    </collision>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh2_steer_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh2_steer_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh2_steer_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+    <visual name="rubber">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/rh2_steer_rubber.stl" />
+      </geometry>
+      <material name="rubber">
+        <color rgba="0.055 0.06 0.07 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="lh1_steer_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lh1_steer" />
+    <origin xyz="0.1 0.1 0.1731" rpy="0 0 0" />
+  </joint>
+  <joint name="lh1_wheel_joint" type="fixed">
+    <parent link="lh1_steer" />
+    <child link="lh1_wheel" />
+    <origin xyz="-0.00025 0 -0.1401" rpy="0 0 0" />
+  </joint>
+  <joint name="rh1_steer_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="rh1_steer" />
+    <origin xyz="0.1 -0.1 0.1731" rpy="0 0 0" />
+  </joint>
+  <joint name="rh1_wheel_joint" type="fixed">
+    <parent link="rh1_steer" />
+    <child link="rh1_wheel" />
+    <origin xyz="-0.00025 0 -0.1401" rpy="0 0 0" />
+  </joint>
+  <joint name="lh2_steer_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lh2_steer" />
+    <origin xyz="-0.1 0.1 0.1731" rpy="0 0 0" />
+  </joint>
+  <joint name="lh2_wheel_joint" type="fixed">
+    <parent link="lh2_steer" />
+    <child link="lh2_wheel" />
+    <origin xyz="0 -0.00025 -0.1401" rpy="0 0 0" />
+  </joint>
+  <joint name="rh2_steer_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="rh2_steer" />
+    <origin xyz="-0.1 -0.1 0.1731" rpy="0 0 0" />
+  </joint>
+  <joint name="rh2_wheel_joint" type="fixed">
+    <parent link="rh2_steer" />
+    <child link="rh2_wheel" />
+    <origin xyz="0 0.00025 -0.1401" rpy="0 0 0" />
+  </joint>
+  <gazebo reference="base_link">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="lh1_wheel">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="lh1_steer">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="rh1_wheel">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="rh1_steer">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="lh2_wheel">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="lh2_steer">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="rh2_wheel">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="rh2_steer">
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <link name="arm_link1">
+    <inertial>
+      <origin xyz="0 0.002199999988 0.04487499874" rpy="0 0 0" />
+      <mass value="0.12" />
+      <inertia ixx="4.4758222601839936e-05" iyy="3.490312366671862e-05" izz="2.6100098952108637e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link1_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link1_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+  <collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link1_polymer.stl" />
+      </geometry>
+      </collision><collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link1_electronics.stl" />
+      </geometry>
+      </collision></link>
+  <joint name="arm_joint1" type="revolute">
+    <parent link="base_link" />
+    <child link="arm_link1" />
+    <origin xyz="0 0 0.275" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.141592653589793" upper="3.141592653589793" effort="2" velocity="0.5" />
+    <dynamics damping="0.1" friction="0" />
+  </joint>
+  <link name="arm_link2">
+    <inertial>
+      <origin xyz="0.01137500023 0.001199999824 0.09857500973" rpy="0 0 0" />
+      <mass value="0.25" />
+      <inertia ixx="0.0008924164633803753" iyy="0.0008988477688369062" izz="8.857130206025829e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link2_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link2_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+  <collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link2_polymer.stl" />
+      </geometry>
+      </collision><collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link2_electronics.stl" />
+      </geometry>
+      </collision></link>
+  <joint name="arm_joint2" type="revolute">
+    <parent link="arm_link1" />
+    <child link="arm_link2" />
+    <origin xyz="0 0 0.0595" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-3.141592653589793" upper="3.141592653589793" effort="2" velocity="0.5" />
+    <dynamics damping="0.1" friction="0" />
+  </joint>
+  <link name="arm_link3">
+    <inertial>
+      <origin xyz="0.07887499663 0.001199999824 8.847564459e-09" rpy="0 0 0" />
+      <mass value="0.2" />
+      <inertia ixx="4.639352785262552e-05" iyy="0.0004549968670454973" izz="0.0004743153364758537" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link3_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link3_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+  <collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link3_polymer.stl" />
+      </geometry>
+      </collision><collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link3_electronics.stl" />
+      </geometry>
+      </collision></link>
+  <joint name="arm_joint3" type="revolute">
+    <parent link="arm_link2" />
+    <child link="arm_link3" />
+    <origin xyz="0.024 0 0.1854" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-3.141592653589793" upper="3.141592653589793" effort="2" velocity="0.5" />
+    <dynamics damping="0.1" friction="0" />
+  </joint>
+  <link name="arm_link4">
+    <inertial>
+      <origin xyz="0.03294999781 0 0.01200000849" rpy="0 0 0" />
+      <mass value="0.16" />
+      <inertia ixx="5.124337058406208e-05" iyy="9.585416085590282e-05" izz="8.943745941488175e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link4_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link4_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+  <collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link4_polymer.stl" />
+      </geometry>
+      </collision><collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link4_electronics.stl" />
+      </geometry>
+      </collision></link>
+  <joint name="arm_joint4" type="revolute">
+    <parent link="arm_link3" />
+    <child link="arm_link4" />
+    <origin xyz="0.149 0 0" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-3.141592653589793" upper="3.141592653589793" effort="2" velocity="0.5" />
+    <dynamics damping="0.1" friction="0" />
+  </joint>
+  <link name="arm_link5">
+    <inertial>
+      <origin xyz="0.06120000163 0 0.02412766218" rpy="0 0 0" />
+      <mass value="0.3" />
+      <inertia ixx="0.0006957039277756537" iyy="0.0006861151894297684" izz="0.000817309278824067" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="polymer">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link5_polymer.stl" />
+      </geometry>
+      <material name="polymer">
+        <color rgba="0.17 0.39 0.52 1" />
+      </material>
+    </visual>
+    <visual name="metal">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link5_metal.stl" />
+      </geometry>
+      <material name="metal">
+        <color rgba="0.58 0.61 0.65 1" />
+      </material>
+    </visual>
+    <visual name="electronics">
+      <geometry>
+        <mesh filename="package://r12_description/meshes/arm_link5_electronics.stl" />
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.12 0.36 0.22 1" />
+      </material>
+    </visual>
+  <collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link5_polymer.stl" />
+      </geometry>
+      </collision><collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link5_metal.stl" />
+      </geometry>
+      </collision><collision><geometry>
+        <mesh filename="package://r12_description/meshes/arm_link5_electronics.stl" />
+      </geometry>
+      </collision></link>
+  <joint name="arm_joint5" type="revolute">
+    <parent link="arm_link4" />
+    <child link="arm_link5" />
+    <origin xyz="0.06635 0 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-3.141592653589793" upper="3.141592653589793" effort="2" velocity="0.5" />
+    <dynamics damping="0.1" friction="0" />
+  </joint>
+  <link name="sim_left_optical" />
+  <joint name="sim_left_optical_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="sim_left_optical" />
+    <origin xyz=".25 0.025 .25" rpy="-1.5707963267948966 0 -1.5707963267948966" />
+  </joint>
+  <link name="sim_right_optical" />
+  <joint name="sim_right_optical_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="sim_right_optical" />
+    <origin xyz=".25 -0.025 .25" rpy="-1.5707963267948966 0 -1.5707963267948966" />
+  </joint>
+  <link name="r07_camera1">
+    </link>
+  <joint name="r07_camera1_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="r07_camera1" />
+    <origin xyz="0.075 0.0 0.875" rpy="0.0 0.5235987755982991 0.0" />
+  </joint>
+  <link name="r07_camera1_left_optical" />
+  <joint name="r07_camera1_left_optical_fixed" type="fixed">
+    <parent link="r07_camera1" />
+    <child link="r07_camera1_left_optical" />
+    <origin xyz="0.0126 0.025 0.0" rpy="-1.5707963267948966 0.0 -1.5707963267948966" />
+  </joint>
+  <link name="r07_camera1_right_optical" />
+  <joint name="r07_camera1_right_optical_fixed" type="fixed">
+    <parent link="r07_camera1" />
+    <child link="r07_camera1_right_optical" />
+    <origin xyz="0.0126 -0.025 0.0" rpy="-1.5707963267948966 0.0 -1.5707963267948966" />
+  </joint>
+  <link name="r07_camera2">
+    </link>
+  <joint name="r07_camera2_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="r07_camera2" />
+    <origin xyz="-0.037499999999999985 0.0649519052838329 0.875" rpy="0.0 0.5235987755982987 2.0943951023931953" />
+  </joint>
+  <link name="r07_camera2_left_optical" />
+  <joint name="r07_camera2_left_optical_fixed" type="fixed">
+    <parent link="r07_camera2" />
+    <child link="r07_camera2_left_optical" />
+    <origin xyz="0.0126 0.025 0.0" rpy="-1.5707963267948966 0.0 -1.5707963267948966" />
+  </joint>
+  <link name="r07_camera2_right_optical" />
+  <joint name="r07_camera2_right_optical_fixed" type="fixed">
+    <parent link="r07_camera2" />
+    <child link="r07_camera2_right_optical" />
+    <origin xyz="0.0126 -0.025 0.0" rpy="-1.5707963267948966 0.0 -1.5707963267948966" />
+  </joint>
+  <link name="r07_camera3">
+    </link>
+  <joint name="r07_camera3_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="r07_camera3" />
+    <origin xyz="-0.037500000000000026 -0.06495190528383288 0.8749999999999999" rpy="0.0 0.5235987755982987 -2.0943951023931957" />
+  </joint>
+  <link name="r07_camera3_left_optical" />
+  <joint name="r07_camera3_left_optical_fixed" type="fixed">
+    <parent link="r07_camera3" />
+    <child link="r07_camera3_left_optical" />
+    <origin xyz="0.0126 0.025 0.0" rpy="-1.5707963267948966 0.0 -1.5707963267948966" />
+  </joint>
+  <link name="r07_camera3_right_optical" />
+  <joint name="r07_camera3_right_optical_fixed" type="fixed">
+    <parent link="r07_camera3" />
+    <child link="r07_camera3_right_optical" />
+    <origin xyz="0.0126 -0.025 0.0" rpy="-1.5707963267948966 0.0 -1.5707963267948966" />
+  </joint>
+  <link name="lidar_front_right">
+    </link>
+  <joint name="lidar_front_right_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_front_right" />
+    <origin xyz="0.172 -0.172 0.0385" rpy="0 0 0" />
+  </joint>
+  <link name="lidar_rear_left">
+    </link>
+  <joint name="lidar_rear_left_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_rear_left" />
+    <origin xyz="-0.172 0.172 0.0385" rpy="0 0 -3.141592654" />
+  </joint>
+  <link name="lidar_low_front_left">
+    </link>
+  <joint name="lidar_low_front_left_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_low_front_left" />
+    <origin xyz="0.172 0.172 0.0385" rpy="0 0 0" />
+  </joint>
+  <link name="lidar_low_rear_right">
+    </link>
+  <joint name="lidar_low_rear_right_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_low_rear_right" />
+    <origin xyz="-0.172 -0.172 0.0385" rpy="0 0 -3.141592654" />
+  </joint>
+  <ros2_control name="R12MockSystem" type="system">
+    <hardware>
+      <plugin>mock_components/GenericSystem</plugin>
+    </hardware>
+    <joint name="arm_joint1">
+      <command_interface name="position">
+        <param name="min">-1.5707963267948966</param>
+        <param name="max">1.5707963267948966</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity" />
+    </joint>
+    <joint name="arm_joint2">
+      <command_interface name="position">
+        <param name="min">-0.35</param>
+        <param name="max">0.35</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity" />
+    </joint>
+    <joint name="arm_joint3">
+      <command_interface name="position">
+        <param name="min">-0.35</param>
+        <param name="max">0.35</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity" />
+    </joint>
+    <joint name="arm_joint4">
+      <command_interface name="position">
+        <param name="min">-0.35</param>
+        <param name="max">0.35</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity" />
+    </joint>
+    <joint name="arm_joint5">
+      <command_interface name="position">
+        <param name="min">-0.35</param>
+        <param name="max">0.35</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity" />
+    </joint>
+  </ros2_control>
+</robot>

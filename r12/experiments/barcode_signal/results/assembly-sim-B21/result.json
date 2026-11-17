@@ -1,0 +1,218 @@
+{
+  "status": "passed",
+  "scope": "simulation_only_assembly_urdf_arm_observation",
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "robot_model": "assembly_puck_slots/assembly.urdf",
+  "driving_tested": false,
+  "learned_policy_tested": false,
+  "physical_robot_tested": false,
+  "arm_self_collision": false,
+  "trial_mode": "barcode_then_tower",
+  "barcode_tested": true,
+  "wall_budget_s": 900.0,
+  "render": {
+    "spp": 32,
+    "denoiser": false
+  },
+  "signal_camera": "mast",
+  "physics_solver": "PGS",
+  "ground_visual": {
+    "source": "/home/pa33/git/p2_perception/lv_module6_usd/scene.usda",
+    "hidden_visuals": [
+      "/World/defaultGroundPlane/Environment/Geometry"
+    ],
+    "physics": "unchanged_default_ground",
+    "material": "/World/Looks/Module6Carpet",
+    "visual": "/World/Module6CarpetVisual"
+  },
+  "order": "tower_first",
+  "gripper_visual": {
+    "links": [
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll",
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll/jaw_left",
+      "/World/Spawn/Robot/Geometry/base_link/arm_yaw/shoulder/elbow/wrist_pitch/wrist_roll/jaw_right"
+    ],
+    "diffuse_linear": [
+      0.01,
+      0.01,
+      0.01
+    ],
+    "roughness": 0.6,
+    "note": "Nominal black wrist/fingers, no geometry change"
+  },
+  "mast_camera": {
+    "pitch_down_deg": 60.0,
+    "frame": "mast_d435_color_optical_frame"
+  },
+  "camera": {
+    "width": 640,
+    "height": 480,
+    "fx_px": 608.2199579824833,
+    "hfov_deg": 55.5,
+    "parent": "wrist_roll",
+    "frame": "wrist_d435_color_optical_frame"
+  },
+  "dof_names": [
+    "arm_yaw_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_pitch_joint",
+    "wrist_roll_joint",
+    "jaw_left_joint",
+    "jaw_right_joint"
+  ],
+  "jaw_dofs": [
+    "jaw_left_joint",
+    "jaw_right_joint"
+  ],
+  "base_moved": true,
+  "ready_evidence": {
+    "prestart_off_guaranteed": true,
+    "recovery_long_off_observed": false,
+    "stable_off_s": 1.0000000521540642,
+    "baseline_frames": 5,
+    "max_jitter_px": 3
+  },
+  "mission": {
+    "status": "ready",
+    "error": null,
+    "barcode": "P2-02",
+    "direction": "descending",
+    "sequence": [
+      "R",
+      "G",
+      "Y",
+      "R",
+      "G",
+      "Y",
+      "G",
+      "R",
+      "G",
+      "R",
+      "G",
+      "G"
+    ],
+    "counts": {
+      "R": 4,
+      "Y": 2,
+      "G": 6
+    },
+    "signal_complete": true,
+    "locations": [
+      {
+        "location": "L1",
+        "group": "G",
+        "count": 6,
+        "constraint": {
+          "color": "G",
+          "shape": "any"
+        }
+      },
+      {
+        "location": "L2",
+        "group": "R",
+        "count": 4,
+        "constraint": {
+          "color": "R",
+          "shape": "any"
+        }
+      },
+      {
+        "location": "L3",
+        "group": "Y",
+        "count": 2,
+        "constraint": {
+          "color": "any",
+          "shape": "one_common_shape_pending_inventory"
+        }
+      }
+    ],
+    "puck_allocation": "pending_inventory",
+    "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+    "barcodes": [
+      {
+        "barcode": "P2-02",
+        "sortOrder": "DESC",
+        "sortLabel": "내림차순"
+      }
+    ],
+    "sortOrder": "DESC",
+    "sortLabel": "내림차순",
+    "tie_order": [
+      "R",
+      "Y",
+      "G"
+    ]
+  },
+  "mission_before_barcode": {
+    "status": "waiting_barcode",
+    "error": null,
+    "barcode": null,
+    "direction": null,
+    "sequence": [
+      "R",
+      "G",
+      "Y",
+      "R",
+      "G",
+      "Y",
+      "G",
+      "R",
+      "G",
+      "R",
+      "G",
+      "G"
+    ],
+    "counts": {
+      "R": 4,
+      "Y": 2,
+      "G": 6
+    },
+    "signal_complete": true,
+    "locations": [],
+    "puck_allocation": "pending_inventory",
+    "scope": "perception_requirements_only_not_puck_assignment_or_motion",
+    "barcodes": [],
+    "sortOrder": null,
+    "sortLabel": null
+  },
+  "signal_saved_at_s": 28.53541815490462,
+  "approach_start_s": 30.535418259212747,
+  "approach_base_duration_s": 2.8364769926398563,
+  "approach_start_base": [
+    0.734,
+    0.95,
+    0.182,
+    0.0
+  ],
+  "base_motion_end_s": 33.372918407199904,
+  "approach_base_arrived_s": 33.90208510146476,
+  "approach_arm_settled_s": 38.73541868687607,
+  "barcode_saved_at_s": 39.1687520428095,
+  "observed_sequence": "RGYRGYGRGRGG",
+  "expected_sequence_for_scoring": "RGYRGYGRGRGG",
+  "expected_barcode_for_scoring": "P2-02",
+  "signal_saved": true,
+  "signal_preserved_through_motion": true,
+  "later_lamp_ignored": true,
+  "classified_frames": 810,
+  "correct_color_frames": 810,
+  "measured_peak_arm_velocity_rad_s": 0.40068215131759644,
+  "measured_start_q": [
+    -1.2,
+    0.6,
+    0.5,
+    0.5,
+    0.0
+  ],
+  "measured_final_q": [
+    -0.039200179278850555,
+    -0.6412028670310974,
+    -1.1045942306518555,
+    1.6641942262649536,
+    -2.0068510655363303e-12
+  ],
+  "frame_count": 1175,
+  "wall_s": 596.1514312750078,
+  "process_exit_code": 0
+}

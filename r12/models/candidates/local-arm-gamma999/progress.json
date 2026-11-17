@@ -1,0 +1,12 @@
+{
+  "policy_steps": 1600,
+  "physics_steps": 76800,
+  "wall_s_excluding_startup": 1110.9315254219982,
+  "measured_single_env_policy_steps_per_s": 1.4402327806767607,
+  "remaining_wall_upper_estimate_s": 0.0,
+  "tcp_error_m": 0.05027497187256813,
+  "native_max_qd_rad_s": 0.0,
+  "episode_max_qd_rad_s": 0.0,
+  "episode_max_torque_Nm": 0.0,
+  "completed_episodes": 1
+}

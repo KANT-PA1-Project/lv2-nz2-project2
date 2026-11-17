@@ -1,0 +1,66 @@
+{
+  "architecture": "Mission-aware holonomic planner plus latest completed low-level swerve PPO; arm transport interlock",
+  "status": "In development; existing PPO is a velocity follower, not a trained mission optimizer",
+  "states": [
+    "observe_signal",
+    "fold_arm",
+    "verify_transport",
+    "holonomic_transit",
+    "precision_dock",
+    "base_settle",
+    "arm_work",
+    "verify_payload",
+    "return"
+  ],
+  "independent_choices": [
+    "translation_direction",
+    "body_yaw",
+    "translation_speed",
+    "yaw_rate",
+    "steering_branch",
+    "transport_or_work_posture"
+  ],
+  "hard_constraints": [
+    "measured arm transport readiness before base motion",
+    "base stopped before fold/unfold",
+    "observed obstacle swept-footprint clearance",
+    "motor torque and speed bounds",
+    "fresh cameras, dual IMU, encoders and lidar",
+    "tilt and contact limits",
+    "payload retention when carrying"
+  ],
+  "comparison_metrics": [
+    "mission completion time",
+    "successful puck placements out of 12",
+    "XY and yaw tracking error",
+    "goal position and orientation error",
+    "wheel steering travel and reversal time",
+    "clearance and contact count",
+    "maximum tilt",
+    "visual tracking and object identification success",
+    "energy estimate under declared motor model"
+  ],
+  "validation": "Compare identical feasible randomized missions and seeds against current fixed-yaw follower. Never call waypoint arrival a successful grasp or claim global optimality from a finite experiment.",
+  "next_ppo_curriculum": [
+    "near-zero translation and stable stop",
+    "forward/reverse/lateral/diagonal",
+    "translation with independent yaw",
+    "steering end-stop branch transitions",
+    "accelerate/brake under folded arm",
+    "payload cases after contact-retention validation"
+  ],
+  "fixed_acceptance": {
+    "xy_speed_rmse_m_s": 0.03,
+    "yaw_rate_rmse_rad_s": 0.1,
+    "maximum_tilt_deg_exclusive": 4.0,
+    "falls": 0
+  },
+  "start_order": [
+    "rendered_barcode_and_twelve_flashes",
+    "fold_arm",
+    "encoder_settle",
+    "depart"
+  ],
+  "upper_level_optimization_authorized": true,
+  "upper_level_method_selection": "Develop mission-aware holonomic planning/control; compare against fixed-yaw baseline on identical feasible random missions. A separate learned upper policy is optional and requires comparative evidence; low-level PPO remains distinct."
+}

@@ -1,0 +1,94 @@
+[NZ2] 차체 R20D: 팔 베이스 z 0.209 m, 차체 중심→팔 0.12 m, 팔→차체 앞끝(박스 기준) 0.100 m, 차체 충돌 근사 0.0,0.105,0.197
+[NZ2] 팔 높이 z 0.209 관측 자세 자동 탐색: (0.0, -1.548, 0.393, 1.622, 0.0) {'mean_depth_m': 0.412, 'occl_mm': 22.0}
+[NZ2-KIN] 차체 충돌 근사 (NZ2_CHASSIS_KEEPOUT): ((0.0, 0.105, 0.197),)
+[NZ2-KIN] 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf: 어깨 0.0595, L2 (0.0240, 0.1854), L3 0.1490, j4→j5 0.06635, TCP 0.1050 m / URDF FK 대조 최대 0.0 mm
+[NZ2-BIN] 적재통 놓기 켬: 컵 바닥 300 mm, 칸 ((-0.18, 0.11), (-0.18, 0.17), (-0.24, 0.11), (-0.24, 0.17), (-0.18, -0.11), (-0.18, -0.17), (-0.24, -0.11), (-0.24, -0.17)), 쥐는 점 이동 12 mm, 나르는 자세 r 0.15 z 0.32, 목표 누운 퍽 고정 True
+[NZ2-RES] α=0.1 (팔 5축, 최대 속도 비율), 인식 오차 편향 σ xy 6.0 / z 2.0 mm + 잡음 σ xy 0.0 / z 0.0 mm, 오프셋 한계 ±0.08 rad, 잔차 단계 ['APPROACH', 'CLOSE', 'LIFT'], 닫기 전 손끝 게이트 끔, 옆 퍽 장애물 켬 (여유 3 mm), via 들어올림 +60 mm, 누운 퍽 잡기 높이 +5 mm, 누운 퍽 롤 맞춤 켬 (기울기 한계 25°, yaw 편향 σ 5°)
+[NZ2-RES] 정지 확인 게이트: 켬 (via·pre, 추종 오차 < 0.02 rad + 관절속도 < 0.05 rad/s, 0.2 s 유지, 최대 1.0 s)
+[NZ2-RES] 처짐 보상: ki 3.0 /s, 최대 0.15 rad, 모드 static (명령 관절속도 < 0.05 rad/s 일 때만 적분)
+[NZ2-RES] FK 자기검사(시뮬 vs 해석 FK): TCP 오차 최대 0.0 mm (J1_Z=0.209, ARM_Z=0.209, 치수 출처 /home/pa24/git/lv2_assignment/nz2/R12_NO_USB_URDF_USD/urdf/r12_arm_train.urdf, URDF FK 대조 0.0 mm)
+[NZ2-RES] 에피소드 64: 성공 0 (0 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: contact_fbad_l_stop 46, contact_fbad_r_stop 20, other_disturbed 1, 끝난 단계:CLOSE 1, 끝난 단계:TILT 63
+[NZ2-RES] 에피소드 128: 성공 0 (0 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: contact_fbad_l_stop 93, contact_fbad_r_stop 39, other_disturbed 2, 끝난 단계:APPROACH 1, 끝난 단계:CLOSE 1, 끝난 단계:TILT 126
+[NZ2-RES] 에피소드 192: 성공 0 (0 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: time_out 1, contact_fbad_l_stop 138, contact_fbad_r_stop 61, other_disturbed 3, 끝난 단계:DESCEND 1, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 1, 끝난 단계:TILT 188
+[NZ2-RES] 에피소드 256: 성공 0 (0 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: time_out 1, contact_fbad_l_stop 182, contact_fbad_r_stop 85, other_disturbed 4, 끝난 단계:DESCEND 2, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 1, 끝난 단계:TILT 251
+[NZ2-RES] ===== 조건별 분해 (집게 닫힘 = 반경에 수직인 수평 방향) =====
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 뒤(먼 쪽): 0/33 (0 %) | CLOSE 진입 손끝 z오차 평균 +4.3 mm(최저 +2.9), 수평 1.0 mm (n=33)
+[NZ2-RES]      실패 단계: TILT 33
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 27, contact_fbad_r_stop 6
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 앞(베이스 쪽): 0/29 (0 %) | CLOSE 진입 손끝 z오차 평균 +6.0 mm(최저 +3.7), 수평 1.1 mm (n=29)
+[NZ2-RES]      실패 단계: TILT 29
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 21, contact_fbad_r_stop 9
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 좌우(집게 방향): 0/68 (0 %) | CLOSE 진입 손끝 z오차 평균 +6.2 mm(최저 +3.4), 수평 1.2 mm (n=68)
+[NZ2-RES]      실패 단계: TILT 68
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 55, contact_fbad_r_stop 18
+[NZ2-RES]  누움·축⊥반경(길이 쥠) / 옆퍽 뒤(먼 쪽): 0/35 (0 %) | CLOSE 진입 손끝 z오차 평균 +4.3 mm(최저 +3.0), 수평 1.2 mm (n=34)
+[NZ2-RES]      실패 단계: TILT 33, CLOSE 1, APPROACH 1
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 19, contact_fbad_r_stop 17, other_disturbed 1, time_out 1
+[NZ2-RES]  누움·축⊥반경(길이 쥠) / 옆퍽 앞(베이스 쪽): 0/33 (0 %) | CLOSE 진입 손끝 z오차 평균 +6.0 mm(최저 +2.9), 수평 1.2 mm (n=30)
+[NZ2-RES]      실패 단계: TILT 30, DESCEND 2, APPROACH 1
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 20, contact_fbad_r_stop 11, other_disturbed 3
+[NZ2-RES]  누움·축⊥반경(길이 쥠) / 옆퍽 좌우(집게 방향): 0/58 (0 %) | CLOSE 진입 손끝 z오차 평균 +5.9 mm(최저 +3.3), 수평 1.1 mm (n=58)
+[NZ2-RES]      실패 단계: TILT 58
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 40, contact_fbad_r_stop 24
+[NZ2-RES]  하향각별: 하향 ≥45° 0/256 (0 %)
+[NZ2-RES]  롤 모드 누움 diam(지름 쥠): 0/256 (0 %), |롤| 평균 45°, CLOSE 시 |cos(집게축, 퍽축)| 0.07 (n=252)
+[NZ2-RES] ===== 퍽이 처음 흔들린 순간 [밀림 4 mm 또는 기울기 6°] (단계/어느 퍽: 횟수, 스텝 평균·최소, 손끝 반경·TCP z·손가락 끝 z 평균) =====
+[NZ2-RES]  APPROACH/옆퍽/누운사각: 3회, 스텝 평균 195 (최소 187, 3스텝 이내 0회) | 반경 260 mm, TCP z 114 mm, 손가락 끝 z 94 mm
+[NZ2-RES]  CLOSE/옆퍽/누운사각: 1회, 스텝 평균 169 (최소 169, 3스텝 이내 0회) | 반경 187 mm, TCP z 112 mm, 손가락 끝 z 92 mm
+[NZ2-RES]  APPROACH/옆퍽/세운사각: 1회, 스텝 평균 167 (최소 167, 3스텝 이내 0회) | 반경 214 mm, TCP z 145 mm, 손가락 끝 z 125 mm
+[NZ2-RES]  DESCEND/옆퍽/세운원기둥: 1회, 스텝 평균 163 (최소 163, 3스텝 이내 0회) | 반경 254 mm, TCP z 149 mm, 손가락 끝 z 129 mm
+[NZ2-RES]  DESCEND/옆퍽/세운사각: 1회, 스텝 평균 169 (최소 169, 3스텝 이내 0회) | 반경 267 mm, TCP z 149 mm, 손가락 끝 z 129 mm
+[NZ2-RES]  APPROACH/옆퍽/세운원기둥: 1회, 스텝 평균 180 (최소 180, 3스텝 이내 0회) | 반경 224 mm, TCP z 143 mm, 손가락 끝 z 123 mm
+[NZ2-RES] 정지 게이트 via: 314회, 시간 초과 0회, 평균 대기 0.57 s
+[NZ2-RES] 정지 게이트 pre: 300회, 시간 초과 97회, 평균 대기 0.80 s
+[NZ2-RES] ===== 내려감 진단 (DESCEND~CLOSE, 손끝 z − 명령 경로 z, 음수 = 경로 아래 / 처짐 보상 ki 3.0, 모드 static) =====
+[NZ2-RES]  누운 퍽 (n=256): 경로 아래 최대 평균 -3.7 mm (최저 -17.0), 3 mm 넘게 아래 118회 (그중 실패 118) 단계 {'DESCEND': 118} | 최대 하강속도 평균 -192 mm/s (최저 -287) 단계 {'DESCEND': 250, 'APPROACH': 6} | CLOSE 때 |q_int| 평균 1.6° (최대 2.4°)
+[NZ2-BIN] ===== 적재통 결과 (계획 단계 컵 도달 불가 0) =====
+[NZ2-BIN]  끝난 단계(실패) / 성공: {'CLOSE': 1, 'TILT': 251, 'APPROACH': 2, 'DESCEND': 2}
+[NZ2-BIN]  칸별 성공: 0: 0/36, 1: 0/26, 2: 0/33, 3: 0/34, 4: 0/30, 5: 0/32, 6: 0/30, 7: 0/35
+[NZ2-RES] 완료: 성공 0/256 (0.0 %) → /home/pa24/pa-course/IsaacLab-6.1/logs/nz2_vispick/expert_check_20261111_173453.json
+--- 꼬리 ---
+[NZ2-RES] 에피소드 192: 성공 0 (0 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: time_out 1, contact_fbad_l_stop 138, contact_fbad_r_stop 61, other_disturbed 3, 끝난 단계:DESCEND 1, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 1, 끝난 단계:TILT 188
+[NZ2-RES] 에피소드 256: 성공 0 (0 %) / 도달불가 0 / 중간 IK 실패 0
+[NZ2-RES]   끝난 이유: time_out 1, contact_fbad_l_stop 182, contact_fbad_r_stop 85, other_disturbed 4, 끝난 단계:DESCEND 2, 끝난 단계:APPROACH 2, 끝난 단계:CLOSE 1, 끝난 단계:TILT 251
+[NZ2-RES] ===== 조건별 분해 (집게 닫힘 = 반경에 수직인 수평 방향) =====
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 뒤(먼 쪽): 0/33 (0 %) | CLOSE 진입 손끝 z오차 평균 +4.3 mm(최저 +2.9), 수평 1.0 mm (n=33)
+[NZ2-RES]      실패 단계: TILT 33
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 27, contact_fbad_r_stop 6
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 앞(베이스 쪽): 0/29 (0 %) | CLOSE 진입 손끝 z오차 평균 +6.0 mm(최저 +3.7), 수평 1.1 mm (n=29)
+[NZ2-RES]      실패 단계: TILT 29
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 21, contact_fbad_r_stop 9
+[NZ2-RES]  누움·축∥반경(지름 쥠) / 옆퍽 좌우(집게 방향): 0/68 (0 %) | CLOSE 진입 손끝 z오차 평균 +6.2 mm(최저 +3.4), 수평 1.2 mm (n=68)
+[NZ2-RES]      실패 단계: TILT 68
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 55, contact_fbad_r_stop 18
+[NZ2-RES]  누움·축⊥반경(길이 쥠) / 옆퍽 뒤(먼 쪽): 0/35 (0 %) | CLOSE 진입 손끝 z오차 평균 +4.3 mm(최저 +3.0), 수평 1.2 mm (n=34)
+[NZ2-RES]      실패 단계: TILT 33, CLOSE 1, APPROACH 1
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 19, contact_fbad_r_stop 17, other_disturbed 1, time_out 1
+[NZ2-RES]  누움·축⊥반경(길이 쥠) / 옆퍽 앞(베이스 쪽): 0/33 (0 %) | CLOSE 진입 손끝 z오차 평균 +6.0 mm(최저 +2.9), 수평 1.2 mm (n=30)
+[NZ2-RES]      실패 단계: TILT 30, DESCEND 2, APPROACH 1
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 20, contact_fbad_r_stop 11, other_disturbed 3
+[NZ2-RES]  누움·축⊥반경(길이 쥠) / 옆퍽 좌우(집게 방향): 0/58 (0 %) | CLOSE 진입 손끝 z오차 평균 +5.9 mm(최저 +3.3), 수평 1.1 mm (n=58)
+[NZ2-RES]      실패 단계: TILT 58
+[NZ2-RES]      실패 이유: contact_fbad_l_stop 40, contact_fbad_r_stop 24
+[NZ2-RES]  하향각별: 하향 ≥45° 0/256 (0 %)
+[NZ2-RES]  롤 모드 누움 diam(지름 쥠): 0/256 (0 %), |롤| 평균 45°, CLOSE 시 |cos(집게축, 퍽축)| 0.07 (n=252)
+[NZ2-RES] ===== 퍽이 처음 흔들린 순간 [밀림 4 mm 또는 기울기 6°] (단계/어느 퍽: 횟수, 스텝 평균·최소, 손끝 반경·TCP z·손가락 끝 z 평균) =====
+[NZ2-RES]  APPROACH/옆퍽/누운사각: 3회, 스텝 평균 195 (최소 187, 3스텝 이내 0회) | 반경 260 mm, TCP z 114 mm, 손가락 끝 z 94 mm
+[NZ2-RES]  CLOSE/옆퍽/누운사각: 1회, 스텝 평균 169 (최소 169, 3스텝 이내 0회) | 반경 187 mm, TCP z 112 mm, 손가락 끝 z 92 mm
+[NZ2-RES]  APPROACH/옆퍽/세운사각: 1회, 스텝 평균 167 (최소 167, 3스텝 이내 0회) | 반경 214 mm, TCP z 145 mm, 손가락 끝 z 125 mm
+[NZ2-RES]  DESCEND/옆퍽/세운원기둥: 1회, 스텝 평균 163 (최소 163, 3스텝 이내 0회) | 반경 254 mm, TCP z 149 mm, 손가락 끝 z 129 mm
+[NZ2-RES]  DESCEND/옆퍽/세운사각: 1회, 스텝 평균 169 (최소 169, 3스텝 이내 0회) | 반경 267 mm, TCP z 149 mm, 손가락 끝 z 129 mm
+[NZ2-RES]  APPROACH/옆퍽/세운원기둥: 1회, 스텝 평균 180 (최소 180, 3스텝 이내 0회) | 반경 224 mm, TCP z 143 mm, 손가락 끝 z 123 mm
+[NZ2-RES] 정지 게이트 via: 314회, 시간 초과 0회, 평균 대기 0.57 s
+[NZ2-RES] 정지 게이트 pre: 300회, 시간 초과 97회, 평균 대기 0.80 s
+[NZ2-RES] ===== 내려감 진단 (DESCEND~CLOSE, 손끝 z − 명령 경로 z, 음수 = 경로 아래 / 처짐 보상 ki 3.0, 모드 static) =====
+[NZ2-RES]  누운 퍽 (n=256): 경로 아래 최대 평균 -3.7 mm (최저 -17.0), 3 mm 넘게 아래 118회 (그중 실패 118) 단계 {'DESCEND': 118} | 최대 하강속도 평균 -192 mm/s (최저 -287) 단계 {'DESCEND': 250, 'APPROACH': 6} | CLOSE 때 |q_int| 평균 1.6° (최대 2.4°)
+[NZ2-BIN] ===== 적재통 결과 (계획 단계 컵 도달 불가 0) =====
+[NZ2-BIN]  끝난 단계(실패) / 성공: {'CLOSE': 1, 'TILT': 251, 'APPROACH': 2, 'DESCEND': 2}
+[NZ2-BIN]  칸별 성공: 0: 0/36, 1: 0/26, 2: 0/33, 3: 0/34, 4: 0/30, 5: 0/32, 6: 0/30, 7: 0/35
+[NZ2-RES] 완료: 성공 0/256 (0.0 %) → /home/pa24/pa-course/IsaacLab-6.1/logs/nz2_vispick/expert_check_20261111_173453.json

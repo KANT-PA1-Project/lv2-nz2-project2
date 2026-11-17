@@ -1,0 +1,9 @@
+{
+  "scripts/test_tower_signal_isaac.py": "9ca4cc3d940e3e84fc23220846523091b2f15abc0a2dabcec9e2a9708ded4994",
+  "scripts/barcode_support.py": "57e8bd7dce762e43f592bf7aad68bad3c648c2a7fbe12ded09b1d1937aaff926",
+  "scripts/barcode_sweep.py": "37177a91be4f1519327ffdbb4e8d639fc37032f2c4edbd6a2479f429dab70696",
+  "src/arm_practice/tower_signal.py": "7c4cc3b4d16560b3cde638e1e98d2d140b177e25dbe21d06c32770cffdac45c6",
+  "tests/test_barcode.py": "89d94752d4c66185be725ede5a4606a0495bb8ded2c3bc67556b4844f0889f23",
+  "tests/test_photo_diagnostic.py": "f5a035242ea29e2269c590ca0947302fd1c64a9c799002d18a98eef78b600c8b",
+  "scripts/test_tower_signal_photos.py": "5f0199f2818571330608b6954f1363fd405120df19f05bc755a01156bd0f516e"
+}

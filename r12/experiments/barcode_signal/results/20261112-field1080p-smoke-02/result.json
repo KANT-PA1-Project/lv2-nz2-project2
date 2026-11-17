@@ -1,0 +1,23 @@
+{
+  "status": "failed",
+  "scope": "field_camera_view_change_no_robot_no_physical_motion",
+  "robot_tested": false,
+  "real_camera_equivalence": false,
+  "exposure_wb_equivalence": false,
+  "rule_status": "후보 규칙, 실사 정답 영상 검증 전",
+  "histogram_enabled_readback": false,
+  "barcode_saved": "P2-02",
+  "barcode_saved_at_s": 0.4,
+  "error": null,
+  "barcode_attempts": 3,
+  "barcode_hit_frames": 3,
+  "classified_frames": 0,
+  "correct_color_frames": 0,
+  "unknown_reasons": {},
+  "rendered_frames": 30,
+  "wall_s": 13.23090131598292,
+  "achieved_wall_fps": 2.2674191073508396,
+  "shutdown_complete": false,
+  "shutdown_error": "Isaac extension teardown: malloc unsorted double linked list corrupted; process did not terminate; own PID 1115397 terminated with SIGTERM",
+  "render_diagnostic_status": "30 frames captured; P2-02 confirmed at sim 0.4s"
+}

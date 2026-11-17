@@ -1,0 +1,11 @@
+# 11/11 인식 영상 마지막 시도: 별도 percep_cam 대신 정책 관측에 쓰이는 wrist_cam 을 640×480 으로 렌더해 저장
+# 033(렌더 뒤 이벤트에서 읽어도 percep_cam 빈 영상, rc 3). 이것도 빈 영상이면 시뮬 인식 실험은 보류
+MODE=percep-dump
+NZ2_WRIST_FULLRES=1
+NZ2_CHASSIS=r20d
+NZ2_LIE_ROLL=1
+NZ2_REFINE_BIAS_MM=2
+NZ2_POSE_BIAS_Z_MM=2
+NZ2_POSE_NOISE_MM=0
+NZ2_POSE_NOISE_Z_MM=0
+STAGE=3

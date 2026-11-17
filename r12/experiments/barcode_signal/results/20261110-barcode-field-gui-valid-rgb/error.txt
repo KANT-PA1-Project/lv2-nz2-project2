@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/test_tower_signal_isaac.py", line 409, in main
+    run_sweep(stage, render, move_camera, look_at, K, out, note, upscale=a.barcode_upscale)
+  File "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/barcode_sweep.py", line 41, in run_sweep
+    warmup_renders = wait_for_render(render)
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pa33/git/p2_perception/Claude outputs/tower_signal/scripts/barcode_sweep.py", line 25, in wait_for_render
+    raise RuntimeError(f'No nonuniform RGB after {maximum} warmup renders; invalid barcode condition')
+RuntimeError: No nonuniform RGB after 32 warmup renders; invalid barcode condition

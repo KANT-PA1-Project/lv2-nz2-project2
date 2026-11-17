@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "all_signal_frames_use_mast": true,
+    "arm_targets_unchanged": true,
+    "measured_arm_stays_within_01_rad": true,
+    "no_arm_motion_phases": true,
+    "fresh_off_after_relocation": true,
+    "base_reaches_goal": true,
+    "route_consistent": true
+  },
+  "all_checks_passed": true,
+  "max_measured_arm_error_rad": 5.168914785080858e-08,
+  "max_arm_target_error_rad": 0.0,
+  "move_base_physics_samples": 2272,
+  "initial_base_xy": [
+    0.6000000834465027,
+    0.699999988079071
+  ],
+  "final_base_xy": [
+    0.783500075340271,
+    0.7300000190734863
+  ],
+  "ready_at_s": 6.335416997084394
+}

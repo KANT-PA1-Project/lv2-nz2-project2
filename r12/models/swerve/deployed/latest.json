@@ -1,0 +1,10 @@
+{
+  "schema": "r12-wheel-residual-v2",
+  "sha256": "84e55f313b9836f533758200101a7c25488ddd6702dfd1cddcc9b95bad2f256f",
+  "file": "84e55f313b9836f533758200101a7c25488ddd6702dfd1cddcc9b95bad2f256f.pt",
+  "iteration": 1200,
+  "published_at": 1793588499.3529527,
+  "simulation_only": true,
+  "performance_accepted": false,
+  "actuator_contract": "continuous_cosine_per_wheel_v1"
+}
