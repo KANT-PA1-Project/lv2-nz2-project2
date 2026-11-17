@@ -1,0 +1,60 @@
+{
+  "model": "yolo",
+  "precision": "fp16",
+  "input_shape": [
+    1,
+    3,
+    800,
+    800
+  ],
+  "outputs": [
+    "output0"
+  ],
+  "engine_mb": 8.67,
+  "device_memory_mb": 34.67,
+  "cases": [
+    {
+      "index": 0,
+      "raw_max_abs": {
+        "output0": 3.5904541015625
+      },
+      "reference_detections": 2,
+      "observed_detections": 2
+    },
+    {
+      "index": 1,
+      "raw_max_abs": {
+        "output0": 5.8516845703125
+      },
+      "reference_detections": 9,
+      "observed_detections": 9
+    },
+    {
+      "index": 2,
+      "raw_max_abs": {
+        "output0": 2.837646484375
+      },
+      "reference_detections": 8,
+      "observed_detections": 8
+    }
+  ],
+  "finite": true,
+  "latency_including_copies_ms": {
+    "mean": 10.40365284003201,
+    "median": 10.405535000018062,
+    "p95": 10.446031949913959,
+    "iterations": 50
+  },
+  "fp32_allclose": false,
+  "reference_detections": 19,
+  "matched_detections": 19,
+  "detection_count_mismatches": 0,
+  "box_difference_max_px": 0.17304687500001137,
+  "score_difference_max": 0.009636014699935913,
+  "review_passed": true,
+  "review_limits": {
+    "box_difference_px": 1,
+    "score_difference": 0.02,
+    "detection_count_mismatches": 0
+  }
+}

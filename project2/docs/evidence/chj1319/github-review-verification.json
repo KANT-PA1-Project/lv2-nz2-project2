@@ -1,0 +1,100 @@
+{
+  "checked_date": "2026-11-17",
+  "method": "GitHub visible review search and PR conversation pages; git ls-remote and local commit graph",
+  "review_search_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pulls?q=is%3Apr+reviewed-by%3Achj1319",
+  "review_search_total": 5,
+  "other_author_pr_approvals": [
+    {
+      "pr": 4,
+      "title": "팀 소개·프로젝트 설명·재현 안내",
+      "author": "pizzaafterhangover",
+      "reviewer": "chj1319",
+      "review_state": "APPROVED",
+      "review_at_utc": "2026-10-19T07:02:08Z",
+      "comment": "확인했습니다",
+      "review_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/4#pullrequestreview-5567977707",
+      "reviewed_commit": "bfe5d4e88f28b44640cd67f5d50de6add35b5e13",
+      "merge_commit": "518d335e3dddaec77aa76bd880cf7ca52a314a4b",
+      "merge_confirmed_in_main": true,
+      "specific_issue_requested_by_chj1319": "not_present_in_observed_short_approval"
+    },
+    {
+      "pr": 8,
+      "title": "ROS 2 src 레이어 디렉터리",
+      "author": "pizzaafterhangover",
+      "reviewer": "chj1319",
+      "review_state": "APPROVED",
+      "review_at_utc": "2026-10-22T10:12:14Z",
+      "comment": "확인했습니다!",
+      "review_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/8#pullrequestreview-5612582251",
+      "reviewed_commit": "b7672c984f6edd27cec56056803372248b87f152",
+      "merge_commit": "ec0632fca46e616d89621a744aad324b718b1e98",
+      "merge_confirmed_in_main": true,
+      "specific_issue_requested_by_chj1319": "not_present_in_observed_short_approval"
+    },
+    {
+      "pr": 9,
+      "title": "프로젝트 README 현행화",
+      "author": "pizzaafterhangover",
+      "reviewer": "chj1319",
+      "review_state": "APPROVED",
+      "review_at_utc": "2026-10-22T10:14:43Z",
+      "comment": "확인했습니다",
+      "review_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/9#pullrequestreview-5612611135",
+      "reviewed_commit": "d612d82ee874c7234ea67636780161e5a70f114b",
+      "merge_commit": "b10de4930f9e4fd2bfd0cbd93975fa57d54746cf",
+      "merge_confirmed_in_main": true,
+      "specific_issue_requested_by_chj1319": "not_present_in_observed_short_approval"
+    },
+    {
+      "pr": 11,
+      "title": "ROS 2 패키지 스켈레톤·주석",
+      "author": "pizzaafterhangover",
+      "reviewer": "chj1319",
+      "review_state": "APPROVED",
+      "review_at_utc": "2026-10-23T08:28:13Z",
+      "comment": "확인했습니다",
+      "review_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/11#pullrequestreview-5625771022",
+      "reviewed_commit": "94973df4259d5cf9588ae8a7a02ce42b094431db",
+      "merge_commit": "6e800a488df7d29af3cc89ebe58a945804cd3fce",
+      "merge_confirmed_in_main": true,
+      "specific_issue_requested_by_chj1319": "not_present_in_observed_short_approval"
+    }
+  ],
+  "excluded_own_pr_search_result": 48,
+  "problem_branch": {
+    "branch": "feat/project2-problem",
+    "remote_commit": "24925f506aefb9628c7a3385c9ccfc93aa64b389",
+    "main_commit": "1528b3a551491d85efe5a56a83f4a187603a5c09",
+    "ancestor_of_main": false,
+    "matching_pr_search_results": 0,
+    "search_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pulls?q=is%3Apr+head%3Afeat%2Fproject2-problem"
+  },
+  "received_feedback": [
+    {
+      "pr": 48,
+      "reviewer": "affluentmind12",
+      "review_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/48#discussion_r4594724859",
+      "summary": "Camera exposure and white-balance confirmation must be connected to competition bringup before prepare_signal can start.",
+      "author_reply_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/48#discussion_r4594809820",
+      "author_reply": "반영하겠습니다",
+      "main_code_state": "fixed_camera_settings_confirmed remains false by default; deployment integration requires verification",
+      "implementation_commit": "not_identified_in_checked_main"
+    },
+    {
+      "pr": 48,
+      "reviewer": "affluentmind12",
+      "review_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/48#discussion_r4594754425",
+      "summary": "Barcode restore uses a hard-coded match count of 3; use the shared confirmation constant.",
+      "author_reply_url": "https://github.com/KANT-PA1-Project/lv2-nz2-project2/pull/48#discussion_r4594811198",
+      "author_reply": "반영하겠습니다",
+      "main_code_state": "barcode_signal_core.py line 63 still uses 3",
+      "implementation_commit": "not_identified_in_checked_main"
+    }
+  ],
+  "explanation_evidence": {
+    "kind": "written_explanation_in_contributions_md_section_4",
+    "oral_presentation_occurrence": "not_claimed",
+    "basis": "repository source and recorded test outcomes"
+  }
+}
