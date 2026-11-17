@@ -1,0 +1,4 @@
+SUBSYSTEM=="tty", KERNEL=="ttyUSB*", KERNELS=="1-2.3.1", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", SYMLINK+="lidar_front"
+SUBSYSTEM=="tty", KERNEL=="ttyUSB*", KERNELS=="1-2.3.2", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", SYMLINK+="lidar_rear"
+SUBSYSTEM=="tty", KERNEL=="ttyUSB*", KERNELS=="1-2.3.4", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", SYMLINK+="lidar_left"
+SUBSYSTEM=="tty", KERNEL=="ttyUSB*", KERNELS=="1-2.3.3", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", SYMLINK+="lidar_right"
