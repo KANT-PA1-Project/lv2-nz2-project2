@@ -68,6 +68,7 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
   ├─ 주행     Nav2, cuVSLAM, 위치 추정은 우선 AMCL
   ├─ 팔 계획  팔 경로 계획, 퍽 파지 (MoveIt 2 / q-motion 미정)
   └─ 미션 FSM 신호 기억 → 바코드 정렬 → 탐색 → 할당·운반 계획 → 주사위 배치 → 재검증 → 복귀 (docs/planning/mission_fsm_design.md)
+
         │  (Jetson ↔ OpenCR 브리지)   [통신 방식 확인 필요]
         ├──────────────┬──────────────┐
   [OpenCR #1]                    [OpenCR #2]
