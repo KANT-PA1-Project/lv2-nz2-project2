@@ -1,7 +1,7 @@
 # NZ2 시스템 아키텍처 (제출용)
 
 > 스켈레톤(2026-11-17). 상세 설계는 아래 기존 문서에 있으므로 여기서는 **제출 요건에 맞춘 요약 + 링크**만 둔다. 확정 안 된 항목은 `확인 필요`로 남긴다.
-> 기존 근거: [`docs/planning/mission_fsm_design.md`](../../docs/planning/mission_fsm_design.md), [`docs/R12_ARCHITECTURE.md`](../../docs/R12_ARCHITECTURE.md), [`docs/nz2_dataflow_v3.html`](../../docs/nz2_dataflow_v3.html), [`docs/nav2/jetson_handoff_2026-11-15.md`](../../docs/nav2/jetson_handoff_2026-11-15.md)
+> 기존 근거: [`docs/planning/mission_fsm_design.md`](planning/mission_fsm_design.md), [`docs/R12_ARCHITECTURE.md`](R12_ARCHITECTURE.md), [`docs/nz2_dataflow_v3.html`](nz2_dataflow_v3.html), [`docs/nav2/jetson_handoff_2026-11-15.md`](nav2/jetson_handoff_2026-11-15.md)
 
 ## 1. 하드웨어·연산 배치
 | 장치 | 역할 | 연결 |
