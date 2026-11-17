@@ -1,0 +1,8 @@
+test_id,date,target,env,equipment,input_conditions,expected,actual,verdict,attempts,error,evidence_links,commit
+T-SIG-001,,신호 판정 단위시험 (nz2_signal),모의 입력,개발 PC,test_signal_decoder.py,전 케이스 통과,TODO: 재실행 후 기입 (설계문서 기록 39 passed),미확인,,,ros2_ws/src/perception/nz2_signal/test/,
+T-MIS-001,,배정·할당·계획 단위시험 (nz2_mission),모의 입력,개발 PC,test_mission_core.py / test_config_locations.py,전 케이스 통과,TODO: 재실행 후 기입 (설계문서 기록 190 passed / 31 passed 20 skipped),미확인,,,ros2_ws/src/planning/nz2_mission/test/,
+T-PRB-001,2026-11-17,문제 패키지 오프라인 검증,모의 입력,개발 PC,Q1 R4·Y2·G6 P2-01,logical_pass=true,TODO: validation.json 확인 후 기입,미확인,,,project2/problem/validation.md (feat/project2-problem),24925f5
+T-BAR-001,,바코드·신호 인식 실험,시뮬레이션,Isaac Sim,TODO,TODO,TODO: 결과 폴더별로 행 분리,미확인,,,r12/experiments/barcode_signal/results/,
+T-NAV-SIM-001,2026-11-14,Nav2 목표점 주행,시뮬레이션,Gazebo,nav_test_goals.yaml basic/facing,TODO: 위치 오차 기준,TODO: JSON별 행 분리,미확인,,,docs/nav2/results/,
+T-ARM-SIM-001,,팔 집기·적재 실험 044~070,시뮬레이션,Isaac Sim,TODO,TODO,TODO: 실험별 행 분리,미확인,,,sim/isaac_arm/agent/results/,
+T-NAV-REAL-001,,실물 Nav2 주행,실제 장비,Jetson + 실물,TODO,TODO,미수행 (11/15 핸드오프 기준 미검증),미확인,0,,docs/nav2/jetson_handoff_2026-11-15.md,
