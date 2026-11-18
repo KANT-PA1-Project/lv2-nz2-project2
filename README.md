@@ -99,33 +99,6 @@ KANT PA1 LV2 프로젝트2 팀 NZ2의 저장소다.
 | 팀원 | 정수용 | [@affluentmind12](https://github.com/affluentmind12) |
 | 팀원 | 이성민(튜터) | [@SeongminJaden](https://github.com/SeongminJaden) |
 
-## 디렉터리 구조
-
-```
-lv2-nz2-project2/
-├── README.md
-├── docs/                   설계 문서 (데이터 흐름도 등)
-├── ros2_ws/                ROS 2 colcon 워크스페이스
-│   └── src/
-│       ├── interfaces/                메시지·서비스·액션 정의
-│       ├── perception/                카메라·인식 (RealSense, AprilTag·바코드·신호등)
-│       ├── planning/                  미션 FSM, 주행·팔 경로 계획
-│       ├── control/                   스월브·팔 제어, OpenCR 브리지
-│       ├── description/                URDF/xacro 로봇 모델 (파트 공통)
-│       └── bringup/                    전체 통합 실행 launch (파트 공통)
-└── firmware/               OpenCR 1.0 펌웨어 소스코드
-    ├── opencr1_swerve/     스월브 8모터
-    └── opencr2_arm/        로봇팔
-
-```
-
-| 폴더 | 내용 |
-|---|---|
-| [docs/](docs/) | 설계 문서 (ROS 2 데이터 흐름도 등) |
-| [ros2_ws/](ros2_ws/) | ROS 2 colcon 워크스페이스. `src/` 아래 4개 레이어 폴더(interfaces·perception·planning·control)에 `nz2_*` 패키지를 두고, 특정 레이어에 속하지 않는 `nz2_description`(로봇 모델)·`nz2_bringup`(통합 실행)은 `src/` 바로 아래에 둔다 |
-| [firmware/](firmware/) | OpenCR 1.0 펌웨어 스켈레톤(`opencr1_swerve`, `opencr2_arm`, TODO 상태). 실사용 스월브 펌웨어는 [r12/firmware/](r12/firmware/)의 `opencr_swerve_left`(FL·RL)·`opencr_swerve_right`(FR·RR) v0.2.2이다. 팔 펌웨어는 [r12/experiments/jetson_real/firmware/nz2_arm_v2_j2diag/](r12/experiments/jetson_real/firmware/nz2_arm_v2_j2diag/)(FW 2.0, limits_rev 8)에 있다 |
-| [tools/](tools/README.md) | 개발·측정용 도구 모음. 대회 로봇 코드와 별개 (예: [팔 가동범위 측정](tools/arm_motor_range_check/README.md)) |
-
 ## 환경과 버전
 
 다른 기기에서 clone한 뒤 같은 결과를 얻기 위한 기준 환경이다. [미정] 항목은 팀에서 정한 뒤 채운다.
